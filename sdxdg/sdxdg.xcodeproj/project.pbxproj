@@ -16,6 +16,7 @@
 		DB4EE5B21DFF841800BBCE4F /* sdxdgUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5B11DFF841800BBCE4F /* sdxdgUITests.swift */; };
 		DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */; };
 		DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */; };
+		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DB4EE5B31DFF841800BBCE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				DB4EE5931DFF841800BBCE4F /* ViewController.swift */,
 				DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */,
 				DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */,
+				DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
 				DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */,
 				DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */,
+				DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
