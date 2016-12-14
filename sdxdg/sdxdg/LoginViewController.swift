@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginBtnClick(_ sender: Any) {
         
         self.present(HomeTabBarViewController(), animated: true, completion: nil)
+        
     }
     
     func initTextFiledStyle(textField tField: UITextField) {

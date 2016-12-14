@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFC1E00D24100F45386 /* MineViewController.swift */; };
+		DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */; };
+		DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2F001E00D27300F45386 /* ClientViewController.swift */; };
 		DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */; };
 		DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5931DFF841800BBCE4F /* ViewController.swift */; };
 		DB4EE5971DFF841800BBCE4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4EE5951DFF841800BBCE4F /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB0D2EFC1E00D24100F45386 /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		DB0D2F001E00D27300F45386 /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		DB4EE58E1DFF841800BBCE4F /* sdxdg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdxdg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4EE5931DFF841800BBCE4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +144,9 @@
 				DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */,
 				DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */,
 				DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */,
+				DB0D2EFC1E00D24100F45386 /* MineViewController.swift */,
+				DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */,
+				DB0D2F001E00D27300F45386 /* ClientViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -281,9 +290,12 @@
 			files = (
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
+				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
+				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */,
 				DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */,
 				DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */,
+				DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +544,7 @@
 				DB4EE5B81DFF841800BBCE4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB4EE5B91DFF841800BBCE4F /* Build configuration list for PBXNativeTarget "sdxdgTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +553,7 @@
 				DB4EE5BB1DFF841800BBCE4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB4EE5BC1DFF841800BBCE4F /* Build configuration list for PBXNativeTarget "sdxdgUITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +562,7 @@
 				DB4EE5BE1DFF841800BBCE4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
