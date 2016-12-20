@@ -21,4 +21,17 @@ class MatchViewController: UIViewController {
     }
     
     
+    @IBAction func addClientBtnClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "CustomerListSegue", sender: self)
+    }
+    
+    
+    @IBAction func fourViewBtnClick(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func moreBtnClick(_ sender: Any) {
+        
+    }
 }

@@ -20,6 +20,8 @@
 		DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */; };
 		DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */; };
 		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
+		DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB611E07711400551D54 /* CustomerListController.swift */; };
+		DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		DBA3BB611E07711400551D54 /* CustomerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListController.swift; sourceTree = "<group>"; };
+		DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				DB0D2EFC1E00D24100F45386 /* MineViewController.swift */,
 				DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */,
 				DB0D2F001E00D27300F45386 /* ClientViewController.swift */,
+				DBA3BB611E07711400551D54 /* CustomerListController.swift */,
+				DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -290,8 +296,10 @@
 			files = (
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
+				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
+				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,
 				DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */,
 				DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */,
 				DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */,
