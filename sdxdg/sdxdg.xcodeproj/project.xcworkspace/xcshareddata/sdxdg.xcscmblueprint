@@ -1,0 +1,65 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : 9223372036854775807,
+    "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807,
+    "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05" : 9223372036854775807,
+    "54023E5A69A8ACBF4248AE90064E6E1B8A22CC88" : 9223372036854775807,
+    "D2AD29AE1B693121D0EDBB4855C96B75ECBB0D86" : 9223372036854775807,
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
+    "D82C44F92D0120E1E4B2C17A644E3BCF241FCFC0" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "473BB84C-DAB9-4539-A6B3-A2CFE7514503",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : "..\/OpenSource\/swift\/HanekeSwift",
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "..\/OpenSource\/swift\/Alamofire",
+    "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05" : "SDX_DG\/",
+    "54023E5A69A8ACBF4248AE90064E6E1B8A22CC88" : "..\/OpenSource\/swift\/PNChart-Swift",
+    "D2AD29AE1B693121D0EDBB4855C96B75ECBB0D86" : "..\/OpenSource\/swift\/AlamofireImage",
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "..\/OpenSource\/swift\/SwiftyJSON",
+    "D82C44F92D0120E1E4B2C17A644E3BCF241FCFC0" : "..\/OpenSource\/swift\/KYCircularProgress"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "sdxdg",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "sdxdg\/sdxdg.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kevinzhow\/PNChart-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "54023E5A69A8ACBF4248AE90064E6E1B8A22CC88"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67620B5EFA902936DF04070AF595B76AB0333747"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zyhndesign\/SDX_DG.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Haneke\/HanekeSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/AlamofireImage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D2AD29AE1B693121D0EDBB4855C96B75ECBB0D86"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kentya6\/KYCircularProgress.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D82C44F92D0120E1E4B2C17A644E3BCF241FCFC0"
+    }
+  ]
+}
