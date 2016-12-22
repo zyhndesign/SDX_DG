@@ -4,22 +4,26 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
     "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : 9223372036854775807,
     "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807,
     "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05" : 9223372036854775807,
     "54023E5A69A8ACBF4248AE90064E6E1B8A22CC88" : 9223372036854775807,
     "D2AD29AE1B693121D0EDBB4855C96B75ECBB0D86" : 9223372036854775807,
-    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
+    "F2FE0AAE95F0B87896F2BEE0B176D4FC32D691A3" : 9223372036854775807,
+    "71F5D8D885CFF6BD7151066D7BFF25CC48A5235E" : 9223372036854775807,
     "D82C44F92D0120E1E4B2C17A644E3BCF241FCFC0" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "473BB84C-DAB9-4539-A6B3-A2CFE7514503",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "..\/OpenSource\/swift\/SwiftyJSON",
     "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : "..\/OpenSource\/swift\/HanekeSwift",
-    "67620B5EFA902936DF04070AF595B76AB0333747" : "..\/OpenSource\/swift\/Alamofire",
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "..\/OpenSource\/swift\/AlamofireImage\/Carthage\/Checkouts\/Alamofire",
     "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05" : "SDX_DG\/",
     "54023E5A69A8ACBF4248AE90064E6E1B8A22CC88" : "..\/OpenSource\/swift\/PNChart-Swift",
     "D2AD29AE1B693121D0EDBB4855C96B75ECBB0D86" : "..\/OpenSource\/swift\/AlamofireImage",
-    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "..\/OpenSource\/swift\/SwiftyJSON",
+    "F2FE0AAE95F0B87896F2BEE0B176D4FC32D691A3" : "..\/OpenSource\/pop",
+    "71F5D8D885CFF6BD7151066D7BFF25CC48A5235E" : "..\/OpenSource\/swift\/Spring",
     "D82C44F92D0120E1E4B2C17A644E3BCF241FCFC0" : "..\/OpenSource\/swift\/KYCircularProgress"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "sdxdg",
@@ -35,6 +39,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67620B5EFA902936DF04070AF595B76AB0333747"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MengTo\/Spring.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "71F5D8D885CFF6BD7151066D7BFF25CC48A5235E"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zyhndesign\/SDX_DG.git",
@@ -60,6 +69,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kentya6\/KYCircularProgress.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D82C44F92D0120E1E4B2C17A644E3BCF241FCFC0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/facebook\/pop.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2FE0AAE95F0B87896F2BEE0B176D4FC32D691A3"
     }
   ]
 }

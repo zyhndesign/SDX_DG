@@ -37,12 +37,12 @@ class CustomerTableViewCell : UITableViewCell{
         self.radioBtn?.translatesAutoresizingMaskIntoConstraints = false
         self.nameLabel?.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addYCenterConstraintForView(view: iconImageView!)
-        self.addYCenterConstraintForView(view: radioBtn!)
-        self.addYCenterConstraintForView(view: nameLabel!)
+        self.addYCenterConstraintForView(iconImageView!)
+        self.addYCenterConstraintForView(radioBtn!)
+        self.addYCenterConstraintForView(nameLabel!)
         
-        addWidthAndHeightConstraintForView(view: radioBtn!,width: 30,height: 30)
-        addWidthAndHeightConstraintForView(view: iconImageView!, width: 40, height: 40)
+        addWidthAndHeightConstraintForView(radioBtn!,width: 30,height: 30)
+        addWidthAndHeightConstraintForView(iconImageView!, width: 40, height: 40)
         
         let constraint1:NSLayoutConstraint = NSLayoutConstraint(item:radioBtn!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
         let constraint2:NSLayoutConstraint = NSLayoutConstraint(item:iconImageView!, attribute: .left, relatedBy: .equal, toItem:radioBtn!, attribute: .right, multiplier:1.0, constant:10)
@@ -62,14 +62,14 @@ class CustomerTableViewCell : UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addYCenterConstraintForView(view: UIView) {
+    func addYCenterConstraintForView(_ view: UIView) {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item: view, attribute: .centerY, relatedBy: .equal,
             toItem: self.contentView, attribute: .centerY, multiplier: 1.0, constant: 0.0)
         self.contentView.addConstraint(constraint)
     }
     
-    func addWidthAndHeightConstraintForView(view: UIView, width: CGFloat, height: CGFloat) {
+    func addWidthAndHeightConstraintForView(_ view: UIView, width: CGFloat, height: CGFloat) {
         let width:NSLayoutConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.width, relatedBy:NSLayoutRelation.equal, toItem:nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier:0.0, constant:width)
         self.contentView.addConstraint(width)
         

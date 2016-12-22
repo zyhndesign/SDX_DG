@@ -30,9 +30,9 @@ class FilterViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.initBtnStyle(buttons: innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn,jackBtn,singleBtn,downFeatherBtn,furClothBtn,dustClothBtn,bigClothBtn)
+        self.initBtnStyle(innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn,jackBtn,singleBtn,downFeatherBtn,furClothBtn,dustClothBtn,bigClothBtn)
         
-        self.initBtnClickEvent(buttons: innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn,jackBtn,singleBtn,downFeatherBtn,furClothBtn,dustClothBtn,bigClothBtn)
+        self.initBtnClickEvent(innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn,jackBtn,singleBtn,downFeatherBtn,furClothBtn,dustClothBtn,bigClothBtn)
         
     }
     
@@ -41,13 +41,13 @@ class FilterViewController : UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func initBtnClickEvent(buttons : UIButton...){
+    func initBtnClickEvent(_ buttons : UIButton...){
         for button in buttons{
             button.addTarget(self, action: #selector(buttonTapped(sender:)), for: UIControlEvents.touchUpInside)
         }
     }
     
-    func initBtnStyle(buttons : UIButton...){
+    func initBtnStyle(_ buttons : UIButton...){
         for button in buttons{
             button.layer.cornerRadius = 7.0
             button.layer.borderWidth = 1
@@ -56,7 +56,7 @@ class FilterViewController : UIViewController{
         }
     }
     
-    func changeBtnSelectStyle(button : UIButton){
+    func changeBtnSelectStyle(_ button : UIButton){
         let color:UIColor = UIColor.init(colorLiteralRed: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
         button.layer.cornerRadius = 7.0
         button.layer.borderWidth = 1
@@ -70,11 +70,11 @@ class FilterViewController : UIViewController{
     
     func buttonTapped(sender:UIButton){
         if sender.isSelected{
-            initBtnStyle(buttons: sender)
+            initBtnStyle(sender)
             sender.isSelected = false
         }
         else{
-            changeBtnSelectStyle(button:sender)
+            changeBtnSelectStyle(sender)
             sender.isSelected = true
         }
         
