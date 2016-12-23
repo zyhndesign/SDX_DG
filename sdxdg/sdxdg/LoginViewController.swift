@@ -40,14 +40,20 @@ class LoginViewController: UIViewController {
         let matchView  = storyboard.instantiateViewController(withIdentifier: "MatchViewController")
         let matchViewNave:UINavigationController = UINavigationController.init(rootViewController: matchView)
         matchViewNave.navigationBar.barTintColor = blackColor
+        matchViewNave.navigationBar.tintColor = UIColor.white
+        matchViewNave.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         let clientView = storyboard.instantiateViewController(withIdentifier: "ClientViewController")
         let clientViewNave:UINavigationController = UINavigationController.init(rootViewController: clientView)
         clientViewNave.navigationBar.barTintColor = blackColor
+        clientViewNave.navigationBar.tintColor = UIColor.white
+        clientViewNave.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         let mineView = storyboard.instantiateViewController(withIdentifier: "MineViewController")
         let mineViewNave:UINavigationController = UINavigationController.init(rootViewController: mineView)
         mineViewNave.navigationBar.barTintColor = blackColor
+        mineViewNave.navigationBar.tintColor = UIColor.white
+        mineViewNave.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         //let item3 : UITabBarItem = UITabBarItem (title: "第三页面", image: UIImage(named: "mineIconNormal"), selectedImage: UIImage(named: "mineIconSelect"))
         //mineView.tabBarItem = item3
