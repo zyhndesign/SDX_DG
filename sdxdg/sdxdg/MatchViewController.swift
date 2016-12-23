@@ -15,12 +15,14 @@ class MatchViewController: UIViewController {
     
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
+    var buttonSelect = false;
     
     var fourViewPanel:SpringView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         let gesture:UIGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(imageTapped(sender:)))
         modelView.addGestureRecognizer(gesture)
         
@@ -34,24 +36,23 @@ class MatchViewController: UIViewController {
     }
     
     func imageTapped(sender: UIGestureRecognizer){
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "MatchCollectionView")
-        self.present(view!, animated: true, completion: {() -> Void in (print("complete"))})
+        //let view = self.storyboard?.instantiateViewController(withIdentifier: "MatchCollectionView")
+        //self.present(view!, animated: true, completion: {() -> Void in (print("complete"))})
     }
     
     @IBAction func addClientBtnClick(_ sender: Any) {
-        self.performSegue(withIdentifier: "CustomerListSegue", sender: self)
+        //self.performSegue(withIdentifier: "CustomerListSegue", sender: self)
     }
     
-    @IBAction func fourViewBtnClick(_ sender: UIButton) {
+    @IBAction func fourViewBtnClick(_ sender: Any) {
         
-        print(sender.isSelected)
-        if (sender.isSelected){
-            sender.isSelected = false
+        if (buttonSelect){
+            buttonSelect = false
             fourViewPanel?.removeFromSuperview()
             print("remove")
         }
         else{
-            sender.isSelected = true
+            buttonSelect = true
             
             let layer1:CALayer = CALayer()
             layer1.frame = CGRect.init(origin: CGPoint.init(x: 20, y: 0), size: CGSize.init(width: screenWidth/2 - 30, height: screenHeight/2 - 30))
@@ -84,7 +85,7 @@ class MatchViewController: UIViewController {
     }
     
     @IBAction func moreBtnClick(_ sender: Any) {
-        
     }
+
 
 }

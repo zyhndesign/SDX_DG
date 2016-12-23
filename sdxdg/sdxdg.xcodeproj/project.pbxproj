@@ -10,6 +10,9 @@
 		DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFC1E00D24100F45386 /* MineViewController.swift */; };
 		DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */; };
 		DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2F001E00D27300F45386 /* ClientViewController.swift */; };
+		DB0E988D1E0BD20800443696 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E98881E0BD1FA00443696 /* Charts.framework */; };
+		DB0E988E1E0BD20800443696 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E98881E0BD1FA00443696 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98911E0CB38000443696 /* SettingViewController.swift */; };
 		DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */; };
 		DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5931DFF841800BBCE4F /* ViewController.swift */; };
 		DB4EE5971DFF841800BBCE4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4EE5951DFF841800BBCE4F /* Main.storyboard */; };
@@ -39,6 +42,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DB0E98871E0BD1FA00443696 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		DB0E98891E0BD1FA00443696 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		DB0E988B1E0BD1FA00443696 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		DB0E988F1E0BD20800443696 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 		DB4EE5A31DFF841800BBCE4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB4EE5861DFF841800BBCE4F /* Project object */;
@@ -282,6 +313,7 @@
 				DBA3BC571E0A5A0800551D54 /* KYCircularProgress.framework in Embed Frameworks */,
 				DBA3BC531E0A5A0800551D54 /* Spring.framework in Embed Frameworks */,
 				DBA3BC671E0A5A0800551D54 /* SwiftyJSON.framework in Embed Frameworks */,
+				DB0E988E1E0BD20800443696 /* Charts.framework in Embed Frameworks */,
 				DBA533021E0A5CA8002D2CB4 /* AlamofireImage.framework in Embed Frameworks */,
 				DBA3BC631E0A5A0800551D54 /* Alamofire.framework in Embed Frameworks */,
 			);
@@ -294,6 +326,8 @@
 		DB0D2EFC1E00D24100F45386 /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		DB0D2F001E00D27300F45386 /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
+		DB0E98811E0BD1F900443696 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../../../OpenSource/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		DB0E98911E0CB38000443696 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DB4EE58E1DFF841800BBCE4F /* sdxdg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdxdg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4EE5931DFF841800BBCE4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +365,7 @@
 				DBA3BC621E0A5A0800551D54 /* Alamofire.framework in Frameworks */,
 				DBA3BC561E0A5A0800551D54 /* KYCircularProgress.framework in Frameworks */,
 				DBA533011E0A5CA8002D2CB4 /* AlamofireImage.framework in Frameworks */,
+				DB0E988D1E0BD20800443696 /* Charts.framework in Frameworks */,
 				DBA3BC661E0A5A0800551D54 /* SwiftyJSON.framework in Frameworks */,
 				DBA3BC301E0A586F00551D54 /* Alamofire.framework in Frameworks */,
 				DBA3BC521E0A5A0800551D54 /* Spring.framework in Frameworks */,
@@ -354,9 +389,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB0E98821E0BD1F900443696 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB0E98881E0BD1FA00443696 /* Charts.framework */,
+				DB0E988A1E0BD1FA00443696 /* ChartsRealm.framework */,
+				DB0E988C1E0BD1FA00443696 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DB4EE5851DFF841800BBCE4F = {
 			isa = PBXGroup;
 			children = (
+				DB0E98811E0BD1F900443696 /* Charts.xcodeproj */,
 				DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */,
 				DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */,
 				DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */,
@@ -426,6 +472,7 @@
 				DBA3BB651E09016200551D54 /* MatchListViewController.swift */,
 				DBA3BB671E0906EB00551D54 /* MatchListCell.swift */,
 				DBA3BB691E09653B00551D54 /* FilterViewController.swift */,
+				DB0E98911E0CB38000443696 /* SettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -519,6 +566,7 @@
 				DBA3BC651E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA3BC691E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA533041E0A5CA8002D2CB4 /* PBXTargetDependency */,
+				DB0E98901E0BD20800443696 /* PBXTargetDependency */,
 			);
 			name = sdxdg;
 			productName = sdxdg;
@@ -614,6 +662,10 @@
 					ProjectRef = DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */;
 				},
 				{
+					ProductGroup = DB0E98821E0BD1F900443696 /* Products */;
+					ProjectRef = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
+				},
+				{
 					ProductGroup = DBA3BBB41E0A1EA200551D54 /* Products */;
 					ProjectRef = DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */;
 				},
@@ -636,6 +688,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		DB0E98881E0BD1FA00443696 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = DB0E98871E0BD1FA00443696 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB0E988A1E0BD1FA00443696 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = DB0E98891E0BD1FA00443696 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB0E988C1E0BD1FA00443696 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = DB0E988B1E0BD1FA00443696 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		DBA3BB771E0A1DF200551D54 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -857,6 +930,7 @@
 				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
+				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
 				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,
 				DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */,
@@ -887,6 +961,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DB0E98901E0BD20800443696 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = DB0E988F1E0BD20800443696 /* PBXContainerItemProxy */;
+		};
 		DB4EE5A41DFF841800BBCE4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DB4EE58D1DFF841800BBCE4F /* sdxdg */;

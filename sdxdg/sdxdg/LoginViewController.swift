@@ -34,7 +34,36 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtnClick(_ sender: Any) {
         
-        self.present(HomeTabBarViewController(), animated: true, completion: nil)
+        let homeTabBarViewController:HomeTabBarViewController = HomeTabBarViewController()
+        let storyboard:UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        
+        let matchView  = storyboard.instantiateViewController(withIdentifier: "MatchViewController")
+        let matchViewNave:UINavigationController = UINavigationController.init(rootViewController: matchView)
+        matchViewNave.navigationBar.barTintColor = blackColor
+        
+        let clientView = storyboard.instantiateViewController(withIdentifier: "ClientViewController")
+        let clientViewNave:UINavigationController = UINavigationController.init(rootViewController: clientView)
+        clientViewNave.navigationBar.barTintColor = blackColor
+        
+        let mineView = storyboard.instantiateViewController(withIdentifier: "MineViewController")
+        let mineViewNave:UINavigationController = UINavigationController.init(rootViewController: mineView)
+        mineViewNave.navigationBar.barTintColor = blackColor
+        
+        //let item3 : UITabBarItem = UITabBarItem (title: "第三页面", image: UIImage(named: "mineIconNormal"), selectedImage: UIImage(named: "mineIconSelect"))
+        //mineView.tabBarItem = item3
+        
+        let tabArray = [matchViewNave,clientViewNave,mineViewNave]
+        homeTabBarViewController.viewControllers = tabArray
+        
+        let attributes =  [NSForegroundColorAttributeName: UIColor(red: 59/255.0, green: 59/255.0, blue: 59/255.0, alpha: 1.0),
+                           NSFontAttributeName: UIFont(name: "Heiti SC", size: 24.0)!]
+        matchView.tabBarItem.setTitleTextAttributes(attributes , for: UIControlState.selected)
+        clientView.tabBarItem.setTitleTextAttributes(attributes , for: UIControlState.selected)
+        mineView.tabBarItem.setTitleTextAttributes(attributes , for: UIControlState.selected)
+        
+        //let navi:UINavigationController = UINavigationController.init(rootViewController: homeTabBarViewController)
+        
+        self.present(homeTabBarViewController, animated: true, completion: nil)
         
     }
     
