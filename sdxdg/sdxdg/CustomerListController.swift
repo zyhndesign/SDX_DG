@@ -33,7 +33,7 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
         //创建一个重用的单元格
         self.tableView.register(CustomerTableViewCell.self, forCellReuseIdentifier: "SwiftCell")
         //self.tableView.register(UINib.init(nibName: <#T##String#>, bundle: nil), forCellReuseIdentifier: "SwiftCell")
-        
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +50,7 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return adHeaders
     }
+   
     
     //点击索引，移动TableView的组位置
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {

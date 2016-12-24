@@ -22,7 +22,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        print(matchCollectionView)
         matchCollectionView.register(MatchListCell.self, forCellWithReuseIdentifier:"cell")
         
         matchCollectionView.delegate = self;
@@ -70,17 +70,18 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         return CGSize.init(width: collectionView.bounds.width*0.47, height: collectionView.bounds.height/2 - 30)
     }
     
-    @IBAction func backBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: {() -> Void in ( print("complete"))})
-    }
     
     @IBAction func filterBtnClick(_ sender: Any) {
-        self.performSegue(withIdentifier: "filterView", sender: self)
+        //self.dismiss(animated: true, completion: {() -> Void in ( print("complete"))})
+        //self.performSegue(withIdentifier: "filterView", sender: self)
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "filterView")
+        self.navigationController?.pushViewController(view!, animated: true)
     }
     
     @IBAction func saveBtnClick(_ sender: Any) {
         
     }
+    
     
     @IBAction func innerClothBtn(_ sender: Any) {
         innerClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)

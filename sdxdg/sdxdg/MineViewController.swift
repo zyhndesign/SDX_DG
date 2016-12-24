@@ -16,7 +16,7 @@ class MineViewController: UIViewController {
     var backDataIcon:UIImageView?
     var backDataLabel:UILabel?
     var timeSegmentControl:UISegmentedControl?
-    var chartView:UIView?
+    var chartView:UIImageView?
     
     var myMatchViewIcon:UIImageView?
     var myMatchViewLabel:UILabel?
@@ -45,6 +45,9 @@ class MineViewController: UIViewController {
         let screenWidth:CGFloat = UIScreen.main.bounds.width
         //let screenHeight:CGFloat = UIScreen.main.bounds.height
         
+        let userInfoPanelGesture:UIGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(panelTapped(sender:)))
+        userInfoPanel.addGestureRecognizer(userInfoPanelGesture)
+        
         backDataIcon = UIImageView.init(frame: CGRect.init(x: 10, y: 15, width: 20, height: 20))
         backDataIcon?.image = UIImage.init(named: "backDataIcon")
         scrollView.addSubview(backDataIcon!)
@@ -60,8 +63,13 @@ class MineViewController: UIViewController {
         timeSegmentControl = UISegmentedControl(items:items)
         timeSegmentControl?.frame = CGRect.init(x: 30, y: 15, width: screenWidth - 60, height: 30)
         timeSegmentControl?.selectedSegmentIndex = 0
-        
+        timeSegmentControl?.addTarget(self, action: #selector(segmentControlClick(sender:)), for: UIControlEvents.valueChanged)
         graphView.addSubview(timeSegmentControl!)
+        
+        chartView = UIImageView.init(frame: CGRect.init(x: 30, y: 55, width: screenWidth - 60, height: 160))
+        chartView?.image = UIImage.init(named: "chartWeek")
+        graphView.addSubview(chartView!)
+        
         scrollView.addSubview(graphView)
         
         myMatchViewIcon = UIImageView.init(frame: CGRect.init(x: 10, y: 290, width: 20, height: 20))
@@ -165,5 +173,27 @@ class MineViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func settingBtnClick(_ sender: Any) {
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "settingView")
+        self.navigationController?.pushViewController(view!, animated: true)
+    }
+    
+    func panelTapped(sender:UITapGestureRecognizer){
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoView")
+        self.navigationController?.pushViewController(view!, animated: true)
+    }
+    
+    func segmentControlClick(sender:UISegmentedControl){
+        switch sender.selectedSegmentIndex {
+        case 0:
+            chartView?.image = UIImage.init(named: "chartWeek")
+        case 1:
+            chartView?.image = UIImage.init(named: "chartMonth")
+        case 2:
+            chartView?.image = UIImage.init(named: "chartYear")
+        default:
+            chartView?.image = UIImage.init(named: "chartWeek")
+        }
+    }
     
 }
