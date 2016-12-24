@@ -38,6 +38,7 @@ class MatchViewController: UIViewController {
     func imageTapped(sender: UIGestureRecognizer){
         //let view = self.storyboard?.instantiateViewController(withIdentifier: "MatchCollectionView")
         //self.present(view!, animated: true, completion: {() -> Void in (print("complete"))})
+        self.navigationController?.pushViewController(MatchListViewController(), animated: true)
     }
     
     @IBAction func addClientBtnClick(_ sender: Any) {
