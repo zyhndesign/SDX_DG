@@ -10,15 +10,15 @@ import UIKit
 
 class FeedbackListViewController: UITableViewController {
     
-    var storyBoard:UIStoryboard?
+    var sBoard:UIStoryboard?
     var naviController:UINavigationController?
     let fbIconArray:[String] = ["fb1","fb2","fb3","fb4","fb5","fb6","fb7","fb8","fb9","fb10"]
     
     let screenWidth = UIScreen.main.bounds.width
     
-    init(storyBoard:UIStoryboard, naviController:UINavigationController){
+    init(sBoard:UIStoryboard, naviController:UINavigationController){
         super.init(nibName: nil, bundle: nil)
-        self.storyBoard = storyBoard
+        self.sBoard = sBoard
         self.naviController = naviController
         
     }
@@ -42,7 +42,7 @@ class FeedbackListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController:FeedbackDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "FeedbackDetailView") as! FeedbackDetailViewController
+        let viewController:FeedbackDetailViewController = sBoard?.instantiateViewController(withIdentifier: "FeedbackDetailView") as! FeedbackDetailViewController
         let iconRandomNum1:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum2:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
@@ -60,7 +60,7 @@ class FeedbackListViewController: UITableViewController {
         let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum4:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
        
-        cell.initDataForCell(name:"SUNDANCE 商务男装造型", fbIcon1: fbIconArray[iconRandomNum1], fbIcon2: fbIconArray[iconRandomNum2], fbIcon3: fbIconArray[iconRandomNum3], fbIcon4: fbIconArray[iconRandomNum4],time:"16:25 2016-12-26",storyBoard: storyBoard!, navigationController:naviController!)
+        cell.initDataForCell(name:"SUNDANCE 商务男装造型", fbIcon1: fbIconArray[iconRandomNum1], fbIcon2: fbIconArray[iconRandomNum2], fbIcon3: fbIconArray[iconRandomNum3], fbIcon4: fbIconArray[iconRandomNum4],time:"16:25 2016-12-26",storyBoard: sBoard!, navigationController:naviController!)
         return cell
     }
 

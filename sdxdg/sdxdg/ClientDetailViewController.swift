@@ -132,7 +132,7 @@ class ClientDetailViewController: UIViewController {
     }
     
     func initFeedbackPanel(){
-        let feedbackController:FeedbackListViewController = FeedbackListViewController.init(storyBoard: self.storyboard!, naviController: self.navigationController!)
+        let feedbackController:FeedbackListViewController = FeedbackListViewController.init(sBoard: self.storyboard!, naviController: self.navigationController!)
         feedbackController.view.frame = CGRect.init(x: 0, y: 113, width: screenWidth, height: screenHeight - 113)
         feedbackPanel = feedbackController.view
         self.view.addSubview(feedbackPanel!)
