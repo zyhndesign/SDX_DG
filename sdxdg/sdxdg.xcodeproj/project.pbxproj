@@ -22,6 +22,7 @@
 		DB0E98A01E10C9C700443696 /* FeedbackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E989F1E10C9C700443696 /* FeedbackListViewController.swift */; };
 		DB0E98A21E10E97400443696 /* ConsumerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98A11E10E97400443696 /* ConsumerListCell.swift */; };
 		DB0E98A41E10E9A300443696 /* FeedbackListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98A31E10E9A300443696 /* FeedbackListCell.swift */; };
+		DB0E98A61E110F9C00443696 /* FeedbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98A51E110F9C00443696 /* FeedbackDetailViewController.swift */; };
 		DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */; };
 		DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5931DFF841800BBCE4F /* ViewController.swift */; };
 		DB4EE5971DFF841800BBCE4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4EE5951DFF841800BBCE4F /* Main.storyboard */; };
@@ -346,6 +347,7 @@
 		DB0E989F1E10C9C700443696 /* FeedbackListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackListViewController.swift; sourceTree = "<group>"; };
 		DB0E98A11E10E97400443696 /* ConsumerListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerListCell.swift; sourceTree = "<group>"; };
 		DB0E98A31E10E9A300443696 /* FeedbackListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackListCell.swift; sourceTree = "<group>"; };
+		DB0E98A51E110F9C00443696 /* FeedbackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewController.swift; sourceTree = "<group>"; };
 		DB4EE58E1DFF841800BBCE4F /* sdxdg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdxdg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4EE5931DFF841800BBCE4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				DB0E989F1E10C9C700443696 /* FeedbackListViewController.swift */,
 				DB0E98A11E10E97400443696 /* ConsumerListCell.swift */,
 				DB0E98A31E10E9A300443696 /* FeedbackListCell.swift */,
+				DB0E98A51E110F9C00443696 /* FeedbackDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -964,6 +967,7 @@
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */,
 				DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */,
+				DB0E98A61E110F9C00443696 /* FeedbackDetailViewController.swift in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
 				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,

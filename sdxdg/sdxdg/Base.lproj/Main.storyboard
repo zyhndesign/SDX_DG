@@ -409,6 +409,25 @@
             </objects>
             <point key="canvasLocation" x="4677" y="830"/>
         </scene>
+        <!--已反馈-->
+        <scene sceneID="apz-u0-oeL">
+            <objects>
+                <viewController storyboardIdentifier="FeedbackDetailView" hidesBottomBarWhenPushed="YES" id="8EE-Su-cd6" customClass="FeedbackDetailViewController" customModule="sdxdg" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="auO-A7-SeQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="AyV-Bj-lgb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f98-Tt-I6N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="已反馈" id="HVO-NR-V7e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tk5-tl-VHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3877" y="-755"/>
+        </scene>
         <!--修改密码-->
         <scene sceneID="nbM-bO-SAt">
             <objects>
@@ -488,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUa-na-jxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3887" y="-182"/>
+            <point key="canvasLocation" x="3870" y="-93"/>
         </scene>
         <!--个人信息修改-->
         <scene sceneID="ibb-gt-pTA">
@@ -714,6 +733,7 @@
                         <outlet property="baseInfoBtn" destination="z0e-uE-dMq" id="xks-82-1Dy"/>
                         <outlet property="consumeBtn" destination="XmJ-1b-0sZ" id="ePL-HB-ZB1"/>
                         <outlet property="feedbackBtn" destination="ccE-nR-ce5" id="Enr-Wq-WFH"/>
+                        <segue destination="8EE-Su-cd6" kind="show" id="k0C-eI-RdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SL-2X-2Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
