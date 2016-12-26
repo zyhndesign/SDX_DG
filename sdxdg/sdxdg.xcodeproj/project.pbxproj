@@ -16,6 +16,10 @@
 		DB0E98941E0E5F4500443696 /* HelpAndBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98931E0E5F4500443696 /* HelpAndBackViewController.swift */; };
 		DB0E98961E0E657F00443696 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98951E0E657F00443696 /* PersonalInfoViewController.swift */; };
 		DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98971E0E677F00443696 /* UpdatePwdViewController.swift */; };
+		DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E98991E10A1CE00443696 /* ClientTableViewCell.swift */; };
+		DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E989B1E10B04800443696 /* ClientDetailViewController.swift */; };
+		DB0E989E1E10C92000443696 /* ConsumeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E989D1E10C92000443696 /* ConsumeListViewController.swift */; };
+		DB0E98A01E10C9C700443696 /* FeedbackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E989F1E10C9C700443696 /* FeedbackListViewController.swift */; };
 		DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */; };
 		DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5931DFF841800BBCE4F /* ViewController.swift */; };
 		DB4EE5971DFF841800BBCE4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4EE5951DFF841800BBCE4F /* Main.storyboard */; };
@@ -334,6 +338,10 @@
 		DB0E98931E0E5F4500443696 /* HelpAndBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpAndBackViewController.swift; sourceTree = "<group>"; };
 		DB0E98951E0E657F00443696 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		DB0E98971E0E677F00443696 /* UpdatePwdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePwdViewController.swift; sourceTree = "<group>"; };
+		DB0E98991E10A1CE00443696 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		DB0E989B1E10B04800443696 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
+		DB0E989D1E10C92000443696 /* ConsumeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumeListViewController.swift; sourceTree = "<group>"; };
+		DB0E989F1E10C9C700443696 /* FeedbackListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackListViewController.swift; sourceTree = "<group>"; };
 		DB4EE58E1DFF841800BBCE4F /* sdxdg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdxdg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4EE5931DFF841800BBCE4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -482,6 +490,10 @@
 				DB0E98931E0E5F4500443696 /* HelpAndBackViewController.swift */,
 				DB0E98951E0E657F00443696 /* PersonalInfoViewController.swift */,
 				DB0E98971E0E677F00443696 /* UpdatePwdViewController.swift */,
+				DB0E98991E10A1CE00443696 /* ClientTableViewCell.swift */,
+				DB0E989B1E10B04800443696 /* ClientDetailViewController.swift */,
+				DB0E989D1E10C92000443696 /* ConsumeListViewController.swift */,
+				DB0E989F1E10C9C700443696 /* FeedbackListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -934,6 +946,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */,
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
 				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
@@ -942,15 +955,18 @@
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */,
+				DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
 				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,
 				DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */,
 				DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */,
+				DB0E98A01E10C9C700443696 /* FeedbackListViewController.swift in Sources */,
 				DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */,
 				DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */,
 				DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */,
 				DBA3BB681E0906EB00551D54 /* MatchListCell.swift in Sources */,
+				DB0E989E1E10C92000443696 /* ConsumeListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
