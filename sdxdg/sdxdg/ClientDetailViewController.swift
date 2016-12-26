@@ -27,14 +27,19 @@ class ClientDetailViewController: UIViewController {
         self.title = titleName
         
         self.initBaseInfoPanel()
+        self.initConsumerPanel()
+        self.initFeedbackPanel()
+        
+        consumePanel?.isHidden = true
+        feedbackPanel?.isHidden = true
     }
     
     func initBaseInfoPanel(){
-        baseInfoPanel = UIView.init(frame: CGRect.init(x: 0, y: 124, width: screenWidth, height: screenHeight - 124))
+        baseInfoPanel = UIView.init(frame: CGRect.init(x: 0, y: 113, width: screenWidth, height: screenHeight - 113))
         
         let icon:UIImageView = UIImageView.init(frame: CGRect.init(x: 20, y: 20, width: 130, height: 130))
         icon.image = UIImage.init(named: "customerIcon5")
-        icon.contentMode = UIViewContentMode.scaleAspectFit
+        icon.contentMode = UIViewContentMode.scaleAspectFill
         baseInfoPanel!.addSubview(icon)
         
         let nameLabel:UILabel = UILabel.init(frame: CGRect.init(x: 160, y: 20, width: 100, height: 25))
@@ -119,18 +124,18 @@ class ClientDetailViewController: UIViewController {
     }
     
     func initConsumerPanel(){
-        let consumerController:ConsumeListViewController = ConsumeListViewController()
-        consumerController.view.frame = CGRect.init(x: 0, y: 124, width: screenWidth, height: screenHeight - 124)
+        let consumerController:ConsumeListViewController = ConsumeListViewController.init(storyBoard: self.storyboard!, naviController: self.navigationController!)
+        consumerController.view.frame = CGRect.init(x: 0, y: 113, width: screenWidth, height: screenHeight - 113)
         consumePanel = consumerController.view
         self.view.addSubview(consumePanel!)
         self.addChildViewController(consumerController)
     }
     
     func initFeedbackPanel(){
-        let feedbackController:FeedbackListViewController = FeedbackListViewController()
-        feedbackController.view.frame = CGRect.init(x: 0, y: 124, width: screenWidth, height: screenHeight - 124)
+        let feedbackController:FeedbackListViewController = FeedbackListViewController.init(storyBoard: self.storyboard!, naviController: self.navigationController!)
+        feedbackController.view.frame = CGRect.init(x: 0, y: 113, width: screenWidth, height: screenHeight - 113)
         feedbackPanel = feedbackController.view
-        self.view.addSubview(feedbackPanel)
+        self.view.addSubview(feedbackPanel!)
         self.addChildViewController(feedbackController)
     }
     
@@ -138,18 +143,27 @@ class ClientDetailViewController: UIViewController {
         baseInfoBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
         consumeBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
         feedbackBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        baseInfoPanel?.isHidden = false
+        consumePanel?.isHidden = true
+        feedbackPanel?.isHidden = true
     }
     
     @IBAction func consumeBtnClick(_ sender: Any) {
         consumeBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
         baseInfoBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
         feedbackBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        baseInfoPanel?.isHidden = true
+        consumePanel?.isHidden = false
+        feedbackPanel?.isHidden = true
     }
     
     @IBAction func feedbackBtnClick(_ sender: Any) {
         feedbackBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
         consumeBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
         baseInfoBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        baseInfoPanel?.isHidden = true
+        consumePanel?.isHidden = true
+        feedbackPanel?.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {

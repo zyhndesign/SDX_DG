@@ -658,9 +658,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0e-uE-dMq">
-                                <rect key="frame" x="0.0" y="64" width="138" height="54"/>
+                                <rect key="frame" x="0.0" y="64" width="138" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="XxS-Kx-I05"/>
+                                    <constraint firstAttribute="height" constant="45" id="XxS-Kx-I05"/>
                                 </constraints>
                                 <state key="normal" title="基本信息" backgroundImage="selectedBtn">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -670,9 +670,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmJ-1b-0sZ">
-                                <rect key="frame" x="138" y="64" width="138" height="54"/>
+                                <rect key="frame" x="138" y="64" width="138" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="bel-sT-oNy"/>
+                                    <constraint firstAttribute="height" constant="45" id="bel-sT-oNy"/>
                                 </constraints>
                                 <state key="normal" title="已消费" backgroundImage="normalBtn">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -682,9 +682,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-nR-ce5">
-                                <rect key="frame" x="276" y="64" width="138" height="54"/>
+                                <rect key="frame" x="276" y="64" width="138" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="lYT-jr-LVH"/>
+                                    <constraint firstAttribute="height" constant="45" id="lYT-jr-LVH"/>
                                 </constraints>
                                 <state key="normal" title="已反馈" backgroundImage="normalBtn">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
