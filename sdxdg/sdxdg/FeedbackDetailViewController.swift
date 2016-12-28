@@ -49,29 +49,27 @@ class FeedbackDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let imageWidth = (screenWidth - 24) / 2
-        let imageHeight = (screenHeight - 24) / 2
+        let imageHeight = (screenHeight - 84) / 2
         fbView1 = UIImageView.init(frame: CGRect.init(x: 8, y: 72, width: imageWidth, height: imageHeight))
         self.view.addSubview(fbView1!)
         
         fbView2 = UIImageView.init(frame: CGRect.init(x: 16 + imageWidth, y: 72, width: imageWidth, height: imageHeight))
         self.view.addSubview(fbView2!)
         
-        fbView3 = UIImageView.init(frame: CGRect.init(x: 8, y: 88 + imageHeight, width: imageWidth, height: imageHeight))
+        fbView3 = UIImageView.init(frame: CGRect.init(x: 8, y: 78 + imageHeight, width: imageWidth, height: imageHeight))
         self.view.addSubview(fbView3!)
         
-        fbView4 = UIImageView.init(frame: CGRect.init(x: 16 + imageWidth, y: 88 + imageHeight, width: imageWidth, height: imageHeight))
+        fbView4 = UIImageView.init(frame: CGRect.init(x: 16 + imageWidth, y: 78 + imageHeight, width: imageWidth, height: imageHeight))
         self.view.addSubview(fbView4!)
         
         
-        like1 = UIImageView.init(frame: CGRect.init(x: imageWidth - 5, y: 28, width: 10, height: 10))
+        like1 = UIImageView.init(frame: CGRect.init(x: imageWidth - 25, y: 88, width: 20, height: 20))
         self.view.addSubview(like1!)
-        like2 = UIImageView.init(frame: CGRect.init(x: (imageWidth * 2 + 16) - 25, y: 28, width: 10, height: 10))
+        like2 = UIImageView.init(frame: CGRect.init(x: (imageWidth * 2 + 16) - 35, y: 88, width: 20, height: 20))
         self.view.addSubview(like2!)
-        like3 = UIImageView.init(frame: CGRect.init(x: imageWidth - 5, y: 28, width: 10, height: 10))
-        
+        like3 = UIImageView.init(frame: CGRect.init(x: imageWidth - 25, y: imageHeight + 88, width: 20, height: 20))
         self.view.addSubview(like3!)
-        like4 = UIImageView.init(frame: CGRect.init(x: (imageWidth * 2 + 16) - 25, y: imageHeight + 38, width: 10, height: 10))
-        
+        like4 = UIImageView.init(frame: CGRect.init(x: (imageWidth * 2 + 16) - 35, y: imageHeight + 88, width: 20, height: 20))
         self.view.addSubview(like4!)
     }
     

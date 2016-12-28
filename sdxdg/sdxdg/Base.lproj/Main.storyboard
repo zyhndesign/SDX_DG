@@ -769,19 +769,7 @@
                     <view key="view" contentMode="scaleToFill" id="zox-EH-HBn">
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="model" translatesAutoresizingMaskIntoConstraints="NO" id="w0y-ah-by5">
-                                <rect key="frame" x="43" y="110" width="328" height="452"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Bek-Sh-nfI" firstAttribute="top" secondItem="w0y-ah-by5" secondAttribute="bottom" constant="61" id="EGR-IL-fMl"/>
-                            <constraint firstItem="w0y-ah-by5" firstAttribute="leading" secondItem="zox-EH-HBn" secondAttribute="leadingMargin" constant="23" id="L7D-6W-hYX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w0y-ah-by5" secondAttribute="trailing" constant="23" id="rRp-gl-0Gk"/>
-                            <constraint firstItem="w0y-ah-by5" firstAttribute="centerX" secondItem="zox-EH-HBn" secondAttribute="centerX" id="v46-Gm-47N"/>
-                            <constraint firstItem="w0y-ah-by5" firstAttribute="centerY" secondItem="zox-EH-HBn" secondAttribute="centerY" id="wG8-NU-blh"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="搭配" image="matchIconNormal" selectedImage="matchIconSelect" id="8Nm-ga-801"/>
                     <navigationItem key="navigationItem" title="搭配" id="Toh-Qx-nbN">
@@ -807,7 +795,6 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="modelView" destination="w0y-ah-by5" id="B9d-o6-eRu"/>
                         <segue destination="FQf-KL-3gv" kind="show" identifier="MatchCollectionView" id="Ug3-va-fZf"/>
                     </connections>
                 </viewController>
@@ -944,6 +931,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="model" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-cK-1jG">
+                                <rect key="frame" x="0.0" y="432" width="98" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="qrg-9J-4YM"/>
+                                    <constraint firstAttribute="width" constant="98" id="s8d-8T-VMT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -954,10 +948,12 @@
                             <constraint firstItem="DjS-Xy-cLa" firstAttribute="leading" secondItem="96m-lK-V5A" secondAttribute="leading" id="7Kr-dz-C5P"/>
                             <constraint firstAttribute="trailing" secondItem="DjS-Xy-cLa" secondAttribute="trailing" id="HUf-Lf-Eo8"/>
                             <constraint firstItem="pKx-i0-3ha" firstAttribute="top" secondItem="96m-lK-V5A" secondAttribute="top" id="Hbx-4a-h0z"/>
+                            <constraint firstItem="Je2-cK-1jG" firstAttribute="leading" secondItem="96m-lK-V5A" secondAttribute="leading" id="Lzi-Xj-gIq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hPU-LT-ghp" secondAttribute="trailing" constant="-20" id="MN0-VB-ZDX"/>
                             <constraint firstItem="reA-Ag-C0m" firstAttribute="width" secondItem="pKx-i0-3ha" secondAttribute="width" id="OF1-yR-Esw"/>
                             <constraint firstItem="DjS-Xy-cLa" firstAttribute="top" secondItem="reA-Ag-C0m" secondAttribute="bottom" id="PaS-pD-0xh"/>
                             <constraint firstItem="hPU-LT-ghp" firstAttribute="width" secondItem="pKx-i0-3ha" secondAttribute="width" id="Y6B-cd-ady"/>
+                            <constraint firstAttribute="bottom" secondItem="Je2-cK-1jG" secondAttribute="bottom" id="apJ-Kz-caE"/>
                             <constraint firstItem="h9I-U6-95o" firstAttribute="top" secondItem="DjS-Xy-cLa" secondAttribute="bottom" constant="-49" id="cSe-uc-aDD"/>
                             <constraint firstItem="hPU-LT-ghp" firstAttribute="leading" secondItem="reA-Ag-C0m" secondAttribute="trailing" id="f9A-rQ-XXU"/>
                             <constraint firstItem="DjS-Xy-cLa" firstAttribute="top" secondItem="pKx-i0-3ha" secondAttribute="bottom" id="yBc-Du-P7l"/>
@@ -1284,7 +1280,6 @@
         <!--Home Tab Bar View Controller-->
         <scene sceneID="mNT-Qm-Q2S">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xl4-a2-3mE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="HomeTabBarViewController" id="F6D-kB-h5J" customClass="HomeTabBarViewController" customModule="sdxdg" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="19y-Nt-eXO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="jmC-Zb-RI0">
@@ -1298,6 +1293,7 @@
                         <segue destination="Lgf-8u-zRE" kind="show" id="3UZ-6e-vlQ"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xl4-a2-3mE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-101" y="103"/>
         </scene>

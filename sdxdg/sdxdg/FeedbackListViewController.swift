@@ -47,7 +47,7 @@ class FeedbackListViewController: UITableViewController {
         let iconRandomNum2:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum4:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        viewController.initData(fbImage1: fbIconArray[iconRandomNum1], fbImage1Like: true, fbImage2: fbIconArray[iconRandomNum2], fbImage2Like: false, fbImage3: fbIconArray[iconRandomNum3], fbImage3Like: false, fbImage4: fbIconArray[iconRandomNum4], fbImage4Like: true)
+        viewController.initData(fbImage1: fbIconArray[iconRandomNum1], fbImage1Like: true, fbImage2: fbIconArray[iconRandomNum2], fbImage2Like: true, fbImage3: fbIconArray[iconRandomNum3], fbImage3Like: true, fbImage4: fbIconArray[iconRandomNum4], fbImage4Like: true)
         naviController?.pushViewController(viewController, animated: true)
     }
     
