@@ -33,14 +33,13 @@
 		DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */; };
 		DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */; };
 		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
+		DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A361E15EE6B00E09977 /* GarmentModel.swift */; };
 		DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB611E07711400551D54 /* CustomerListController.swift */; };
 		DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */; };
 		DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB651E09016200551D54 /* MatchListViewController.swift */; };
 		DBA3BB681E0906EB00551D54 /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB671E0906EB00551D54 /* MatchListCell.swift */; };
 		DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB691E09653B00551D54 /* FilterViewController.swift */; };
 		DBA3BC301E0A586F00551D54 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BC2F1E0A586F00551D54 /* Alamofire.framework */; };
-		DBA3BC521E0A5A0800551D54 /* Spring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BC251E0A23D500551D54 /* Spring.framework */; };
-		DBA3BC531E0A5A0800551D54 /* Spring.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BC251E0A23D500551D54 /* Spring.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBA3BC561E0A5A0800551D54 /* KYCircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBB81E0A1EA300551D54 /* KYCircularProgress.framework */; };
 		DBA3BC571E0A5A0800551D54 /* KYCircularProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBB81E0A1EA300551D54 /* KYCircularProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBA3BC621E0A5A0800551D54 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BB771E0A1DF200551D54 /* Alamofire.framework */; };
@@ -199,41 +198,6 @@
 			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
 			remoteInfo = "SwiftyJSON tvOS Tests";
 		};
-		DBA3BC201E0A23D500551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9641173B1A5BE90A000E3A5A;
-			remoteInfo = SpringApp;
-		};
-		DBA3BC221E0A23D500551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 964117501A5BE90A000E3A5A;
-			remoteInfo = SpringAppTests;
-		};
-		DBA3BC241E0A23D500551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1A4FDA331A6E44780099D309;
-			remoteInfo = Spring;
-		};
-		DBA3BC261E0A23D500551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1A4FDA3D1A6E44780099D309;
-			remoteInfo = SpringTests;
-		};
-		DBA3BC541E0A5A0800551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A4FDA321A6E44780099D309;
-			remoteInfo = Spring;
-		};
 		DBA3BC581E0A5A0800551D54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */;
@@ -321,7 +285,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DBA3BC571E0A5A0800551D54 /* KYCircularProgress.framework in Embed Frameworks */,
-				DBA3BC531E0A5A0800551D54 /* Spring.framework in Embed Frameworks */,
 				DBA3BC671E0A5A0800551D54 /* SwiftyJSON.framework in Embed Frameworks */,
 				DB0E988E1E0BD20800443696 /* Charts.framework in Embed Frameworks */,
 				DBA533021E0A5CA8002D2CB4 /* AlamofireImage.framework in Embed Frameworks */,
@@ -364,6 +327,7 @@
 		DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		DB818A361E15EE6B00E09977 /* GarmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarmentModel.swift; sourceTree = "<group>"; };
 		DBA3BB611E07711400551D54 /* CustomerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListController.swift; sourceTree = "<group>"; };
 		DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		DBA3BB651E09016200551D54 /* MatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
@@ -372,7 +336,6 @@
 		DBA3BB6B1E0A1DF100551D54 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../../OpenSource/swift/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KYCircularProgress.xcodeproj; path = ../../../OpenSource/swift/KYCircularProgress/KYCircularProgress.xcodeproj; sourceTree = "<group>"; };
 		DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../../../OpenSource/swift/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
-		DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpringApp.xcodeproj; path = ../../../OpenSource/swift/Spring/SpringApp.xcodeproj; sourceTree = "<group>"; };
 		DBA3BC2F1E0A586F00551D54 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../OpenSource/swift/AlamofireImage/Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = ../../../OpenSource/swift/AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -388,7 +351,6 @@
 				DB0E988D1E0BD20800443696 /* Charts.framework in Frameworks */,
 				DBA3BC661E0A5A0800551D54 /* SwiftyJSON.framework in Frameworks */,
 				DBA3BC301E0A586F00551D54 /* Alamofire.framework in Frameworks */,
-				DBA3BC521E0A5A0800551D54 /* Spring.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +386,6 @@
 			children = (
 				DB0E98811E0BD1F900443696 /* Charts.xcodeproj */,
 				DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */,
-				DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */,
 				DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */,
 				DBA3BB6B1E0A1DF100551D54 /* Alamofire.xcodeproj */,
 				DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */,
@@ -449,6 +410,7 @@
 		DB4EE5901DFF841800BBCE4F /* sdxdg */ = {
 			isa = PBXGroup;
 			children = (
+				DB818A1F1E15ED7800E09977 /* model */,
 				DB4EE5BF1DFFDB8A00BBCE4F /* Controller */,
 				DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */,
 				DB4EE5951DFF841800BBCE4F /* Main.storyboard */,
@@ -507,6 +469,14 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		DB818A1F1E15ED7800E09977 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A361E15EE6B00E09977 /* GarmentModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		DBA3BB6C1E0A1DF100551D54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,17 +509,6 @@
 				DBA3BBF61E0A1FBC00551D54 /* SwiftyJSON.framework */,
 				DBA3BBF81E0A1FBC00551D54 /* SwiftyJSON.framework */,
 				DBA3BBFA1E0A1FBC00551D54 /* SwiftyJSON tvOS Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DBA3BC1A1E0A23D500551D54 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DBA3BC211E0A23D500551D54 /* SpringApp.app */,
-				DBA3BC231E0A23D500551D54 /* SpringAppTests.xctest */,
-				DBA3BC251E0A23D500551D54 /* Spring.framework */,
-				DBA3BC271E0A23D500551D54 /* SpringTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -591,7 +550,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DBA3BC551E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA3BC591E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA3BC651E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA3BC691E0A5A0800551D54 /* PBXTargetDependency */,
@@ -698,10 +656,6 @@
 				{
 					ProductGroup = DBA3BBB41E0A1EA200551D54 /* Products */;
 					ProjectRef = DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */;
-				},
-				{
-					ProductGroup = DBA3BC1A1E0A23D500551D54 /* Products */;
-					ProjectRef = DBA3BC191E0A23D500551D54 /* SpringApp.xcodeproj */;
 				},
 				{
 					ProductGroup = DBA3BBE41E0A1FBC00551D54 /* Products */;
@@ -844,34 +798,6 @@
 			remoteRef = DBA3BBF91E0A1FBC00551D54 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DBA3BC211E0A23D500551D54 /* SpringApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SpringApp.app;
-			remoteRef = DBA3BC201E0A23D500551D54 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DBA3BC231E0A23D500551D54 /* SpringAppTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SpringAppTests.xctest;
-			remoteRef = DBA3BC221E0A23D500551D54 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DBA3BC251E0A23D500551D54 /* Spring.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Spring.framework;
-			remoteRef = DBA3BC241E0A23D500551D54 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DBA3BC271E0A23D500551D54 /* SpringTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SpringTests.xctest;
-			remoteRef = DBA3BC261E0A23D500551D54 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		DBA532F41E0A5B5D002D2CB4 /* AlamofireImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -970,6 +896,7 @@
 				DB0E98A61E110F9C00443696 /* FeedbackDetailViewController.swift in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
+				DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */,
 				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,
 				DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */,
 				DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */,
@@ -1015,11 +942,6 @@
 			isa = PBXTargetDependency;
 			target = DB4EE58D1DFF841800BBCE4F /* sdxdg */;
 			targetProxy = DB4EE5AE1DFF841800BBCE4F /* PBXContainerItemProxy */;
-		};
-		DBA3BC551E0A5A0800551D54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Spring;
-			targetProxy = DBA3BC541E0A5A0800551D54 /* PBXContainerItemProxy */;
 		};
 		DBA3BC591E0A5A0800551D54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Spring
 
 class MatchViewController: UIViewController,UIScrollViewDelegate {
     
@@ -21,9 +20,9 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
     
-    var buttonSelect = false;
+    var buttonSelect = false
     
-    var fourViewPanel:SpringView? = nil
+    var fourViewPanel:UIView?
     
     var oldX:CGFloat = 0.0
     var newX:CGFloat = 0.0
@@ -76,7 +75,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         scrollView.addGestureRecognizer(gesture)
        
         
-        fourViewPanel = SpringView.init(frame: CGRect.init(origin: CGPoint.init(x: 0, y: 44), size: CGSize.init(width: screenWidth, height: screenHeight)))
+        fourViewPanel = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: 0, y: 44), size: CGSize.init(width: screenWidth, height: screenHeight)))
         fourViewPanel?.backgroundColor = UIColor.white
         
         scrollView.delegate = self
@@ -114,8 +113,23 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         if (buttonSelect){
             buttonSelect = false
-            fourViewPanel?.removeFromSuperview()
+            
             print("remove")
+            /*
+            UIView.animate(withDuration: 1, delay:0.01,
+                           options:UIViewAnimationOptions.transitionCrossDissolve, animations:
+                {
+                ()-> Void in
+                self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0,y: 0))
+            },
+                completion:{
+                            (finished:Bool) -> Void in
+                            UIView.animate(withDuration: 10, animations:{
+                                ()-> Void in
+                                self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform.identity)
+                            })
+                    self.fourViewPanel?.removeFromSuperview()
+            })*/
         }
         else{
             buttonSelect = true
@@ -141,12 +155,23 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             layer4.contents = UIImage.init(named: "four4")?.cgImage
             fourViewPanel?.layer.addSublayer(layer4)
             self.view.addSubview(fourViewPanel!)
-            fourViewPanel?.animation = "squeeze"
-            fourViewPanel?.curve = "easeInOut"
-            fourViewPanel?.duration = 2.0
-            fourViewPanel?.animateToNext(completion: { () -> () in
-                
+            fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.1,y: 0.1))
+            
+            //设置动画效果，动画时间长度 1 秒。
+            UIView.animate(withDuration: 1, delay:0.01,
+                                       options:UIViewAnimationOptions.transitionCrossDissolve, animations:
+                {
+                    ()-> Void in
+                    self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 1,y: 1))
+            },
+                    completion:{
+                        (finished:Bool) -> Void in
+                            UIView.animate(withDuration: 0.08, animations:{
+                                            ()-> Void in
+                                            self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform.identity)
+                                        })
             })
+            
         }
     }
     
