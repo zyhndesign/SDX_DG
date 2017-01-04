@@ -42,47 +42,7 @@
 		DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */; };
 		DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DB818A471E1CD6C600E09977 /* MBProgressHUD.m */; };
 		DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */; };
-		DB818A841E1CE4BD00E09977 /* .name in Resources */ = {isa = PBXBuildFile; fileRef = DB818A4E1E1CE4BD00E09977 /* .name */; };
-		DB818A851E1CE4BD00E09977 /* encodings.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A4F1E1CE4BD00E09977 /* encodings.xml */; };
-		DB818A861E1CE4BD00E09977 /* misc.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A501E1CE4BD00E09977 /* misc.xml */; };
-		DB818A871E1CE4BD00E09977 /* modules.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A511E1CE4BD00E09977 /* modules.xml */; };
-		DB818A881E1CE4BD00E09977 /* scope_settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A531E1CE4BD00E09977 /* scope_settings.xml */; };
-		DB818A891E1CE4BD00E09977 /* sdxdp.iml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A541E1CE4BD00E09977 /* sdxdp.iml */; };
-		DB818A8A1E1CE4BD00E09977 /* vcs.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A551E1CE4BD00E09977 /* vcs.xml */; };
-		DB818A8B1E1CE4BD00E09977 /* workspace.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A561E1CE4BD00E09977 /* workspace.xml */; };
-		DB818A8C1E1CE4BD00E09977 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = DB818A581E1CE4BD00E09977 /* main.css */; };
-		DB818A8D1E1CE4BD00E09977 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5B1E1CE4BD00E09977 /* 1.png */; };
-		DB818A8E1E1CE4BD00E09977 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5C1E1CE4BD00E09977 /* 2.png */; };
-		DB818A8F1E1CE4BD00E09977 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5D1E1CE4BD00E09977 /* 3.png */; };
-		DB818A901E1CE4BD00E09977 /* people.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5E1E1CE4BD00E09977 /* people.png */; };
-		DB818A911E1CE4BD00E09977 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A601E1CE4BD00E09977 /* 1.png */; };
-		DB818A921E1CE4BD00E09977 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A611E1CE4BD00E09977 /* 2.png */; };
-		DB818A931E1CE4BD00E09977 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A621E1CE4BD00E09977 /* 3.png */; };
-		DB818A941E1CE4BD00E09977 /* pDetail.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A641E1CE4BD00E09977 /* pDetail.js */; };
-		DB818A951E1CE4BD00E09977 /* ionic.css in Resources */ = {isa = PBXBuildFile; fileRef = DB818A681E1CE4BD00E09977 /* ionic.css */; };
-		DB818A961E1CE4BD00E09977 /* ionic.min.css in Resources */ = {isa = PBXBuildFile; fileRef = DB818A691E1CE4BD00E09977 /* ionic.min.css */; };
-		DB818A971E1CE4BD00E09977 /* ionicons.eot in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6B1E1CE4BD00E09977 /* ionicons.eot */; };
-		DB818A981E1CE4BD00E09977 /* ionicons.svg in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6C1E1CE4BD00E09977 /* ionicons.svg */; };
-		DB818A991E1CE4BD00E09977 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6D1E1CE4BD00E09977 /* ionicons.ttf */; };
-		DB818A9A1E1CE4BD00E09977 /* ionicons.woff in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6E1E1CE4BD00E09977 /* ionicons.woff */; };
-		DB818A9B1E1CE4BD00E09977 /* angular-animate.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A711E1CE4BD00E09977 /* angular-animate.js */; };
-		DB818A9C1E1CE4BD00E09977 /* angular-animate.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A721E1CE4BD00E09977 /* angular-animate.min.js */; };
-		DB818A9D1E1CE4BD00E09977 /* angular-resource.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A731E1CE4BD00E09977 /* angular-resource.js */; };
-		DB818A9E1E1CE4BD00E09977 /* angular-resource.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A741E1CE4BD00E09977 /* angular-resource.min.js */; };
-		DB818A9F1E1CE4BD00E09977 /* angular-sanitize.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A751E1CE4BD00E09977 /* angular-sanitize.js */; };
-		DB818AA01E1CE4BD00E09977 /* angular-sanitize.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A761E1CE4BD00E09977 /* angular-sanitize.min.js */; };
-		DB818AA11E1CE4BD00E09977 /* angular.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A771E1CE4BD00E09977 /* angular.js */; };
-		DB818AA21E1CE4BD00E09977 /* angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A781E1CE4BD00E09977 /* angular.min.js */; };
-		DB818AA31E1CE4BD00E09977 /* angular-ui-router.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7A1E1CE4BD00E09977 /* angular-ui-router.js */; };
-		DB818AA41E1CE4BE00E09977 /* angular-ui-router.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7B1E1CE4BD00E09977 /* angular-ui-router.min.js */; };
-		DB818AA51E1CE4BE00E09977 /* ionic-angular.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7C1E1CE4BD00E09977 /* ionic-angular.js */; };
-		DB818AA61E1CE4BE00E09977 /* ionic-angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7D1E1CE4BD00E09977 /* ionic-angular.min.js */; };
-		DB818AA71E1CE4BE00E09977 /* ionic.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7E1E1CE4BD00E09977 /* ionic.bundle.js */; };
-		DB818AA81E1CE4BE00E09977 /* ionic.bundle.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7F1E1CE4BD00E09977 /* ionic.bundle.min.js */; };
-		DB818AA91E1CE4BE00E09977 /* ionic.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A801E1CE4BD00E09977 /* ionic.js */; };
-		DB818AAA1E1CE4BE00E09977 /* ionic.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A811E1CE4BD00E09977 /* ionic.min.js */; };
-		DB818AAB1E1CE4BE00E09977 /* nDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = DB818A821E1CE4BD00E09977 /* nDetail.html */; };
-		DB818AAC1E1CE4BE00E09977 /* pDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = DB818A831E1CE4BD00E09977 /* pDetail.html */; };
+		DB818AAE1E1CF1BA00E09977 /* sdxdp in Resources */ = {isa = PBXBuildFile; fileRef = DB818AAD1E1CF1BA00E09977 /* sdxdp */; };
 		DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB611E07711400551D54 /* CustomerListController.swift */; };
 		DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */; };
 		DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB651E09016200551D54 /* MatchListViewController.swift */; };
@@ -370,47 +330,7 @@
 		DB818A461E1CD6C600E09977 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		DB818A471E1CD6C600E09977 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchandiseDetailViewController.swift; sourceTree = "<group>"; };
-		DB818A4E1E1CE4BD00E09977 /* .name */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .name; sourceTree = "<group>"; };
-		DB818A4F1E1CE4BD00E09977 /* encodings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = encodings.xml; sourceTree = "<group>"; };
-		DB818A501E1CE4BD00E09977 /* misc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = misc.xml; sourceTree = "<group>"; };
-		DB818A511E1CE4BD00E09977 /* modules.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = modules.xml; sourceTree = "<group>"; };
-		DB818A531E1CE4BD00E09977 /* scope_settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scope_settings.xml; sourceTree = "<group>"; };
-		DB818A541E1CE4BD00E09977 /* sdxdp.iml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sdxdp.iml; sourceTree = "<group>"; };
-		DB818A551E1CE4BD00E09977 /* vcs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = vcs.xml; sourceTree = "<group>"; };
-		DB818A561E1CE4BD00E09977 /* workspace.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = workspace.xml; sourceTree = "<group>"; };
-		DB818A581E1CE4BD00E09977 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
-		DB818A5B1E1CE4BD00E09977 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		DB818A5C1E1CE4BD00E09977 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		DB818A5D1E1CE4BD00E09977 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		DB818A5E1E1CE4BD00E09977 /* people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = people.png; sourceTree = "<group>"; };
-		DB818A601E1CE4BD00E09977 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		DB818A611E1CE4BD00E09977 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		DB818A621E1CE4BD00E09977 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		DB818A641E1CE4BD00E09977 /* pDetail.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = pDetail.js; sourceTree = "<group>"; };
-		DB818A681E1CE4BD00E09977 /* ionic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ionic.css; sourceTree = "<group>"; };
-		DB818A691E1CE4BD00E09977 /* ionic.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ionic.min.css; sourceTree = "<group>"; };
-		DB818A6B1E1CE4BD00E09977 /* ionicons.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.eot; sourceTree = "<group>"; };
-		DB818A6C1E1CE4BD00E09977 /* ionicons.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ionicons.svg; sourceTree = "<group>"; };
-		DB818A6D1E1CE4BD00E09977 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
-		DB818A6E1E1CE4BD00E09977 /* ionicons.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.woff; sourceTree = "<group>"; };
-		DB818A711E1CE4BD00E09977 /* angular-animate.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-animate.js"; sourceTree = "<group>"; };
-		DB818A721E1CE4BD00E09977 /* angular-animate.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-animate.min.js"; sourceTree = "<group>"; };
-		DB818A731E1CE4BD00E09977 /* angular-resource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-resource.js"; sourceTree = "<group>"; };
-		DB818A741E1CE4BD00E09977 /* angular-resource.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-resource.min.js"; sourceTree = "<group>"; };
-		DB818A751E1CE4BD00E09977 /* angular-sanitize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-sanitize.js"; sourceTree = "<group>"; };
-		DB818A761E1CE4BD00E09977 /* angular-sanitize.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-sanitize.min.js"; sourceTree = "<group>"; };
-		DB818A771E1CE4BD00E09977 /* angular.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.js; sourceTree = "<group>"; };
-		DB818A781E1CE4BD00E09977 /* angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.min.js; sourceTree = "<group>"; };
-		DB818A7A1E1CE4BD00E09977 /* angular-ui-router.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-ui-router.js"; sourceTree = "<group>"; };
-		DB818A7B1E1CE4BD00E09977 /* angular-ui-router.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-ui-router.min.js"; sourceTree = "<group>"; };
-		DB818A7C1E1CE4BD00E09977 /* ionic-angular.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ionic-angular.js"; sourceTree = "<group>"; };
-		DB818A7D1E1CE4BD00E09977 /* ionic-angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ionic-angular.min.js"; sourceTree = "<group>"; };
-		DB818A7E1E1CE4BD00E09977 /* ionic.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.bundle.js; sourceTree = "<group>"; };
-		DB818A7F1E1CE4BD00E09977 /* ionic.bundle.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.bundle.min.js; sourceTree = "<group>"; };
-		DB818A801E1CE4BD00E09977 /* ionic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.js; sourceTree = "<group>"; };
-		DB818A811E1CE4BD00E09977 /* ionic.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.min.js; sourceTree = "<group>"; };
-		DB818A821E1CE4BD00E09977 /* nDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = nDetail.html; sourceTree = "<group>"; };
-		DB818A831E1CE4BD00E09977 /* pDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pDetail.html; sourceTree = "<group>"; };
+		DB818AAD1E1CF1BA00E09977 /* sdxdp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdxdp; sourceTree = "<group>"; };
 		DBA3BB611E07711400551D54 /* CustomerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListController.swift; sourceTree = "<group>"; };
 		DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		DBA3BB651E09016200551D54 /* MatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
@@ -490,7 +410,7 @@
 		DB4EE5901DFF841800BBCE4F /* sdxdg */ = {
 			isa = PBXGroup;
 			children = (
-				DB818A4B1E1CE4A300E09977 /* resources */,
+				DB818AAD1E1CF1BA00E09977 /* sdxdp */,
 				DB818A441E1CD4FF00E09977 /* oc_lib */,
 				DB818A1F1E15ED7800E09977 /* model */,
 				DB4EE5BF1DFFDB8A00BBCE4F /* Controller */,
@@ -574,174 +494,6 @@
 				DB818A451E1CD6C400E09977 /* sdxdg-Bridging-Header.h */,
 			);
 			name = oc_lib;
-			sourceTree = "<group>";
-		};
-		DB818A4B1E1CE4A300E09977 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A4C1E1CE4BD00E09977 /* sdxdp */,
-			);
-			name = resources;
-			sourceTree = "<group>";
-		};
-		DB818A4C1E1CE4BD00E09977 /* sdxdp */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A4D1E1CE4BD00E09977 /* .idea */,
-				DB818A571E1CE4BD00E09977 /* css */,
-				DB818A591E1CE4BD00E09977 /* data */,
-				DB818A631E1CE4BD00E09977 /* js */,
-				DB818A651E1CE4BD00E09977 /* lib */,
-				DB818A821E1CE4BD00E09977 /* nDetail.html */,
-				DB818A831E1CE4BD00E09977 /* pDetail.html */,
-			);
-			path = sdxdp;
-			sourceTree = "<group>";
-		};
-		DB818A4D1E1CE4BD00E09977 /* .idea */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A4E1E1CE4BD00E09977 /* .name */,
-				DB818A4F1E1CE4BD00E09977 /* encodings.xml */,
-				DB818A501E1CE4BD00E09977 /* misc.xml */,
-				DB818A511E1CE4BD00E09977 /* modules.xml */,
-				DB818A521E1CE4BD00E09977 /* scopes */,
-				DB818A541E1CE4BD00E09977 /* sdxdp.iml */,
-				DB818A551E1CE4BD00E09977 /* vcs.xml */,
-				DB818A561E1CE4BD00E09977 /* workspace.xml */,
-			);
-			path = .idea;
-			sourceTree = "<group>";
-		};
-		DB818A521E1CE4BD00E09977 /* scopes */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A531E1CE4BD00E09977 /* scope_settings.xml */,
-			);
-			path = scopes;
-			sourceTree = "<group>";
-		};
-		DB818A571E1CE4BD00E09977 /* css */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A581E1CE4BD00E09977 /* main.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		DB818A591E1CE4BD00E09977 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A5A1E1CE4BD00E09977 /* nDetail */,
-				DB818A5F1E1CE4BD00E09977 /* pDetail */,
-			);
-			path = data;
-			sourceTree = "<group>";
-		};
-		DB818A5A1E1CE4BD00E09977 /* nDetail */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A5B1E1CE4BD00E09977 /* 1.png */,
-				DB818A5C1E1CE4BD00E09977 /* 2.png */,
-				DB818A5D1E1CE4BD00E09977 /* 3.png */,
-				DB818A5E1E1CE4BD00E09977 /* people.png */,
-			);
-			path = nDetail;
-			sourceTree = "<group>";
-		};
-		DB818A5F1E1CE4BD00E09977 /* pDetail */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A601E1CE4BD00E09977 /* 1.png */,
-				DB818A611E1CE4BD00E09977 /* 2.png */,
-				DB818A621E1CE4BD00E09977 /* 3.png */,
-			);
-			path = pDetail;
-			sourceTree = "<group>";
-		};
-		DB818A631E1CE4BD00E09977 /* js */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A641E1CE4BD00E09977 /* pDetail.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		DB818A651E1CE4BD00E09977 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A661E1CE4BD00E09977 /* ionic */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		DB818A661E1CE4BD00E09977 /* ionic */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A671E1CE4BD00E09977 /* css */,
-				DB818A6A1E1CE4BD00E09977 /* fonts */,
-				DB818A6F1E1CE4BD00E09977 /* js */,
-			);
-			path = ionic;
-			sourceTree = "<group>";
-		};
-		DB818A671E1CE4BD00E09977 /* css */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A681E1CE4BD00E09977 /* ionic.css */,
-				DB818A691E1CE4BD00E09977 /* ionic.min.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		DB818A6A1E1CE4BD00E09977 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A6B1E1CE4BD00E09977 /* ionicons.eot */,
-				DB818A6C1E1CE4BD00E09977 /* ionicons.svg */,
-				DB818A6D1E1CE4BD00E09977 /* ionicons.ttf */,
-				DB818A6E1E1CE4BD00E09977 /* ionicons.woff */,
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
-		DB818A6F1E1CE4BD00E09977 /* js */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A701E1CE4BD00E09977 /* angular */,
-				DB818A791E1CE4BD00E09977 /* angular-ui */,
-				DB818A7C1E1CE4BD00E09977 /* ionic-angular.js */,
-				DB818A7D1E1CE4BD00E09977 /* ionic-angular.min.js */,
-				DB818A7E1E1CE4BD00E09977 /* ionic.bundle.js */,
-				DB818A7F1E1CE4BD00E09977 /* ionic.bundle.min.js */,
-				DB818A801E1CE4BD00E09977 /* ionic.js */,
-				DB818A811E1CE4BD00E09977 /* ionic.min.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		DB818A701E1CE4BD00E09977 /* angular */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A711E1CE4BD00E09977 /* angular-animate.js */,
-				DB818A721E1CE4BD00E09977 /* angular-animate.min.js */,
-				DB818A731E1CE4BD00E09977 /* angular-resource.js */,
-				DB818A741E1CE4BD00E09977 /* angular-resource.min.js */,
-				DB818A751E1CE4BD00E09977 /* angular-sanitize.js */,
-				DB818A761E1CE4BD00E09977 /* angular-sanitize.min.js */,
-				DB818A771E1CE4BD00E09977 /* angular.js */,
-				DB818A781E1CE4BD00E09977 /* angular.min.js */,
-			);
-			path = angular;
-			sourceTree = "<group>";
-		};
-		DB818A791E1CE4BD00E09977 /* angular-ui */ = {
-			isa = PBXGroup;
-			children = (
-				DB818A7A1E1CE4BD00E09977 /* angular-ui-router.js */,
-				DB818A7B1E1CE4BD00E09977 /* angular-ui-router.min.js */,
-			);
-			path = "angular-ui";
 			sourceTree = "<group>";
 		};
 		DBA3BB6C1E0A1DF100551D54 /* Products */ = {
@@ -1101,50 +853,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB818AA31E1CE4BD00E09977 /* angular-ui-router.js in Resources */,
-				DB818A941E1CE4BD00E09977 /* pDetail.js in Resources */,
-				DB818AA81E1CE4BE00E09977 /* ionic.bundle.min.js in Resources */,
-				DB818A8F1E1CE4BD00E09977 /* 3.png in Resources */,
-				DB818A911E1CE4BD00E09977 /* 1.png in Resources */,
-				DB818A8B1E1CE4BD00E09977 /* workspace.xml in Resources */,
-				DB818AA91E1CE4BE00E09977 /* ionic.js in Resources */,
-				DB818AA11E1CE4BD00E09977 /* angular.js in Resources */,
-				DB818AA71E1CE4BE00E09977 /* ionic.bundle.js in Resources */,
-				DB818A901E1CE4BD00E09977 /* people.png in Resources */,
-				DB818AAB1E1CE4BE00E09977 /* nDetail.html in Resources */,
-				DB818A9C1E1CE4BD00E09977 /* angular-animate.min.js in Resources */,
-				DB818A841E1CE4BD00E09977 /* .name in Resources */,
-				DB818A931E1CE4BD00E09977 /* 3.png in Resources */,
-				DB818A8E1E1CE4BD00E09977 /* 2.png in Resources */,
-				DB818A921E1CE4BD00E09977 /* 2.png in Resources */,
-				DB818AA51E1CE4BE00E09977 /* ionic-angular.js in Resources */,
-				DB818A891E1CE4BD00E09977 /* sdxdp.iml in Resources */,
-				DB818A871E1CE4BD00E09977 /* modules.xml in Resources */,
-				DB818A9A1E1CE4BD00E09977 /* ionicons.woff in Resources */,
-				DB818A991E1CE4BD00E09977 /* ionicons.ttf in Resources */,
-				DB818AA41E1CE4BE00E09977 /* angular-ui-router.min.js in Resources */,
+				DB818AAE1E1CF1BA00E09977 /* sdxdp in Resources */,
 				DB4EE59C1DFF841800BBCE4F /* LaunchScreen.storyboard in Resources */,
-				DB818A971E1CE4BD00E09977 /* ionicons.eot in Resources */,
-				DB818A8D1E1CE4BD00E09977 /* 1.png in Resources */,
-				DB818A9F1E1CE4BD00E09977 /* angular-sanitize.js in Resources */,
-				DB818AAC1E1CE4BE00E09977 /* pDetail.html in Resources */,
-				DB818AA01E1CE4BD00E09977 /* angular-sanitize.min.js in Resources */,
-				DB818A881E1CE4BD00E09977 /* scope_settings.xml in Resources */,
-				DB818AAA1E1CE4BE00E09977 /* ionic.min.js in Resources */,
-				DB818A851E1CE4BD00E09977 /* encodings.xml in Resources */,
-				DB818A8A1E1CE4BD00E09977 /* vcs.xml in Resources */,
-				DB818A8C1E1CE4BD00E09977 /* main.css in Resources */,
-				DB818A9D1E1CE4BD00E09977 /* angular-resource.js in Resources */,
-				DB818A9B1E1CE4BD00E09977 /* angular-animate.js in Resources */,
-				DB818A861E1CE4BD00E09977 /* misc.xml in Resources */,
-				DB818AA61E1CE4BE00E09977 /* ionic-angular.min.js in Resources */,
-				DB818AA21E1CE4BD00E09977 /* angular.min.js in Resources */,
 				DB4EE5991DFF841800BBCE4F /* Assets.xcassets in Resources */,
-				DB818A981E1CE4BD00E09977 /* ionicons.svg in Resources */,
 				DB4EE5971DFF841800BBCE4F /* Main.storyboard in Resources */,
-				DB818A961E1CE4BD00E09977 /* ionic.min.css in Resources */,
-				DB818A951E1CE4BD00E09977 /* ionic.css in Resources */,
-				DB818A9E1E1CE4BD00E09977 /* angular-resource.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

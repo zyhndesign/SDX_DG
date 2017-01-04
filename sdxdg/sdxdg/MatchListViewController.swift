@@ -134,6 +134,9 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             garmentModel = trouserClothList[indexPath.row]
             trousersLayer.image = UIImage.init(named: (garmentModel?.imageName)!)
         }
+        
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "MerchandiseDetailView")
+        self.navigationController?.pushViewController(view!, animated: true)
     }
     
     @IBAction func filterBtnClick(_ sender: Any) {

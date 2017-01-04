@@ -818,7 +818,7 @@
         <scene sceneID="l6p-M5-oLf">
             <objects>
                 <navigationController id="al2-7k-0Yu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lkx-i0-gK0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lkx-i0-gK0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -958,7 +958,7 @@
         <scene sceneID="u4y-gh-Cvm">
             <objects>
                 <navigationController id="Lgf-8u-zRE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Q5-ln-6gb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Q5-ln-6gb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1072,7 +1072,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5g-nq-GMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3090" y="-3295"/>
+            <point key="canvasLocation" x="3123" y="-2334"/>
         </scene>
         <!--分享内容-->
         <scene sceneID="iuw-Sp-a17">
@@ -1171,16 +1171,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGL-pL-RKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4213" y="-2976"/>
-        </scene>
-        <!--商品详情-->
-        <scene sceneID="RX3-7b-Qtc">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="9db-23-KyY" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="商品详情" id="FL0-GI-4LJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Bb-Cy-UUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4214" y="-2111"/>
         </scene>
         <!--搭配间-->
         <scene sceneID="SCz-eh-Rb1">
@@ -1329,7 +1319,6 @@
                         <outlet property="modelView" destination="Je2-cK-1jG" id="SmH-5e-IBS"/>
                         <outlet property="outterClothBtn" destination="reA-Ag-C0m" id="cKV-or-ZII"/>
                         <segue destination="LfZ-I1-Hie" kind="show" id="ucy-pA-UN1"/>
-                        <segue destination="9db-23-KyY" kind="show" id="jLR-fr-N1S"/>
                         <segue destination="cYP-ae-yIc" kind="show" id="oVT-Ur-E8d"/>
                     </connections>
                 </viewController>
@@ -1340,7 +1329,7 @@
         <!--商品详情-->
         <scene sceneID="kQp-CO-egR">
             <objects>
-                <viewController storyboardIdentifier="MerchandiseDetailView" hidesBottomBarWhenPushed="YES" id="cYP-ae-yIc" customClass="MerchandiseDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MerchandiseDetailView" hidesBottomBarWhenPushed="YES" id="cYP-ae-yIc" customClass="MerchandiseDetailViewController" customModule="sdxdg" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ye5-Ns-E0T"/>
                         <viewControllerLayoutGuide type="bottom" id="Zkk-od-PLd"/>
@@ -1350,13 +1339,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQi-np-meB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="-64" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xQi-np-meB" firstAttribute="top" secondItem="Ye5-Ns-E0T" secondAttribute="bottom" id="3Nj-pG-qfZ"/>
+                            <constraint firstItem="xQi-np-meB" firstAttribute="top" secondItem="Ye5-Ns-E0T" secondAttribute="bottom" constant="-64" id="3Nj-pG-qfZ"/>
                             <constraint firstAttribute="bottom" secondItem="xQi-np-meB" secondAttribute="bottom" id="FYT-ra-0eg"/>
                             <constraint firstAttribute="trailing" secondItem="xQi-np-meB" secondAttribute="trailing" id="KIc-f0-jwR"/>
                             <constraint firstItem="xQi-np-meB" firstAttribute="leading" secondItem="B0J-MI-UcX" secondAttribute="leading" id="UOg-P4-vSZ"/>
@@ -1369,7 +1358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-3g-KZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3147.826086956522" y="-2247.554347826087"/>
+            <point key="canvasLocation" x="4211.594202898551" y="-2201.0869565217395"/>
         </scene>
         <!--筛选-->
         <scene sceneID="B9b-TW-BbN">
@@ -1634,7 +1623,7 @@
         <scene sceneID="rEM-I9-UGr">
             <objects>
                 <navigationController id="JGg-1m-RTP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZbG-JB-8HR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ZbG-JB-8HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
