@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
         mineView.tabBarItem.setTitleTextAttributes(attributes , for: UIControlState.selected)
         
         //let navi:UINavigationController = UINavigationController.init(rootViewController: homeTabBarViewController)
-        
+        //self.navigationController?.pushViewController(homeTabBarViewController, animated: true)
         self.present(homeTabBarViewController, animated: true, completion: nil)
         
     }

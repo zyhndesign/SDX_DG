@@ -81,20 +81,31 @@ class MineViewController: UIViewController {
         myMatchViewLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         scrollView.addSubview(myMatchViewLabel!)
         
+        let myAllMatchGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(myMatchAllClick(sender:)))
+        myAllMatchGesture.numberOfTapsRequired = 1
         myMatchAllLabel = UILabel.init(frame: CGRect.init(x: screenWidth - 70, y: 290, width: 30, height: 20))
         myMatchAllLabel?.text = "全部"
         myMatchAllLabel?.font = UIFont.init(name: "Helvetica", size: 12)
+        myMatchAllLabel?.addGestureRecognizer(myAllMatchGesture)
+        myMatchAllLabel?.isUserInteractionEnabled = true
         scrollView.addSubview(myMatchAllLabel!)
         
         myMatchArrowImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 30, y: 293, width: 10, height: 15))
         myMatchArrowImageView?.image = UIImage.init(named: "rightArrow")
+        myMatchArrowImageView?.addGestureRecognizer(myAllMatchGesture)
+        myMatchArrowImageView?.isUserInteractionEnabled = true
         scrollView.addSubview(myMatchArrowImageView!)
         
         let myMatchView:UIView = UIView.init(frame: CGRect.init(x: 0, y: 320, width: screenWidth, height: 65))
         myMatchView.backgroundColor = UIColor.white
         
+        let pushGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(pushImageClick(sender:)))
+        pushGesture.numberOfTapsRequired = 1
+        
         myMatchPushImageView = UIImageView.init(frame: CGRect.init(x: screenWidth / 3 / 2 - 25, y: 5, width: 30, height: 30))
         myMatchPushImageView?.image = UIImage.init(named: "push")
+        myMatchPushImageView?.isUserInteractionEnabled = true
+        myMatchPushImageView?.addGestureRecognizer(pushGesture)
         myMatchView.addSubview(myMatchPushImageView!)
         
         myMatchPushLabel = UILabel.init(frame: CGRect.init(x: screenWidth / 3 / 2 - 30, y: 45, width: 40, height: 20))
@@ -103,8 +114,12 @@ class MineViewController: UIViewController {
         myMatchPushLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         myMatchView.addSubview(myMatchPushLabel!)
         
+        let backGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backImageClick(sender:)))
+        backGesture.numberOfTapsRequired = 1
         myMatchFeedbackImageView = UIImageView.init(frame: CGRect.init(x: screenWidth / 3 + screenWidth / 3 / 2 - 25, y: 5, width: 30, height: 30))
         myMatchFeedbackImageView?.image = UIImage.init(named: "feedback")
+        myMatchFeedbackImageView?.isUserInteractionEnabled = true
+        myMatchFeedbackImageView?.addGestureRecognizer(backGesture)
         myMatchView.addSubview(myMatchFeedbackImageView!)
         
         myMatchFeedbackLabel = UILabel.init(frame: CGRect.init(x: screenWidth / 3 + screenWidth / 3 / 2 - 30, y: 45, width: 40, height: 20))
@@ -113,8 +128,12 @@ class MineViewController: UIViewController {
         myMatchFeedbackLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         myMatchView.addSubview(myMatchFeedbackLabel!)
         
+        let draftGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(draftImageClick(sender:)))
+        draftGesture.numberOfTapsRequired = 1
         myMatchDraftImageView = UIImageView.init(frame: CGRect.init(x: screenWidth / 3 * 2 + screenWidth / 3 / 2 - 25, y: 5, width: 30, height: 30))
         myMatchDraftImageView?.image = UIImage.init(named: "draftbox")
+        myMatchDraftImageView?.isUserInteractionEnabled = true
+        myMatchDraftImageView?.addGestureRecognizer(draftGesture)
         myMatchView.addSubview(myMatchDraftImageView!)
         
         myMatchDraftLabel = UILabel.init(frame: CGRect.init(x: screenWidth / 3 * 2 + screenWidth / 3 / 2 - 30, y: 45, width: 40, height: 20))
@@ -134,13 +153,20 @@ class MineViewController: UIViewController {
         hotMatchLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         scrollView.addSubview(hotMatchLabel!)
         
+        let hotMatchGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(hotMatchAllClick(sender:)))
+        hotMatchGesture.numberOfTapsRequired = 1
+        
         hotMatchALLLabel = UILabel.init(frame: CGRect.init(x: screenWidth - 70, y: 395, width: 30, height: 20))
         hotMatchALLLabel?.text = "全部"
         hotMatchALLLabel?.font = UIFont.init(name: "Helvetica", size: 12)
+        hotMatchALLLabel?.isUserInteractionEnabled = true
+        hotMatchALLLabel?.addGestureRecognizer(hotMatchGesture)
         scrollView.addSubview(hotMatchALLLabel!)
         
         hotMatchArrowImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 30, y: 398, width: 10, height: 15))
         hotMatchArrowImageView?.image = UIImage.init(named: "rightArrow")
+        hotMatchArrowImageView?.isUserInteractionEnabled = true
+        hotMatchArrowImageView?.addGestureRecognizer(hotMatchGesture)
         scrollView.addSubview(hotMatchArrowImageView!)
         
         let hotView:UIView = UIView.init(frame: CGRect.init(x: 0, y: 425, width: screenWidth, height: 130))
@@ -196,4 +222,33 @@ class MineViewController: UIViewController {
         }
     }
     
+    func myMatchAllClick(sender: Any){
+        print("click...")
+        let view:MyMatchViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView") as! MyMatchViewController
+        view.btnInitTag = 0
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func hotMatchAllClick(sender: Any){
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView")
+        self.navigationController?.pushViewController(view!, animated: true)
+    }
+    
+    func pushImageClick(sender:Any){
+        let view:MyMatchViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView") as! MyMatchViewController
+        view.btnInitTag = 1
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func backImageClick(sender:Any){
+        let view:MyMatchViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView") as! MyMatchViewController
+        view.btnInitTag = 2
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func draftImageClick(sender:Any){
+        let view:MyMatchViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView") as! MyMatchViewController
+        view.btnInitTag = 3
+        self.navigationController?.pushViewController(view, animated: true)
+    }
 }

@@ -27,6 +27,9 @@ class FilterViewController : UIViewController{
     @IBOutlet var minPrice: UITextField!
     @IBOutlet var maxPrice: UITextField!
     
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,8 +67,16 @@ class FilterViewController : UIViewController{
         button.backgroundColor = color
     }
     
-    @IBAction func backBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func filterBtnClick(_ sender: Any) {
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "筛选中..."
+        hud.hide(animated: true, afterDelay: 0.8)
+        
+        let time: TimeInterval = 1.0
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func buttonTapped(sender:UIButton){

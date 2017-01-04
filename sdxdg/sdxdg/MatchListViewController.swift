@@ -31,8 +31,9 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     @IBOutlet var modelView: UIImageView!
     
     let screenWidth = UIScreen.main.bounds.size.width
-    let clothLayer:CALayer = CALayer();
-    let trousersLayer:CALayer = CALayer();
+    let clothLayer:UIImageView = UIImageView();
+    let trousersLayer:UIImageView = UIImageView();
+    let outClothLayer:UIImageView = UIImageView();
     
     var garmentType:Int = 0
     
@@ -44,6 +45,17 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         
         matchCollectionView.delegate = self;
         matchCollectionView.dataSource = self;
+        
+        clothLayer.frame = CGRect.init(x: 10, y:90, width: 80, height: 70)
+        clothLayer.contentMode = UIViewContentMode.scaleAspectFill
+        outClothLayer.frame = CGRect.init(x: 11, y: 90, width: 80, height: 70)
+        outClothLayer.contentMode = UIViewContentMode.scaleAspectFill
+        trousersLayer.frame = CGRect.init(x: 11, y: 90, width: 80, height: 152)
+        trousersLayer.contentMode = UIViewContentMode.scaleAspectFill
+        modelView.addSubview(clothLayer)
+        modelView.addSubview(trousersLayer)
+        modelView.addSubview(outClothLayer)
+        
         
     }
     
@@ -107,10 +119,21 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell:MatchListCell = collectionView.cellForItem(at:indexPath) as! MatchListCell
-        clothLayer.frame = CGRect.init(x: 0, y:15, width: 100, height: 130)
-        clothLayer.contents = cell.imgView?.image?.cgImage
-        modelView.layer.addSublayer(clothLayer)
+        
+        print(indexPath.row)
+        var garmentModel:GarmentModel?
+        if garmentType == 0{
+            garmentModel = innerClothList[indexPath.row]
+            clothLayer.image = UIImage.init(named: (garmentModel?.imageName)!.appending("_f"))
+        }
+        else if garmentType == 1{
+            garmentModel = outterClothList[indexPath.row]
+            outClothLayer.image = UIImage.init(named: (garmentModel?.imageName)!.appending("_f"))
+        }
+        else if garmentType == 2{
+            garmentModel = trouserClothList[indexPath.row]
+            trousersLayer.image = UIImage.init(named: (garmentModel?.imageName)!)
+        }
     }
     
     @IBAction func filterBtnClick(_ sender: Any) {
@@ -121,7 +144,9 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     @IBAction func saveBtnClick(_ sender: Any) {
-        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "保存中..."
+        hud.hide(animated: true, afterDelay: 0.8)
     }
     
     

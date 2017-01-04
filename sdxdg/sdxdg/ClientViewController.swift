@@ -104,9 +104,9 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     
     @IBAction func confirmBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        
+        //self.dismiss(animated: true, completion: nil)
         //self.dismiss(animated: true, completion: { (parameters) -> Void in })
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {

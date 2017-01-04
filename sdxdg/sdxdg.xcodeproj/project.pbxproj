@@ -34,14 +34,61 @@
 		DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */; };
 		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
 		DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A361E15EE6B00E09977 /* GarmentModel.swift */; };
+		DB818A391E16586900E09977 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A381E16586900E09977 /* ShareViewController.swift */; };
+		DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */; };
+		DB818A3D1E1C815500E09977 /* MyMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A3C1E1C815500E09977 /* MyMatchTableViewCell.swift */; };
+		DB818A3F1E1CA55200E09977 /* HotMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A3E1E1CA55100E09977 /* HotMatchViewController.swift */; };
+		DB818A411E1CA6B200E09977 /* PushDetailControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A401E1CA6B200E09977 /* PushDetailControllerView.swift */; };
+		DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */; };
+		DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DB818A471E1CD6C600E09977 /* MBProgressHUD.m */; };
+		DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */; };
+		DB818A841E1CE4BD00E09977 /* .name in Resources */ = {isa = PBXBuildFile; fileRef = DB818A4E1E1CE4BD00E09977 /* .name */; };
+		DB818A851E1CE4BD00E09977 /* encodings.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A4F1E1CE4BD00E09977 /* encodings.xml */; };
+		DB818A861E1CE4BD00E09977 /* misc.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A501E1CE4BD00E09977 /* misc.xml */; };
+		DB818A871E1CE4BD00E09977 /* modules.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A511E1CE4BD00E09977 /* modules.xml */; };
+		DB818A881E1CE4BD00E09977 /* scope_settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A531E1CE4BD00E09977 /* scope_settings.xml */; };
+		DB818A891E1CE4BD00E09977 /* sdxdp.iml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A541E1CE4BD00E09977 /* sdxdp.iml */; };
+		DB818A8A1E1CE4BD00E09977 /* vcs.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A551E1CE4BD00E09977 /* vcs.xml */; };
+		DB818A8B1E1CE4BD00E09977 /* workspace.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB818A561E1CE4BD00E09977 /* workspace.xml */; };
+		DB818A8C1E1CE4BD00E09977 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = DB818A581E1CE4BD00E09977 /* main.css */; };
+		DB818A8D1E1CE4BD00E09977 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5B1E1CE4BD00E09977 /* 1.png */; };
+		DB818A8E1E1CE4BD00E09977 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5C1E1CE4BD00E09977 /* 2.png */; };
+		DB818A8F1E1CE4BD00E09977 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5D1E1CE4BD00E09977 /* 3.png */; };
+		DB818A901E1CE4BD00E09977 /* people.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A5E1E1CE4BD00E09977 /* people.png */; };
+		DB818A911E1CE4BD00E09977 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A601E1CE4BD00E09977 /* 1.png */; };
+		DB818A921E1CE4BD00E09977 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A611E1CE4BD00E09977 /* 2.png */; };
+		DB818A931E1CE4BD00E09977 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB818A621E1CE4BD00E09977 /* 3.png */; };
+		DB818A941E1CE4BD00E09977 /* pDetail.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A641E1CE4BD00E09977 /* pDetail.js */; };
+		DB818A951E1CE4BD00E09977 /* ionic.css in Resources */ = {isa = PBXBuildFile; fileRef = DB818A681E1CE4BD00E09977 /* ionic.css */; };
+		DB818A961E1CE4BD00E09977 /* ionic.min.css in Resources */ = {isa = PBXBuildFile; fileRef = DB818A691E1CE4BD00E09977 /* ionic.min.css */; };
+		DB818A971E1CE4BD00E09977 /* ionicons.eot in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6B1E1CE4BD00E09977 /* ionicons.eot */; };
+		DB818A981E1CE4BD00E09977 /* ionicons.svg in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6C1E1CE4BD00E09977 /* ionicons.svg */; };
+		DB818A991E1CE4BD00E09977 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6D1E1CE4BD00E09977 /* ionicons.ttf */; };
+		DB818A9A1E1CE4BD00E09977 /* ionicons.woff in Resources */ = {isa = PBXBuildFile; fileRef = DB818A6E1E1CE4BD00E09977 /* ionicons.woff */; };
+		DB818A9B1E1CE4BD00E09977 /* angular-animate.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A711E1CE4BD00E09977 /* angular-animate.js */; };
+		DB818A9C1E1CE4BD00E09977 /* angular-animate.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A721E1CE4BD00E09977 /* angular-animate.min.js */; };
+		DB818A9D1E1CE4BD00E09977 /* angular-resource.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A731E1CE4BD00E09977 /* angular-resource.js */; };
+		DB818A9E1E1CE4BD00E09977 /* angular-resource.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A741E1CE4BD00E09977 /* angular-resource.min.js */; };
+		DB818A9F1E1CE4BD00E09977 /* angular-sanitize.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A751E1CE4BD00E09977 /* angular-sanitize.js */; };
+		DB818AA01E1CE4BD00E09977 /* angular-sanitize.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A761E1CE4BD00E09977 /* angular-sanitize.min.js */; };
+		DB818AA11E1CE4BD00E09977 /* angular.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A771E1CE4BD00E09977 /* angular.js */; };
+		DB818AA21E1CE4BD00E09977 /* angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A781E1CE4BD00E09977 /* angular.min.js */; };
+		DB818AA31E1CE4BD00E09977 /* angular-ui-router.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7A1E1CE4BD00E09977 /* angular-ui-router.js */; };
+		DB818AA41E1CE4BE00E09977 /* angular-ui-router.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7B1E1CE4BD00E09977 /* angular-ui-router.min.js */; };
+		DB818AA51E1CE4BE00E09977 /* ionic-angular.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7C1E1CE4BD00E09977 /* ionic-angular.js */; };
+		DB818AA61E1CE4BE00E09977 /* ionic-angular.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7D1E1CE4BD00E09977 /* ionic-angular.min.js */; };
+		DB818AA71E1CE4BE00E09977 /* ionic.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7E1E1CE4BD00E09977 /* ionic.bundle.js */; };
+		DB818AA81E1CE4BE00E09977 /* ionic.bundle.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A7F1E1CE4BD00E09977 /* ionic.bundle.min.js */; };
+		DB818AA91E1CE4BE00E09977 /* ionic.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A801E1CE4BD00E09977 /* ionic.js */; };
+		DB818AAA1E1CE4BE00E09977 /* ionic.min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB818A811E1CE4BD00E09977 /* ionic.min.js */; };
+		DB818AAB1E1CE4BE00E09977 /* nDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = DB818A821E1CE4BD00E09977 /* nDetail.html */; };
+		DB818AAC1E1CE4BE00E09977 /* pDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = DB818A831E1CE4BD00E09977 /* pDetail.html */; };
 		DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB611E07711400551D54 /* CustomerListController.swift */; };
 		DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */; };
 		DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB651E09016200551D54 /* MatchListViewController.swift */; };
 		DBA3BB681E0906EB00551D54 /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB671E0906EB00551D54 /* MatchListCell.swift */; };
 		DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB691E09653B00551D54 /* FilterViewController.swift */; };
 		DBA3BC301E0A586F00551D54 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BC2F1E0A586F00551D54 /* Alamofire.framework */; };
-		DBA3BC561E0A5A0800551D54 /* KYCircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBB81E0A1EA300551D54 /* KYCircularProgress.framework */; };
-		DBA3BC571E0A5A0800551D54 /* KYCircularProgress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBB81E0A1EA300551D54 /* KYCircularProgress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBA3BC621E0A5A0800551D54 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BB771E0A1DF200551D54 /* Alamofire.framework */; };
 		DBA3BC631E0A5A0800551D54 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BB771E0A1DF200551D54 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBA3BC661E0A5A0800551D54 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBEE1E0A1FBC00551D54 /* SwiftyJSON.framework */; };
@@ -142,13 +189,6 @@
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
-		DBA3BBB71E0A1EA300551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BE06EC8B1B63617B009A1999;
-			remoteInfo = KYCircularProgress;
-		};
 		DBA3BBED1E0A1FBC00551D54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */;
@@ -197,13 +237,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
 			remoteInfo = "SwiftyJSON tvOS Tests";
-		};
-		DBA3BC581E0A5A0800551D54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BE06EC8A1B63617B009A1999;
-			remoteInfo = KYCircularProgress;
 		};
 		DBA3BC641E0A5A0800551D54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -284,7 +317,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DBA3BC571E0A5A0800551D54 /* KYCircularProgress.framework in Embed Frameworks */,
 				DBA3BC671E0A5A0800551D54 /* SwiftyJSON.framework in Embed Frameworks */,
 				DB0E988E1E0BD20800443696 /* Charts.framework in Embed Frameworks */,
 				DBA533021E0A5CA8002D2CB4 /* AlamofireImage.framework in Embed Frameworks */,
@@ -328,13 +360,63 @@
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		DB818A361E15EE6B00E09977 /* GarmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarmentModel.swift; sourceTree = "<group>"; };
+		DB818A381E16586900E09977 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMatchViewController.swift; sourceTree = "<group>"; };
+		DB818A3C1E1C815500E09977 /* MyMatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMatchTableViewCell.swift; sourceTree = "<group>"; };
+		DB818A3E1E1CA55100E09977 /* HotMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMatchViewController.swift; sourceTree = "<group>"; };
+		DB818A401E1CA6B200E09977 /* PushDetailControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushDetailControllerView.swift; sourceTree = "<group>"; };
+		DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftDetailViewController.swift; sourceTree = "<group>"; };
+		DB818A451E1CD6C400E09977 /* sdxdg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sdxdg-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB818A461E1CD6C600E09977 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		DB818A471E1CD6C600E09977 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchandiseDetailViewController.swift; sourceTree = "<group>"; };
+		DB818A4E1E1CE4BD00E09977 /* .name */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .name; sourceTree = "<group>"; };
+		DB818A4F1E1CE4BD00E09977 /* encodings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = encodings.xml; sourceTree = "<group>"; };
+		DB818A501E1CE4BD00E09977 /* misc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = misc.xml; sourceTree = "<group>"; };
+		DB818A511E1CE4BD00E09977 /* modules.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = modules.xml; sourceTree = "<group>"; };
+		DB818A531E1CE4BD00E09977 /* scope_settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scope_settings.xml; sourceTree = "<group>"; };
+		DB818A541E1CE4BD00E09977 /* sdxdp.iml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sdxdp.iml; sourceTree = "<group>"; };
+		DB818A551E1CE4BD00E09977 /* vcs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = vcs.xml; sourceTree = "<group>"; };
+		DB818A561E1CE4BD00E09977 /* workspace.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = workspace.xml; sourceTree = "<group>"; };
+		DB818A581E1CE4BD00E09977 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
+		DB818A5B1E1CE4BD00E09977 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		DB818A5C1E1CE4BD00E09977 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		DB818A5D1E1CE4BD00E09977 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		DB818A5E1E1CE4BD00E09977 /* people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = people.png; sourceTree = "<group>"; };
+		DB818A601E1CE4BD00E09977 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		DB818A611E1CE4BD00E09977 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		DB818A621E1CE4BD00E09977 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		DB818A641E1CE4BD00E09977 /* pDetail.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = pDetail.js; sourceTree = "<group>"; };
+		DB818A681E1CE4BD00E09977 /* ionic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ionic.css; sourceTree = "<group>"; };
+		DB818A691E1CE4BD00E09977 /* ionic.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ionic.min.css; sourceTree = "<group>"; };
+		DB818A6B1E1CE4BD00E09977 /* ionicons.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.eot; sourceTree = "<group>"; };
+		DB818A6C1E1CE4BD00E09977 /* ionicons.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ionicons.svg; sourceTree = "<group>"; };
+		DB818A6D1E1CE4BD00E09977 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
+		DB818A6E1E1CE4BD00E09977 /* ionicons.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.woff; sourceTree = "<group>"; };
+		DB818A711E1CE4BD00E09977 /* angular-animate.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-animate.js"; sourceTree = "<group>"; };
+		DB818A721E1CE4BD00E09977 /* angular-animate.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-animate.min.js"; sourceTree = "<group>"; };
+		DB818A731E1CE4BD00E09977 /* angular-resource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-resource.js"; sourceTree = "<group>"; };
+		DB818A741E1CE4BD00E09977 /* angular-resource.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-resource.min.js"; sourceTree = "<group>"; };
+		DB818A751E1CE4BD00E09977 /* angular-sanitize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-sanitize.js"; sourceTree = "<group>"; };
+		DB818A761E1CE4BD00E09977 /* angular-sanitize.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-sanitize.min.js"; sourceTree = "<group>"; };
+		DB818A771E1CE4BD00E09977 /* angular.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.js; sourceTree = "<group>"; };
+		DB818A781E1CE4BD00E09977 /* angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = angular.min.js; sourceTree = "<group>"; };
+		DB818A7A1E1CE4BD00E09977 /* angular-ui-router.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-ui-router.js"; sourceTree = "<group>"; };
+		DB818A7B1E1CE4BD00E09977 /* angular-ui-router.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "angular-ui-router.min.js"; sourceTree = "<group>"; };
+		DB818A7C1E1CE4BD00E09977 /* ionic-angular.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ionic-angular.js"; sourceTree = "<group>"; };
+		DB818A7D1E1CE4BD00E09977 /* ionic-angular.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ionic-angular.min.js"; sourceTree = "<group>"; };
+		DB818A7E1E1CE4BD00E09977 /* ionic.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.bundle.js; sourceTree = "<group>"; };
+		DB818A7F1E1CE4BD00E09977 /* ionic.bundle.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.bundle.min.js; sourceTree = "<group>"; };
+		DB818A801E1CE4BD00E09977 /* ionic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.js; sourceTree = "<group>"; };
+		DB818A811E1CE4BD00E09977 /* ionic.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ionic.min.js; sourceTree = "<group>"; };
+		DB818A821E1CE4BD00E09977 /* nDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = nDetail.html; sourceTree = "<group>"; };
+		DB818A831E1CE4BD00E09977 /* pDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pDetail.html; sourceTree = "<group>"; };
 		DBA3BB611E07711400551D54 /* CustomerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListController.swift; sourceTree = "<group>"; };
 		DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		DBA3BB651E09016200551D54 /* MatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
 		DBA3BB671E0906EB00551D54 /* MatchListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchListCell.swift; sourceTree = "<group>"; };
 		DBA3BB691E09653B00551D54 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		DBA3BB6B1E0A1DF100551D54 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../../OpenSource/swift/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KYCircularProgress.xcodeproj; path = ../../../OpenSource/swift/KYCircularProgress/KYCircularProgress.xcodeproj; sourceTree = "<group>"; };
 		DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../../../OpenSource/swift/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		DBA3BC2F1E0A586F00551D54 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../OpenSource/swift/AlamofireImage/Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = ../../../OpenSource/swift/AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
@@ -346,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA3BC621E0A5A0800551D54 /* Alamofire.framework in Frameworks */,
-				DBA3BC561E0A5A0800551D54 /* KYCircularProgress.framework in Frameworks */,
 				DBA533011E0A5CA8002D2CB4 /* AlamofireImage.framework in Frameworks */,
 				DB0E988D1E0BD20800443696 /* Charts.framework in Frameworks */,
 				DBA3BC661E0A5A0800551D54 /* SwiftyJSON.framework in Frameworks */,
@@ -386,7 +467,6 @@
 			children = (
 				DB0E98811E0BD1F900443696 /* Charts.xcodeproj */,
 				DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */,
-				DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */,
 				DBA3BB6B1E0A1DF100551D54 /* Alamofire.xcodeproj */,
 				DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */,
 				DB4EE5901DFF841800BBCE4F /* sdxdg */,
@@ -410,6 +490,8 @@
 		DB4EE5901DFF841800BBCE4F /* sdxdg */ = {
 			isa = PBXGroup;
 			children = (
+				DB818A4B1E1CE4A300E09977 /* resources */,
+				DB818A441E1CD4FF00E09977 /* oc_lib */,
 				DB818A1F1E15ED7800E09977 /* model */,
 				DB4EE5BF1DFFDB8A00BBCE4F /* Controller */,
 				DB4EE5911DFF841800BBCE4F /* AppDelegate.swift */,
@@ -442,6 +524,7 @@
 		DB4EE5BF1DFFDB8A00BBCE4F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DB818A381E16586900E09977 /* ShareViewController.swift */,
 				DB4EE5931DFF841800BBCE4F /* ViewController.swift */,
 				DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */,
 				DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */,
@@ -465,6 +548,12 @@
 				DB0E98A11E10E97400443696 /* ConsumerListCell.swift */,
 				DB0E98A31E10E9A300443696 /* FeedbackListCell.swift */,
 				DB0E98A51E110F9C00443696 /* FeedbackDetailViewController.swift */,
+				DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */,
+				DB818A3C1E1C815500E09977 /* MyMatchTableViewCell.swift */,
+				DB818A3E1E1CA55100E09977 /* HotMatchViewController.swift */,
+				DB818A401E1CA6B200E09977 /* PushDetailControllerView.swift */,
+				DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */,
+				DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -477,6 +566,184 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		DB818A441E1CD4FF00E09977 /* oc_lib */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A461E1CD6C600E09977 /* MBProgressHUD.h */,
+				DB818A471E1CD6C600E09977 /* MBProgressHUD.m */,
+				DB818A451E1CD6C400E09977 /* sdxdg-Bridging-Header.h */,
+			);
+			name = oc_lib;
+			sourceTree = "<group>";
+		};
+		DB818A4B1E1CE4A300E09977 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A4C1E1CE4BD00E09977 /* sdxdp */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		DB818A4C1E1CE4BD00E09977 /* sdxdp */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A4D1E1CE4BD00E09977 /* .idea */,
+				DB818A571E1CE4BD00E09977 /* css */,
+				DB818A591E1CE4BD00E09977 /* data */,
+				DB818A631E1CE4BD00E09977 /* js */,
+				DB818A651E1CE4BD00E09977 /* lib */,
+				DB818A821E1CE4BD00E09977 /* nDetail.html */,
+				DB818A831E1CE4BD00E09977 /* pDetail.html */,
+			);
+			path = sdxdp;
+			sourceTree = "<group>";
+		};
+		DB818A4D1E1CE4BD00E09977 /* .idea */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A4E1E1CE4BD00E09977 /* .name */,
+				DB818A4F1E1CE4BD00E09977 /* encodings.xml */,
+				DB818A501E1CE4BD00E09977 /* misc.xml */,
+				DB818A511E1CE4BD00E09977 /* modules.xml */,
+				DB818A521E1CE4BD00E09977 /* scopes */,
+				DB818A541E1CE4BD00E09977 /* sdxdp.iml */,
+				DB818A551E1CE4BD00E09977 /* vcs.xml */,
+				DB818A561E1CE4BD00E09977 /* workspace.xml */,
+			);
+			path = .idea;
+			sourceTree = "<group>";
+		};
+		DB818A521E1CE4BD00E09977 /* scopes */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A531E1CE4BD00E09977 /* scope_settings.xml */,
+			);
+			path = scopes;
+			sourceTree = "<group>";
+		};
+		DB818A571E1CE4BD00E09977 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A581E1CE4BD00E09977 /* main.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		DB818A591E1CE4BD00E09977 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A5A1E1CE4BD00E09977 /* nDetail */,
+				DB818A5F1E1CE4BD00E09977 /* pDetail */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		DB818A5A1E1CE4BD00E09977 /* nDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A5B1E1CE4BD00E09977 /* 1.png */,
+				DB818A5C1E1CE4BD00E09977 /* 2.png */,
+				DB818A5D1E1CE4BD00E09977 /* 3.png */,
+				DB818A5E1E1CE4BD00E09977 /* people.png */,
+			);
+			path = nDetail;
+			sourceTree = "<group>";
+		};
+		DB818A5F1E1CE4BD00E09977 /* pDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A601E1CE4BD00E09977 /* 1.png */,
+				DB818A611E1CE4BD00E09977 /* 2.png */,
+				DB818A621E1CE4BD00E09977 /* 3.png */,
+			);
+			path = pDetail;
+			sourceTree = "<group>";
+		};
+		DB818A631E1CE4BD00E09977 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A641E1CE4BD00E09977 /* pDetail.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		DB818A651E1CE4BD00E09977 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A661E1CE4BD00E09977 /* ionic */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		DB818A661E1CE4BD00E09977 /* ionic */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A671E1CE4BD00E09977 /* css */,
+				DB818A6A1E1CE4BD00E09977 /* fonts */,
+				DB818A6F1E1CE4BD00E09977 /* js */,
+			);
+			path = ionic;
+			sourceTree = "<group>";
+		};
+		DB818A671E1CE4BD00E09977 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A681E1CE4BD00E09977 /* ionic.css */,
+				DB818A691E1CE4BD00E09977 /* ionic.min.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		DB818A6A1E1CE4BD00E09977 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A6B1E1CE4BD00E09977 /* ionicons.eot */,
+				DB818A6C1E1CE4BD00E09977 /* ionicons.svg */,
+				DB818A6D1E1CE4BD00E09977 /* ionicons.ttf */,
+				DB818A6E1E1CE4BD00E09977 /* ionicons.woff */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		DB818A6F1E1CE4BD00E09977 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A701E1CE4BD00E09977 /* angular */,
+				DB818A791E1CE4BD00E09977 /* angular-ui */,
+				DB818A7C1E1CE4BD00E09977 /* ionic-angular.js */,
+				DB818A7D1E1CE4BD00E09977 /* ionic-angular.min.js */,
+				DB818A7E1E1CE4BD00E09977 /* ionic.bundle.js */,
+				DB818A7F1E1CE4BD00E09977 /* ionic.bundle.min.js */,
+				DB818A801E1CE4BD00E09977 /* ionic.js */,
+				DB818A811E1CE4BD00E09977 /* ionic.min.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		DB818A701E1CE4BD00E09977 /* angular */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A711E1CE4BD00E09977 /* angular-animate.js */,
+				DB818A721E1CE4BD00E09977 /* angular-animate.min.js */,
+				DB818A731E1CE4BD00E09977 /* angular-resource.js */,
+				DB818A741E1CE4BD00E09977 /* angular-resource.min.js */,
+				DB818A751E1CE4BD00E09977 /* angular-sanitize.js */,
+				DB818A761E1CE4BD00E09977 /* angular-sanitize.min.js */,
+				DB818A771E1CE4BD00E09977 /* angular.js */,
+				DB818A781E1CE4BD00E09977 /* angular.min.js */,
+			);
+			path = angular;
+			sourceTree = "<group>";
+		};
+		DB818A791E1CE4BD00E09977 /* angular-ui */ = {
+			isa = PBXGroup;
+			children = (
+				DB818A7A1E1CE4BD00E09977 /* angular-ui-router.js */,
+				DB818A7B1E1CE4BD00E09977 /* angular-ui-router.min.js */,
+			);
+			path = "angular-ui";
+			sourceTree = "<group>";
+		};
 		DBA3BB6C1E0A1DF100551D54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,14 +754,6 @@
 				DBA3BB7F1E0A1DF200551D54 /* Alamofire.framework */,
 				DBA3BB811E0A1DF200551D54 /* Alamofire tvOS Tests.xctest */,
 				DBA3BB831E0A1DF200551D54 /* Alamofire.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DBA3BBB41E0A1EA200551D54 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DBA3BBB81E0A1EA300551D54 /* KYCircularProgress.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -550,7 +809,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DBA3BC591E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA3BC651E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA3BC691E0A5A0800551D54 /* PBXTargetDependency */,
 				DBA533041E0A5CA8002D2CB4 /* PBXTargetDependency */,
@@ -610,7 +868,7 @@
 					DB4EE58D1DFF841800BBCE4F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = FNB4FR5EG6;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					DB4EE5A11DFF841800BBCE4F = {
@@ -652,10 +910,6 @@
 				{
 					ProductGroup = DB0E98821E0BD1F900443696 /* Products */;
 					ProjectRef = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
-				},
-				{
-					ProductGroup = DBA3BBB41E0A1EA200551D54 /* Products */;
-					ProjectRef = DBA3BBB31E0A1EA200551D54 /* KYCircularProgress.xcodeproj */;
 				},
 				{
 					ProductGroup = DBA3BBE41E0A1FBC00551D54 /* Products */;
@@ -740,13 +994,6 @@
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
 			remoteRef = DBA3BB821E0A1DF200551D54 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DBA3BBB81E0A1EA300551D54 /* KYCircularProgress.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = KYCircularProgress.framework;
-			remoteRef = DBA3BBB71E0A1EA300551D54 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		DBA3BBEE1E0A1FBC00551D54 /* SwiftyJSON.framework */ = {
@@ -854,9 +1101,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB818AA31E1CE4BD00E09977 /* angular-ui-router.js in Resources */,
+				DB818A941E1CE4BD00E09977 /* pDetail.js in Resources */,
+				DB818AA81E1CE4BE00E09977 /* ionic.bundle.min.js in Resources */,
+				DB818A8F1E1CE4BD00E09977 /* 3.png in Resources */,
+				DB818A911E1CE4BD00E09977 /* 1.png in Resources */,
+				DB818A8B1E1CE4BD00E09977 /* workspace.xml in Resources */,
+				DB818AA91E1CE4BE00E09977 /* ionic.js in Resources */,
+				DB818AA11E1CE4BD00E09977 /* angular.js in Resources */,
+				DB818AA71E1CE4BE00E09977 /* ionic.bundle.js in Resources */,
+				DB818A901E1CE4BD00E09977 /* people.png in Resources */,
+				DB818AAB1E1CE4BE00E09977 /* nDetail.html in Resources */,
+				DB818A9C1E1CE4BD00E09977 /* angular-animate.min.js in Resources */,
+				DB818A841E1CE4BD00E09977 /* .name in Resources */,
+				DB818A931E1CE4BD00E09977 /* 3.png in Resources */,
+				DB818A8E1E1CE4BD00E09977 /* 2.png in Resources */,
+				DB818A921E1CE4BD00E09977 /* 2.png in Resources */,
+				DB818AA51E1CE4BE00E09977 /* ionic-angular.js in Resources */,
+				DB818A891E1CE4BD00E09977 /* sdxdp.iml in Resources */,
+				DB818A871E1CE4BD00E09977 /* modules.xml in Resources */,
+				DB818A9A1E1CE4BD00E09977 /* ionicons.woff in Resources */,
+				DB818A991E1CE4BD00E09977 /* ionicons.ttf in Resources */,
+				DB818AA41E1CE4BE00E09977 /* angular-ui-router.min.js in Resources */,
 				DB4EE59C1DFF841800BBCE4F /* LaunchScreen.storyboard in Resources */,
+				DB818A971E1CE4BD00E09977 /* ionicons.eot in Resources */,
+				DB818A8D1E1CE4BD00E09977 /* 1.png in Resources */,
+				DB818A9F1E1CE4BD00E09977 /* angular-sanitize.js in Resources */,
+				DB818AAC1E1CE4BE00E09977 /* pDetail.html in Resources */,
+				DB818AA01E1CE4BD00E09977 /* angular-sanitize.min.js in Resources */,
+				DB818A881E1CE4BD00E09977 /* scope_settings.xml in Resources */,
+				DB818AAA1E1CE4BE00E09977 /* ionic.min.js in Resources */,
+				DB818A851E1CE4BD00E09977 /* encodings.xml in Resources */,
+				DB818A8A1E1CE4BD00E09977 /* vcs.xml in Resources */,
+				DB818A8C1E1CE4BD00E09977 /* main.css in Resources */,
+				DB818A9D1E1CE4BD00E09977 /* angular-resource.js in Resources */,
+				DB818A9B1E1CE4BD00E09977 /* angular-animate.js in Resources */,
+				DB818A861E1CE4BD00E09977 /* misc.xml in Resources */,
+				DB818AA61E1CE4BE00E09977 /* ionic-angular.min.js in Resources */,
+				DB818AA21E1CE4BD00E09977 /* angular.min.js in Resources */,
 				DB4EE5991DFF841800BBCE4F /* Assets.xcassets in Resources */,
+				DB818A981E1CE4BD00E09977 /* ionicons.svg in Resources */,
 				DB4EE5971DFF841800BBCE4F /* Main.storyboard in Resources */,
+				DB818A961E1CE4BD00E09977 /* ionic.min.css in Resources */,
+				DB818A951E1CE4BD00E09977 /* ionic.css in Resources */,
+				DB818A9E1E1CE4BD00E09977 /* angular-resource.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,15 +1172,22 @@
 				DB0E98A41E10E9A300443696 /* FeedbackListCell.swift in Sources */,
 				DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */,
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
+				DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */,
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
+				DB818A391E16586900E09977 /* ShareViewController.swift in Sources */,
+				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,
 				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
 				DB0E98941E0E5F4500443696 /* HelpAndBackViewController.swift in Sources */,
+				DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */,
 				DB0E98961E0E657F00443696 /* PersonalInfoViewController.swift in Sources */,
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
+				DB818A3F1E1CA55200E09977 /* HotMatchViewController.swift in Sources */,
 				DB0E98A21E10E97400443696 /* ConsumerListCell.swift in Sources */,
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */,
+				DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */,
 				DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */,
+				DB818A411E1CA6B200E09977 /* PushDetailControllerView.swift in Sources */,
 				DB0E98A61E110F9C00443696 /* FeedbackDetailViewController.swift in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
@@ -906,6 +1201,7 @@
 				DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */,
 				DBA3BB681E0906EB00551D54 /* MatchListCell.swift in Sources */,
 				DB0E989E1E10C92000443696 /* ConsumeListViewController.swift in Sources */,
+				DB818A3D1E1C815500E09977 /* MyMatchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,11 +1238,6 @@
 			isa = PBXTargetDependency;
 			target = DB4EE58D1DFF841800BBCE4F /* sdxdg */;
 			targetProxy = DB4EE5AE1DFF841800BBCE4F /* PBXContainerItemProxy */;
-		};
-		DBA3BC591E0A5A0800551D54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KYCircularProgress;
-			targetProxy = DBA3BC581E0A5A0800551D54 /* PBXContainerItemProxy */;
 		};
 		DBA3BC651E0A5A0800551D54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1081,11 +1372,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FNB4FR5EG6;
 				INFOPLIST_FILE = sdxdg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zy.sdxdg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sdxdg/sdxdg-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1095,11 +1389,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FNB4FR5EG6;
 				INFOPLIST_FILE = sdxdg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zy.sdxdg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sdxdg/sdxdg-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

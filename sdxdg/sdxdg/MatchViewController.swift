@@ -28,6 +28,11 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var newX:CGFloat = 0.0
     var currentPage:CGFloat = 0
     
+    var dropMenuPanel:UIView?
+    var shareBtn:UIButton?
+    var saveBtn:UIButton?
+    var savePanel:UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
@@ -74,11 +79,48 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         let gesture:UIGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(imageTapped(sender:)))
         scrollView.addGestureRecognizer(gesture)
        
-        
-        fourViewPanel = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: 0, y: 44), size: CGSize.init(width: screenWidth, height: screenHeight)))
+        let naviHeight = self.navigationController?.navigationBar.frame.height
+        fourViewPanel = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: 0, y: naviHeight! + 10), size: CGSize.init(width: screenWidth, height: screenHeight)))
         fourViewPanel?.backgroundColor = UIColor.white
         
         scrollView.delegate = self
+        
+        dropMenuPanel = UIView.init(frame: CGRect.init(x: screenWidth - 130, y: naviHeight! + 30, width: 120, height: 70))
+        
+        dropMenuPanel?.layer.contents = UIImage.init(named: "popBg")?.cgImage
+        
+        shareBtn = UIButton.init(frame: CGRect.init(x: 10, y: 5, width: 110, height: 25))
+        shareBtn?.setTitle("分享", for: UIControlState.normal)
+        shareBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+        shareBtn?.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
+        shareBtn?.contentVerticalAlignment = UIControlContentVerticalAlignment.bottom
+        shareBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        let shareBtnLayer:CALayer = CALayer()
+        shareBtnLayer.contents = UIImage.init(named: "shareBlackBtn")?.cgImage
+        shareBtnLayer.frame = CGRect.init(x: 10, y: 5, width: 20, height: 20)
+        shareBtn?.addTarget(self, action: #selector(shareBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+        shareBtn?.layer.addSublayer(shareBtnLayer)
+        
+        saveBtn = UIButton.init(frame: CGRect.init(x: 10, y: 35, width: 110, height: 25))
+        saveBtn?.setTitle("保存", for: UIControlState.normal)
+        saveBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+        saveBtn?.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
+        saveBtn?.contentVerticalAlignment = UIControlContentVerticalAlignment.bottom
+        saveBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        let saveBtnLayer:CALayer = CALayer()
+        saveBtnLayer.contents = UIImage.init(named: "saveBlackBtn")?.cgImage
+        saveBtnLayer.frame = CGRect.init(x: 10, y: 5, width: 20, height: 20)
+        saveBtn?.addTarget(self, action: #selector(saveBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+        saveBtn?.layer.addSublayer(saveBtnLayer)
+        dropMenuPanel?.addSubview(shareBtn!)
+        dropMenuPanel?.addSubview(saveBtn!)
+        
+        let menuLine:UIView = UIView.init(frame: CGRect.init(x: 10, y: 33, width: 100, height: 1))
+        menuLine.backgroundColor = UIColor.lightGray
+        dropMenuPanel?.addSubview(menuLine)
+        dropMenuPanel?.isHidden = true
+        self.view.addSubview(dropMenuPanel!)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,23 +155,8 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         if (buttonSelect){
             buttonSelect = false
+            self.fourViewPanel?.removeFromSuperview()
             
-            print("remove")
-            /*
-            UIView.animate(withDuration: 1, delay:0.01,
-                           options:UIViewAnimationOptions.transitionCrossDissolve, animations:
-                {
-                ()-> Void in
-                self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0,y: 0))
-            },
-                completion:{
-                            (finished:Bool) -> Void in
-                            UIView.animate(withDuration: 10, animations:{
-                                ()-> Void in
-                                self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform.identity)
-                            })
-                    self.fourViewPanel?.removeFromSuperview()
-            })*/
         }
         else{
             buttonSelect = true
@@ -158,8 +185,8 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.1,y: 0.1))
             
             //设置动画效果，动画时间长度 1 秒。
-            UIView.animate(withDuration: 1, delay:0.01,
-                                       options:UIViewAnimationOptions.transitionCrossDissolve, animations:
+            UIView.animate(withDuration: 0.5, delay:0.01,
+                                options:UIViewAnimationOptions.transitionCrossDissolve, animations:
                 {
                     ()-> Void in
                     self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 1,y: 1))
@@ -176,8 +203,38 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     @IBAction func moreBtnClick(_ sender: Any) {
+        let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
+        animation.duration = 0.5
+        if (dropMenuPanel?.isHidden)!{
+            self.showMenuPanel(animation: animation)
+        }
+        else{
+            self.hideMenuPanel(animation:animation)
+        }
     }
 
+    func showMenuPanel(animation:CABasicAnimation){
+        
+        let naviHeight = self.navigationController?.navigationBar.frame.height
+        dropMenuPanel?.isHidden = false
+        animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: -50))
+        animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 50))
+        dropMenuPanel?.layer.add(animation, forKey: nil)
+        
+    }
+    
+    func hideMenuPanel(animation:CABasicAnimation){
+        let naviHeight = self.navigationController?.navigationBar.frame.height
+        animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 50))
+        animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y:-50))
+        dropMenuPanel?.layer.add(animation, forKey: nil)
+        self.perform(#selector(hiddenMenuPanel), with: nil, afterDelay: 0.5)
+        
+    }
+    
+    func hiddenMenuPanel(){
+        dropMenuPanel?.isHidden = true
+    }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -274,43 +331,66 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     
     //停止拖动
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        /*
-        let pageWidth = scrollView.frame.size.width;
-        // 根据当前的x坐标和页宽度计算出当前页数
-        let currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-        if (currentPage == 0){
-            print("第一个模型")
-            modelView1?.layer.transform = CATransform3DMakeScale(1, 1, 0)
-            modelView2?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-            modelView3?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
-            modelView4?.layer.transform = CATransform3DMakeScale(0.4, 0.4, 0)
-        }
-        else if (currentPage == 1){
-            print("第二个模型")
-            modelView1?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-            modelView2?.layer.transform = CATransform3DMakeScale(1, 1, 0)
-            modelView3?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-            modelView4?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
-        }
-        else if (currentPage == 2){
-            print("第三个模型")
-            modelView1?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
-            modelView2?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-            modelView3?.layer.transform = CATransform3DMakeScale(1, 1, 0)
-            modelView4?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-        }
-        else if (currentPage == 3){
-            print("第四个模型")
-            modelView1?.layer.transform = CATransform3DMakeScale(0.4, 0.4, 0)
-            modelView2?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
-            modelView3?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-            modelView4?.layer.transform = CATransform3DMakeScale(1, 1, 0)
-        }
-        */
     }
     //开始滑动
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         
     }
   
+    func shareBtnClick(sender:UIButton){
+        
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "shareView")
+        self.navigationController?.pushViewController(view!, animated: true)
+        let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
+        animation.duration = 0.5
+        self.hideMenuPanel(animation: animation)
+    }
+    
+    func saveBtnClick(sender:UIButton){
+        let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
+        animation.duration = 0.5
+        self.hideMenuPanel(animation: animation)
+        let naviHeight = self.navigationController?.navigationBar.frame.height
+        
+        savePanel = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        
+        let modelWidth = (screenWidth - 50)/4
+        let model1:UIImageView = UIImageView.init(frame: CGRect.init(x: 10, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        model1.image = UIImage.init(named: "four1")
+        let model2:UIImageView = UIImageView.init(frame: CGRect.init(x: 20 + modelWidth, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        model2.image = UIImage.init(named: "four2")
+        let model3:UIImageView = UIImageView.init(frame: CGRect.init(x: 30 + modelWidth*2, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        model3.image = UIImage.init(named: "four3")
+        let model4:UIImageView = UIImageView.init(frame: CGRect.init(x: 40 + modelWidth*3, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        model4.image = UIImage.init(named: "four4")
+        
+        savePanel!.addSubview(model1)
+        savePanel!.addSubview(model2)
+        savePanel!.addSubview(model3)
+        savePanel!.addSubview(model4)
+        
+        let textField:UITextField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 100, height: 35))
+        textField.placeholder = "请输入标题"
+        textField.layer.borderColor = UIColor.darkGray.cgColor
+        textField.layer.borderWidth = 1.0
+        textField.layer.cornerRadius = 8.0
+        let saveBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 80, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
+        saveBtn.setTitle("保存", for:UIControlState.normal)
+        saveBtn.layer.cornerRadius = 8.0
+        saveBtn.backgroundColor = UIColor.init(red: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
+        saveBtn.addTarget(self, action: #selector(saveBtnClickToServer(sender:)), for: UIControlEvents.touchUpInside)
+        savePanel!.addSubview(textField)
+        savePanel!.addSubview(saveBtn)
+        
+        savePanel!.backgroundColor = UIColor.lightGray
+        savePanel!.alpha = 1.0
+        self.view.addSubview(savePanel!)
+        savePanel!.isHidden = false
+        //UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
+        //self.view.endEditing(true)
+    }
+    
+    func saveBtnClickToServer(sender:UIButton){
+        savePanel!.isHidden = true
+    }
 }

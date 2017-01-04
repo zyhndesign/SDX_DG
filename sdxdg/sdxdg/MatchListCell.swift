@@ -14,6 +14,7 @@ class MatchListCell : UICollectionViewCell{
     var imgView : UIImageView?//cell上的图片
     var titleLabel:UILabel?//cell上title
     var priceLabel:UILabel?//cell上价格
+    var matchImage:UIImageView?
     
     var customerLabel1:UILabel?//cell相关客户1
     var customerLabel2:UILabel?//cell相关客户2
@@ -30,6 +31,13 @@ class MatchListCell : UICollectionViewCell{
         imgView = UIImageView(frame: CGRect(origin: CGPoint.init(x: 2, y: 10), size: CGSize.init(width: (width-30)/2, height: (width-30)/2)))
         imgView?.contentMode = UIViewContentMode.scaleAspectFit
         self.addSubview(imgView!)
+        
+        let matchImageX = (width-30)/2 - 45
+        let matchImageY = (width-30)/2 - 30
+        matchImage = UIImageView(frame: CGRect(origin: CGPoint.init(x:matchImageX, y: matchImageY), size: CGSize.init(width: 40, height: 40)))
+        matchImage?.image = UIImage.init(named: "selectMatchIcon")
+        matchImage?.contentMode = UIViewContentMode.scaleAspectFit
+        self.addSubview(matchImage!)
         
         titleLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: 5, y: imgView!.frame.maxY-12), size: CGSize.init(width: (width-50)/2, height: 50)))
         titleLabel?.numberOfLines = 0
