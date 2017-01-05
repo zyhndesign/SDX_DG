@@ -35,6 +35,10 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     let trousersLayer:UIImageView = UIImageView();
     let outClothLayer:UIImageView = UIImageView();
     
+    var inClothPath:String?
+    var outClothPath:String?
+    var trouserPath:String?
+    
     var garmentType:Int = 0
     
     override func viewDidLoad() {
@@ -76,13 +80,17 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     func updateMatchModel(notifaction: NSNotification){
         let modelImgName:String = (notifaction.object as? String)!
         print(modelImgName)
+        
         if garmentType == 0{
-            clothLayer.image = UIImage.init(named: modelImgName.appending("_f"))
+            inClothPath = modelImgName.appending("_f")
+            clothLayer.image = UIImage.init(named: inClothPath!)
         }
         else if garmentType == 1{
-            outClothLayer.image = UIImage.init(named: modelImgName.appending("_f"))
+            outClothPath = modelImgName.appending("_f")
+            outClothLayer.image = UIImage.init(named: outClothPath!)
         }
         else if garmentType == 2{
+            trouserPath = modelImgName
             trousersLayer.image = UIImage.init(named: modelImgName)!
         }
     }
@@ -162,6 +170,41 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.label.text = "保存中..."
         hud.hide(animated: true, afterDelay: 0.8)
+        
+        var imgName:String = ""
+        if let cloth = inClothPath{
+            imgName.append(cloth)
+            imgName.append("|")
+        }
+        else{
+            hud.label.text = "内搭未选择"
+            hud.hide(animated: true, afterDelay: 0.8)
+            return
+        }
+        if let cloth = outClothPath{
+            imgName.append(cloth)
+            imgName.append("|")
+        }
+        else{
+            hud.label.text = "外套未选择"
+            hud.hide(animated: true, afterDelay: 0.8)
+            return
+        }
+        if let cloth = trouserPath{
+            imgName.append(cloth)
+            imgName.append("|")
+        }
+        else{
+            hud.label.text = "裤子未选择"
+            hud.hide(animated: true, afterDelay: 0.8)
+            return
+        }
+        
+        let time: TimeInterval = 1.0
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            self.navigationController?.popViewController(animated: true)
+        }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BigModelMatch"), object: imgName)
     }
     
     

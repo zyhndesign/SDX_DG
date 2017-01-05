@@ -15,6 +15,22 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var modelView3: UIImageView?
     var modelView4: UIImageView?
     
+    var model1OutCloth:UIImageView?
+    var model1InCloth:UIImageView?
+    var model1Trouser:UIImageView?
+    
+    var model2OutCloth:UIImageView?
+    var model2InCloth:UIImageView?
+    var model2Trouser:UIImageView?
+    
+    var model3OutCloth:UIImageView?
+    var model3InCloth:UIImageView?
+    var model3Trouser:UIImageView?
+    
+    var model4OutCloth:UIImageView?
+    var model4InCloth:UIImageView?
+    var model4Trouser:UIImageView?
+    
     var scrollView: UIScrollView!
     
     let screenWidth = UIScreen.main.bounds.size.width
@@ -51,6 +67,16 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView1 = UIImageView.init(frame: CGRect.init(x: 0, y: 15, width: screenWidth/2, height: scrollHeight))
         modelView1?.image = UIImage.init(named: "model")
         modelView1?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        model1InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model1OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model1Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model1InCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model1OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model1Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        modelView1?.addSubview(model1InCloth!)
+        modelView1?.addSubview(model1Trouser!)
+        modelView1?.addSubview(model1OutCloth!)
         scrollView.addSubview(modelView1!)
         
         scrollView.clipsToBounds = false
@@ -61,18 +87,45 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView2?.image = UIImage.init(named: "model")
         modelView2?.contentMode = UIViewContentMode.scaleAspectFit
         modelView2?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
+        model2InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model2OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model2Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model2InCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model2OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model2Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        modelView2?.addSubview(model2InCloth!)
+        modelView2?.addSubview(model2Trouser!)
+        modelView2?.addSubview(model2OutCloth!)
         scrollView.addSubview(modelView2!)
         
         modelView3 = UIImageView.init(frame: CGRect.init(x: screenWidth, y: 15, width: screenWidth/2, height: scrollHeight))
         modelView3?.image = UIImage.init(named: "model")
         modelView3?.contentMode = UIViewContentMode.scaleAspectFit
         modelView3?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
+        model3InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model3OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model3Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model3InCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model3OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model3Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        modelView3?.addSubview(model3InCloth!)
+        modelView3?.addSubview(model3Trouser!)
+        modelView3?.addSubview(model3OutCloth!)
         scrollView.addSubview(modelView3!)
         
         modelView4 = UIImageView.init(frame: CGRect.init(x: screenWidth  + screenWidth / 2, y: 15, width: screenWidth/2, height: scrollHeight))
         modelView4?.image = UIImage.init(named: "model")
         modelView4?.contentMode = UIViewContentMode.scaleAspectFit
         modelView4?.layer.transform = CATransform3DMakeScale(0.4, 0.4, 0)
+        model4InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model4OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
+        model4Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model4InCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model4OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
+        model4Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        modelView4?.addSubview(model4InCloth!)
+        modelView4?.addSubview(model4Trouser!)
+        modelView4?.addSubview(model4OutCloth!)
         scrollView.addSubview(modelView4!)
         
         scrollView.contentSize = CGSize.init(width: screenWidth * 2, height: scrollHeight)
@@ -86,7 +139,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         scrollView.delegate = self
         
         dropMenuPanel = UIView.init(frame: CGRect.init(x: screenWidth - 130, y: naviHeight! + 30, width: 120, height: 70))
-        
         dropMenuPanel?.layer.contents = UIImage.init(named: "popBg")?.cgImage
         
         shareBtn = UIButton.init(frame: CGRect.init(x: 10, y: 5, width: 110, height: 25))
@@ -121,7 +173,47 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         dropMenuPanel?.isHidden = true
         self.view.addSubview(dropMenuPanel!)
         
+        NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "BigModelMatch"), object: nil)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("disppear...")
+        //NotificationCenter.default.removeObserver(self)
+    }
+    
+    func updateMatchModel(notifaction: NSNotification){
+        let modelImgName:String = (notifaction.object as? String)!
+        var image:[String] = modelImgName.components(separatedBy: "|")
+        
+        if (currentPage == 0){
+            model1OutCloth?.image = UIImage.init(named: image[1])
+            model1InCloth?.image = UIImage.init(named: image[0])
+            model1Trouser?.image = UIImage.init(named: image[2])
+        }
+        else if (currentPage == 1){
+            model2OutCloth?.image = UIImage.init(named: image[1])
+            model2InCloth?.image = UIImage.init(named: image[0])
+            model2Trouser?.image = UIImage.init(named: image[2])
+        }
+        else if (currentPage == 2){
+            model3OutCloth?.image = UIImage.init(named: image[1])
+            model3InCloth?.image = UIImage.init(named: image[0])
+            model3Trouser?.image = UIImage.init(named: image[2])
+        }
+        else if (currentPage == 3){
+            model4OutCloth?.image = UIImage.init(named: image[1])
+            model4InCloth?.image = UIImage.init(named: image[0])
+            model4Trouser?.image = UIImage.init(named: image[2])
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -134,7 +226,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         //self.present(view!, animated: true, completion: {() -> Void in (print("complete"))})
         self.navigationController?.pushViewController(view!, animated: true)
         if (currentPage == 0){
-        
+            
         }
         else if (currentPage == 1){
         
@@ -156,7 +248,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         if (buttonSelect){
             buttonSelect = false
             self.fourViewPanel?.removeFromSuperview()
-            
         }
         else{
             buttonSelect = true

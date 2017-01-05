@@ -83,7 +83,20 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        var view:UIViewController?
+        if btnInitTag == 0{
+            view = self.storyboard?.instantiateViewController(withIdentifier: "PushDetailView")
+        }
+        else if btnInitTag == 1{
+            view = self.storyboard?.instantiateViewController(withIdentifier: "PushDetailView")
+        }
+        else if btnInitTag == 2{
+            view = self.storyboard?.instantiateViewController(withIdentifier: "MyFeedbackDetailView")
+        }
+        else if btnInitTag == 3{
+            view = self.storyboard?.instantiateViewController(withIdentifier: "DraftDetailView")
+        }
+        self.navigationController?.pushViewController(view!, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

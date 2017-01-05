@@ -106,9 +106,10 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
     }
     
     @IBAction func confirmBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
         
         //self.dismiss(animated: true, completion: { (parameters) -> Void in })
+        self.navigationController?.popViewController(animated: true)
     }
     
     func updateClientNumber(notifaction: NSNotification){

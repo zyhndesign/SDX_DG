@@ -10,7 +10,7 @@ import UIKit
 
 class ConsumeListViewController: UITableViewController {
     
-    let customerIconArray:[String] = ["customerIcon1","customerIcon2","customerIcon3","customerIcon4","customerIcon5"]
+    let customerIconArray:[String] = ["inCloth1","inCloth2","inCloth3","inCloth4","inCloth5","inCloth6"]
     let customerNameArray:[String] = ["Aaron","Lyndon","Dempsey","Baldwin","Eric","Clark","Harlan","Chapman","Goddard","Donald","Julius","Abraham","Felix","Geoffrey","Elmer","Blake","Franklin","Clarence","Lewis","Bartholomew","Gabriel"]
     
     var storyBoard:UIStoryboard?

@@ -26,7 +26,7 @@ class ConsumerListCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        thumbView = UIImageView.init(frame: CGRect.init(x: 15, y: 5, width: 100, height: 100))
+        thumbView = UIImageView.init(frame: CGRect.init(x: 15, y: 10, width: 90, height: 90))
         thumbView?.contentMode = UIViewContentMode.scaleAspectFill
         self.contentView.addSubview(thumbView!)
         
@@ -44,6 +44,7 @@ class ConsumerListCell: UITableViewCell {
         matchBtn?.layer.cornerRadius = 7.0
         matchBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         matchBtn?.backgroundColor = yellowColor
+        matchBtn?.addTarget(self, action: #selector(matchBtnClick(sender:)), for: UIControlEvents.touchUpInside)
         self.contentView.addSubview(matchBtn!)
         
         consumerTime = UILabel.init(frame: CGRect.init(x: screenWidth - 80, y: 70, width: 100, height: 25))
@@ -59,6 +60,11 @@ class ConsumerListCell: UITableViewCell {
         consumerTime?.text = time
         sBoard = storyBoard
         nController = navigationController
+    }
+    
+    func matchBtnClick(sender:Any){
+        let view = sBoard?.instantiateViewController(withIdentifier: "MatchCollectionView")
+        nController?.pushViewController(view!, animated: true)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -55,6 +55,7 @@
 		DBA3BC671E0A5A0800551D54 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBEE1E0A1FBC00551D54 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBA533011E0A5CA8002D2CB4 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA532F41E0A5B5D002D2CB4 /* AlamofireImage.framework */; };
 		DBA533021E0A5CA8002D2CB4 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA532F41E0A5B5D002D2CB4 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +341,7 @@
 		DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../../../OpenSource/swift/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		DBA3BC2F1E0A586F00551D54 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../OpenSource/swift/AlamofireImage/Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = ../../../OpenSource/swift/AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
+		DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFeedbackDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +476,7 @@
 				DB818A401E1CA6B200E09977 /* PushDetailControllerView.swift */,
 				DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */,
 				DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */,
+				DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -889,6 +892,7 @@
 				DB818A391E16586900E09977 /* ShareViewController.swift in Sources */,
 				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,
 				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
+				DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */,
 				DB0E98941E0E5F4500443696 /* HelpAndBackViewController.swift in Sources */,
 				DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */,
 				DB0E98961E0E657F00443696 /* PersonalInfoViewController.swift in Sources */,
