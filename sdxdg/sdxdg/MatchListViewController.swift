@@ -56,7 +56,16 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         modelView.addSubview(trousersLayer)
         modelView.addSubview(outClothLayer)
         
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "modelMatch"), object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("disppear...")
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,6 +73,21 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         // Dispose of any resources that can be recreated.
     }
 
+    func updateMatchModel(notifaction: NSNotification){
+        let modelImgName:String = (notifaction.object as? String)!
+        print(modelImgName)
+        if garmentType == 0{
+            clothLayer.image = UIImage.init(named: modelImgName.appending("_f"))
+        }
+        else if garmentType == 1{
+            outClothLayer.image = UIImage.init(named: modelImgName.appending("_f"))
+        }
+        else if garmentType == 2{
+            trousersLayer.image = UIImage.init(named: modelImgName)!
+        }
+    }
+
+    
     //返回多少个组
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -96,6 +120,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         }
         
         cell.imgView?.image = UIImage.init(named: (garmentModel?.imageName)!)
+        cell.imgName = garmentModel?.imageName
         cell.layer.borderWidth = 0.3
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.titleLabel!.text = garmentModel?.title
@@ -121,19 +146,6 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         print(indexPath.row)
-        var garmentModel:GarmentModel?
-        if garmentType == 0{
-            garmentModel = innerClothList[indexPath.row]
-            clothLayer.image = UIImage.init(named: (garmentModel?.imageName)!.appending("_f"))
-        }
-        else if garmentType == 1{
-            garmentModel = outterClothList[indexPath.row]
-            outClothLayer.image = UIImage.init(named: (garmentModel?.imageName)!.appending("_f"))
-        }
-        else if garmentType == 2{
-            garmentModel = trouserClothList[indexPath.row]
-            trousersLayer.image = UIImage.init(named: (garmentModel?.imageName)!)
-        }
         
         let view = self.storyboard?.instantiateViewController(withIdentifier: "MerchandiseDetailView")
         self.navigationController?.pushViewController(view!, animated: true)

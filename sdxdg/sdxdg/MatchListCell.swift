@@ -15,6 +15,7 @@ class MatchListCell : UICollectionViewCell{
     var titleLabel:UILabel?//cell上title
     var priceLabel:UILabel?//cell上价格
     var matchImage:UIImageView?
+    var imgName:String?
     
     var customerLabel1:UILabel?//cell相关客户1
     var customerLabel2:UILabel?//cell相关客户2
@@ -37,6 +38,9 @@ class MatchListCell : UICollectionViewCell{
         matchImage = UIImageView(frame: CGRect(origin: CGPoint.init(x:matchImageX, y: matchImageY), size: CGSize.init(width: 40, height: 40)))
         matchImage?.image = UIImage.init(named: "selectMatchIcon")
         matchImage?.contentMode = UIViewContentMode.scaleAspectFit
+        let tapMatchImage:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapMatchImageClick(sender:)))
+        matchImage?.addGestureRecognizer(tapMatchImage)
+        matchImage?.isUserInteractionEnabled = true
         self.addSubview(matchImage!)
         
         titleLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: 5, y: imgView!.frame.maxY-12), size: CGSize.init(width: (width-50)/2, height: 50)))
@@ -84,6 +88,11 @@ class MatchListCell : UICollectionViewCell{
         label.layer.cornerRadius = 7.0
         label.layer.borderWidth = 1
         label.layer.borderColor = UIColor.init(colorLiteralRed: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0).cgColor
+    }
+    
+    func tapMatchImageClick(sender:Any){
+        print("click match...")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modelMatch"), object: imgName)
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -38,7 +38,7 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //注册广播机制，监听选择的人数
+        //注册广播机制
         NotificationCenter.default.addObserver(self, selector:#selector(self.updateClientNumber(notifaction:)), name: NSNotification.Name(rawValue: "customerCount"), object: nil)
     }
     
