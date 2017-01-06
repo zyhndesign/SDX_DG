@@ -49,6 +49,11 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var saveBtn:UIButton?
     var savePanel:UIView?
     
+    var model1String:[String] = []
+    var model2String:[String] = []
+    var model3String:[String] = []
+    var model4String:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
@@ -133,7 +138,8 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         scrollView.addGestureRecognizer(gesture)
        
         let naviHeight = self.navigationController?.navigationBar.frame.height
-        fourViewPanel = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: 0, y: naviHeight! + 10), size: CGSize.init(width: screenWidth, height: screenHeight)))
+        let statusHeight = UIApplication.shared.statusBarFrame.size.height
+        fourViewPanel = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: 0, y: naviHeight! + statusHeight), size: CGSize.init(width: screenWidth, height: screenHeight)))
         fourViewPanel?.backgroundColor = UIColor.white
         
         scrollView.delegate = self
@@ -196,21 +202,25 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             model1OutCloth?.image = UIImage.init(named: image[1])
             model1InCloth?.image = UIImage.init(named: image[0])
             model1Trouser?.image = UIImage.init(named: image[2])
+            model1String = image
         }
         else if (currentPage == 1){
             model2OutCloth?.image = UIImage.init(named: image[1])
             model2InCloth?.image = UIImage.init(named: image[0])
             model2Trouser?.image = UIImage.init(named: image[2])
+            model2String = image
         }
         else if (currentPage == 2){
             model3OutCloth?.image = UIImage.init(named: image[1])
             model3InCloth?.image = UIImage.init(named: image[0])
             model3Trouser?.image = UIImage.init(named: image[2])
+            model3String = image
         }
         else if (currentPage == 3){
             model4OutCloth?.image = UIImage.init(named: image[1])
             model4InCloth?.image = UIImage.init(named: image[0])
             model4Trouser?.image = UIImage.init(named: image[2])
+            model4String = image
         }
     }
 
@@ -251,29 +261,29 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         }
         else{
             buttonSelect = true
+            let layer1:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: 10, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            if (model1String.count > 0){
+                self.addClothLayer(mLayer:layer1, modelString:model1String)
+            }
+    
+            let layer2:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: 10, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            if (model2String.count > 0){
+                self.addClothLayer(mLayer:layer2, modelString:model2String)
+            }
             
-            let layer1:CALayer = CALayer()
-            layer1.frame = CGRect.init(origin: CGPoint.init(x: 20, y: 0), size: CGSize.init(width: screenWidth/2 - 30, height: screenHeight/2 - 30))
+            let layer3:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: screenHeight/2 - 50, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            if (model3String.count > 0){
+                self.addClothLayer(mLayer:layer3, modelString:model3String)
+            }
             
-            layer1.contents = UIImage.init(named: "four1")?.cgImage
-            fourViewPanel?.layer.addSublayer(layer1)
+            let layer4:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: screenHeight/2 - 50, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            if (model4String.count > 0){
+                self.addClothLayer(mLayer:layer4, modelString:model4String)
+            }
             
-            let layer2:CALayer = CALayer()
-            layer2.frame = CGRect.init(origin: CGPoint.init(x: screenWidth/2 + 10, y: 0), size: CGSize.init(width: screenWidth/2 - 30, height: screenHeight/2 - 30))
-            layer2.contents = UIImage.init(named: "four2")?.cgImage
-            fourViewPanel?.layer.addSublayer(layer2)
-            
-            let layer3:CALayer = CALayer()
-            layer3.frame = CGRect.init(origin: CGPoint.init(x: 20, y: screenHeight/2 - 50), size: CGSize.init(width: screenWidth/2 - 30, height: screenHeight/2 - 30))
-            layer3.contents = UIImage.init(named: "four3")?.cgImage
-            fourViewPanel?.layer.addSublayer(layer3)
-            
-            let layer4:CALayer = CALayer()
-            layer4.frame = CGRect.init(origin: CGPoint.init(x: screenWidth/2 + 10, y: screenHeight/2 - 50), size: CGSize.init(width: screenWidth/2 - 30, height: screenHeight/2 - 30))
-            layer4.contents = UIImage.init(named: "four4")?.cgImage
-            fourViewPanel?.layer.addSublayer(layer4)
             self.view.addSubview(fourViewPanel!)
             fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.1,y: 0.1))
+            
             
             //设置动画效果，动画时间长度 1 秒。
             UIView.animate(withDuration: 0.5, delay:0.01,
@@ -293,7 +303,31 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         }
     }
     
+    func addModel(view:UIView, x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat) -> CALayer{
+        let layer:CALayer = CALayer()
+        layer.frame = CGRect.init(origin: CGPoint.init(x: x, y: y), size: CGSize.init(width: width, height: height))
+        layer.contents = UIImage.init(named: "model")?.cgImage
+        view.layer.addSublayer(layer)
+        return layer
+    }
+    
+    func addModelCloth(mLayer:CALayer,imgName:String,x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat){
+        let layer:CALayer = CALayer()
+        layer.contents = UIImage.init(named: imgName)?.cgImage
+        layer.frame = CGRect.init(x: x, y: y, width: width, height: height)
+        mLayer.addSublayer(layer)
+    }
+    
+    func addClothLayer(mLayer:CALayer, modelString:Array<String>){
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[0], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[2], x: -20, y: 80, width: screenWidth/2 - 50, height: screenHeight/2 - 160)
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[1], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+    }
     @IBAction func moreBtnClick(_ sender: Any) {
+        if (buttonSelect){
+            buttonSelect = false
+            self.fourViewPanel?.removeFromSuperview()
+        }
         let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
         animation.duration = 0.5
         if (dropMenuPanel?.isHidden)!{
@@ -319,7 +353,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 50))
         animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y:-50))
         dropMenuPanel?.layer.add(animation, forKey: nil)
-        self.perform(#selector(hiddenMenuPanel), with: nil, afterDelay: 0.5)
+        self.perform(#selector(hiddenMenuPanel), with: nil, afterDelay: 0.3)
         
     }
     
