@@ -70,6 +70,7 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let iconRandomNum2:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         let iconRandomNum4:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
+        matchCell.selectionStyle = UITableViewCellSelectionStyle.none
         matchCell.initCellData(titleLable: "SUNDANCE 商务男装造型", timeLabel: "16:25 2016-12-26", model1: fbIconArray[iconRandomNum1], model2: fbIconArray[iconRandomNum2], model3: fbIconArray[iconRandomNum3], model4: fbIconArray[iconRandomNum4])
         return matchCell
     }
@@ -108,18 +109,21 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         pushBtn.isSelected = true
         backBtn.isSelected = false
         draftBtn.isSelected = false
+        btnInitTag = 1
     }
     
     @IBAction func backBtnClick(_ sender: Any) {
         pushBtn.isSelected = false
         backBtn.isSelected = true
         draftBtn.isSelected = false
+        btnInitTag = 2
     }
     
     @IBAction func draftBtnClick(_ sender: Any) {
         pushBtn.isSelected = false
         backBtn.isSelected = false
         draftBtn.isSelected = true
+        btnInitTag = 3
     }
     
 }

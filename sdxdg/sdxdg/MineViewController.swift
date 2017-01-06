@@ -63,6 +63,7 @@ class MineViewController: UIViewController {
         timeSegmentControl = UISegmentedControl(items:items)
         timeSegmentControl?.frame = CGRect.init(x: 30, y: 15, width: screenWidth - 60, height: 30)
         timeSegmentControl?.selectedSegmentIndex = 0
+        timeSegmentControl?.tintColor = UIColor.init(red: 209/255.0, green: 214/255.0, blue: 218/255.0, alpha: 1)
         timeSegmentControl?.addTarget(self, action: #selector(segmentControlClick(sender:)), for: UIControlEvents.valueChanged)
         graphView.addSubview(timeSegmentControl!)
         
