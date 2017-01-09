@@ -416,8 +416,8 @@
 		DB4EE5901DFF841800BBCE4F /* sdxdg */ = {
 			isa = PBXGroup;
 			children = (
-				DBDE5C2B1E231C85002454F5 /* protocol */,
 				DB818AAD1E1CF1BA00E09977 /* sdxdp */,
+				DBDE5C2B1E231C85002454F5 /* protocol */,
 				DB818A441E1CD4FF00E09977 /* oc_lib */,
 				DB818A1F1E15ED7800E09977 /* model */,
 				DB4EE5BF1DFFDB8A00BBCE4F /* Controller */,

@@ -50,12 +50,12 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         matchCollectionView.delegate = self;
         matchCollectionView.dataSource = self;
         
-        clothLayer.frame = CGRect.init(x: 10, y:90, width: 80, height: 70)
-        clothLayer.contentMode = UIViewContentMode.scaleAspectFill
-        outClothLayer.frame = CGRect.init(x: 11, y: 90, width: 80, height: 70)
-        outClothLayer.contentMode = UIViewContentMode.scaleAspectFill
-        trousersLayer.frame = CGRect.init(x: 11, y: 90, width: 80, height: 152)
-        trousersLayer.contentMode = UIViewContentMode.scaleAspectFill
+        clothLayer.frame = CGRect.init(x: 0, y:0, width: 100, height: 240)
+        clothLayer.contentMode = UIViewContentMode.scaleAspectFit
+        outClothLayer.frame = CGRect.init(x: 0, y: 0, width: 100, height: 240)
+        outClothLayer.contentMode = UIViewContentMode.scaleAspectFit
+        trousersLayer.frame = CGRect.init(x: 0, y: 50, width: 100, height: 240)
+        trousersLayer.contentMode = UIViewContentMode.scaleAspectFit
         modelView.addSubview(clothLayer)
         modelView.addSubview(trousersLayer)
         modelView.addSubview(outClothLayer)
@@ -90,7 +90,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             outClothLayer.image = UIImage.init(named: outClothPath!)
         }
         else if garmentType == 2{
-            trouserPath = modelImgName
+            trouserPath = modelImgName.appending("_f")
             trousersLayer.image = UIImage.init(named: modelImgName)!
         }
     }

@@ -73,12 +73,12 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView1?.image = UIImage.init(named: "model")
         modelView1?.contentMode = UIViewContentMode.scaleAspectFit
         
-        model1InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model1OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model1Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model1InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model1OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model1Trouser = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2 , height: scrollHeight))
         model1InCloth?.contentMode = UIViewContentMode.scaleAspectFit
         model1OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
-        model1Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        model1Trouser?.contentMode = UIViewContentMode.scaleAspectFit
         modelView1?.addSubview(model1InCloth!)
         modelView1?.addSubview(model1Trouser!)
         modelView1?.addSubview(model1OutCloth!)
@@ -92,12 +92,12 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView2?.image = UIImage.init(named: "model")
         modelView2?.contentMode = UIViewContentMode.scaleAspectFit
         modelView2?.layer.transform = CATransform3DMakeScale(0.8, 0.8, 0)
-        model2InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model2OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model2Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model2InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model2OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model2Trouser = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2 , height: scrollHeight))
         model2InCloth?.contentMode = UIViewContentMode.scaleAspectFit
         model2OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
-        model2Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        model2Trouser?.contentMode = UIViewContentMode.scaleAspectFit
         modelView2?.addSubview(model2InCloth!)
         modelView2?.addSubview(model2Trouser!)
         modelView2?.addSubview(model2OutCloth!)
@@ -107,12 +107,12 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView3?.image = UIImage.init(named: "model")
         modelView3?.contentMode = UIViewContentMode.scaleAspectFit
         modelView3?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
-        model3InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model3OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model3Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model1InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model3OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model3Trouser = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2 , height: scrollHeight))
         model3InCloth?.contentMode = UIViewContentMode.scaleAspectFit
         model3OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
-        model3Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        model3Trouser?.contentMode = UIViewContentMode.scaleAspectFit
         modelView3?.addSubview(model3InCloth!)
         modelView3?.addSubview(model3Trouser!)
         modelView3?.addSubview(model3OutCloth!)
@@ -122,12 +122,12 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView4?.image = UIImage.init(named: "model")
         modelView4?.contentMode = UIViewContentMode.scaleAspectFit
         modelView4?.layer.transform = CATransform3DMakeScale(0.4, 0.4, 0)
-        model4InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model4OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 5, width: screenWidth/2, height: scrollHeight))
-        model4Trouser = UIImageView.init(frame: CGRect.init(x: -15, y: scrollHeight / 2 - 45, width: screenWidth/2 + 35 , height: scrollHeight / 2 + 40))
+        model4InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model4OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model4Trouser = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2 , height: scrollHeight))
         model4InCloth?.contentMode = UIViewContentMode.scaleAspectFit
         model4OutCloth?.contentMode = UIViewContentMode.scaleAspectFit
-        model4Trouser?.contentMode = UIViewContentMode.scaleAspectFill
+        model4Trouser?.contentMode = UIViewContentMode.scaleAspectFit
         modelView4?.addSubview(model4InCloth!)
         modelView4?.addSubview(model4Trouser!)
         modelView4?.addSubview(model4OutCloth!)

@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dA-Nb-bsk">
-                                <rect key="frame" x="138" y="64" width="138.33333333333331" height="52"/>
+                                <rect key="frame" x="138" y="64" width="138" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="1gP-t4-XpO"/>
                                 </constraints>
@@ -275,7 +275,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNQ-Bf-i3z">
-                                <rect key="frame" x="276.33333333333326" y="64" width="137.66666666666669" height="52"/>
+                                <rect key="frame" x="276" y="64" width="138" height="52"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="bcZ-Bc-eJQ"/>
@@ -837,7 +837,7 @@
         <scene sceneID="l6p-M5-oLf">
             <objects>
                 <navigationController id="al2-7k-0Yu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lkx-i0-gK0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lkx-i0-gK0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -922,7 +922,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmJ-1b-0sZ">
-                                <rect key="frame" x="138" y="64" width="138.33333333333331" height="45"/>
+                                <rect key="frame" x="138" y="64" width="138" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bel-sT-oNy"/>
                                 </constraints>
@@ -934,7 +934,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-nR-ce5">
-                                <rect key="frame" x="276.33333333333326" y="64" width="137.66666666666669" height="45"/>
+                                <rect key="frame" x="276" y="64" width="138" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lYT-jr-LVH"/>
                                 </constraints>
@@ -977,7 +977,7 @@
         <scene sceneID="u4y-gh-Cvm">
             <objects>
                 <navigationController id="Lgf-8u-zRE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Q5-ln-6gb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Q5-ln-6gb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1420,7 +1420,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCm-IQ-HhX">
-                                <rect key="frame" x="19.999999999999993" y="231" width="100.33333333333331" height="21"/>
+                                <rect key="frame" x="20" y="231" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1433,14 +1433,14 @@
                                 </state>
                             </button>
                             <button tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8N-8B-53B">
-                                <rect key="frame" x="156" y="94" width="100.33333333333331" height="30"/>
+                                <rect key="frame" x="156" y="94" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="外套">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn3-5G-bPK">
-                                <rect key="frame" x="294.33333333333326" y="94" width="99.666666666666686" height="30"/>
+                                <rect key="frame" x="294" y="94" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="下装">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1454,28 +1454,28 @@
                                 </state>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekm-kG-8xI">
-                                <rect key="frame" x="156" y="178" width="100.33333333333331" height="30"/>
+                                <rect key="frame" x="156" y="178" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="时尚系列">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-Qf-bgC">
-                                <rect key="frame" x="294.33333333333326" y="178" width="99.666666666666686" height="30"/>
+                                <rect key="frame" x="294" y="178" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="自在系列">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybs-bd-tXJ">
-                                <rect key="frame" x="19.999999999999993" y="271" width="100.33333333333331" height="30"/>
+                                <rect key="frame" x="20" y="271" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="夹克">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-HP-Cci">
-                                <rect key="frame" x="158.33333333333337" y="271" width="99.666666666666629" height="30"/>
+                                <rect key="frame" x="158" y="271" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="轻单衣">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1489,14 +1489,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAh-pH-BUw">
-                                <rect key="frame" x="19.999999999999993" y="315" width="100.33333333333331" height="30"/>
+                                <rect key="frame" x="20" y="315" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="皮衣">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZI-Ux-mqf">
-                                <rect key="frame" x="157.33333333333337" y="315" width="99.666666666666629" height="30"/>
+                                <rect key="frame" x="157" y="315" width="100" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="风衣">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1650,7 +1650,7 @@
         <scene sceneID="rEM-I9-UGr">
             <objects>
                 <navigationController id="JGg-1m-RTP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZbG-JB-8HR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ZbG-JB-8HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1702,7 +1702,7 @@
         <image name="matchIconSelect" width="31" height="28"/>
         <image name="mineIconNormal" width="22" height="25"/>
         <image name="mineIconSelect" width="22" height="27"/>
-        <image name="model" width="89" height="286"/>
+        <image name="model" width="150" height="485"/>
         <image name="more" width="20" height="5"/>
         <image name="normalBtn" width="127" height="42"/>
         <image name="rightArrow" width="8" height="13"/>
