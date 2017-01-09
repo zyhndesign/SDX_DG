@@ -107,7 +107,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         modelView3?.image = UIImage.init(named: "model")
         modelView3?.contentMode = UIViewContentMode.scaleAspectFit
         modelView3?.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0)
-        model1InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
+        model3InCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
         model3OutCloth = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2, height: scrollHeight))
         model3Trouser = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth/2 , height: scrollHeight))
         model3InCloth?.contentMode = UIViewContentMode.scaleAspectFit
@@ -320,7 +320,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     
     func addClothLayer(mLayer:CALayer, modelString:Array<String>){
         self.addModelCloth(mLayer: mLayer, imgName: modelString[0], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[2], x: -20, y: 80, width: screenWidth/2 - 50, height: screenHeight/2 - 160)
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[2], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
         self.addModelCloth(mLayer: mLayer, imgName: modelString[1], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
     }
     @IBAction func moreBtnClick(_ sender: Any) {
