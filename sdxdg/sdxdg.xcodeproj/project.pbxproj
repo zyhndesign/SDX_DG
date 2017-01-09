@@ -55,6 +55,8 @@
 		DBA3BC671E0A5A0800551D54 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3BBEE1E0A1FBC00551D54 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBA533011E0A5CA8002D2CB4 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA532F41E0A5B5D002D2CB4 /* AlamofireImage.framework */; };
 		DBA533021E0A5CA8002D2CB4 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA532F41E0A5B5D002D2CB4 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBDE5C431E231CC8002454F5 /* PassCustomerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C421E231CC8002454F5 /* PassCustomerProtocol.swift */; };
+		DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C441E2324FA002454F5 /* CustomerModel.swift */; };
 		DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -341,6 +343,8 @@
 		DBA3BBE31E0A1FBC00551D54 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../../../OpenSource/swift/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		DBA3BC2F1E0A586F00551D54 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../OpenSource/swift/AlamofireImage/Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = ../../../OpenSource/swift/AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
+		DBDE5C421E231CC8002454F5 /* PassCustomerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassCustomerProtocol.swift; sourceTree = "<group>"; };
+		DBDE5C441E2324FA002454F5 /* CustomerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFeedbackDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -412,6 +416,7 @@
 		DB4EE5901DFF841800BBCE4F /* sdxdg */ = {
 			isa = PBXGroup;
 			children = (
+				DBDE5C2B1E231C85002454F5 /* protocol */,
 				DB818AAD1E1CF1BA00E09977 /* sdxdp */,
 				DB818A441E1CD4FF00E09977 /* oc_lib */,
 				DB818A1F1E15ED7800E09977 /* model */,
@@ -485,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				DB818A361E15EE6B00E09977 /* GarmentModel.swift */,
+				DBDE5C441E2324FA002454F5 /* CustomerModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -547,6 +553,14 @@
 				DBA533001E0A5B5D002D2CB4 /* AlamofireImage.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DBDE5C2B1E231C85002454F5 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DBDE5C421E231CC8002454F5 /* PassCustomerProtocol.swift */,
+			);
+			name = protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -887,7 +901,9 @@
 				DB0E98A41E10E9A300443696 /* FeedbackListCell.swift in Sources */,
 				DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */,
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
+				DBDE5C431E231CC8002454F5 /* PassCustomerProtocol.swift in Sources */,
 				DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */,
+				DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */,
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
 				DB818A391E16586900E09977 /* ShareViewController.swift in Sources */,
 				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,

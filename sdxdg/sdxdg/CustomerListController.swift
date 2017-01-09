@@ -21,6 +21,9 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
     let customerIconArray:[String] = ["customerIcon1","customerIcon2","customerIcon3","customerIcon4","customerIcon5"]
     let customerNameArray:[String] = ["Aaron","Lyndon","Dempsey","Baldwin","Eric","Clark","Harlan","Chapman","Goddard","Donald","Julius","Abraham","Felix","Geoffrey","Elmer","Blake","Franklin","Clarence","Lewis","Bartholomew","Gabriel"]
     
+    var customerProtocolDelegate:PassCustomerProtocol?
+    var arrayList:[String] = []
+    
     override func loadView() {
         super.loadView()
     }
@@ -107,15 +110,32 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
     
     @IBAction func confirmBtnClick(_ sender: Any) {
         //self.dismiss(animated: true, completion: nil)
-        
         //self.dismiss(animated: true, completion: { (parameters) -> Void in })
         self.navigationController?.popViewController(animated: true)
+        
+        var customerString:String = ""
+        for index in 0 ..< arrayList.count{
+            customerString = customerString + arrayList[index] + ", "
+        }
+        self.customerProtocolDelegate?.returnCustomerValue(customer: customerString)
     }
     
     func updateClientNumber(notifaction: NSNotification){
-        let clientNum:Int = (notifaction.object as? Int)!
-        customerNum = customerNum + clientNum
+        let customerModel:CustomerModel = (notifaction.object as? CustomerModel)!
+        customerNum = customerNum + customerModel.customerNum!
         confirmBtn.setTitle("确定("+String(customerNum)+")", for: UIControlState.normal)
+        if (customerModel.customerNum! > 0){
+            arrayList.append(customerModel.customerName!)
+        }
+        else{
+            var removeIndex:Int = 0
+            for index in 0 ..< arrayList.count{
+                if arrayList[index] == customerModel.customerName{
+                    removeIndex = index
+                    arrayList.remove(at: removeIndex)
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

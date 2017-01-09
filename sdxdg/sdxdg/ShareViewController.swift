@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ShareViewController : UIViewController,UIWebViewDelegate{
+class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProtocol{
     
     @IBOutlet var addCustomerImage: UIImageView!
     @IBOutlet var webView: UIWebView!
     var hud:MBProgressHUD?
+    
+    @IBOutlet var customerLabel: UILabel!
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var contextTextView: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,14 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
         webView.loadRequest(request)
         
         hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        customerLabel.numberOfLines = 1
+        customerLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
+        customerLabel.layer.borderWidth = 1
+        customerLabel.layer.borderColor = UIColor.lightGray.cgColor
+        
+        contextTextView.layer.borderColor = UIColor.lightGray.cgColor
+        contextTextView.layer.borderWidth = 1
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -43,9 +56,15 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
     }
     
     func addCustomerGestureTap(sender:UITapGestureRecognizer){
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "CustomerList")
-        self.navigationController?.pushViewController(view!, animated: true)
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "CustomerList") as! CustomerListController
+        view.customerProtocolDelegate = self
+        self.navigationController?.pushViewController(view, animated: true)
     }
+    
+    func returnCustomerValue(customer:String){
+        customerLabel.text = customerLabel.text! + customer
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

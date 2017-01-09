@@ -78,6 +78,8 @@ class CustomerTableViewCell : UITableViewCell{
     }
     
     func buttonTapped(sender: UIButton) {
+        let customerModel:CustomerModel = CustomerModel()
+        
         var customerNum:Int = 0
         if (sender.isSelected){
             sender.isSelected = false
@@ -89,8 +91,9 @@ class CustomerTableViewCell : UITableViewCell{
             sender.setImage(UIImage.init(named: "radioBtnSelect"), for: UIControlState.normal)
             customerNum = 1
         }
-    
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "customerCount"), object: customerNum)
+        customerModel.customerNum = customerNum
+        customerModel.customerName = nameLabel?.text
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "customerCount"), object: customerModel)
     }
     
     func initListData(imageUrl: String, name: String){
