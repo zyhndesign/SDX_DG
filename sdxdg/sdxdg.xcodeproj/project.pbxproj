@@ -57,6 +57,7 @@
 		DBA533021E0A5CA8002D2CB4 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBA532F41E0A5B5D002D2CB4 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBDE5C431E231CC8002454F5 /* PassCustomerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C421E231CC8002454F5 /* PassCustomerProtocol.swift */; };
 		DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C441E2324FA002454F5 /* CustomerModel.swift */; };
+		DBDE5C471E24AD2B002454F5 /* HotMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */; };
 		DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -345,6 +346,7 @@
 		DBA532E81E0A5B5D002D2CB4 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = ../../../OpenSource/swift/AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
 		DBDE5C421E231CC8002454F5 /* PassCustomerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassCustomerProtocol.swift; sourceTree = "<group>"; };
 		DBDE5C441E2324FA002454F5 /* CustomerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
+		DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMatchCell.swift; sourceTree = "<group>"; };
 		DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFeedbackDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,6 +484,7 @@
 				DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */,
 				DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */,
 				DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */,
+				DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				DB0E98A41E10E9A300443696 /* FeedbackListCell.swift in Sources */,
 				DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */,
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
+				DBDE5C471E24AD2B002454F5 /* HotMatchCell.swift in Sources */,
 				DBDE5C431E231CC8002454F5 /* PassCustomerProtocol.swift in Sources */,
 				DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */,
 				DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */,

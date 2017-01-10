@@ -19,16 +19,16 @@
     background: #fff;
 }
 .ownColors .ownColor:nth-child(1){
-    border: 1px solid #d8d8d8;
-    background: #d8d8d8;
+    border: 1px solid #cfcaeb;
+    background: #cfcaeb;
 }
 .ownColors .ownColor:nth-child(2){
-    border: 1px solid #3a588a;
-    background: #3a588a;
+    border: 1px solid #deaed5;
+    background: #deaed5;
 }
 .ownColors .ownColor:nth-child(3){
-    border: 1px solid #adbfee;
-    background: #adbfee;
+    border: 1px solid #b5d0ee;
+    background: #b5d0ee;
 }
 
 .ownCustomers{

@@ -39,11 +39,12 @@ class ClientTableViewCell: UITableViewCell {
         self.contentView.addSubview(nameLabel!)
         
         self.addMatchBtn = UIButton()
-        self.addMatchBtn?.setTitle("为TA搭配", for: UIControlState.normal)
-        self.addMatchBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
-        self.addMatchBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        self.addMatchBtn?.layer.cornerRadius = 7.0
-        self.addMatchBtn?.backgroundColor = yellowColor
+        self.addMatchBtn?.setBackgroundImage(UIImage.init(named: "clientMatch"), for: UIControlState.normal)
+        //self.addMatchBtn?.setTitle("为TA搭配", for: UIControlState.normal)
+        //self.addMatchBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+        //self.addMatchBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        //self.addMatchBtn?.layer.cornerRadius = 7.0
+        //self.addMatchBtn?.backgroundColor = yellowColor
         self.contentView.addSubview(addMatchBtn!)
         
         self.iconImageView?.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +60,7 @@ class ClientTableViewCell: UITableViewCell {
         addWidthAndHeightConstraintForView(radioBtn!,width: 30,height: 30)
         addWidthAndHeightConstraintForView(iconImageView!, width: 40, height: 40)
         addWidthAndHeightConstraintForView(nameLabel!, width: 110, height: 40)
-        addWidthAndHeightConstraintForView(addMatchBtn!, width: 80, height: 30)
+        addWidthAndHeightConstraintForView(addMatchBtn!, width: 50, height: 30)
         
         let constraint1:NSLayoutConstraint = NSLayoutConstraint(item:radioBtn!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
         let constraint2:NSLayoutConstraint = NSLayoutConstraint(item:iconImageView!, attribute: .left, relatedBy: .equal, toItem:radioBtn!, attribute: .right, multiplier:1.0, constant:10)
@@ -109,13 +110,13 @@ class ClientTableViewCell: UITableViewCell {
             customerNum = 1
         }
         
-        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "customerCount"), object: customerNum)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "customerCount"), object: customerNum)
     }
     
     func addMatchBtnClick(sender:UIButton){
         print("为TA搭配")
-        let view:ClientDetailViewController = self.storyBoard?.instantiateViewController(withIdentifier: "ClientDetailView") as! ClientDetailViewController
-        view.titleName = nameLabel?.text
+        let view:MatchListViewController = self.storyBoard?.instantiateViewController(withIdentifier: "MatchCollectionView") as! MatchListViewController
+        
         self.navigationController?.pushViewController(view, animated: true)
     }
     

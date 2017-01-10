@@ -231,7 +231,7 @@ class MineViewController: UIViewController {
     }
     
     func hotMatchAllClick(sender: Any){
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView")
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "HotMatchView")
         self.navigationController?.pushViewController(view!, animated: true)
     }
     

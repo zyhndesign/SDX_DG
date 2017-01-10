@@ -87,6 +87,11 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         return 0.1
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let view:ClientDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "ClientDetailView") as! ClientDetailViewController
+        //view.titleName = nameLabel?.text
+        self.navigationController?.pushViewController(view, animated: true)
+    }
     //创建各单元显示内容(创建参数indexPath指定的单元）
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //为了提供表格显示性能，已创建完成的单元需重复使用

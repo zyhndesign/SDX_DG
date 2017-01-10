@@ -17,6 +17,6 @@ app.run(function($ionicPlatform) {
 });
 app.controller("super",["$scope",function($scope){
 
-    $scope.images=["data/pDetail/1.png","data/pDetail/2.png","data/pDetail/3.png"];
+    $scope.images=["data/pDetail/1.png","data/pDetail/2.png","data/pDetail/3.png","data/pDetail/4.png"];
 
 }]);
