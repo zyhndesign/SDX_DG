@@ -197,31 +197,39 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     func updateMatchModel(notifaction: NSNotification){
         let modelImgName:String = (notifaction.object as? String)!
         var image:[String] = modelImgName.components(separatedBy: "|")
+        if (image.count == 4){
+            let modelNum:Int = Int(image[3])!
+            
+            if (modelNum == 1){
+                model1OutCloth?.image = UIImage.init(named: image[1])
+                model1InCloth?.image = UIImage.init(named: image[0])
+                model1Trouser?.image = UIImage.init(named: image[2])
+                model1String = image
+                self.scrollView.contentOffset = CGPoint.init(x: 0, y: 0)
+            }
+            else if (modelNum == 2){
+                model2OutCloth?.image = UIImage.init(named: image[1])
+                model2InCloth?.image = UIImage.init(named: image[0])
+                model2Trouser?.image = UIImage.init(named: image[2])
+                model2String = image
+                self.scrollView.contentOffset = CGPoint.init(x: screenWidth/2, y: 0)
+            }
+            else if (modelNum == 3){
+                model3OutCloth?.image = UIImage.init(named: image[1])
+                model3InCloth?.image = UIImage.init(named: image[0])
+                model3Trouser?.image = UIImage.init(named: image[2])
+                model3String = image
+                self.scrollView.contentOffset = CGPoint.init(x: screenWidth, y: 0)
+            }
+            else if (modelNum == 4){
+                model4OutCloth?.image = UIImage.init(named: image[1])
+                model4InCloth?.image = UIImage.init(named: image[0])
+                model4Trouser?.image = UIImage.init(named: image[2])
+                model4String = image
+                self.scrollView.contentOffset = CGPoint.init(x: screenWidth + screenWidth/2, y: 0)
+            }
+        }
         
-        if (currentPage == 0){
-            model1OutCloth?.image = UIImage.init(named: image[1])
-            model1InCloth?.image = UIImage.init(named: image[0])
-            model1Trouser?.image = UIImage.init(named: image[2])
-            model1String = image
-        }
-        else if (currentPage == 1){
-            model2OutCloth?.image = UIImage.init(named: image[1])
-            model2InCloth?.image = UIImage.init(named: image[0])
-            model2Trouser?.image = UIImage.init(named: image[2])
-            model2String = image
-        }
-        else if (currentPage == 2){
-            model3OutCloth?.image = UIImage.init(named: image[1])
-            model3InCloth?.image = UIImage.init(named: image[0])
-            model3Trouser?.image = UIImage.init(named: image[2])
-            model3String = image
-        }
-        else if (currentPage == 3){
-            model4OutCloth?.image = UIImage.init(named: image[1])
-            model4InCloth?.image = UIImage.init(named: image[0])
-            model4Trouser?.image = UIImage.init(named: image[2])
-            model4String = image
-        }
     }
 
     
@@ -232,21 +240,22 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     
     func imageTapped(sender: UIGestureRecognizer){
         print("click...")
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "MatchCollectionView")
+        let view:MatchListViewController = self.storyboard?.instantiateViewController(withIdentifier: "MatchCollectionView") as! MatchListViewController
         //self.present(view!, animated: true, completion: {() -> Void in (print("complete"))})
-        self.navigationController?.pushViewController(view!, animated: true)
         if (currentPage == 0){
-            
+            view.modelSequenceNum = 1
         }
         else if (currentPage == 1){
-        
+            view.modelSequenceNum = 2
         }
         else if (currentPage == 2){
-        
+            view.modelSequenceNum = 3
         }
         else if (currentPage == 3){
-        
+            view.modelSequenceNum = 4
         }
+        self.navigationController?.pushViewController(view, animated: true)
+        
     }
     
     @IBAction func addClientBtnClick(_ sender: Any) {

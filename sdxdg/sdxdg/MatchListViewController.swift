@@ -31,6 +31,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     @IBOutlet var modelView: UIImageView!
     
     let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
     let clothLayer:UIImageView = UIImageView();
     let trousersLayer:UIImageView = UIImageView();
     let outClothLayer:UIImageView = UIImageView();
@@ -40,6 +41,17 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     var trouserPath:String?
     
     var garmentType:Int = 0
+    
+    var bgPanel:UIView?
+    var contentPanel:UIView?
+    
+    var modelView1:ModelView?
+    var modelView2:ModelView?
+    var modelView3:ModelView?
+    var modelView4:ModelView?
+    var modelView5:ModelView?
+    var imgName:String = ""
+    var modelSequenceNum:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +72,69 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         modelView.addSubview(trousersLayer)
         modelView.addSubview(outClothLayer)
         
+        
+        bgPanel = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        contentPanel = UIView.init(frame: CGRect.init(x: 0, y: 20 + (self.navigationController?.navigationBar.bounds.height)!, width: screenWidth, height: screenHeight))
+        bgPanel?.backgroundColor = UIColor.darkGray
+        bgPanel?.alpha = 0.6
+        self.view.addSubview(bgPanel!)
+        contentPanel?.backgroundColor = UIColor.clear
+        modelView1 = ModelView.init(frame: CGRect.init(x:screenWidth/2 - (screenWidth - 40)/4, y: 15, width:(screenWidth - 40)/2, height:(screenHeight - 30)/2))
+        
+        let tapGesture1:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureClick(sender:)))
+        let tapGesture2:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureClick(sender:)))
+        let tapGesture3:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureClick(sender:)))
+        let tapGesture4:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureClick(sender:)))
+        
+        modelView2 = ModelView.init(frame: CGRect.init(x: 10, y: (screenHeight - 30)/2 + 25, width: (screenWidth - 50) / 4, height: (screenHeight - 30)/4))
+        modelView2?.tag = 1
+        modelView2?.isUserInteractionEnabled = true
+        modelView2?.addGestureRecognizer(tapGesture1)
+        
+        modelView3 = ModelView.init(frame: CGRect.init(x: (screenWidth - 50) / 4 + 20, y: (screenHeight - 30)/2 + 25, width: (screenWidth - 50) / 4, height: (screenHeight - 30)/4))
+        modelView3?.tag = 2
+        modelView3?.addGestureRecognizer(tapGesture2)
+        modelView3?.isUserInteractionEnabled = true
+        modelView4 = ModelView.init(frame: CGRect.init(x: (screenWidth - 50) / 4 * 2 + 30, y: (screenHeight - 30)/2 + 25, width: (screenWidth - 50) / 4, height: (screenHeight - 30)/4))
+        modelView4?.tag = 3
+        modelView4?.isUserInteractionEnabled = true
+        modelView4?.addGestureRecognizer(tapGesture3)
+        modelView5 = ModelView.init(frame: CGRect.init(x: (screenWidth - 50) / 4 * 3 + 40, y: (screenHeight - 30)/2 + 25, width: (screenWidth - 50) / 4, height: (screenHeight - 30)/4))
+        modelView5?.tag = 4
+        modelView5?.isUserInteractionEnabled = true
+        modelView5?.addGestureRecognizer(tapGesture4)
+        
+        modelView1?.backgroundColor = UIColor.white
+        modelView2?.backgroundColor = UIColor.white
+        modelView3?.backgroundColor = UIColor.white
+        modelView4?.backgroundColor = UIColor.white
+        modelView5?.backgroundColor = UIColor.white
+        
+        contentPanel?.addSubview(modelView1!)
+        contentPanel?.addSubview(modelView2!)
+        contentPanel?.addSubview(modelView3!)
+        contentPanel?.addSubview(modelView4!)
+        contentPanel?.addSubview(modelView5!)
+        
+        let cancelBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 120 , y: screenHeight - 130, width: 100, height: 40))
+        cancelBtn.setTitle("取消", for: UIControlState.normal)
+        cancelBtn.backgroundColor = UIColor.darkGray
+        cancelBtn.layer.cornerRadius = 8
+        cancelBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+        cancelBtn.addTarget(self, action: #selector(cancelBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+        let postBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 + 20, y: screenHeight - 130, width: 100, height: 40))
+        postBtn.setTitle("确定", for: UIControlState.normal)
+        postBtn.backgroundColor = UIColor.darkGray
+        postBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+        postBtn.layer.cornerRadius = 8
+        postBtn.addTarget(self, action: #selector(postBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+        contentPanel?.addSubview(cancelBtn)
+        contentPanel?.addSubview(postBtn)
+        
+        self.view.addSubview(contentPanel!)
+        
+        bgPanel?.isHidden = true
+        contentPanel?.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -167,11 +242,11 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     @IBAction func saveBtnClick(_ sender: Any) {
+        
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.label.text = "保存中..."
         hud.hide(animated: true, afterDelay: 0.8)
-        
-        var imgName:String = ""
+ 
         if let cloth = inClothPath{
             imgName.append(cloth)
             imgName.append("|")
@@ -200,13 +275,78 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             return
         }
         
-        let time: TimeInterval = 1.0
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
-            self.navigationController?.popViewController(animated: true)
+        if bgPanel!.isHidden{
+            bgPanel?.isHidden = false
+            contentPanel?.isHidden = false
+            
+            modelView1?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "")
+            modelView2?.initImage(outImg: "", inImg: "", trouserImg: "",label: "A")
+            modelView3?.initImage(outImg: "", inImg: "", trouserImg: "",label: "B")
+            modelView4?.initImage(outImg: "", inImg: "", trouserImg: "",label: "C")
+            modelView5?.initImage(outImg: "", inImg: "", trouserImg: "",label: "D")
         }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BigModelMatch"), object: imgName)
+        else{
+            bgPanel?.isHidden = true
+            contentPanel?.isHidden = true
+        }
+        
     }
     
+    func cancelBtnClick(sender:UIButton){
+        if !bgPanel!.isHidden{
+            bgPanel?.isHidden = true
+            contentPanel?.isHidden = true
+        }
+    }
+    
+    func postBtnClick(sender:UIButton){
+        let image:[String] = imgName.components(separatedBy: "|")
+        print(image.count)
+        if image.count != 4{
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud.label.text = "服装未选全"
+            hud.hide(animated: true, afterDelay: 0.8)
+        }
+        else{
+            imgName.append(String(modelSequenceNum))
+            let time: TimeInterval = 1.0
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+                self.navigationController?.popViewController(animated: true)
+            }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BigModelMatch"), object: imgName)
+        }
+        
+    }
+    
+    func tapGestureClick(sender:UITapGestureRecognizer){
+        let modelView:ModelView = sender.view as! ModelView
+        modelSequenceNum = modelView.tag
+        
+        if (modelView.tag == 1){
+            modelView2?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "A")
+            modelView3?.clearModel()
+            modelView4?.clearModel()
+            modelView5?.clearModel()
+        }
+        else if (modelView.tag == 2){
+            modelView3?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "B")
+            modelView2?.clearModel()
+            modelView4?.clearModel()
+            modelView5?.clearModel()
+        }
+        else if (modelView.tag == 3){
+            modelView4?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "C")
+            modelView2?.clearModel()
+            modelView3?.clearModel()
+            modelView5?.clearModel()
+        }
+        else if (modelView.tag == 4){
+            modelView5?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "D")
+            modelView3?.clearModel()
+            modelView4?.clearModel()
+            modelView2?.clearModel()
+        }
+    }
     
     @IBAction func innerClothBtn(_ sender: Any) {
         innerClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
