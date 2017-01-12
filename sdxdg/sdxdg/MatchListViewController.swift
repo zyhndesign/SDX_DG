@@ -223,7 +223,9 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: collectionView.bounds.width*0.47, height: collectionView.bounds.height/2 - 15)
+        
+        return CGSize.init(width: (screenWidth - 30)/2, height: screenHeight / 2 - 58)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -302,7 +304,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     func postBtnClick(sender:UIButton){
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         let image:[String] = imgName.components(separatedBy: "|")
-        print(image.count)
+        
         if image.count != 4{
             hud.label.text = "服装未选全"
         }

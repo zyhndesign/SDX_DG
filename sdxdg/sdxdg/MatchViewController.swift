@@ -260,7 +260,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 self.scrollView.setContentOffset(CGPoint.init(x: screenWidth + screenWidth/2, y: 0), animated: true)
             }
         }
-        
     }
 
     
