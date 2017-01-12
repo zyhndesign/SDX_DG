@@ -67,15 +67,15 @@ class MatchListCell : UICollectionViewCell{
         initUILabel(customerLabel3!)
         self.addSubview(customerLabel3!)
         
-        customerLabel4 = UILabel(frame:CGRect(origin: CGPoint.init(x: 5, y: customerLabel1!.frame.maxY + 2), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
+        customerLabel4 = UILabel(frame:CGRect(origin: CGPoint.init(x: 5, y: customerLabel1!.frame.maxY + 3), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
         initUILabel(customerLabel4!)
         self.addSubview(customerLabel4!)
         
-        customerLabel5 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel4!.frame.maxX + 3, y: customerLabel1!.frame.maxY + 2), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
+        customerLabel5 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel4!.frame.maxX + 3, y: customerLabel1!.frame.maxY + 3), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
         initUILabel(customerLabel5!)
         self.addSubview(customerLabel5!)
         
-        customerLabel6 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel5!.frame.maxX + 3, y: customerLabel1!.frame.maxY + 2), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
+        customerLabel6 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel5!.frame.maxX + 3, y: customerLabel1!.frame.maxY + 3), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
         initUILabel(customerLabel6!)
         self.addSubview(customerLabel6!)
     }
@@ -83,7 +83,7 @@ class MatchListCell : UICollectionViewCell{
     func initUILabel(_ label: UILabel){
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.boldSystemFont(ofSize: 12.0)
+        label.font = UIFont.boldSystemFont(ofSize: 10.0)
         label.textColor = UIColor.lightGray
         label.layer.cornerRadius = 7.0
         label.layer.borderWidth = 1

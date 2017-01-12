@@ -25,11 +25,11 @@ class HotMatchCell : UICollectionViewCell {
         imgView?.contentMode = UIViewContentMode.scaleAspectFit
         self.addSubview(imgView!)
         
-        redHeartIcon = UIImageView.init(frame: CGRect.init(x: ((width-30)/2 - 35), y: 25, width: 10, height: 10))
+        redHeartIcon = UIImageView.init(frame: CGRect.init(x: ((width-40)/2 - 35), y: 25, width: 10, height: 10))
         redHeartIcon?.image = UIImage.init(named: "like")
         self.addSubview(redHeartIcon!)
         
-        heartCount = UITextView.init(frame: CGRect.init(x: ((width-30)/2 - 25), y: 15, width: 30, height: 20))
+        heartCount = UITextView.init(frame: CGRect.init(x: ((width-40)/2 - 25), y: 15, width: 30, height: 20))
         heartCount?.font = UIFont.systemFont(ofSize: 10)
         heartCount?.textColor = UIColor.darkGray
         self.addSubview(heartCount!)

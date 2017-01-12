@@ -59,6 +59,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
         let tabBarHeight = self.tabBarController?.tabBar.bounds.height
         let scrollHeight = screenHeight - naviBarHeight! - tabBarHeight! - 60
+        
         scrollView = UIScrollView()
         scrollView.frame = CGRect.init(x: screenWidth / 4 , y: naviBarHeight! + 20, width: screenWidth / 2, height: scrollHeight)
         self.view.addSubview(scrollView)
@@ -144,10 +145,10 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         scrollView.delegate = self
         
-        dropMenuPanel = UIView.init(frame: CGRect.init(x: screenWidth - 130, y: naviHeight! + 30, width: 120, height: 70))
+        dropMenuPanel = UIView.init(frame: CGRect.init(x: screenWidth - 130, y: naviHeight! + 20, width: 120, height: 90))
         dropMenuPanel?.layer.contents = UIImage.init(named: "popBg")?.cgImage
         
-        shareBtn = UIButton.init(frame: CGRect.init(x: 10, y: 5, width: 110, height: 25))
+        shareBtn = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 110, height: 25))
         shareBtn?.setTitle("分享", for: UIControlState.normal)
         shareBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
         shareBtn?.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
@@ -159,7 +160,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         shareBtn?.addTarget(self, action: #selector(shareBtnClick(sender:)), for: UIControlEvents.touchUpInside)
         shareBtn?.layer.addSublayer(shareBtnLayer)
         
-        saveBtn = UIButton.init(frame: CGRect.init(x: 10, y: 35, width: 110, height: 25))
+        saveBtn = UIButton.init(frame: CGRect.init(x: 10, y: 50, width: 110, height: 25))
         saveBtn?.setTitle("保存", for: UIControlState.normal)
         saveBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
         saveBtn?.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
@@ -173,11 +174,18 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         dropMenuPanel?.addSubview(shareBtn!)
         dropMenuPanel?.addSubview(saveBtn!)
         
-        let menuLine:UIView = UIView.init(frame: CGRect.init(x: 10, y: 33, width: 100, height: 1))
+        let menuLine:UIView = UIView.init(frame: CGRect.init(x: 10, y: 43, width: 100, height: 1))
         menuLine.backgroundColor = UIColor.lightGray
         dropMenuPanel?.addSubview(menuLine)
         dropMenuPanel?.isHidden = true
         self.view.addSubview(dropMenuPanel!)
+        
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapDelete(sender:)))
+        let deleteBtn:UIImageView = UIImageView.init(frame: CGRect.init(x: screenWidth/2-18, y: screenHeight - 100, width: 36, height: 36))
+        deleteBtn.image = UIImage.init(named: "deleteBtn")
+        deleteBtn.isUserInteractionEnabled = true
+        deleteBtn.addGestureRecognizer(tapGesture)
+        self.view.addSubview(deleteBtn)
         
         NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "BigModelMatch"), object: nil)
         
@@ -194,6 +202,29 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         //NotificationCenter.default.removeObserver(self)
     }
     
+    func tapDelete(sender:UITapGestureRecognizer){
+        if (currentPage == 0){
+            model1OutCloth?.image = UIImage.init()
+            model1InCloth?.image = UIImage.init()
+            model1Trouser?.image = UIImage.init()
+        }
+        else if (currentPage == 1){
+            model2OutCloth?.image = UIImage.init()
+            model2InCloth?.image = UIImage.init()
+            model2Trouser?.image = UIImage.init()
+        }
+        else if (currentPage == 2){
+            model3OutCloth?.image = UIImage.init()
+            model3InCloth?.image = UIImage.init()
+            model3Trouser?.image = UIImage.init()
+        }
+        else if (currentPage == 3){
+            model4OutCloth?.image = UIImage.init()
+            model4InCloth?.image = UIImage.init()
+            model4Trouser?.image = UIImage.init()
+        }
+    }
+    
     func updateMatchModel(notifaction: NSNotification){
         let modelImgName:String = (notifaction.object as? String)!
         var image:[String] = modelImgName.components(separatedBy: "|")
@@ -205,28 +236,28 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 model1InCloth?.image = UIImage.init(named: image[0])
                 model1Trouser?.image = UIImage.init(named: image[2])
                 model1String = image
-                self.scrollView.contentOffset = CGPoint.init(x: 0, y: 0)
+                self.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
             }
             else if (modelNum == 2){
                 model2OutCloth?.image = UIImage.init(named: image[1])
                 model2InCloth?.image = UIImage.init(named: image[0])
                 model2Trouser?.image = UIImage.init(named: image[2])
                 model2String = image
-                self.scrollView.contentOffset = CGPoint.init(x: screenWidth/2, y: 0)
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth/2, y: 0), animated: true)
             }
             else if (modelNum == 3){
                 model3OutCloth?.image = UIImage.init(named: image[1])
                 model3InCloth?.image = UIImage.init(named: image[0])
                 model3Trouser?.image = UIImage.init(named: image[2])
                 model3String = image
-                self.scrollView.contentOffset = CGPoint.init(x: screenWidth, y: 0)
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth, y: 0), animated: true)
             }
             else if (modelNum == 4){
                 model4OutCloth?.image = UIImage.init(named: image[1])
                 model4InCloth?.image = UIImage.init(named: image[0])
                 model4Trouser?.image = UIImage.init(named: image[2])
                 model4String = image
-                self.scrollView.contentOffset = CGPoint.init(x: screenWidth + screenWidth/2, y: 0)
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth + screenWidth/2, y: 0), animated: true)
             }
         }
         
@@ -270,29 +301,28 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         }
         else{
             buttonSelect = true
-            let layer1:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: 10, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            let layer1:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             if (model1String.count > 0){
                 self.addClothLayer(mLayer:layer1, modelString:model1String)
             }
     
-            let layer2:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: 10, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            let layer2:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             if (model2String.count > 0){
                 self.addClothLayer(mLayer:layer2, modelString:model2String)
             }
             
-            let layer3:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: screenHeight/2 - 50, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            let layer3:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             if (model3String.count > 0){
                 self.addClothLayer(mLayer:layer3, modelString:model3String)
             }
             
-            let layer4:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: screenHeight/2 - 50, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+            let layer4:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             if (model4String.count > 0){
                 self.addClothLayer(mLayer:layer4, modelString:model4String)
             }
             
             self.view.addSubview(fourViewPanel!)
             fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.1,y: 0.1))
-            
             
             //设置动画效果，动画时间长度 1 秒。
             UIView.animate(withDuration: 0.5, delay:0.01,
@@ -328,9 +358,9 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     func addClothLayer(mLayer:CALayer, modelString:Array<String>){
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[0], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[2], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[1], x: 0, y: 0, width: screenWidth/2 - 90, height: screenHeight/2 - 80)
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[0], x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[2], x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+        self.addModelCloth(mLayer: mLayer, imgName: modelString[1], x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
     }
     @IBAction func moreBtnClick(_ sender: Any) {
         if (buttonSelect){
@@ -352,14 +382,14 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         let naviHeight = self.navigationController?.navigationBar.frame.height
         dropMenuPanel?.isHidden = false
         animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: -50))
-        animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 50))
+        animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 40))
         dropMenuPanel?.layer.add(animation, forKey: nil)
         
     }
     
     func hideMenuPanel(animation:CABasicAnimation){
         let naviHeight = self.navigationController?.navigationBar.frame.height
-        animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 50))
+        animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 40))
         animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y:-50))
         dropMenuPanel?.layer.add(animation, forKey: nil)
         self.perform(#selector(hiddenMenuPanel), with: nil, afterDelay: 0.3)
@@ -371,45 +401,17 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        print("scrollViewDidScroll")
         let pageWidth = scrollView.frame.size.width;
         // 根据当前的x坐标和页宽度计算出当前页数
         currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1.0;
-        
+        print(currentPage)
         newX = scrollView.contentOffset.x
         
         if (newX > oldX){
             print("从左往右滑动")
-            if(currentPage == 0){
-                let variable = (0.2 / pageWidth) * scrollView.contentOffset.x
-                modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - variable, 0)
-                
-                modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
-                modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
-                modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.4 + variable), cutVariable(variable: 0.4 + variable), 0)
-            }
-            else if (currentPage == 1){
-                let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth)
-                modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
-                modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), cutVariable(variable: 1 - variable), 0)
-                modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
-                modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
-            }
-            else if (currentPage == 2){
-                let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 2)
-                modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
-                modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
-                modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - cutVariable(variable: variable), 0)
-                modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
-            }
-            else if (currentPage == 3){
-                let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 3)
-                print(variable)
-                modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.4 + variable), cutVariable(variable: 0.4 + variable), 0)
-                modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
-                modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
-                modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - cutVariable(variable: variable), 0)
-            }
+            
+            self.leftToRightScroll(pageWidth: pageWidth)
         }
         else if (newX < oldX){
             print("从右往左滑动")
@@ -443,6 +445,9 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 + variable), cutVariable(variable: 1 + variable), 0)
             }
         }
+        else{
+            self.leftToRightScroll(pageWidth: pageWidth)
+        }
     }
     
     func cutVariable(variable:CGFloat) -> CGFloat{
@@ -460,15 +465,20 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     //开始拖动（以某种速率和偏移量）
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+        print("scrollViewDidEndDecelerating")
     }
     
     //停止拖动
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        print("scrollViewDidEndDragging")
     }
     //开始滑动
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        
+        print("scrollViewWillBeginDecelerating")
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndScrollingAnimation")
     }
   
     func shareBtnClick(sender:UIButton){
@@ -526,5 +536,38 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     
     func saveBtnClickToServer(sender:UIButton){
         savePanel!.isHidden = true
+    }
+    
+    func leftToRightScroll(pageWidth:CGFloat){
+        if(currentPage == 0){
+            let variable = (0.2 / pageWidth) * scrollView.contentOffset.x
+            modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - variable, 0)
+            
+            modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+            modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
+            modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.4 + variable), cutVariable(variable: 0.4 + variable), 0)
+        }
+        else if (currentPage == 1){
+            let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth)
+            modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+            modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), cutVariable(variable: 1 - variable), 0)
+            modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+            modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
+        }
+        else if (currentPage == 2){
+            let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 2)
+            modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
+            modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+            modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - cutVariable(variable: variable), 0)
+            modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+        }
+        else if (currentPage == 3){
+            let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 3)
+            print(variable)
+            modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.4 + variable), cutVariable(variable: 0.4 + variable), 0)
+            modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
+            modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+            modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - cutVariable(variable: variable), 0)
+        }
     }
 }

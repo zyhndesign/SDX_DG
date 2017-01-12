@@ -244,7 +244,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     @IBAction func saveBtnClick(_ sender: Any) {
         
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.label.text = "保存中..."
+        hud.label.text = "处理中..."
         hud.hide(animated: true, afterDelay: 0.8)
  
         if let cloth = inClothPath{
@@ -300,14 +300,14 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func postBtnClick(sender:UIButton){
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         let image:[String] = imgName.components(separatedBy: "|")
         print(image.count)
         if image.count != 4{
-            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             hud.label.text = "服装未选全"
-            hud.hide(animated: true, afterDelay: 0.8)
         }
         else{
+            hud.label.text = "处理中..."
             imgName.append(String(modelSequenceNum))
             let time: TimeInterval = 1.0
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
@@ -315,7 +315,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BigModelMatch"), object: imgName)
         }
-        
+        hud.hide(animated: true, afterDelay: 0.8)
     }
     
     func tapGestureClick(sender:UITapGestureRecognizer){

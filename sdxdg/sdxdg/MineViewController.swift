@@ -82,18 +82,18 @@ class MineViewController: UIViewController {
         myMatchViewLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         scrollView.addSubview(myMatchViewLabel!)
         
-        let myAllMatchGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(myMatchAllClick(sender:)))
-        myAllMatchGesture.numberOfTapsRequired = 1
+        let myAllMatchGesture1:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(myMatchAllClick(sender:)))
         myMatchAllLabel = UILabel.init(frame: CGRect.init(x: screenWidth - 70, y: 290, width: 30, height: 20))
         myMatchAllLabel?.text = "全部"
         myMatchAllLabel?.font = UIFont.init(name: "Helvetica", size: 12)
-        myMatchAllLabel?.addGestureRecognizer(myAllMatchGesture)
+        myMatchAllLabel?.addGestureRecognizer(myAllMatchGesture1)
         myMatchAllLabel?.isUserInteractionEnabled = true
         scrollView.addSubview(myMatchAllLabel!)
         
+        let myAllMatchGesture2:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(myMatchAllClick(sender:)))
         myMatchArrowImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 30, y: 293, width: 10, height: 15))
         myMatchArrowImageView?.image = UIImage.init(named: "rightArrow")
-        myMatchArrowImageView?.addGestureRecognizer(myAllMatchGesture)
+        myMatchArrowImageView?.addGestureRecognizer(myAllMatchGesture2)
         myMatchArrowImageView?.isUserInteractionEnabled = true
         scrollView.addSubview(myMatchArrowImageView!)
         
@@ -154,20 +154,20 @@ class MineViewController: UIViewController {
         hotMatchLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         scrollView.addSubview(hotMatchLabel!)
         
-        let hotMatchGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(hotMatchAllClick(sender:)))
-        hotMatchGesture.numberOfTapsRequired = 1
-        
+        let hotMatchGesture1:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(hotMatchAllClick(sender:)))
+       
         hotMatchALLLabel = UILabel.init(frame: CGRect.init(x: screenWidth - 70, y: 395, width: 30, height: 20))
         hotMatchALLLabel?.text = "全部"
         hotMatchALLLabel?.font = UIFont.init(name: "Helvetica", size: 12)
         hotMatchALLLabel?.isUserInteractionEnabled = true
-        hotMatchALLLabel?.addGestureRecognizer(hotMatchGesture)
+        hotMatchALLLabel?.addGestureRecognizer(hotMatchGesture1)
         scrollView.addSubview(hotMatchALLLabel!)
         
+        let hotMatchGesture2:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(hotMatchAllClick(sender:)))
         hotMatchArrowImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 30, y: 398, width: 10, height: 15))
         hotMatchArrowImageView?.image = UIImage.init(named: "rightArrow")
         hotMatchArrowImageView?.isUserInteractionEnabled = true
-        hotMatchArrowImageView?.addGestureRecognizer(hotMatchGesture)
+        hotMatchArrowImageView?.addGestureRecognizer(hotMatchGesture2)
         scrollView.addSubview(hotMatchArrowImageView!)
         
         let hotView:UIView = UIView.init(frame: CGRect.init(x: 0, y: 425, width: screenWidth, height: 130))
