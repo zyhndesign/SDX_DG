@@ -184,7 +184,9 @@ class FilterViewController : UIViewController{
         
         let time: TimeInterval = 1.0
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            
             self.navigationController?.popViewController(animated: true)
+            
         }
     }
     

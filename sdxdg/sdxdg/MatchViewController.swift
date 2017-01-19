@@ -185,7 +185,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         deleteBtn.image = UIImage.init(named: "deleteBtn")
         deleteBtn.isUserInteractionEnabled = true
         deleteBtn.addGestureRecognizer(tapGesture)
-        self.view.addSubview(deleteBtn)
+        //self.view.addSubview(deleteBtn)
         
         NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "BigModelMatch"), object: nil)
         
