@@ -54,21 +54,37 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var model3String:[String] = []
     var model4String:[String] = []
     
+    var label:UILabel?
+    
+    var layer1:CALayer?
+    var layer2:CALayer?
+    var layer3:CALayer?
+    var layer4:CALayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
         let tabBarHeight = self.tabBarController?.tabBar.bounds.height
-        let scrollHeight = screenHeight - naviBarHeight! - tabBarHeight! - 60
+        let scrollHeight = screenHeight - naviBarHeight! - tabBarHeight! - 80
+        
+        label = UILabel.init(frame: CGRect.init(x: 60, y: naviBarHeight! + 14, width: 24, height: 34))
+        label?.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "labelTag")!)
+        label?.text = "A"
+        label?.textAlignment = NSTextAlignment.center
+        label?.font = UIFont.systemFont(ofSize: 16)
+        label?.textColor = UIColor.darkGray
+        self.view.addSubview(label!)
         
         scrollView = UIScrollView()
         scrollView.frame = CGRect.init(x: screenWidth / 4 , y: naviBarHeight! + 20, width: screenWidth / 2, height: scrollHeight)
+        
         self.view.addSubview(scrollView)
         scrollView.canCancelContentTouches = true
         scrollView.delaysContentTouches = false
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
         
-        // Do any additional setup after loading the view, typically from a nib.
         self.automaticallyAdjustsScrollViewInsets = false
         modelView1 = UIImageView.init(frame: CGRect.init(x: 0, y: 15, width: screenWidth/2, height: scrollHeight))
         modelView1?.image = UIImage.init(named: "model")
@@ -86,8 +102,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         scrollView.addSubview(modelView1!)
         
         scrollView.clipsToBounds = false
-        
-        //scrollView.contentInset =  UIEdgeInsetsMake(0, 0, 0, 0)
         
         modelView2 = UIImageView.init(frame: CGRect.init(x: screenWidth / 2, y: 15, width: screenWidth/2, height: scrollHeight))
         modelView2?.image = UIImage.init(named: "model")
@@ -181,14 +195,21 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         self.view.addSubview(dropMenuPanel!)
         
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapDelete(sender:)))
-        let deleteBtn:UIImageView = UIImageView.init(frame: CGRect.init(x: screenWidth/2-18, y: screenHeight - 100, width: 36, height: 36))
+        let deleteBtn:UIImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 100, y: screenHeight - 100, width: 30, height: 30))
         deleteBtn.image = UIImage.init(named: "deleteBtn")
         deleteBtn.isUserInteractionEnabled = true
         deleteBtn.addGestureRecognizer(tapGesture)
-        //self.view.addSubview(deleteBtn)
+        self.view.addSubview(deleteBtn)
         
         NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "BigModelMatch"), object: nil)
         
+        let leftSwipeGestureRecognizer:UISwipeGestureRecognizer = UISwipeGestureRecognizer.init(target: self, action: #selector(handleSwipes(sender:)))
+        let rightSwipeGestureRecognizer:UISwipeGestureRecognizer = UISwipeGestureRecognizer.init(target: self, action: #selector(handleSwipes(sender:)))
+        
+        leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.left
+        rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(leftSwipeGestureRecognizer)
+        self.view.addGestureRecognizer(rightSwipeGestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -300,44 +321,84 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         }
         else{
             buttonSelect = true
-            let layer1:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            layer1 = self.addModel(view: fourViewPanel!, x: 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            let tagA = TagLayer.init(text: "A")
+            tagA.frame = CGRect.init(x: 0, y: 5, width: 24, height: 34)
+            layer1?.addSublayer(tagA)
             if (model1String.count > 0){
-                self.addClothLayer(mLayer:layer1, modelString:model1String)
+                self.addClothLayer(mLayer:layer1!, modelString:model1String)
             }
-    
-            let layer2:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            
+            layer2 = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            let tagB = TagLayer.init(text: "B")
+            tagB.frame = CGRect.init(x: 0, y: 5, width: 24, height: 34)
+            layer2?.addSublayer(tagB)
             if (model2String.count > 0){
-                self.addClothLayer(mLayer:layer2, modelString:model2String)
+                self.addClothLayer(mLayer:layer2!, modelString:model2String)
             }
             
-            let layer3:CALayer = self.addModel(view: fourViewPanel!, x: 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            layer3 = self.addModel(view: fourViewPanel!, x: 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            let tagC = TagLayer.init(text: "C")
+            tagC.frame = CGRect.init(x: 0, y: 0, width: 24, height: 34)
+            layer3?.addSublayer(tagC)
             if (model3String.count > 0){
-                self.addClothLayer(mLayer:layer3, modelString:model3String)
+                self.addClothLayer(mLayer:layer3!, modelString:model3String)
             }
             
-            let layer4:CALayer = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            layer4 = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+            let tagD = TagLayer.init(text: "D")
+            tagD.frame = CGRect.init(x: 0, y: 0, width: 24, height: 34)
+            layer4?.addSublayer(tagD)
             if (model4String.count > 0){
-                self.addClothLayer(mLayer:layer4, modelString:model4String)
+                self.addClothLayer(mLayer:layer4!, modelString:model4String)
             }
+            
+            let delBtn1:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight/2 - 100, width: 26, height: 26))
+            let delBtn2:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 30, y: screenHeight/2 - 100, width: 26, height: 26))
+            let delBtn3:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight - 160, width: 26, height: 26))
+            let delBtn4:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 30, y: screenHeight - 160, width: 26, height: 26))
+            delBtn1.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)
+            delBtn2.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)
+            delBtn3.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)
+            delBtn4.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)
+            delBtn1.tag = 1
+            delBtn2.tag = 2
+            delBtn3.tag = 3
+            delBtn4.tag = 4
+            delBtn1.addTarget(self, action: #selector(fourPanelDelBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+            delBtn2.addTarget(self, action: #selector(fourPanelDelBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+            delBtn3.addTarget(self, action: #selector(fourPanelDelBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+            delBtn4.addTarget(self, action: #selector(fourPanelDelBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+            fourViewPanel?.addSubview(delBtn1)
+            fourViewPanel?.addSubview(delBtn2)
+            fourViewPanel?.addSubview(delBtn3)
+            fourViewPanel?.addSubview(delBtn4)
             
             self.view.addSubview(fourViewPanel!)
-            fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.1,y: 0.1))
             
-            //设置动画效果，动画时间长度 1 秒。
-            UIView.animate(withDuration: 0.5, delay:0.01,
-                                options:UIViewAnimationOptions.transitionCrossDissolve, animations:
-                {
-                    ()-> Void in
-                    self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform(scaleX: 1,y: 1))
-            },
-                    completion:{
-                        (finished:Bool) -> Void in
-                            UIView.animate(withDuration: 0.08, animations:{
-                                            ()-> Void in
-                                            self.fourViewPanel?.layer.setAffineTransform(CGAffineTransform.identity)
-                                        })
+        }
+    }
+    
+    func fourPanelDelBtnClick(sender:UIButton){
+        if (sender.tag == 1){
+            layer1?.sublayers?.forEach({ (layer) in
+                layer.contents = nil
             })
-            
+        }
+        else if (sender.tag == 2){
+            layer2?.sublayers?.forEach({ (layer) in
+                layer.contents = nil
+            })
+        }
+        else if (sender.tag == 3){
+            layer3?.sublayers?.forEach({ (layer) in
+                layer.contents = nil
+            })
+        }
+        else if (sender.tag == 4){
+            layer4?.sublayers?.forEach({ (layer) in
+                layer.contents = nil
+            })
         }
     }
     
@@ -409,7 +470,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         if (newX > oldX){
             print("从左往右滑动")
-            
             self.leftToRightScroll(pageWidth: pageWidth)
         }
         else if (newX < oldX){
@@ -420,6 +480,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 - variable), cutVariable(variable: 0.8 - variable), 0)
                 modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 - variable), cutVariable(variable: 0.6 - variable), 0)
                 modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.4 - variable), cutVariable(variable: 0.4 - variable), 0)
+                label?.text = "A"
             }
             else if (currentPage == 1){
                 let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth)
@@ -427,6 +488,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 + variable), cutVariable(variable: 1 + variable), 0)
                 modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 - variable), cutVariable(variable: 0.8 - variable), 0)
                 modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 - variable), cutVariable(variable: 0.6 - variable), 0)
+                label?.text = "B"
             }
             else if (currentPage == 2){
                 let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 2)
@@ -434,6 +496,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 - variable), cutVariable(variable: 0.8 - variable), 0)
                 modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 + variable), cutVariable(variable: 1 + variable), 0)
                 modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 - variable), cutVariable(variable: 0.8 - variable), 0)
+                label?.text = "C"
             }
             else if (currentPage == 3){
                 let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 3)
@@ -442,6 +505,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 - variable), cutVariable(variable: 0.6 - variable), 0)
                 modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 - variable), cutVariable(variable: 0.8 - variable), 0)
                 modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 + variable), cutVariable(variable: 1 + variable), 0)
+                label?.text = "D"
             }
         }
         else{
@@ -541,10 +605,10 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         if(currentPage == 0){
             let variable = (0.2 / pageWidth) * scrollView.contentOffset.x
             modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - variable, 0)
-            
             modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
             modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
             modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.4 + variable), cutVariable(variable: 0.4 + variable), 0)
+            label?.text = "A"
         }
         else if (currentPage == 1){
             let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth)
@@ -552,6 +616,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), cutVariable(variable: 1 - variable), 0)
             modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
             modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
+            label?.text = "B"
         }
         else if (currentPage == 2){
             let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 2)
@@ -559,6 +624,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
             modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - cutVariable(variable: variable), 0)
             modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
+            label?.text = "C"
         }
         else if (currentPage == 3){
             let variable = (0.2 / pageWidth) * (scrollView.contentOffset.x - pageWidth * 3)
@@ -567,6 +633,34 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             modelView2?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.6 + variable), cutVariable(variable: 0.6 + variable), 0)
             modelView3?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 0.8 + variable), cutVariable(variable: 0.8 + variable), 0)
             modelView4?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 - variable), 1 - cutVariable(variable: variable), 0)
+            label?.text = "D"
+        }
+    }
+    
+    func handleSwipes(sender:UISwipeGestureRecognizer){
+        if (sender.direction == UISwipeGestureRecognizerDirection.left) {
+            if (currentPage == 0){
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth/2, y: 0), animated: true)
+            }
+            else if (currentPage == 1){
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth, y: 0), animated: true)
+            }
+            else if (currentPage == 2){
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth + screenWidth/2, y: 0), animated: true)
+            }
+        }
+        
+        if (sender.direction == UISwipeGestureRecognizerDirection.right) {
+            if (currentPage == 1){
+                self.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+            }
+            else if (currentPage == 2){
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth/2, y: 0), animated: true)
+            }
+            else if (currentPage == 3){
+                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth, y: 0), animated: true)
+            }
+
         }
     }
 }

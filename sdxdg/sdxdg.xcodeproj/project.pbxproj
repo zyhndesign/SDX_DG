@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB005EE01E333967003709FA /* TagLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB005EDF1E333967003709FA /* TagLayer.swift */; };
 		DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFC1E00D24100F45386 /* MineViewController.swift */; };
 		DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */; };
 		DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2F001E00D27300F45386 /* ClientViewController.swift */; };
@@ -294,6 +295,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB005EDF1E333967003709FA /* TagLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagLayer.swift; sourceTree = "<group>"; };
 		DB0D2EFC1E00D24100F45386 /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		DB0D2F001E00D27300F45386 /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				DBDE5C491E25C13D002454F5 /* ModelView.swift */,
+				DB005EDF1E333967003709FA /* TagLayer.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				DB0E98961E0E657F00443696 /* PersonalInfoViewController.swift in Sources */,
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
 				DB818A3F1E1CA55200E09977 /* HotMatchViewController.swift in Sources */,
+				DB005EE01E333967003709FA /* TagLayer.swift in Sources */,
 				DB0E98A21E10E97400443696 /* ConsumerListCell.swift in Sources */,
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */,
