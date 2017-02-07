@@ -18,6 +18,7 @@ class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProto
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var contextTextView: UITextView!
     
+    @IBOutlet var sendSareBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,9 @@ class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProto
         customerLabel.text = customerLabel.text! + customer
     }
     
+    @IBAction func sendSareBtnClick(_ sender: Any) {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
