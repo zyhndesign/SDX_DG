@@ -61,6 +61,13 @@
                                     <action selector="loginBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="koG-J8-Xna"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4rN-3a-VFD">
+                                <rect key="frame" x="197.66666666666666" y="410" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5F6-M6-Ve0"/>
+                                    <constraint firstAttribute="width" constant="20" id="T3p-4o-KIx"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -70,10 +77,13 @@
                             <constraint firstItem="Hc8-64-hxn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67" id="CsW-do-lmd"/>
                             <constraint firstItem="VVM-BJ-4bP" firstAttribute="top" secondItem="VVL-1Z-M84" secondAttribute="bottom" constant="66" id="EPa-u0-OKI"/>
                             <constraint firstItem="BzK-bj-4nn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="81" id="JzE-2t-NT1"/>
+                            <constraint firstItem="4rN-3a-VFD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LDv-v3-sxm"/>
                             <constraint firstItem="Hc8-64-hxn" firstAttribute="top" secondItem="BzK-bj-4nn" secondAttribute="bottom" constant="101" id="SsD-lf-KGp"/>
                             <constraint firstItem="VVM-BJ-4bP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WHf-RE-6H2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VVM-BJ-4bP" secondAttribute="trailing" constant="67" id="fwe-tt-T2B"/>
                             <constraint firstItem="VVM-BJ-4bP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67" id="g7I-df-WTs"/>
+                            <constraint firstItem="VVM-BJ-4bP" firstAttribute="top" secondItem="4rN-3a-VFD" secondAttribute="bottom" constant="19" id="gPL-eI-0f3"/>
+                            <constraint firstItem="4rN-3a-VFD" firstAttribute="top" secondItem="VVL-1Z-M84" secondAttribute="bottom" constant="27" id="hYO-bg-9Mb"/>
                             <constraint firstItem="BzK-bj-4nn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nmI-is-Ecl"/>
                             <constraint firstItem="Hc8-64-hxn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sK3-tw-PC7"/>
                             <constraint firstItem="VVL-1Z-M84" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xDm-Ga-iLd"/>
@@ -81,6 +91,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingIndicatorView" destination="4rN-3a-VFD" id="85X-TB-wvC"/>
                         <outlet property="loginBtn" destination="VVM-BJ-4bP" id="O7d-e3-lhm"/>
                         <outlet property="password" destination="VVL-1Z-M84" id="yKX-fa-6eh"/>
                         <outlet property="username" destination="Hc8-64-hxn" id="0kh-TJ-CDm"/>

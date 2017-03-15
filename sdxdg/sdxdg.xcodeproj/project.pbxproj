@@ -61,6 +61,7 @@
 		DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C441E2324FA002454F5 /* CustomerModel.swift */; };
 		DBDE5C471E24AD2B002454F5 /* HotMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */; };
 		DBDE5C4A1E25C13D002454F5 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C491E25C13D002454F5 /* ModelView.swift */; };
+		DBEAB1151E7920FE000E99F4 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB1141E7920FE000E99F4 /* NetworkUtils.swift */; };
 		DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -353,6 +354,7 @@
 		DBDE5C441E2324FA002454F5 /* CustomerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMatchCell.swift; sourceTree = "<group>"; };
 		DBDE5C491E25C13D002454F5 /* ModelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
+		DBEAB1141E7920FE000E99F4 /* NetworkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFeedbackDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -424,6 +426,7 @@
 		DB4EE5901DFF841800BBCE4F /* sdxdg */ = {
 			isa = PBXGroup;
 			children = (
+				DBEAB0FD1E7920DC000E99F4 /* utils */,
 				DBAD84901E274D2F0007D6D9 /* extension */,
 				DBDE5C481E25C0F8002454F5 /* view */,
 				DB818AAD1E1CF1BA00E09977 /* sdxdp */,
@@ -589,6 +592,14 @@
 				DB005EDF1E333967003709FA /* TagLayer.swift */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		DBEAB0FD1E7920DC000E99F4 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				DBEAB1141E7920FE000E99F4 /* NetworkUtils.swift */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -951,6 +962,7 @@
 				DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */,
 				DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */,
 				DBDE5C4A1E25C13D002454F5 /* ModelView.swift in Sources */,
+				DBEAB1151E7920FE000E99F4 /* NetworkUtils.swift in Sources */,
 				DB818A411E1CA6B200E09977 /* PushDetailControllerView.swift in Sources */,
 				DB0E98A61E110F9C00443696 /* FeedbackDetailViewController.swift in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,

@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet var loadingIndicatorView: UIActivityIndicatorView!
     
     let yellowColor:CGColor = UIColor.init(red:253/255.0, green: 220/255.0, blue: 56/255.0, alpha: 1.0).cgColor
     let blackColor:UIColor = UIColor.init(red: 59/255.0, green: 59/255.0, blue: 59/255.0, alpha: 1.0)
@@ -25,6 +28,8 @@ class LoginViewController: UIViewController {
         initTextFiledStyle(textField:password)
         
         loginBtn.layer.cornerRadius = 6
+        
+        loadingIndicatorView.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,7 +38,48 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtnClick(_ sender: Any) {
+        loadingIndicatorView.startAnimating()
+        loadingIndicatorView.isHidden = false
         
+        let usernameValue:String = username.text!
+        let pwdValue:String = password.text!
+        
+        if(usernameValue.isEmpty){
+            self.stopAndHideAnimation()
+            username.placeholder = "请输入账号"
+            username.setValue(UIColor.red, forKeyPath: "_placeholderLabel.textColor")
+            return
+        }
+        
+        if(pwdValue.isEmpty){
+            self.stopAndHideAnimation()
+            password.placeholder = "请输入密码"
+            password.setValue(UIColor.red, forKeyPath: "_placeholderLabel.textColor")
+            return
+        }
+        
+        let parameters:Parameters = ["username":usernameValue,"password":pwdValue]
+        
+        Alamofire.request(NetworkUtils.WEB_API_BASE_URL + "/dggl/appUser/authorityCheck",method:.post,parameters:parameters).responseJSON{
+            response in
+            
+            switch response.result{
+            case .success:
+                if let jsonResult = response.result.value {
+                    let json = JSON(jsonResult)
+                    print(json["resultCode"])
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+            self.stopAndHideAnimation()
+            
+            
+        }
+    }
+    
+    func initMainActivity(){
         let homeTabBarViewController:HomeTabBarViewController = HomeTabBarViewController()
         let storyboard:UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
         
@@ -55,9 +101,6 @@ class LoginViewController: UIViewController {
         mineViewNave.navigationBar.tintColor = UIColor.white
         mineViewNave.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        //let item3 : UITabBarItem = UITabBarItem (title: "第三页面", image: UIImage(named: "mineIconNormal"), selectedImage: UIImage(named: "mineIconSelect"))
-        //mineView.tabBarItem = item3
-        
         let tabArray = [matchViewNave,clientViewNave,mineViewNave]
         homeTabBarViewController.viewControllers = tabArray
         
@@ -67,10 +110,7 @@ class LoginViewController: UIViewController {
         clientView.tabBarItem.setTitleTextAttributes(attributes , for: UIControlState.selected)
         mineView.tabBarItem.setTitleTextAttributes(attributes , for: UIControlState.selected)
         
-        //let navi:UINavigationController = UINavigationController.init(rootViewController: homeTabBarViewController)
-        //self.navigationController?.pushViewController(homeTabBarViewController, animated: true)
         self.present(homeTabBarViewController, animated: true, completion: nil)
-        
     }
     
     func initTextFiledStyle(textField tField: UITextField) {
@@ -79,6 +119,11 @@ class LoginViewController: UIViewController {
         tField.layer.borderWidth = 1.0
         tField.backgroundColor = blackColor
         tField.setValue(UIColor.white, forKeyPath: "_placeholderLabel.textColor")
+    }
+    
+    func stopAndHideAnimation(){
+        loadingIndicatorView.stopAnimating()
+        loadingIndicatorView.isHidden = true
     }
 }
 
