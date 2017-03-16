@@ -11,10 +11,15 @@ import UIKit
 
 class LocalDataStorageUtil: NSObject {
     
-    let USER_DEFAULT_CURRENT_USER:String = "currentUser"
+    static let USER_DEFAULT_CURRENT_USER:String = "currentUser"
     
     static func getUserIdFromUserDefaults() -> Int{
         return 0
+    }
+    
+    static func saveCurrentUserDefault(value:String){
+        let currentUser = UserDefaults.init(suiteName: USER_DEFAULT_CURRENT_USER)
+        currentUser?.set(value, forKey: "username")
     }
     
     static func saveUserInfoToUserDefault(suiteName:String, key:String, value:String){

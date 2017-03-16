@@ -69,16 +69,18 @@ class LoginViewController: UIViewController {
                     let json = JSON(jsonResult)
                     let resultCode = json["resultCode"]
                     
-                    let currentUser = UserDefaults.init(suiteName: "currentUser")
-                    currentUser?.set(usernameValue, forKey: "username")
+                    LocalDataStorageUtil.saveCurrentUserDefault(value: usernameValue)
                     
                     if resultCode == 200{
-                        let userDefault = UserDefaults.init(suiteName: json["object"]["username"].stringValue)
-                        userDefault?.set(json["object"]["headicon"].stringValue, forKey: "headicon")
-                        userDefault?.set(json["object"]["id"].stringValue, forKey: "userId")
-                        userDefault?.set(json["object"]["gender"].stringValue, forKey: "gender")
-                        userDefault?.set(json["object"]["shopname"].stringValue, forKey: "shopname")
-                        userDefault?.set(json["object"]["phone"].stringValue, forKey: "phone")
+                        
+                        var userDictionay:Dictionary<String,String> = Dictionary.init()
+                        userDictionay.updateValue(json["object"]["headicon"].stringValue, forKey:"headicon" )
+                        userDictionay.updateValue(json["object"]["id"].stringValue, forKey: "userId")
+                        userDictionay.updateValue(json["object"]["gender"].stringValue, forKey: "gender")
+                        userDictionay.updateValue(json["object"]["shopname"].stringValue, forKey: "shopname")
+                        userDictionay.updateValue(json["object"]["phone"].stringValue, forKey: "phone")
+                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: json["object"]["username"].stringValue, dictionary: userDictionay)
+                        
                         self.initMainActivity()
                     }
                     else{
