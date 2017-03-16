@@ -461,7 +461,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll")
         let pageWidth = scrollView.frame.size.width;
         // 根据当前的x坐标和页宽度计算出当前页数
         currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1.0;
@@ -469,11 +468,9 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         newX = scrollView.contentOffset.x
         
         if (newX > oldX){
-            print("从左往右滑动")
             self.leftToRightScroll(pageWidth: pageWidth)
         }
         else if (newX < oldX){
-            print("从右往左滑动")
             if(currentPage == 0){
                 let variable = (0.2 / pageWidth) * scrollView.contentOffset.x
                 modelView1?.layer.transform = CATransform3DMakeScale(cutVariable(variable: 1 + variable), cutVariable(variable: 1 + variable), 0)
@@ -528,20 +525,20 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     //开始拖动（以某种速率和偏移量）
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndDecelerating")
+        
     }
     
     //停止拖动
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("scrollViewDidEndDragging")
+        
     }
     //开始滑动
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewWillBeginDecelerating")
+        
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndScrollingAnimation")
+        
     }
   
     func shareBtnClick(sender:UIButton){
@@ -593,8 +590,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         savePanel!.alpha = 1.0
         self.view.addSubview(savePanel!)
         savePanel!.isHidden = false
-        //UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
-        //self.view.endEditing(true)
+        
     }
     
     func saveBtnClickToServer(sender:UIButton){

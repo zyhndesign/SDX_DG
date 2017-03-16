@@ -60,22 +60,38 @@ class LoginViewController: UIViewController {
         
         let parameters:Parameters = ["username":usernameValue,"password":pwdValue]
         
-        Alamofire.request(NetworkUtils.WEB_API_BASE_URL + "/dggl/appUser/authorityCheck",method:.post,parameters:parameters).responseJSON{
+        Alamofire.request(ConstantsUtil.APP_USER_LOGIN_URL,method:.post,parameters:parameters).responseJSON{
             response in
             
             switch response.result{
             case .success:
                 if let jsonResult = response.result.value {
                     let json = JSON(jsonResult)
-                    print(json["resultCode"])
+                    let resultCode = json["resultCode"]
+                    
+                    let currentUser = UserDefaults.init(suiteName: "currentUser")
+                    currentUser?.set(usernameValue, forKey: "username")
+                    
+                    if resultCode == 200{
+                        let userDefault = UserDefaults.init(suiteName: json["object"]["username"].stringValue)
+                        userDefault?.set(json["object"]["headicon"].stringValue, forKey: "headicon")
+                        userDefault?.set(json["object"]["id"].stringValue, forKey: "userId")
+                        userDefault?.set(json["object"]["gender"].stringValue, forKey: "gender")
+                        userDefault?.set(json["object"]["shopname"].stringValue, forKey: "shopname")
+                        userDefault?.set(json["object"]["phone"].stringValue, forKey: "phone")
+                        self.initMainActivity()
+                    }
+                    else{
+                        print(json["message"])
+                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
+                    }
                 }
             case .failure(let error):
                 print(error)
+                MessageUtil.showMessage(view: self.view, message: error as! String)
             }
             
             self.stopAndHideAnimation()
-            
-            
         }
     }
     
@@ -125,5 +141,7 @@ class LoginViewController: UIViewController {
         loadingIndicatorView.stopAnimating()
         loadingIndicatorView.isHidden = true
     }
+    
+    
 }
 

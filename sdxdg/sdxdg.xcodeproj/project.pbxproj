@@ -61,7 +61,11 @@
 		DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C441E2324FA002454F5 /* CustomerModel.swift */; };
 		DBDE5C471E24AD2B002454F5 /* HotMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */; };
 		DBDE5C4A1E25C13D002454F5 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE5C491E25C13D002454F5 /* ModelView.swift */; };
-		DBEAB1151E7920FE000E99F4 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB1141E7920FE000E99F4 /* NetworkUtils.swift */; };
+		DBEAB1171E7A216F000E99F4 /* MessageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB1161E7A216F000E99F4 /* MessageUtil.swift */; };
+		DBEAB11C1E7A3A03000E99F4 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB1191E7A3A03000E99F4 /* ChineseString.m */; };
+		DBEAB11D1E7A3A03000E99F4 /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB11B1E7A3A03000E99F4 /* pinyin.m */; };
+		DBEAB11F1E7A7EF7000E99F4 /* ConstantsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB11E1E7A7EF7000E99F4 /* ConstantsUtil.swift */; };
+		DBEAB1211E7A864C000E99F4 /* LocalDataStorageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAB1201E7A864C000E99F4 /* LocalDataStorageUtil.swift */; };
 		DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -354,7 +358,13 @@
 		DBDE5C441E2324FA002454F5 /* CustomerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMatchCell.swift; sourceTree = "<group>"; };
 		DBDE5C491E25C13D002454F5 /* ModelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
-		DBEAB1141E7920FE000E99F4 /* NetworkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
+		DBEAB1161E7A216F000E99F4 /* MessageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageUtil.swift; sourceTree = "<group>"; };
+		DBEAB1181E7A3A03000E99F4 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
+		DBEAB1191E7A3A03000E99F4 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
+		DBEAB11A1E7A3A03000E99F4 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		DBEAB11B1E7A3A03000E99F4 /* pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinyin.m; sourceTree = "<group>"; };
+		DBEAB11E1E7A7EF7000E99F4 /* ConstantsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsUtil.swift; sourceTree = "<group>"; };
+		DBEAB1201E7A864C000E99F4 /* LocalDataStorageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataStorageUtil.swift; sourceTree = "<group>"; };
 		DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFeedbackDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -512,6 +522,10 @@
 		DB818A441E1CD4FF00E09977 /* oc_lib */ = {
 			isa = PBXGroup;
 			children = (
+				DBEAB1181E7A3A03000E99F4 /* ChineseString.h */,
+				DBEAB1191E7A3A03000E99F4 /* ChineseString.m */,
+				DBEAB11A1E7A3A03000E99F4 /* pinyin.h */,
+				DBEAB11B1E7A3A03000E99F4 /* pinyin.m */,
 				DB818A461E1CD6C600E09977 /* MBProgressHUD.h */,
 				DB818A471E1CD6C600E09977 /* MBProgressHUD.m */,
 				DB818A451E1CD6C400E09977 /* sdxdg-Bridging-Header.h */,
@@ -597,7 +611,9 @@
 		DBEAB0FD1E7920DC000E99F4 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				DBEAB1141E7920FE000E99F4 /* NetworkUtils.swift */,
+				DBEAB1161E7A216F000E99F4 /* MessageUtil.swift */,
+				DBEAB11E1E7A7EF7000E99F4 /* ConstantsUtil.swift */,
+				DBEAB1201E7A864C000E99F4 /* LocalDataStorageUtil.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -947,7 +963,9 @@
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
 				DB818A391E16586900E09977 /* ShareViewController.swift in Sources */,
 				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,
+				DBEAB1211E7A864C000E99F4 /* LocalDataStorageUtil.swift in Sources */,
 				DBAD84A81E274D570007D6D9 /* File.swift in Sources */,
+				DBEAB1171E7A216F000E99F4 /* MessageUtil.swift in Sources */,
 				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
 				DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */,
 				DB0E98941E0E5F4500443696 /* HelpAndBackViewController.swift in Sources */,
@@ -956,15 +974,17 @@
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
 				DB818A3F1E1CA55200E09977 /* HotMatchViewController.swift in Sources */,
 				DB005EE01E333967003709FA /* TagLayer.swift in Sources */,
+				DBEAB11C1E7A3A03000E99F4 /* ChineseString.m in Sources */,
+				DBEAB11F1E7A7EF7000E99F4 /* ConstantsUtil.swift in Sources */,
 				DB0E98A21E10E97400443696 /* ConsumerListCell.swift in Sources */,
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */,
 				DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */,
 				DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */,
 				DBDE5C4A1E25C13D002454F5 /* ModelView.swift in Sources */,
-				DBEAB1151E7920FE000E99F4 /* NetworkUtils.swift in Sources */,
 				DB818A411E1CA6B200E09977 /* PushDetailControllerView.swift in Sources */,
 				DB0E98A61E110F9C00443696 /* FeedbackDetailViewController.swift in Sources */,
+				DBEAB11D1E7A3A03000E99F4 /* pinyin.m in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
 				DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */,

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ClientViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
     
@@ -30,7 +32,7 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         self.tableView.dataSource = self
         //创建一个重用的单元格
         self.tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "SwiftCell")
-        //self.tableView.register(UINib.init(nibName: <#T##String#>, bundle: nil), forCellReuseIdentifier: "SwiftCell")
+        
         self.automaticallyAdjustsScrollViewInsets = false
     }
     
@@ -119,5 +121,30 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func loadVipCustomerByUserId(userId : Int){
+        let parameters:Parameters = ["userId":userId]
+        
+        Alamofire.request(ConstantsUtil.APP_USER_GET_VIP_URL,method:.post,parameters:parameters).responseJSON{
+            response in
+            
+            switch response.result{
+            case .success:
+                if let jsonResult = response.result.value {
+                    let json = JSON(jsonResult)
+                    let resultCode = json["resultCode"]
+                    
+                    if resultCode == 200{
+                    }
+                    else{
+                        print(json["message"])
+                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                MessageUtil.showMessage(view: self.view, message: error as! String)
+            }
+            
+        }
+    }
 }
