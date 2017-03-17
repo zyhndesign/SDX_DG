@@ -16,10 +16,11 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     
     var customerNum:Int = 0
     
-    var adHeaders:[String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    
     let customerIconArray:[String] = ["customerIcon1","customerIcon2","customerIcon3","customerIcon4","customerIcon5"]
-    let customerNameArray:[String] = ["Aaron","Lyndon","Dempsey","Baldwin","Eric","Clark","Harlan","Chapman","Goddard","Donald","Julius","Abraham","Felix","Geoffrey","Elmer","Blake","Franklin","Clarence","Lewis","Bartholomew","Gabriel"]
+    
+    var customerNameArray:[String] = Array.init()
+    var indexArray:[String] = Array.init()
+    var letterResultArr:NSMutableArray!
     
     override func loadView() {
         super.loadView()
@@ -34,6 +35,9 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         self.tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "SwiftCell")
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        let userId:Int = LocalDataStorageUtil.getUserIdFromUserDefaults()
+        self.loadVipCustomerByUserId(userId: userId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,37 +52,28 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     //实现索引数据源代理方法
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return adHeaders
+        return indexArray
     }
     
     
     //点击索引，移动TableView的组位置
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        var tpIndex:Int = 0
-        //遍历索引值
-        for character in adHeaders{
-            //判断索引值和组名称相等，返回组坐标
-            if character == title{
-                return tpIndex
-            }
-            tpIndex += 1
-        }
-        return 0
+        
+        return index
     }
     
     //设置分区数
     func numberOfSections(in tableView: UITableView) -> Int {
-        return adHeaders.count;
+        return indexArray.count;
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return (self.letterResultArr.object(at: section) as AnyObject).count
     }
     
     // UITableViewDataSource协议中的方法，该方法的返回值决定指定分区的头部
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var headers =  self.adHeaders;
-        return headers[section];
+        return indexArray[section];
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -101,8 +96,9 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         //同一形式的单元格重复使用，在声明时已注册
         let cell:ClientTableViewCell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath) as! ClientTableViewCell;
         let customerIconRandomNum:Int = Int(arc4random_uniform(UInt32(customerIconArray.count)))
-        let customerNameRandomNum:Int = Int(arc4random_uniform(UInt32(customerNameArray.count)))
-        cell.initListData(imageUrl: customerIconArray[customerIconRandomNum], name: customerNameArray[customerNameRandomNum],storyBoard: self.storyboard!, navigationController:self.navigationController!)
+        
+        let customerName = (self.letterResultArr.object(at: indexPath.section) as! NSMutableArray).object(at: indexPath.row) as! String
+        cell.initListData(imageUrl: customerIconArray[customerIconRandomNum], name: customerName,storyBoard: self.storyboard!, navigationController:self.navigationController!)
         
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         //let secno = indexPath.section
@@ -118,11 +114,11 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.马春
     }
     
     func loadVipCustomerByUserId(userId : Int){
-        let parameters:Parameters = ["userId":userId]
+        let parameters:Parameters = ["shoppingGuideId":userId]
         
         Alamofire.request(ConstantsUtil.APP_USER_GET_VIP_URL,method:.post,parameters:parameters).responseJSON{
             response in
@@ -131,9 +127,24 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
             case .success:
                 if let jsonResult = response.result.value {
                     let json = JSON(jsonResult)
+                    print(json)
                     let resultCode = json["resultCode"]
                     
                     if resultCode == 200{
+                        let list:Array<JSON> = json["object"].arrayValue
+                        for jsonObject in list{
+                            self.customerNameArray.append(jsonObject["vipname"].stringValue)
+                        }
+                        print(self.customerNameArray.count)
+                        let tempArray1:NSMutableArray = ChineseString.indexArray(self.customerNameArray)
+                        print(tempArray1.count)
+                        for str in tempArray1{
+                            self.indexArray.append(str as! String)
+                        }
+                        
+                        self.letterResultArr = ChineseString.letterSortArray(self.customerNameArray)
+                        
+                        self.tableView.reloadData()
                     }
                     else{
                         print(json["message"])
@@ -142,7 +153,7 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
                 }
             case .failure(let error):
                 print(error)
-                MessageUtil.showMessage(view: self.view, message: error as! String)
+                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
             }
             
         }

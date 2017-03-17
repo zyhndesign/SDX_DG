@@ -90,7 +90,7 @@ class LoginViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error)
-                MessageUtil.showMessage(view: self.view, message: error as! String)
+                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
             }
             
             self.stopAndHideAnimation()

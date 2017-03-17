@@ -15,5 +15,5 @@ class ConstantsUtil : NSObject {
     
     static let APP_USER_LOGIN_URL:String = WEB_API_BASE_URL + "/dggl/appUser/authorityCheck"
     static let APP_USER_UPDATE_URL:String = WEB_API_BASE_URL + "/dggl/appUser/updateUser"
-    static let APP_USER_GET_VIP_URL:String = WEB_API_BASE_URL + "dggl/appVipUser/getVipuserByShoppingGuideId"
+    static let APP_USER_GET_VIP_URL:String = WEB_API_BASE_URL + "/dggl/appVipUser/getVipuserByShoppingGuideId"
 }
