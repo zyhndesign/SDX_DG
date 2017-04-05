@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ModelView: UIView {
     
@@ -70,11 +71,14 @@ class ModelView: UIView {
     }
     
     func initImage(outImg:String, inImg:String, trouserImg:String,label:String){
-        self.outImg?.image = UIImage.init(named: outImg)
-        self.inImg?.image = UIImage.init(named: inImg)
-        self.trouserImg?.image = UIImage.init(named: trouserImg)
+        print(outImg)
+        print(inImg)
+        print(trouserImg)
+        self.outImg?.af_setImage(withURL: URL.init(string: outImg)!)
+        self.inImg?.af_setImage(withURL: URL.init(string: inImg)!)
+        self.trouserImg?.af_setImage(withURL: URL.init(string: trouserImg)!)
+        
         if label.characters.count > 0{
-            print(label)
             self.labelLayer?.string = label
         }
         else{

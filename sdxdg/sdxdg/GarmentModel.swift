@@ -7,29 +7,33 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class GarmentModel : NSObject{
+class GarmentModel : Mappable{
     
-    var title:String?
+    var id:Int?
+    var hpName:String?
+    var hpNum:String?
     var price:String?
-    var customerName1:String?
-    var customerName2:String?
-    var customerName3:String?
-    var customerName4:String?
-    var customerName5:String?
-    var customerName6:String?
-    var imageName:String?
+    //var customerModel:[CustomerModel]?
     
-    override init() {
-        super.init()
-        let dic = ["title":"商务男士套头衫","price":"¥121","imageName":"inCloth1","customerName1":"郭智","customerName2":"江河湖","customerName3":"李开基","customerName4":"胡凯凯","customerName5":"何志文","customerName6":"杰克鲍尔"] as [String : Any]
-        self.setValuesForKeys(dic)
+    var imageUrl1:String?
+    var imageUrl2:String?
+    var imageUrl3:String?
+    
+    required init?(map: Map) {
+        
     }
     
-    init(dic:[String:Any])
-    {
-        super.init()
-        self.setValuesForKeys(dic)
+    func mapping(map: Map) {
+        id <- map["id"]
+        hpName <- map["hpName"]
+        price <- map["price"]
+        hpNum <- map["hpNum"]
+        imageUrl1 <- map["imageUrl1"]
+        imageUrl2 <- map["imageUrl2"]
+        imageUrl3 <- map["imageUrl3"]
+        //customerModel <- map["customerModel"]
     }
     
 }

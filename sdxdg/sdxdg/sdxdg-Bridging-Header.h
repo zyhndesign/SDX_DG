@@ -4,3 +4,5 @@
 
 #import "MBProgressHUD.h"
 #import "ChineseString.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>

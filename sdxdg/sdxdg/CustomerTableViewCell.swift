@@ -78,6 +78,7 @@ class CustomerTableViewCell : UITableViewCell{
     }
     
     func buttonTapped(sender: UIButton) {
+        /*
         let customerModel:CustomerModel = CustomerModel()
         
         var customerNum:Int = 0
@@ -94,6 +95,7 @@ class CustomerTableViewCell : UITableViewCell{
         customerModel.customerNum = customerNum
         customerModel.customerName = nameLabel?.text
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "customerCount"), object: customerModel)
+         */
     }
     
     func initListData(imageUrl: String, name: String){

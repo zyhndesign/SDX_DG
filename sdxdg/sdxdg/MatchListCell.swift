@@ -15,7 +15,8 @@ class MatchListCell : UICollectionViewCell{
     var titleLabel:UILabel?//cell上title
     var priceLabel:UILabel?//cell上价格
     var matchImage:UIImageView?
-    var imgName:String?
+    var frontImgName:String?
+    var backImgName:String?
     
     var customerLabel1:UILabel?//cell相关客户1
     var customerLabel2:UILabel?//cell相关客户2
@@ -47,6 +48,7 @@ class MatchListCell : UICollectionViewCell{
         titleLabel?.numberOfLines = 0
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
         titleLabel?.textColor = UIColor.lightGray
+        titleLabel?.lineBreakMode = .byTruncatingTail
         self.addSubview(titleLabel!)
         
         priceLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: (width-50)/2 - 30, y: imgView!.frame.maxY - 12), size: CGSize.init(width: (width-50)/3, height: 50)))
@@ -92,7 +94,7 @@ class MatchListCell : UICollectionViewCell{
     
     func tapMatchImageClick(sender:Any){
         print("click match...")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modelMatch"), object: imgName)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modelMatch"), object: frontImgName)
     }
     
     required init(coder aDecoder: NSCoder) {

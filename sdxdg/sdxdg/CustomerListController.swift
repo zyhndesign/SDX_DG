@@ -122,6 +122,7 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
     
     func updateClientNumber(notifaction: NSNotification){
         let customerModel:CustomerModel = (notifaction.object as? CustomerModel)!
+        /*
         customerNum = customerNum + customerModel.customerNum!
         confirmBtn.setTitle("确定("+String(customerNum)+")", for: UIControlState.normal)
         if (customerModel.customerNum! > 0){
@@ -135,7 +136,7 @@ class CustomerListController : UIViewController , UITableViewDelegate, UITableVi
                     arrayList.remove(at: removeIndex)
                 }
             }
-        }
+        }*/
     }
     
     override func didReceiveMemoryWarning() {

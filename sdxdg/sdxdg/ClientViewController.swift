@@ -135,9 +135,9 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
                         for jsonObject in list{
                             self.customerNameArray.append(jsonObject["vipname"].stringValue)
                         }
-                        print(self.customerNameArray.count)
+                        
                         let tempArray1:NSMutableArray = ChineseString.indexArray(self.customerNameArray)
-                        print(tempArray1.count)
+                        
                         for str in tempArray1{
                             self.indexArray.append(str as! String)
                         }

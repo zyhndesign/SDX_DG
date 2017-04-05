@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class CustomerModel: NSObject {
-    var customerNum:Int?
+class CustomerModel: Mappable {
+    var id:Int?
     var customerName:String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        customerName <- map["customerName"]
+    }
 }
