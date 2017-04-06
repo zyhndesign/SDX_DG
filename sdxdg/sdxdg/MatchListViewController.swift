@@ -177,7 +177,8 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.label.text = "处理中..."
         hud.hide(animated: true, afterDelay: 0.8)
- 
+        
+        /*
         if let cloth = inClothPath{
             imgName.append(cloth)
             imgName.append("|")
@@ -205,9 +206,46 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             hud.hide(animated: true, afterDelay: 0.8)
             return
         }
-        
+        */
         //保存模型图片
         
+        let modelImage:UIImage = modelView.image!
+        let clothLayerImage:UIImage = clothLayer.image!
+        let trousersLayerImage:UIImage = trousersLayer.image!
+        let outClothLayerImage:UIImage = outClothLayer.image!
+        let size:CGSize = self.modelView.frame.size;
+        
+        UIGraphicsBeginImageContext(size);
+        UIColor.white.setFill()
+        modelImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        clothLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        trousersLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        outClothLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        
+        let resultingImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
+            
+            if let data = response.result.value {
+                let responseResult = JSON(data)
+                
+                let resultCode = responseResult["resultCode"].intValue
+                print(resultCode)
+                if resultCode == 200{
+                    let token = responseResult["uptoken"].string!
+                    print(token)
+                    
+                    self.upLoadImageRequest(urlString: ConstantsUtil.APP_QINIU_UPLOAD_URL, params: ["token" : token], data:UIImagePNGRepresentation(resultingImage)!, success: { (success) in
+                        
+                    }, failture: { (error) in
+                        
+                    })
+                }
+            }
+            
+        }
     }
     
     
@@ -323,31 +361,9 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             
         }
         
-        self.getQiniuUploadToken();
+        
     }
     
-    func getQiniuUploadToken(){
-        Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
-            
-            if let data = response.result.value {
-                let responseResult = JSON(data)
-                
-                let resultCode = responseResult["resultCode"].intValue
-                print(resultCode)
-                if resultCode == 200{
-                    let token = responseResult["uptoken"].string!
-                    print(token)
-                    
-                    self.upLoadImageRequest(urlString: ConstantsUtil.APP_QINIU_UPLOAD_URL, params: ["token" : token], data:UIImagePNGRepresentation(UIImage.init(named: "top3Image2")!)!, success: { (success) in
-                        
-                    }, failture: { (error) in
-                        
-                    })
-                }
-            }
-            
-        }
-    }
     
     func upLoadImageRequest(urlString : String, params:[String:String], data: Data,success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
         
