@@ -210,7 +210,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         
     }
     
-        
+    
     func postBtnClick(sender:UIButton){
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         let image:[String] = imgName.components(separatedBy: "|")
@@ -322,5 +322,63 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             }
             
         }
+        
+        self.getQiniuUploadToken();
     }
-  }
+    
+    func getQiniuUploadToken(){
+        Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
+            
+            if let data = response.result.value {
+                let responseResult = JSON(data)
+                
+                let resultCode = responseResult["resultCode"].intValue
+                print(resultCode)
+                if resultCode == 200{
+                    let token = responseResult["uptoken"].string!
+                    print(token)
+                    
+                    self.upLoadImageRequest(urlString: ConstantsUtil.APP_QINIU_UPLOAD_URL, params: ["token" : token], data:UIImagePNGRepresentation(UIImage.init(named: "top3Image2")!)!, success: { (success) in
+                        
+                    }, failture: { (error) in
+                        
+                    })
+                }
+            }
+            
+        }
+    }
+    
+    func upLoadImageRequest(urlString : String, params:[String:String], data: Data,success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
+        
+        let headers = ["content-type":"multipart/form-data"]
+        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                let flag = params["token"]
+                let filename = (UIDevice.current.identifierForVendor?.uuidString)!
+                multipartFormData.append((flag?.data(using: String.Encoding.utf8)!)!, withName: "token")
+                multipartFormData.append(data, withName: "file", fileName: filename, mimeType: "image/png")
+                
+        },
+            to: urlString,
+            headers: headers,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        if let value = response.result.value as? [String: AnyObject]{
+                            
+                            let json = JSON(value)
+                            print(json)
+                            
+                        }
+                    }
+                case .failure(let encodingError):
+                    failture(encodingError)
+                }
+        }
+        )
+    }
+
+}

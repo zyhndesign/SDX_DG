@@ -22,4 +22,6 @@ class ConstantsUtil : NSObject {
    
     static let APP_MATCH_LIST_BY_CATEGORY = WEB_API_BASE_URL + "/app/hpManage/getHpDataByCategoryId"
     
+    static let APP_QINIU_TOKEN = WEB_API_BASE_URL + "/hpgl/hpManage/getUploadKey"
+    static let APP_QINIU_UPLOAD_URL = "http://upload.qiniu.com/"
 }
