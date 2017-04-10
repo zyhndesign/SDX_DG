@@ -24,4 +24,5 @@ class ConstantsUtil : NSObject {
     
     static let APP_QINIU_TOKEN = WEB_API_BASE_URL + "/hpgl/hpManage/getUploadKey"
     static let APP_QINIU_UPLOAD_URL = "http://upload.qiniu.com/"
+    static let APP_QINIU_IMAGE_URL_PREFIX = "http://oaycvzlnh.bkt.clouddn.com/"
 }

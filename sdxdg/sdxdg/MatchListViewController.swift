@@ -32,22 +32,13 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     let trousersLayer:UIImageView = UIImageView();
     let outClothLayer:UIImageView = UIImageView();
     
-    var inClothPath:String?
-    var outClothPath:String?
-    var trouserPath:String?
+    var inClothObject:GarmentModel?
+    var outClothObject:GarmentModel?
+    var trouserObject:GarmentModel?
     
     var garmentType:Int = 0
     
-    var bgPanel:UIView?
-    var contentPanel:UIView?
-    
-    var modelView1:ModelView?
-    var modelView2:ModelView?
-    var modelView3:ModelView?
-    var modelView4:ModelView?
-    var modelView5:ModelView?
-    var imgName:String = ""
-    var modelSequenceNum:Int = 0
+    var selectGarmentModelList:[GarmentModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +59,6 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         modelView.addSubview(trousersLayer)
         modelView.addSubview(outClothLayer)
         
-        
         loadCostumeData(category: 0,limit: 10,offset: 0)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -88,17 +78,19 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
 
     func updateMatchModel(notifaction: NSNotification){
-        let modelImgName:String = (notifaction.object as? String)!
-        print(modelImgName)
-        
+        let garmentModel:GarmentModel = (notifaction.object as? GarmentModel)!
         if garmentType == 0{
-            clothLayer.af_setImage(withURL: URL.init(string: modelImgName)!)
+            clothLayer.af_setImage(withURL: URL.init(string: garmentModel.imageUrl1!)!)
+            inClothObject = garmentModel
         }
         else if garmentType == 1{
-            outClothLayer.af_setImage(withURL: URL.init(string: modelImgName)!)
+            outClothLayer.af_setImage(withURL: URL.init(string: garmentModel.imageUrl1!)!)
+            outClothObject = garmentModel
+            
         }
         else if garmentType == 2{
-            trousersLayer.af_setImage(withURL: URL.init(string: modelImgName)!)
+            trousersLayer.af_setImage(withURL: URL.init(string: garmentModel.imageUrl1!)!)
+            trouserObject = garmentModel
         }
     }
 
@@ -134,15 +126,14 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
             garmentModel = trouserClothList[indexPath.row]
         }
         
-        cell.frontImgName = garmentModel?.imageUrl1
-        
         cell.imgView?.af_setImage(withURL: URL.init(string: (garmentModel?.imageUrl3)!)!)
         
         cell.layer.borderWidth = 0.3
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.titleLabel!.text = garmentModel?.hpName
         cell.priceLabel!.text = garmentModel?.price
-        
+        cell.garmentModel = garmentModel
+        cell.backgroundColor = UIColor.white
         return cell
     }
     
@@ -153,7 +144,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize.init(width: (screenWidth - 30)/2, height: screenHeight / 2 - 58)
+        return CGSize.init(width: (screenWidth - 30)/2, height: screenHeight / 2 - 110)
         
     }
     
@@ -178,125 +169,40 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         hud.label.text = "处理中..."
         hud.hide(animated: true, afterDelay: 0.8)
         
-        /*
-        if let cloth = inClothPath{
-            imgName.append(cloth)
-            imgName.append("|")
+        
+        if let cloth = inClothObject{
+            selectGarmentModelList.append(cloth)
         }
         else{
             hud.label.text = "内搭未选择"
             hud.hide(animated: true, afterDelay: 0.8)
             return
         }
-        if let cloth = outClothPath{
-            imgName.append(cloth)
-            imgName.append("|")
+        if let cloth = outClothObject{
+            selectGarmentModelList.append(cloth)
         }
         else{
             hud.label.text = "外套未选择"
             hud.hide(animated: true, afterDelay: 0.8)
             return
         }
-        if let cloth = trouserPath{
-            imgName.append(cloth)
-            imgName.append("|")
+        if let cloth = trouserObject{
+            selectGarmentModelList.append(cloth)
         }
         else{
             hud.label.text = "裤子未选择"
             hud.hide(animated: true, afterDelay: 0.8)
             return
         }
-        */
-        //保存模型图片
         
-        let modelImage:UIImage = modelView.image!
-        let clothLayerImage:UIImage = clothLayer.image!
-        let trousersLayerImage:UIImage = trousersLayer.image!
-        let outClothLayerImage:UIImage = outClothLayer.image!
-        let size:CGSize = self.modelView.frame.size;
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BigModelMatch"), object: selectGarmentModelList)
         
-        UIGraphicsBeginImageContext(size);
-        UIColor.white.setFill()
-        modelImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
-        clothLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
-        trousersLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
-        outClothLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
-        
-        let resultingImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        UIGraphicsEndImageContext()
-        
-        Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
-            
-            if let data = response.result.value {
-                let responseResult = JSON(data)
-                
-                let resultCode = responseResult["resultCode"].intValue
-                print(resultCode)
-                if resultCode == 200{
-                    let token = responseResult["uptoken"].string!
-                    print(token)
-                    
-                    self.upLoadImageRequest(urlString: ConstantsUtil.APP_QINIU_UPLOAD_URL, params: ["token" : token], data:UIImagePNGRepresentation(resultingImage)!, success: { (success) in
-                        
-                    }, failture: { (error) in
-                        
-                    })
-                }
-            }
-            
+        let time: TimeInterval = 1.0
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
-    
-    func postBtnClick(sender:UIButton){
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        let image:[String] = imgName.components(separatedBy: "|")
-        
-        if image.count != 4{
-            hud.label.text = "服装未选全"
-        }
-        else{
-            hud.label.text = "处理中..."
-            imgName.append(String(modelSequenceNum))
-            let time: TimeInterval = 1.0
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
-                self.navigationController?.popViewController(animated: true)
-            }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BigModelMatch"), object: imgName)
-        }
-        hud.hide(animated: true, afterDelay: 0.8)
-    }
-    
-    func tapGestureClick(sender:UITapGestureRecognizer){
-        let modelView:ModelView = sender.view as! ModelView
-        modelSequenceNum = modelView.tag
-        
-        if (modelView.tag == 1){
-            modelView2?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "A")
-            modelView3?.clearModel()
-            modelView4?.clearModel()
-            modelView5?.clearModel()
-        }
-        else if (modelView.tag == 2){
-            modelView3?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "B")
-            modelView2?.clearModel()
-            modelView4?.clearModel()
-            modelView5?.clearModel()
-        }
-        else if (modelView.tag == 3){
-            modelView4?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "C")
-            modelView2?.clearModel()
-            modelView3?.clearModel()
-            modelView5?.clearModel()
-        }
-        else if (modelView.tag == 4){
-            modelView5?.initImage(outImg: outClothPath!, inImg: inClothPath!, trouserImg: trouserPath!,label: "D")
-            modelView3?.clearModel()
-            modelView4?.clearModel()
-            modelView2?.clearModel()
-        }
-    }
     
     @IBAction func innerClothBtn(_ sender: Any) {
         innerClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
@@ -364,37 +270,4 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         
     }
     
-    
-    func upLoadImageRequest(urlString : String, params:[String:String], data: Data,success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
-        
-        let headers = ["content-type":"multipart/form-data"]
-        
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                let flag = params["token"]
-                let filename = (UIDevice.current.identifierForVendor?.uuidString)!
-                multipartFormData.append((flag?.data(using: String.Encoding.utf8)!)!, withName: "token")
-                multipartFormData.append(data, withName: "file", fileName: filename, mimeType: "image/png")
-                
-        },
-            to: urlString,
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                        if let value = response.result.value as? [String: AnyObject]{
-                            
-                            let json = JSON(value)
-                            print(json)
-                            
-                        }
-                    }
-                case .failure(let encodingError):
-                    failture(encodingError)
-                }
-        }
-        )
-    }
-
 }

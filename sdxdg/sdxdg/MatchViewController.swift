@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import SwiftyJSON
+import AlamofireObjectMapper
+import AlamofireImage
+import Alamofire
 
 class MatchViewController: UIViewController,UIScrollViewDelegate {
     
@@ -49,10 +53,10 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var saveBtn:UIButton?
     var savePanel:UIView?
     
-    var model1String:[String] = []
-    var model2String:[String] = []
-    var model3String:[String] = []
-    var model4String:[String] = []
+    var model1GarmentModel:[GarmentModel] = []
+    var model2GarmentModel:[GarmentModel] = []
+    var model3GarmentModel:[GarmentModel] = []
+    var model4GarmentModel:[GarmentModel] = []
     
     var label:UILabel?
     
@@ -60,6 +64,16 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var layer2:CALayer?
     var layer3:CALayer?
     var layer4:CALayer?
+    
+    var saveModel1:UIImageView?
+    var saveModel2:UIImageView?
+    var saveModel3:UIImageView?
+    var saveModel4:UIImageView?
+    
+    var model1UploadResult = (modelUpload:false,modelUrl:"")
+    var model2UploadResult = (modelUpload:false,modelUrl:"")
+    var model3UploadResult = (modelUpload:false,modelUrl:"")
+    var model4UploadResult = (modelUpload:false,modelUrl:"")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -247,40 +261,41 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     func updateMatchModel(notifaction: NSNotification){
-        let modelImgName:String = (notifaction.object as? String)!
-        var image:[String] = modelImgName.components(separatedBy: "|")
-        if (image.count == 4){
-            let modelNum:Int = Int(image[3])!
-            
-            if (modelNum == 1){
-                model1OutCloth?.image = UIImage.init(named: image[1])
-                model1InCloth?.image = UIImage.init(named: image[0])
-                model1Trouser?.image = UIImage.init(named: image[2])
-                model1String = image
-                self.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-            }
-            else if (modelNum == 2){
-                model2OutCloth?.image = UIImage.init(named: image[1])
-                model2InCloth?.image = UIImage.init(named: image[0])
-                model2Trouser?.image = UIImage.init(named: image[2])
-                model2String = image
-                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth/2, y: 0), animated: true)
-            }
-            else if (modelNum == 3){
-                model3OutCloth?.image = UIImage.init(named: image[1])
-                model3InCloth?.image = UIImage.init(named: image[0])
-                model3Trouser?.image = UIImage.init(named: image[2])
-                model3String = image
-                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth, y: 0), animated: true)
-            }
-            else if (modelNum == 4){
-                model4OutCloth?.image = UIImage.init(named: image[1])
-                model4InCloth?.image = UIImage.init(named: image[0])
-                model4Trouser?.image = UIImage.init(named: image[2])
-                model4String = image
-                self.scrollView.setContentOffset(CGPoint.init(x: screenWidth + screenWidth/2, y: 0), animated: true)
-            }
+        
+        let selectGarmentModelList:[GarmentModel] = (notifaction.object as? [GarmentModel])!
+        let innerClothGarmentModel:GarmentModel = selectGarmentModelList[0]
+        let outterClothGarmentModel:GarmentModel = selectGarmentModelList[1]
+        let trouserClothGarmentModel:GarmentModel = selectGarmentModelList[2]
+        
+        if (currentPage == 0){
+            model1InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
+            model1OutCloth?.af_setImage(withURL: URL.init(string:outterClothGarmentModel.imageUrl1!)!)
+            model1Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
+            model1GarmentModel = selectGarmentModelList
+            self.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
         }
+        else if (currentPage == 1){
+            model2InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
+            model2OutCloth?.af_setImage(withURL: URL.init(string:outterClothGarmentModel.imageUrl1!)!)
+            model2Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
+            model2GarmentModel = selectGarmentModelList
+            self.scrollView.setContentOffset(CGPoint.init(x: screenWidth/2, y: 0), animated: true)
+        }
+        else if (currentPage == 2){
+            model3InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
+            model3OutCloth?.af_setImage(withURL: URL.init(string:outterClothGarmentModel.imageUrl1!)!)
+            model3Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
+            model3GarmentModel = selectGarmentModelList
+            self.scrollView.setContentOffset(CGPoint.init(x: screenWidth, y: 0), animated: true)
+        }
+        else if (currentPage == 3){
+            model4InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
+            model4OutCloth?.af_setImage(withURL: URL.init(string:outterClothGarmentModel.imageUrl1!)!)
+            model4Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
+            model4GarmentModel = selectGarmentModelList
+            self.scrollView.setContentOffset(CGPoint.init(x: screenWidth + screenWidth/2, y: 0), animated: true)
+        }
+        
     }
 
     
@@ -290,21 +305,9 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     func imageTapped(sender: UIGestureRecognizer){
-        print("click...")
         let view:MatchListViewController = self.storyboard?.instantiateViewController(withIdentifier: "MatchCollectionView") as! MatchListViewController
         //self.present(view!, animated: true, completion: {() -> Void in (print("complete"))})
-        if (currentPage == 0){
-            view.modelSequenceNum = 1
-        }
-        else if (currentPage == 1){
-            view.modelSequenceNum = 2
-        }
-        else if (currentPage == 2){
-            view.modelSequenceNum = 3
-        }
-        else if (currentPage == 3){
-            view.modelSequenceNum = 4
-        }
+        
         self.navigationController?.pushViewController(view, animated: true)
         
     }
@@ -325,32 +328,32 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             let tagA = TagLayer.init(text: "A")
             tagA.frame = CGRect.init(x: 0, y: 5, width: 24, height: 34)
             layer1?.addSublayer(tagA)
-            if (model1String.count > 0){
-                self.addClothLayer(mLayer:layer1!, modelString:model1String)
+            if (model1GarmentModel.count == 3){
+                self.addClothLayer(mLayer:layer1!, innerImage: (model1InCloth?.image)!, outterImage: (model1OutCloth?.image)!, trouserImage: (model1Trouser?.image)!)
             }
             
             layer2 = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: 10, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             let tagB = TagLayer.init(text: "B")
             tagB.frame = CGRect.init(x: 0, y: 5, width: 24, height: 34)
             layer2?.addSublayer(tagB)
-            if (model2String.count > 0){
-                self.addClothLayer(mLayer:layer2!, modelString:model2String)
+            if (model2GarmentModel.count == 3){
+                self.addClothLayer(mLayer:layer2!, innerImage: (model2InCloth?.image)!, outterImage: (model2OutCloth?.image)!, trouserImage: (model2Trouser?.image)!)
             }
             
             layer3 = self.addModel(view: fourViewPanel!, x: 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             let tagC = TagLayer.init(text: "C")
             tagC.frame = CGRect.init(x: 0, y: 0, width: 24, height: 34)
             layer3?.addSublayer(tagC)
-            if (model3String.count > 0){
-                self.addClothLayer(mLayer:layer3!, modelString:model3String)
+            if (model3GarmentModel.count == 3){
+                self.addClothLayer(mLayer:layer3!, innerImage: (model3InCloth?.image)!, outterImage: (model3OutCloth?.image)!, trouserImage: (model3Trouser?.image)!)
             }
             
             layer4 = self.addModel(view: fourViewPanel!, x: screenWidth/2 + 50, y: screenHeight/2 - 50, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
             let tagD = TagLayer.init(text: "D")
             tagD.frame = CGRect.init(x: 0, y: 0, width: 24, height: 34)
             layer4?.addSublayer(tagD)
-            if (model4String.count > 0){
-                self.addClothLayer(mLayer:layer4!, modelString:model4String)
+            if (model4GarmentModel.count == 3){
+                self.addClothLayer(mLayer:layer4!, innerImage: (model4InCloth?.image)!, outterImage: (model4OutCloth?.image)!, trouserImage: (model4Trouser?.image)!)
             }
             
             let delBtn1:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight/2 - 100, width: 26, height: 26))
@@ -400,6 +403,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 layer.contents = nil
             })
         }
+        self.tapDelete(sender: UITapGestureRecognizer.init())
     }
     
     func addModel(view:UIView, x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat) -> CALayer{
@@ -410,18 +414,19 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         return layer
     }
     
-    func addModelCloth(mLayer:CALayer,imgName:String,x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat){
+    func addModelCloth(mLayer:CALayer,image:UIImage,x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat){
         let layer:CALayer = CALayer()
-        layer.contents = UIImage.init(named: imgName)?.cgImage
+        layer.contents = image.cgImage
         layer.frame = CGRect.init(x: x, y: y, width: width, height: height)
         mLayer.addSublayer(layer)
     }
     
-    func addClothLayer(mLayer:CALayer, modelString:Array<String>){
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[0], x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[2], x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
-        self.addModelCloth(mLayer: mLayer, imgName: modelString[1], x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+    func addClothLayer(mLayer:CALayer, innerImage:UIImage, outterImage:UIImage, trouserImage:UIImage){
+        self.addModelCloth(mLayer: mLayer, image: innerImage, x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+        self.addModelCloth(mLayer: mLayer, image: trouserImage, x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
+        self.addModelCloth(mLayer: mLayer, image: outterImage, x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
     }
+    
     @IBAction func moreBtnClick(_ sender: Any) {
         if (buttonSelect){
             buttonSelect = false
@@ -559,19 +564,33 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         savePanel = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight))
         
         let modelWidth = (screenWidth - 50)/4
-        let model1:UIImageView = UIImageView.init(frame: CGRect.init(x: 10, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
-        model1.image = UIImage.init(named: "four1")
-        let model2:UIImageView = UIImageView.init(frame: CGRect.init(x: 20 + modelWidth, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
-        model2.image = UIImage.init(named: "four2")
-        let model3:UIImageView = UIImageView.init(frame: CGRect.init(x: 30 + modelWidth*2, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
-        model3.image = UIImage.init(named: "four3")
-        let model4:UIImageView = UIImageView.init(frame: CGRect.init(x: 40 + modelWidth*3, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
-        model4.image = UIImage.init(named: "four4")
+        saveModel1 = UIImageView.init(frame: CGRect.init(x: 10, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        if(model1GarmentModel.count == 3){
+            saveModel1!.image = self.combineImage(clothLayerImage: (model1InCloth?.image)!, trousersLayerImage: (model1Trouser?.image)!, outClothLayerImage: (model1OutCloth?.image)!)
+            saveModel1?.contentMode = UIViewContentMode.scaleAspectFit
+        }
+        saveModel2 = UIImageView.init(frame: CGRect.init(x: 20 + modelWidth, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        if(model2GarmentModel.count == 3){
+            saveModel2!.image = self.combineImage(clothLayerImage: (model2InCloth?.image)!, trousersLayerImage: (model2Trouser?.image)!, outClothLayerImage: (model2OutCloth?.image)!)
+            saveModel2?.contentMode = UIViewContentMode.scaleAspectFit
+        }
         
-        savePanel!.addSubview(model1)
-        savePanel!.addSubview(model2)
-        savePanel!.addSubview(model3)
-        savePanel!.addSubview(model4)
+        saveModel3 = UIImageView.init(frame: CGRect.init(x: 30 + modelWidth*2, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        if(model3GarmentModel.count == 3){
+            saveModel3!.image = self.combineImage(clothLayerImage: (model3InCloth?.image)!, trousersLayerImage: (model3Trouser?.image)!, outClothLayerImage: (model3OutCloth?.image)!)
+            saveModel3?.contentMode = UIViewContentMode.scaleAspectFit
+        }
+        
+        saveModel4 = UIImageView.init(frame: CGRect.init(x: 40 + modelWidth*3, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        if(model4GarmentModel.count == 3){
+            saveModel4!.image = self.combineImage(clothLayerImage: (model4InCloth?.image)!, trousersLayerImage: (model4Trouser?.image)!, outClothLayerImage: (model4OutCloth?.image)!)
+            saveModel4?.contentMode = UIViewContentMode.scaleAspectFit
+        }
+        
+        savePanel!.addSubview(saveModel1!)
+        savePanel!.addSubview(saveModel2!)
+        savePanel!.addSubview(saveModel3!)
+        savePanel!.addSubview(saveModel4!)
         
         let textField:UITextField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 100, height: 35))
         textField.placeholder = "请输入标题"
@@ -591,10 +610,170 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         self.view.addSubview(savePanel!)
         savePanel!.isHidden = false
         
+        //let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        //hud.label.text = "保存处理中..."
+        
+        Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
+            
+            if let data = response.result.value {
+                let responseResult = JSON(data)
+                
+                let resultCode = responseResult["resultCode"].intValue
+                
+                if resultCode == 200{
+                    let token = responseResult["uptoken"].string!
+                    
+                    self.model1UploadResult = (modelUpload:false,modelUrl:"")
+                    self.model2UploadResult = (modelUpload:false,modelUrl:"")
+                    self.model3UploadResult = (modelUpload:false,modelUrl:"")
+                    self.model4UploadResult = (modelUpload:false,modelUrl:"")
+                    
+                    self.saveModel(image: self.saveModel1!.image, token: token, modelNum:1)
+                    self.saveModel(image: self.saveModel2!.image, token: token, modelNum:2)
+                    self.saveModel(image: self.saveModel3!.image, token: token, modelNum:3)
+                    self.saveModel(image: self.saveModel4!.image, token: token, modelNum:4)
+                    
+                }
+            }
+        }
+        
     }
     
     func saveBtnClickToServer(sender:UIButton){
-        savePanel!.isHidden = true
+        
+        //savePanel!.isHidden = true
+        //保存模型图片
+        print("save btn click....")
+        print(self.model1UploadResult.modelUpload)
+        print(self.model2UploadResult.modelUpload)
+        print(self.model3UploadResult.modelUpload)
+        print(self.model4UploadResult.modelUpload)
+        print("----------------------------------------")
+        print(self.model1UploadResult.modelUrl)
+        print(self.model2UploadResult.modelUrl)
+        print(self.model3UploadResult.modelUrl)
+        print(self.model4UploadResult.modelUrl)
+        print("----------------------------------------")
+        
+        if self.model1UploadResult.modelUpload && self.model2UploadResult.modelUpload && self.model3UploadResult.modelUpload && self.model4UploadResult.modelUpload{
+            
+            var matchlists:[Any] = []
+            
+            if !model1UploadResult.modelUrl.isEmpty{
+                let match1list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model1UploadResult.modelUrl,"modelNum":"1"]
+                matchlists.append(match1list)
+            }
+            
+            if !model2UploadResult.modelUrl.isEmpty{
+                let match2list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model2UploadResult.modelUrl,"modelNum":"2"]
+                matchlists.append(match2list)
+            }
+            
+            if !model3UploadResult.modelUrl.isEmpty{
+                let match3list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model3UploadResult.modelUrl,"modelNum":"3"]
+                matchlists.append(match3list)
+            }
+            
+            if !model4UploadResult.modelUrl.isEmpty{
+                let match4list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model4UploadResult.modelUrl,"modelNum":"4"]
+                matchlists.append(match4list)
+            }
+            
+            let user:[String:Any] = ["id":1]
+            
+            let parameters: [String:Any] =  ["seriesname": "Testasdasdasdasd", "user": user ,
+                               "matchlists": matchlists]
+            print(parameters)
+            if (JSONSerialization.isValidJSONObject(parameters)){
+                print("json string")
+            }
+            else{
+                print("not json string")
+            }
+            
+            
+            
+            Alamofire.request(ConstantsUtil.APP_MATCH_CREATE_URL, method: .post, parameters: parameters,encoding: JSONEncoding.default).responseJSON(completionHandler: { (response) in
+                print(response.result.value)
+            })
+            
+            
+        }
+        else{
+        
+        }
+    }
+    
+    func saveModel(image:UIImage?,token:String,modelNum:Int){
+        print("call save image method......")
+        var modelUrl:String = ""
+        
+        if let modelImage = image{
+            
+            let headers = ["content-type":"multipart/form-data"]
+            
+            Alamofire.upload(
+                multipartFormData: { multipartFormData in
+                    multipartFormData.append((token.data(using: String.Encoding.utf8)!), withName: "token")
+                    let filename = (UIDevice.current.identifierForVendor?.uuidString)!
+                    multipartFormData.append(UIImagePNGRepresentation(modelImage)!, withName: "file", fileName: filename, mimeType: "image/png")
+                    
+            },
+                to: ConstantsUtil.APP_QINIU_UPLOAD_URL,
+                headers: headers,
+                encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.responseJSON { response in
+                            
+                            if let value = response.result.value as? [String: AnyObject]{
+                                let json = JSON(value)
+                                modelUrl = ConstantsUtil.APP_QINIU_IMAGE_URL_PREFIX + json["key"].string!
+                                self.setModel(modelUpload: true, modelUrl: modelUrl, modelNum: modelNum)
+                            }
+                        }
+                    case .failure(let encodingError):
+                        print(encodingError)
+                        self.setModel(modelUpload: true, modelUrl: modelUrl, modelNum: modelNum)
+                    }
+            }
+            )
+        }
+        else{
+            self.setModel(modelUpload: true, modelUrl: modelUrl, modelNum: modelNum)
+        }
+    }
+    
+    func setModel(modelUpload:Bool,modelUrl:String,modelNum:Int){
+        if (modelNum == 1){
+            self.model1UploadResult = (modelUpload:true,modelUrl:modelUrl)
+        }
+        else if (modelNum == 2){
+            self.model2UploadResult = (modelUpload:true,modelUrl:modelUrl)
+        }
+        else if (modelNum == 3){
+            self.model3UploadResult = (modelUpload:true,modelUrl:modelUrl)
+        }
+        else if (modelNum == 4){
+            self.model4UploadResult = (modelUpload:true,modelUrl:modelUrl)
+        }
+    }
+    
+    func combineImage(clothLayerImage:UIImage, trousersLayerImage:UIImage, outClothLayerImage:UIImage)->UIImage{
+        let modelImage:UIImage = (self.modelView1?.image)!
+        let size:CGSize = self.modelView1!.frame.size
+        
+        UIGraphicsBeginImageContext(size);
+        UIColor.white.setFill()
+        modelImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        clothLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        trousersLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        outClothLayerImage.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        
+        let resultingImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        return resultingImage
     }
     
     func leftToRightScroll(pageWidth:CGFloat){
@@ -658,5 +837,36 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             }
 
         }
+    }
+    
+    
+    func upLoadImageRequest(urlString : String, params:[String:String], data:Data,success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
+        
+        let headers = ["content-type":"multipart/form-data"]
+        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                let flag = params["token"]
+                multipartFormData.append((flag?.data(using: String.Encoding.utf8)!)!, withName: "token")
+                let filename = (UIDevice.current.identifierForVendor?.uuidString)!
+                multipartFormData.append(data, withName: "file", fileName: filename, mimeType: "image/png")
+               
+        },
+            to: urlString,
+            headers: headers,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        if let value = response.result.value as? [String: AnyObject]{
+                            let json = JSON(value)
+                            print(json)
+                        }
+                    }
+                case .failure(let encodingError):
+                    failture(encodingError)
+                }
+        }
+        )
     }
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DB005EE01E333967003709FA /* TagLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB005EDF1E333967003709FA /* TagLayer.swift */; };
+		DB073E1B1E9B1EDB000E27DD /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB073E1A1E9B1EDB000E27DD /* Match.swift */; };
+		DB073E3F1E9B1FA9000E27DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB073E3E1E9B1FA9000E27DD /* User.swift */; };
+		DB073E411E9B21C2000E27DD /* Matchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB073E401E9B21C2000E27DD /* Matchlist.swift */; };
 		DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFC1E00D24100F45386 /* MineViewController.swift */; };
 		DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */; };
 		DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D2F001E00D27300F45386 /* ClientViewController.swift */; };
@@ -429,6 +432,9 @@
 
 /* Begin PBXFileReference section */
 		DB005EDF1E333967003709FA /* TagLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagLayer.swift; sourceTree = "<group>"; };
+		DB073E1A1E9B1EDB000E27DD /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		DB073E3E1E9B1FA9000E27DD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB073E401E9B21C2000E27DD /* Matchlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchlist.swift; sourceTree = "<group>"; };
 		DB0D2EFC1E00D24100F45386 /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		DB0D2EFE1E00D25800F45386 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		DB0D2F001E00D27300F45386 /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
@@ -705,6 +711,9 @@
 				DB818A361E15EE6B00E09977 /* GarmentModel.swift */,
 				DBDE5C441E2324FA002454F5 /* CustomerModel.swift */,
 				DB124E421E94C7FA009180DD /* GarmentDataResultModel.swift */,
+				DB073E1A1E9B1EDB000E27DD /* Match.swift */,
+				DB073E3E1E9B1FA9000E27DD /* User.swift */,
+				DB073E401E9B21C2000E27DD /* Matchlist.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1271,6 +1280,7 @@
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
 				DB818A391E16586900E09977 /* ShareViewController.swift in Sources */,
 				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,
+				DB073E411E9B21C2000E27DD /* Matchlist.swift in Sources */,
 				DBEAB1211E7A864C000E99F4 /* LocalDataStorageUtil.swift in Sources */,
 				DBAD84A81E274D570007D6D9 /* File.swift in Sources */,
 				DBEAB1171E7A216F000E99F4 /* MessageUtil.swift in Sources */,
@@ -1280,6 +1290,7 @@
 				DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */,
 				DB0E98961E0E657F00443696 /* PersonalInfoViewController.swift in Sources */,
 				DB0D2EFF1E00D25800F45386 /* MatchViewController.swift in Sources */,
+				DB073E3F1E9B1FA9000E27DD /* User.swift in Sources */,
 				DB818A3F1E1CA55200E09977 /* HotMatchViewController.swift in Sources */,
 				DB005EE01E333967003709FA /* TagLayer.swift in Sources */,
 				DBEAB11C1E7A3A03000E99F4 /* ChineseString.m in Sources */,
@@ -1295,6 +1306,7 @@
 				DBEAB11D1E7A3A03000E99F4 /* pinyin.m in Sources */,
 				DB0E98921E0CB38000443696 /* SettingViewController.swift in Sources */,
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
+				DB073E1B1E9B1EDB000E27DD /* Match.swift in Sources */,
 				DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */,
 				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,
 				DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */,

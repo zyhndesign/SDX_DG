@@ -15,15 +15,7 @@ class MatchListCell : UICollectionViewCell{
     var titleLabel:UILabel?//cell上title
     var priceLabel:UILabel?//cell上价格
     var matchImage:UIImageView?
-    var frontImgName:String?
-    var backImgName:String?
-    
-    var customerLabel1:UILabel?//cell相关客户1
-    var customerLabel2:UILabel?//cell相关客户2
-    var customerLabel3:UILabel?//cell相关客户3
-    var customerLabel4:UILabel?//cell相关客户4
-    var customerLabel5:UILabel?//cell相关客户5
-    var customerLabel6:UILabel?//cell相关客户6
+    var garmentModel:GarmentModel?
     
     override init(frame: CGRect) {
         
@@ -44,42 +36,19 @@ class MatchListCell : UICollectionViewCell{
         matchImage?.isUserInteractionEnabled = true
         self.addSubview(matchImage!)
         
-        titleLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: 5, y: imgView!.frame.maxY-12), size: CGSize.init(width: (width-50)/2, height: 50)))
-        titleLabel?.numberOfLines = 0
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
-        titleLabel?.textColor = UIColor.lightGray
+        titleLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: 5, y: imgView!.frame.maxY), size: CGSize.init(width: (width-50)/2, height: 30)))
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 12.0)
+        titleLabel?.textColor = UIColor.darkGray
         titleLabel?.lineBreakMode = .byTruncatingTail
+        titleLabel?.numberOfLines = 0
         self.addSubview(titleLabel!)
         
-        priceLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: (width-50)/2 - 30, y: imgView!.frame.maxY - 12), size: CGSize.init(width: (width-50)/3, height: 50)))
-        priceLabel?.numberOfLines = 0
-        priceLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
-        priceLabel?.textColor = UIColor.lightGray
+        priceLabel = UILabel(frame: CGRect(origin: CGPoint.init(x: (width-50)/2 - 30, y: imgView!.frame.maxY ), size: CGSize.init(width: (width-50)/3, height: 30)))
+        priceLabel?.numberOfLines = 1
+        priceLabel?.font = UIFont.boldSystemFont(ofSize: 12.0)
+        priceLabel?.textColor = UIColor.darkGray
         self.addSubview(priceLabel!)
-        
-        customerLabel1 = UILabel(frame:CGRect(origin: CGPoint.init(x: 5, y: titleLabel!.frame.maxY - 12), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
-        initUILabel(customerLabel1!)
-        self.addSubview(customerLabel1!)
-        
-        customerLabel2 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel1!.frame.maxX + 3, y: titleLabel!.frame.maxY - 12), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
-        initUILabel(customerLabel2!)
-        self.addSubview(customerLabel2!)
-        
-        customerLabel3 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel2!.frame.maxX + 3, y: titleLabel!.frame.maxY - 12), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
-        initUILabel(customerLabel3!)
-        self.addSubview(customerLabel3!)
-        
-        customerLabel4 = UILabel(frame:CGRect(origin: CGPoint.init(x: 5, y: customerLabel1!.frame.maxY + 3), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
-        initUILabel(customerLabel4!)
-        self.addSubview(customerLabel4!)
-        
-        customerLabel5 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel4!.frame.maxX + 3, y: customerLabel1!.frame.maxY + 3), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
-        initUILabel(customerLabel5!)
-        self.addSubview(customerLabel5!)
-        
-        customerLabel6 = UILabel(frame:CGRect(origin: CGPoint.init(x: customerLabel5!.frame.maxX + 3, y: customerLabel1!.frame.maxY + 3), size: CGSize.init(width: (width-40)/2/3 - 5, height: 20)))
-        initUILabel(customerLabel6!)
-        self.addSubview(customerLabel6!)
+       
     }
     
     func initUILabel(_ label: UILabel){
@@ -94,7 +63,7 @@ class MatchListCell : UICollectionViewCell{
     
     func tapMatchImageClick(sender:Any){
         print("click match...")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modelMatch"), object: frontImgName)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modelMatch"), object: garmentModel)
     }
     
     required init(coder aDecoder: NSCoder) {
