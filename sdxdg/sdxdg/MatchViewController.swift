@@ -643,43 +643,34 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         //savePanel!.isHidden = true
         //保存模型图片
-        print("save btn click....")
-        print(self.model1UploadResult.modelUpload)
-        print(self.model2UploadResult.modelUpload)
-        print(self.model3UploadResult.modelUpload)
-        print(self.model4UploadResult.modelUpload)
-        print("----------------------------------------")
-        print(self.model1UploadResult.modelUrl)
-        print(self.model2UploadResult.modelUrl)
-        print(self.model3UploadResult.modelUrl)
-        print(self.model4UploadResult.modelUrl)
-        print("----------------------------------------")
+       
         
         if self.model1UploadResult.modelUpload && self.model2UploadResult.modelUpload && self.model3UploadResult.modelUpload && self.model4UploadResult.modelUpload{
             
             var matchlists:[Any] = []
             
             if !model1UploadResult.modelUrl.isEmpty{
-                let match1list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model1UploadResult.modelUrl,"modelNum":"1"]
+                
+                let match1list:[String:Any] = ["innerClothId":model1GarmentModel[0].id, "outClothId":model1GarmentModel[1].id, "trousersId":model1GarmentModel[2].id, "modelurl":model1UploadResult.modelUrl,"modelNum":"1"]
                 matchlists.append(match1list)
             }
             
             if !model2UploadResult.modelUrl.isEmpty{
-                let match2list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model2UploadResult.modelUrl,"modelNum":"2"]
+                let match2list:[String:Any] = ["innerClothId":model2GarmentModel[0].id, "outClothId":model2GarmentModel[1].id, "trousersId":model2GarmentModel[2].id, "modelurl":model2UploadResult.modelUrl,"modelNum":"2"]
                 matchlists.append(match2list)
             }
             
             if !model3UploadResult.modelUrl.isEmpty{
-                let match3list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model3UploadResult.modelUrl,"modelNum":"3"]
+                let match3list:[String:Any] = ["innerClothId":model3GarmentModel[0].id, "outClothId":model3GarmentModel[1].id, "trousersId":model3GarmentModel[2].id, "modelurl":model3UploadResult.modelUrl,"modelNum":"3"]
                 matchlists.append(match3list)
             }
             
             if !model4UploadResult.modelUrl.isEmpty{
-                let match4list:[String:Any] = ["innerClothId":"", "outClothId":"", "trousersId":"", "modelurl":model4UploadResult.modelUrl,"modelNum":"4"]
+                let match4list:[String:Any] = ["innerClothId":model4GarmentModel[0].id, "outClothId":model4GarmentModel[1].id, "trousersId":model4GarmentModel[2].id, "modelurl":model4UploadResult.modelUrl,"modelNum":"4"]
                 matchlists.append(match4list)
             }
             
-            let user:[String:Any] = ["id":1]
+            let user:[String:Any] = ["id":121]
             
             let parameters: [String:Any] =  ["seriesname": "Testasdasdasdasd", "user": user ,
                                "matchlists": matchlists]
