@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="login_logo" translatesAutoresizingMaskIntoConstraints="NO" id="BzK-bj-4nn">
-                                <rect key="frame" x="112.5" y="101" width="150" height="85"/>
+                                <rect key="frame" x="113" y="101" width="150" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="S2F-3u-3g5"/>
                                     <constraint firstAttribute="width" constant="150" id="fcT-px-D7S"/>
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4rN-3a-VFD">
-                                <rect key="frame" x="177.5" y="410" width="20" height="20"/>
+                                <rect key="frame" x="178" y="410" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5F6-M6-Ve0"/>
                                     <constraint firstAttribute="width" constant="20" id="T3p-4o-KIx"/>
@@ -175,7 +175,7 @@
                     <navigationItem key="navigationItem" title="我的" id="Sea-8B-7U6">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="OmU-ZK-Oid">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cn4-6I-iWX">
-                                <rect key="frame" x="374" y="11" width="20" height="22"/>
+                                <rect key="frame" x="339" y="11" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="setting"/>
                                 <connections>
@@ -448,7 +448,7 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n9Y-v4-dd5" id="buQ-Bk-wYR">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-zn-4y6">
@@ -476,7 +476,7 @@
                                         <rect key="frame" x="0.0" y="79" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UPk-Id-obC" id="vCN-Rc-Chc">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信息修改" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BES-5C-aDh">
@@ -506,7 +506,7 @@
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iwB-ga-N57" id="b3a-cK-Ab7">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帮助和反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMo-tL-5O9">
@@ -534,7 +534,7 @@
                                         <rect key="frame" x="0.0" y="167" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sw7-vs-zvS" id="TA2-k3-8f7">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于我们" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMF-oH-Fpn">
@@ -562,7 +562,7 @@
                                         <rect key="frame" x="0.0" y="211" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjK-7j-6cu" id="9Kl-8d-EHa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -658,7 +658,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="圣得西服装搭配应用" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCg-x6-Tiu">
-                                <rect key="frame" x="87.5" y="297" width="200" height="21"/>
+                                <rect key="frame" x="88" y="297" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="D5R-Tm-UT4"/>
                                     <constraint firstAttribute="height" constant="21" id="PSX-hN-oXr"/>
@@ -668,7 +668,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本：1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6q-bR-v4H">
-                                <rect key="frame" x="137.5" y="336" width="100" height="21"/>
+                                <rect key="frame" x="138" y="336" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Bw5-Rj-JlJ"/>
                                     <constraint firstAttribute="width" constant="100" id="zQd-bZ-mM9"/>
@@ -887,7 +887,7 @@
         <scene sceneID="l6p-M5-oLf">
             <objects>
                 <navigationController id="al2-7k-0Yu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lkx-i0-gK0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lkx-i0-gK0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -921,7 +921,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ugm-pD-rrs" id="Ta4-DZ-74Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1027,7 +1027,7 @@
         <scene sceneID="u4y-gh-Cvm">
             <objects>
                 <navigationController id="Lgf-8u-zRE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Q5-ln-6gb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Q5-ln-6gb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1056,23 +1056,23 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="搭配" image="matchIconNormal" selectedImage="matchIconSelect" id="8Nm-ga-801"/>
                     <navigationItem key="navigationItem" title="搭配" id="Toh-Qx-nbN">
-                        <barButtonItem key="leftBarButtonItem" image="addBtn" id="7qh-QA-reO">
+                        <barButtonItem key="leftBarButtonItem" image="fourBtn" id="7qh-QA-reO">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="AEJ-ve-WwW" kind="show" id="0Sc-vK-3iz"/>
+                                <action selector="fourViewPanelBtnClick:" destination="Gbc-xA-M0w" id="tce-wY-0eY"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="more" id="y7V-Uh-cLQ">
+                            <barButtonItem image="shareBlackBtn" id="y7V-Uh-cLQ">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="moreBtnClick:" destination="Gbc-xA-M0w" id="h91-eZ-t0T"/>
+                                    <action selector="shareBtnClick:" destination="Gbc-xA-M0w" id="GXx-yV-lqZ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="fourBtn" id="uCY-Sp-O0D">
+                            <barButtonItem image="saveWhiteBtn" id="uCY-Sp-O0D">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="fourViewBtnClick:" destination="Gbc-xA-M0w" id="jLf-I1-6Vc"/>
+                                    <action selector="saveBtnClick:" destination="Gbc-xA-M0w" id="pUD-Gq-CJ9"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -1094,18 +1094,18 @@
                         <viewControllerLayoutGuide type="bottom" id="YZh-bo-aMa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5k1-Kd-1dM">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-1I-O9R">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="u5N-fx-g7L">
                                         <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u5N-fx-g7L" id="zaQ-FE-UZD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1634,7 +1634,7 @@
         <scene sceneID="rEM-I9-UGr">
             <objects>
                 <navigationController id="JGg-1m-RTP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZbG-JB-8HR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ZbG-JB-8HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1677,7 +1677,6 @@
     </scenes>
     <resources>
         <image name="about_logo" width="87" height="87"/>
-        <image name="addBtn" width="22" height="22"/>
         <image name="clientIconNormal" width="33" height="27"/>
         <image name="clientIconSelect" width="31" height="28"/>
         <image name="defaultCustomerIcon" width="44" height="44"/>
@@ -1688,7 +1687,6 @@
         <image name="mineIconNormal" width="22" height="25"/>
         <image name="mineIconSelect" width="22" height="27"/>
         <image name="model" width="150" height="485"/>
-        <image name="more" width="20" height="5"/>
         <image name="normalBtn" width="127" height="42"/>
         <image name="rightArrow" width="8" height="13"/>
         <image name="saveWhiteBtn" width="20" height="20"/>
@@ -1697,6 +1695,7 @@
         <image name="selectedBtn" width="126" height="42"/>
         <image name="setting" width="20" height="21"/>
         <image name="shareAddIcon" width="22" height="22"/>
+        <image name="shareBlackBtn" width="18" height="17"/>
         <image name="shareContentIcon" width="16" height="20"/>
         <image name="sharePersonIcon" width="18" height="20"/>
         <image name="shareTitleIcon" width="18" height="18"/>

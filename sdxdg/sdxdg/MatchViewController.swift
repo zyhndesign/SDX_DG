@@ -48,7 +48,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var newX:CGFloat = 0.0
     var currentPage:CGFloat = 0
     
-    var dropMenuPanel:UIView?
     var shareBtn:UIButton?
     var saveBtn:UIButton?
     var savePanel:UIView?
@@ -175,41 +174,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         scrollView.delegate = self
         
-        dropMenuPanel = UIView.init(frame: CGRect.init(x: screenWidth - 130, y: naviHeight! + 20, width: 120, height: 90))
-        dropMenuPanel?.layer.contents = UIImage.init(named: "popBg")?.cgImage
-        
-        shareBtn = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 110, height: 25))
-        shareBtn?.setTitle("分享", for: UIControlState.normal)
-        shareBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
-        shareBtn?.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
-        shareBtn?.contentVerticalAlignment = UIControlContentVerticalAlignment.bottom
-        shareBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        let shareBtnLayer:CALayer = CALayer()
-        shareBtnLayer.contents = UIImage.init(named: "shareBlackBtn")?.cgImage
-        shareBtnLayer.frame = CGRect.init(x: 10, y: 5, width: 20, height: 20)
-        shareBtn?.addTarget(self, action: #selector(shareBtnClick(sender:)), for: UIControlEvents.touchUpInside)
-        shareBtn?.layer.addSublayer(shareBtnLayer)
-        
-        saveBtn = UIButton.init(frame: CGRect.init(x: 10, y: 50, width: 110, height: 25))
-        saveBtn?.setTitle("保存", for: UIControlState.normal)
-        saveBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
-        saveBtn?.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
-        saveBtn?.contentVerticalAlignment = UIControlContentVerticalAlignment.bottom
-        saveBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        let saveBtnLayer:CALayer = CALayer()
-        saveBtnLayer.contents = UIImage.init(named: "saveBlackBtn")?.cgImage
-        saveBtnLayer.frame = CGRect.init(x: 10, y: 5, width: 20, height: 20)
-        saveBtn?.addTarget(self, action: #selector(saveBtnClick(sender:)), for: UIControlEvents.touchUpInside)
-        saveBtn?.layer.addSublayer(saveBtnLayer)
-        dropMenuPanel?.addSubview(shareBtn!)
-        dropMenuPanel?.addSubview(saveBtn!)
-        
-        let menuLine:UIView = UIView.init(frame: CGRect.init(x: 10, y: 43, width: 100, height: 1))
-        menuLine.backgroundColor = UIColor.lightGray
-        dropMenuPanel?.addSubview(menuLine)
-        dropMenuPanel?.isHidden = true
-        self.view.addSubview(dropMenuPanel!)
-        
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapDelete(sender:)))
         let deleteBtn:UIImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 100, y: screenHeight - 100, width: 30, height: 30))
         deleteBtn.image = UIImage.init(named: "deleteBtn")
@@ -314,12 +278,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
     }
     
-    @IBAction func addClientBtnClick(_ sender: Any) {
-        //self.performSegue(withIdentifier: "CustomerListSegue", sender: self)
-    }
-    
-    @IBAction func fourViewBtnClick(_ sender: Any) {
-        
+    @IBAction func fourViewPanelBtnClick(_ sender: Any) {
         if (buttonSelect){
             buttonSelect = false
             self.fourViewPanel?.removeFromSuperview()
@@ -383,7 +342,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             
         }
     }
-    
+   
     func fourPanelDelBtnClick(sender:UIButton){
         if (sender.tag == 1){
             layer1?.sublayers?.forEach({ (layer) in
@@ -429,42 +388,11 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         self.addModelCloth(mLayer: mLayer, image: outterImage, x: 0, y: 0, width: screenWidth/2 - 110, height: screenHeight/2 - 80)
     }
     
-    @IBAction func moreBtnClick(_ sender: Any) {
-        if (buttonSelect){
-            buttonSelect = false
-            self.fourViewPanel?.removeFromSuperview()
-        }
+    @IBAction func shareBtnClick(_ sender: Any) {
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "shareView")
+        self.navigationController?.pushViewController(view!, animated: true)
         let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
         animation.duration = 0.5
-        if (dropMenuPanel?.isHidden)!{
-            self.showMenuPanel(animation: animation)
-        }
-        else{
-            self.hideMenuPanel(animation:animation)
-        }
-    }
-
-    func showMenuPanel(animation:CABasicAnimation){
-        
-        let naviHeight = self.navigationController?.navigationBar.frame.height
-        dropMenuPanel?.isHidden = false
-        animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: -50))
-        animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 40))
-        dropMenuPanel?.layer.add(animation, forKey: nil)
-        
-    }
-    
-    func hideMenuPanel(animation:CABasicAnimation){
-        let naviHeight = self.navigationController?.navigationBar.frame.height
-        animation.fromValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y: naviHeight! + 40))
-        animation.toValue = NSValue.init(cgPoint: CGPoint.init(x: screenWidth - 70, y:-50))
-        dropMenuPanel?.layer.add(animation, forKey: nil)
-        self.perform(#selector(hiddenMenuPanel), with: nil, afterDelay: 0.3)
-        
-    }
-    
-    func hiddenMenuPanel(){
-        dropMenuPanel?.isHidden = true
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -547,20 +475,10 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         
     }
-  
-    func shareBtnClick(sender:UIButton){
-        
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "shareView")
-        self.navigationController?.pushViewController(view!, animated: true)
-        let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
-        animation.duration = 0.5
-        self.hideMenuPanel(animation: animation)
-    }
     
-    func saveBtnClick(sender:UIButton){
+    @IBAction func saveBtnClick(_ sender: Any) {
         let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
         animation.duration = 0.5
-        self.hideMenuPanel(animation: animation)
         let naviHeight = self.navigationController?.navigationBar.frame.height
         
         savePanel = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight))
@@ -638,7 +556,6 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 }
             }
         }
-        
     }
     
     func saveBtnClickToServer(sender:UIButton){
