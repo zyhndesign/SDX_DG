@@ -75,6 +75,8 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var model3UploadResult = (modelUpload:false,modelUrl:"")
     var model4UploadResult = (modelUpload:false,modelUrl:"")
     
+    var textField:UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
@@ -592,17 +594,17 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         savePanel!.addSubview(saveModel3!)
         savePanel!.addSubview(saveModel4!)
         
-        let textField:UITextField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 100, height: 35))
-        textField.placeholder = "请输入标题"
-        textField.layer.borderColor = UIColor.darkGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8.0
+        textField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 100, height: 35))
+        textField!.placeholder = "请输入标题"
+        textField!.layer.borderColor = UIColor.darkGray.cgColor
+        textField!.layer.borderWidth = 1.0
+        textField!.layer.cornerRadius = 8.0
         let saveBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 80, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
         saveBtn.setTitle("保存", for:UIControlState.normal)
         saveBtn.layer.cornerRadius = 8.0
         saveBtn.backgroundColor = UIColor.init(red: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
         saveBtn.addTarget(self, action: #selector(saveBtnClickToServer(sender:)), for: UIControlEvents.touchUpInside)
-        savePanel!.addSubview(textField)
+        savePanel!.addSubview(textField!)
         savePanel!.addSubview(saveBtn)
         
         savePanel!.backgroundColor = UIColor.lightGray
@@ -643,36 +645,55 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         
         //savePanel!.isHidden = true
         //保存模型图片
-       
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        var seriesname:String? = textField!.text
+        if seriesname!.characters.count < 1{
+            hud.label.text = "请输入标题"
+            hud.hide(animated: true, afterDelay: 2.0)
+            return
+        }
+        
+        hud.label.text = "保存处理中..."
         
         if self.model1UploadResult.modelUpload && self.model2UploadResult.modelUpload && self.model3UploadResult.modelUpload && self.model4UploadResult.modelUpload{
             
             var matchlists:[Any] = []
-            
+            var draftstatus:Int = 0
             if !model1UploadResult.modelUrl.isEmpty{
                 
                 let match1list:[String:Any] = ["innerClothId":model1GarmentModel[0].id, "outClothId":model1GarmentModel[1].id, "trousersId":model1GarmentModel[2].id, "modelurl":model1UploadResult.modelUrl,"modelNum":"1"]
                 matchlists.append(match1list)
             }
-            
+            else{
+                draftstatus = 1
+            }
             if !model2UploadResult.modelUrl.isEmpty{
                 let match2list:[String:Any] = ["innerClothId":model2GarmentModel[0].id, "outClothId":model2GarmentModel[1].id, "trousersId":model2GarmentModel[2].id, "modelurl":model2UploadResult.modelUrl,"modelNum":"2"]
                 matchlists.append(match2list)
+            }
+            else{
+                draftstatus = 1
             }
             
             if !model3UploadResult.modelUrl.isEmpty{
                 let match3list:[String:Any] = ["innerClothId":model3GarmentModel[0].id, "outClothId":model3GarmentModel[1].id, "trousersId":model3GarmentModel[2].id, "modelurl":model3UploadResult.modelUrl,"modelNum":"3"]
                 matchlists.append(match3list)
             }
+            else{
+                draftstatus = 1
+            }
             
             if !model4UploadResult.modelUrl.isEmpty{
                 let match4list:[String:Any] = ["innerClothId":model4GarmentModel[0].id, "outClothId":model4GarmentModel[1].id, "trousersId":model4GarmentModel[2].id, "modelurl":model4UploadResult.modelUrl,"modelNum":"4"]
                 matchlists.append(match4list)
             }
+            else{
+                draftstatus = 1
+            }
             
             let user:[String:Any] = ["id":121]
             
-            let parameters: [String:Any] =  ["seriesname": "Testasdasdasdasd", "user": user ,
+            let parameters: [String:Any] =  ["seriesname": seriesname, "draftstatus":draftstatus, "user": user ,
                                "matchlists": matchlists]
             print(parameters)
             if (JSONSerialization.isValidJSONObject(parameters)){
@@ -682,16 +703,35 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 print("not json string")
             }
             
-            
-            
-            Alamofire.request(ConstantsUtil.APP_MATCH_CREATE_URL, method: .post, parameters: parameters,encoding: JSONEncoding.default).responseJSON(completionHandler: { (response) in
-                print(response.result.value)
-            })
-            
-            
+            if (matchlists.count == 0){
+                hud.label.text = "未搭配服装"
+                hud.hide(animated: true, afterDelay: 2.0)
+                self.savePanel!.isHidden = true
+            }
+            else{
+                Alamofire.request(ConstantsUtil.APP_MATCH_CREATE_URL, method: .post, parameters: parameters,encoding: JSONEncoding.default).responseJSON(completionHandler: { (response) in
+                    
+                    if let value = response.result.value as? [String: AnyObject]{
+                        let json = JSON(value)
+                        if json["resultCode"].intValue == 200{
+                            hud.label.text = "操作成功"
+                        }
+                        else{
+                            hud.label.text = "操作失败"
+                        }
+                    }
+                    else{
+                        hud.label.text = "操作失败"
+                    }
+                    hud.hide(animated: true, afterDelay: 2.0)
+                    self.savePanel!.isHidden = true
+                })
+            }
         }
         else{
-        
+            hud.label.text = "图片未处理成功"
+            hud.hide(animated: true, afterDelay: 2.0)
+            self.savePanel!.isHidden = true
         }
     }
     

@@ -118,6 +118,9 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     
     func loadVipCustomerByUserId(userId : Int){
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "正在加载您的客户"
+        
         let parameters:Parameters = ["shoppingGuideId":userId]
         
         Alamofire.request(ConstantsUtil.APP_USER_GET_VIP_URL,method:.post,parameters:parameters).responseJSON{
@@ -131,6 +134,8 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
                     let resultCode = json["resultCode"]
                     
                     if resultCode == 200{
+                        hud.label.text = "加载成功"
+                        hud.hide(animated: true, afterDelay: 1.0)
                         let list:Array<JSON> = json["object"].arrayValue
                         for jsonObject in list{
                             self.customerNameArray.append(jsonObject["vipname"].stringValue)
@@ -153,6 +158,7 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
                 }
             case .failure(let error):
                 print(error)
+                hud.hide(animated: true)
                 MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
             }
             
