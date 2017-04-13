@@ -72,14 +72,20 @@ class LoginViewController: UIViewController {
                     LocalDataStorageUtil.saveCurrentUserDefault(value: usernameValue)
                     
                     if resultCode == 200{
-                        
+                        print(json["object"])
                         var userDictionay:Dictionary<String,String> = Dictionary.init()
                         userDictionay.updateValue(json["object"]["headicon"].stringValue, forKey:"headicon" )
                         userDictionay.updateValue(json["object"]["id"].stringValue, forKey: "userId")
                         userDictionay.updateValue(json["object"]["gender"].stringValue, forKey: "gender")
-                        userDictionay.updateValue(json["object"]["shopname"].stringValue, forKey: "shopname")
+                        userDictionay.updateValue(json["object"]["shop"]["shopname"].stringValue, forKey: "shopname")
                         userDictionay.updateValue(json["object"]["phone"].stringValue, forKey: "phone")
-                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: json["object"]["username"].stringValue, dictionary: userDictionay)
+                        
+                        userDictionay.updateValue(usernameValue, forKey: "username")
+                        let encryptPwdValue = DataEncodingUtil.Endcode_AES_ECB(strToEncode: pwdValue)
+                        userDictionay.updateValue(encryptPwdValue, forKey: "password")
+                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: "CURRENT_USER", dictionary: userDictionay)
+                        
+                        print(DataEncodingUtil.Decode_AES_ECB(strToDecode: encryptPwdValue))
                         
                         self.initMainActivity()
                     }

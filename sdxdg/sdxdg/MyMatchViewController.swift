@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
+import AlamofireObjectMapper
+import SwiftyJSON
 
 class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -19,6 +23,10 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
     let fbIconArray:[String] = ["fb1","fb2","fb3","fb4","fb5","fb6","fb7","fb8","fb9","fb10"]
     
     var btnInitTag:Int = 0
+    
+    var innerClothList:[Match] = []
+    var outterClothList:[Match] = []
+    var trouserClothList:[Match] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +59,19 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if btnInitTag == 0{
             pushBtn.isSelected = true
+            self.loadDataByCondition(category: 1, userId: 1, limit: 10, offset: 0)
         }
         else if btnInitTag == 1{
             pushBtn.isSelected = true
+            self.loadDataByCondition(category: 1, userId: 1, limit: 10, offset: 0)
         }
         else if btnInitTag == 2{
             backBtn.isSelected = true
+            self.loadDataByCondition(category: 2, userId: 1, limit: 10, offset: 0)
         }
         else if btnInitTag == 3{
             draftBtn.isSelected = true
+            self.loadDataByCondition(category: 3, userId: 1, limit: 10, offset: 0)
         }
     }
     
@@ -103,6 +115,30 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadDataByCondition(category:Int,userId:Int,limit:Int,offset:Int){
+        var parameters:Parameters = [:]
+        var url:String = ""
+        if (category == 1){ //已经分享数据
+            url = ConstantsUtil.APP_MATCH_LIST_BY_SHARESTATUS_URL
+            parameters = ["userId":userId, "shareStatus":1,"limit":limit,"offset":offset]
+        }
+        else if (category == 2){ //已经反馈数据
+        
+        }
+        else if (category == 3){ //草稿箱
+            url = ConstantsUtil.APP_MATCH_LIST_BY_DRAFT_URL
+            parameters = ["userId":userId, "draftStatus":1,"limit":limit,"offset":offset]
+        }
+        
+        Alamofire.request(url,method:.get,parameters:parameters).responseObject { (response: DataResponse<Match>) in
+            
+            let matchResponse = response.result.value
+            
+            print(matchResponse)
+        }
+
     }
     
     @IBAction func pushBtnClick(_ sender: Any) {

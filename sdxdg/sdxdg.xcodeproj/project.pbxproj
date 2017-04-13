@@ -48,6 +48,8 @@
 		DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */; };
 		DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */; };
 		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
+		DB7238F01E9F110700F7E1A8 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; };
+		DB7238F11E9F110700F7E1A8 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A361E15EE6B00E09977 /* GarmentModel.swift */; };
 		DB818A391E16586900E09977 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A381E16586900E09977 /* ShareViewController.swift */; };
 		DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */; };
@@ -58,6 +60,8 @@
 		DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DB818A471E1CD6C600E09977 /* MBProgressHUD.m */; };
 		DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */; };
 		DB818AAE1E1CF1BA00E09977 /* sdxdp in Resources */ = {isa = PBXBuildFile; fileRef = DB818AAD1E1CF1BA00E09977 /* sdxdp */; };
+		DB9D36291E9F0F0E007DACE6 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; };
+		DB9D362B1E9F100A007DACE6 /* DataEncodingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D362A1E9F100A007DACE6 /* DataEncodingUtil.swift */; };
 		DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB611E07711400551D54 /* CustomerListController.swift */; };
 		DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */; };
 		DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB651E09016200551D54 /* MatchListViewController.swift */; };
@@ -241,6 +245,27 @@
 			remoteGlobalIDString = DB4EE58D1DFF841800BBCE4F;
 			remoteInfo = sdxdg;
 		};
+		DB7238F21E9F110700F7E1A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		DB9D36191E9F0EFF007DACE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		DB9D361B1E9F0EFF007DACE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
 		DBA3BB761E0A1DF200551D54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DBA3BB6B1E0A1DF100551D54 /* Alamofire.xcodeproj */;
@@ -418,6 +443,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DB7238F11E9F110700F7E1A8 /* CryptoSwift.framework in Embed Frameworks */,
 				DB124E3A1E8F41B3009180DD /* ObjectMapper.framework in Embed Frameworks */,
 				DBA3BC671E0A5A0800551D54 /* SwiftyJSON.framework in Embed Frameworks */,
 				DB0E988E1E0BD20800443696 /* Charts.framework in Embed Frameworks */,
@@ -486,6 +512,8 @@
 		DB818A471E1CD6C600E09977 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchandiseDetailViewController.swift; sourceTree = "<group>"; };
 		DB818AAD1E1CF1BA00E09977 /* sdxdp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdxdp; sourceTree = "<group>"; };
+		DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../../OpenSource/CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
+		DB9D362A1E9F100A007DACE6 /* DataEncodingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEncodingUtil.swift; sourceTree = "<group>"; };
 		DBA3BB611E07711400551D54 /* CustomerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListController.swift; sourceTree = "<group>"; };
 		DBA3BB631E07AE9100551D54 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
 		DBA3BB651E09016200551D54 /* MatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
@@ -519,8 +547,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9D36291E9F0F0E007DACE6 /* CryptoSwift.framework in Frameworks */,
 				DB124E1B1E8F3F44009180DD /* AlamofireObjectMapper.framework in Frameworks */,
 				DB0DC22A1E7FCA450016CDBB /* CoreGraphics.framework in Frameworks */,
+				DB7238F01E9F110700F7E1A8 /* CryptoSwift.framework in Frameworks */,
 				DB0DC2281E7FCA3A0016CDBB /* libsqlite3.tbd in Frameworks */,
 				DBCE0CD51E7FCE6100B8F193 /* libSocialWeChat.a in Frameworks */,
 				DBA3BC621E0A5A0800551D54 /* Alamofire.framework in Frameworks */,
@@ -603,6 +633,7 @@
 		DB4EE5851DFF841800BBCE4F = {
 			isa = PBXGroup;
 			children = (
+				DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */,
 				DB124E201E8F40D8009180DD /* ObjectMapper.xcodeproj */,
 				DB124DE61E839664009180DD /* AlamofireObjectMapper.xcodeproj */,
 				DB0E98811E0BD1F900443696 /* Charts.xcodeproj */,
@@ -732,6 +763,15 @@
 			name = oc_lib;
 			sourceTree = "<group>";
 		};
+		DB9D35FF1E9F0EFE007DACE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */,
+				DB9D361C1E9F0EFF007DACE6 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DBA3BB6C1E0A1DF100551D54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +859,7 @@
 				DBEAB1161E7A216F000E99F4 /* MessageUtil.swift */,
 				DBEAB11E1E7A7EF7000E99F4 /* ConstantsUtil.swift */,
 				DBEAB1201E7A864C000E99F4 /* LocalDataStorageUtil.swift */,
+				DB9D362A1E9F100A007DACE6 /* DataEncodingUtil.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -844,6 +885,7 @@
 				DB0E98901E0BD20800443696 /* PBXTargetDependency */,
 				DB124E1F1E8F3F50009180DD /* PBXTargetDependency */,
 				DB124E3C1E8F41B3009180DD /* PBXTargetDependency */,
+				DB7238F31E9F110700F7E1A8 /* PBXTargetDependency */,
 			);
 			name = sdxdg;
 			productName = sdxdg;
@@ -945,6 +987,10 @@
 				{
 					ProductGroup = DB0E98821E0BD1F900443696 /* Products */;
 					ProjectRef = DB0E98811E0BD1F900443696 /* Charts.xcodeproj */;
+				},
+				{
+					ProductGroup = DB9D35FF1E9F0EFE007DACE6 /* Products */;
+					ProjectRef = DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */;
 				},
 				{
 					ProductGroup = DB124E211E8F40D8009180DD /* Products */;
@@ -1082,6 +1128,20 @@
 			fileType = wrapper.cfbundle;
 			path = "ObjectMapper-tvOSTests.xctest";
 			remoteRef = DB124E361E8F40D8009180DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = DB9D36191E9F0EFF007DACE6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB9D361C1E9F0EFF007DACE6 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = DB9D361B1E9F0EFF007DACE6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		DBA3BB771E0A1DF200551D54 /* Alamofire.framework */ = {
@@ -1273,6 +1333,7 @@
 				DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */,
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
 				DB124E431E94C7FA009180DD /* GarmentDataResultModel.swift in Sources */,
+				DB9D362B1E9F100A007DACE6 /* DataEncodingUtil.swift in Sources */,
 				DBDE5C471E24AD2B002454F5 /* HotMatchCell.swift in Sources */,
 				DBDE5C431E231CC8002454F5 /* PassCustomerProtocol.swift in Sources */,
 				DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */,
@@ -1364,6 +1425,11 @@
 			isa = PBXTargetDependency;
 			target = DB4EE58D1DFF841800BBCE4F /* sdxdg */;
 			targetProxy = DB4EE5AE1DFF841800BBCE4F /* PBXContainerItemProxy */;
+		};
+		DB7238F31E9F110700F7E1A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = DB7238F21E9F110700F7E1A8 /* PBXContainerItemProxy */;
 		};
 		DBA3BC651E0A5A0800551D54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
