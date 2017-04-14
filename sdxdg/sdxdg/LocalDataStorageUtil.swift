@@ -15,11 +15,18 @@ class LocalDataStorageUtil: NSObject {
     
     static func getUserIdFromUserDefaults() -> Int{
         let currentUser = UserDefaults.init(suiteName: USER_DEFAULT_CURRENT_USER)
-        let object:String = currentUser?.value(forKey: "username") as! String;
-        print(object)
-        let userObj = UserDefaults.init(suiteName: object);
-        let tempVal = userObj?.value(forKey: "userId") as! String
-        return Int(tempVal)!
+        if let tempVal = currentUser?.value(forKey: "userId"){
+            return Int(tempVal as! String)!
+        }
+        return 0
+    }
+    
+    static func getUserInfoByKey(key:String)->String{
+        let currentUser = UserDefaults.init(suiteName: USER_DEFAULT_CURRENT_USER)
+        if let tempVal = currentUser?.value(forKey: key){
+            return tempVal as! String
+        }
+        return ""
     }
     
     static func saveCurrentUserDefault(value:String){

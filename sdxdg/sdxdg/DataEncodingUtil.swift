@@ -16,7 +16,7 @@ class DataEncodingUtil: NSObject {
     static func Endcode_AES_ECB(strToEncode:String)->String
     {
         do {
-            let encrypted = try AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).encrypt(Array(strToEncode.utf8))
+            let encrypted = try AES(key: key, iv: iv, blockMode: .ECB, padding: PKCS7()).encrypt(Array(strToEncode.utf8))
             let encoded = Data(bytes: encrypted)
             return encoded.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
         } catch {
@@ -25,14 +25,13 @@ class DataEncodingUtil: NSObject {
     }
     
     //AES-ECB128解密
-    static func Decode_AES_ECB(strToDecode:String)->String
+    static func Decode_AES_ECB(strToDecode:String)->String?
     {
         let data = Data.init(base64Encoded: strToDecode, options: Data.Base64DecodingOptions.init(rawValue: 0))
         let encrypted = data?.bytes
         do {
-            let decrypted = try AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt(encrypted!)
-            let encoded = Data(bytes: decrypted)
-            return String.init(data: encoded, encoding: String.Encoding.utf8)!
+            let decrypted = try AES(key: key, iv: iv, blockMode: .ECB, padding: PKCS7()).decrypt(encrypted!)
+            return String.init(data: Data.init(bytes: decrypted), encoding: String.Encoding.utf8)
         } catch {
             print(error)
             return ""

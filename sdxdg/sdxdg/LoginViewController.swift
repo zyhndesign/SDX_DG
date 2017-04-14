@@ -30,6 +30,15 @@ class LoginViewController: UIViewController {
         loginBtn.layer.cornerRadius = 6
         
         loadingIndicatorView.isHidden = true
+        
+        let usernameValue:String = LocalDataStorageUtil.getUserInfoByKey(key: "username")
+        username.text = usernameValue
+        let passwordValue:String = LocalDataStorageUtil.getUserInfoByKey(key: "password")
+        if (!(passwordValue.isEmpty)){
+            let value = DataEncodingUtil.Decode_AES_ECB(strToDecode: passwordValue)
+            password.text = value
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,11 +90,11 @@ class LoginViewController: UIViewController {
                         userDictionay.updateValue(json["object"]["phone"].stringValue, forKey: "phone")
                         
                         userDictionay.updateValue(usernameValue, forKey: "username")
-                        let encryptPwdValue = DataEncodingUtil.Endcode_AES_ECB(strToEncode: pwdValue)
+                        let encryptPwdValue:String = DataEncodingUtil.Endcode_AES_ECB(strToEncode: pwdValue)
                         userDictionay.updateValue(encryptPwdValue, forKey: "password")
-                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: "CURRENT_USER", dictionary: userDictionay)
+                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: LocalDataStorageUtil.USER_DEFAULT_CURRENT_USER, dictionary: userDictionay)
                         
-                        print(DataEncodingUtil.Decode_AES_ECB(strToDecode: encryptPwdValue))
+                        
                         
                         self.initMainActivity()
                     }
