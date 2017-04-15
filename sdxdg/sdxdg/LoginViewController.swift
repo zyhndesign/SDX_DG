@@ -93,9 +93,6 @@ class LoginViewController: UIViewController {
                         let encryptPwdValue:String = DataEncodingUtil.Endcode_AES_ECB(strToEncode: pwdValue)
                         userDictionay.updateValue(encryptPwdValue, forKey: "password")
                         LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: LocalDataStorageUtil.USER_DEFAULT_CURRENT_USER, dictionary: userDictionay)
-                        
-                        
-                        
                         self.initMainActivity()
                     }
                     else{

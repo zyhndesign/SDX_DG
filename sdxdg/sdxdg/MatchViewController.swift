@@ -76,6 +76,8 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     
     var textField:UITextField?
     
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
@@ -530,8 +532,8 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         self.view.addSubview(savePanel!)
         savePanel!.isHidden = false
         
-        //let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        //hud.label.text = "保存处理中..."
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "保存处理中..."
         
         Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
             
@@ -542,7 +544,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 
                 if resultCode == 200{
                     let token = responseResult["uptoken"].string!
-                    
+                    print(token)
                     self.model1UploadResult = (modelUpload:false,modelUrl:"")
                     self.model2UploadResult = (modelUpload:false,modelUrl:"")
                     self.model3UploadResult = (modelUpload:false,modelUrl:"")
@@ -552,7 +554,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                     self.saveModel(image: self.saveModel2!.image, token: token, modelNum:2)
                     self.saveModel(image: self.saveModel3!.image, token: token, modelNum:3)
                     self.saveModel(image: self.saveModel4!.image, token: token, modelNum:4)
-                    
+                    hud.hide(animated: true, afterDelay: 3)
                 }
             }
         }
@@ -608,7 +610,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 draftstatus = 1
             }
             
-            let user:[String:Any] = ["id":121]
+            let user:[String:Any] = ["id":userId]
             
             let parameters: [String:Any] =  ["seriesname": seriesname, "draftstatus":draftstatus, "user": user ,
                                "matchlists": matchlists]

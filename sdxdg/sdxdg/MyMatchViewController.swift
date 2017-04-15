@@ -24,9 +24,17 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var btnInitTag:Int = 0
     
-    var innerClothList:[Match] = []
-    var outterClothList:[Match] = []
-    var trouserClothList:[Match] = []
+    var shareList:[Match] = []
+    var feedbackList:[Match] = []
+    var draftList:[Match] = []
+    
+    let pageLimit:Int = 10
+    var sharePageNum:Int = 0
+    var feedbackPageNum:Int = 0
+    var draftPageNum = 0
+    
+    let refresh = UIRefreshControl()
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,38 +65,73 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         tableView.dataSource = self
         tableView.register(MyMatchTableViewCell.self, forCellReuseIdentifier: "MatchCell")
         
+        refresh.backgroundColor = UIColor.white
+        refresh.tintColor = UIColor.lightGray
+        refresh.attributedTitle = NSAttributedString(string:"下拉刷新")
+        refresh.addTarget(self, action: #selector(refreshLoadingData), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refresh)
+        
         if btnInitTag == 0{
             pushBtn.isSelected = true
-            self.loadDataByCondition(category: 1, userId: 1, limit: 10, offset: 0)
+            self.loadDataByCondition(category: 1, userId: userId, limit: pageLimit, offset: sharePageNum * pageLimit)
         }
         else if btnInitTag == 1{
             pushBtn.isSelected = true
-            self.loadDataByCondition(category: 1, userId: 1, limit: 10, offset: 0)
+            self.loadDataByCondition(category: 1, userId: userId, limit: pageLimit, offset: sharePageNum * pageLimit)
         }
         else if btnInitTag == 2{
             backBtn.isSelected = true
-            self.loadDataByCondition(category: 2, userId: 1, limit: 10, offset: 0)
+            self.loadDataByCondition(category: 2, userId: userId, limit: pageLimit, offset: feedbackPageNum * pageLimit)
         }
         else if btnInitTag == 3{
             draftBtn.isSelected = true
-            self.loadDataByCondition(category: 3, userId: 1, limit: 10, offset: 0)
+            self.loadDataByCondition(category: 3, userId: userId, limit: pageLimit, offset: draftPageNum * pageLimit)
+        }
+    }
+    
+    func refreshLoadingData(){
+        if btnInitTag == 1{
+            self.loadDataByCondition(category: 1, userId: userId, limit: pageLimit, offset: sharePageNum * pageLimit)
+        }
+        else if btnInitTag == 2{
+            self.loadDataByCondition(category: 2, userId: userId, limit: pageLimit, offset: feedbackPageNum * pageLimit)
+        }
+        else if btnInitTag == 3{
+            self.loadDataByCondition(category: 3, userId: userId, limit: pageLimit, offset: draftPageNum * pageLimit)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let indexCellName:String = "MatchCell"
         let matchCell:MyMatchTableViewCell = tableView.dequeueReusableCell(withIdentifier: indexCellName, for: indexPath) as! MyMatchTableViewCell
-        let iconRandomNum1:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum2:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum4:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
         matchCell.selectionStyle = UITableViewCellSelectionStyle.none
-        matchCell.initCellData(titleLable: "SUNDANCE 商务男装造型", timeLabel: "16:25 2016-12-26", model1: fbIconArray[iconRandomNum1], model2: fbIconArray[iconRandomNum2], model3: fbIconArray[iconRandomNum3], model4: fbIconArray[iconRandomNum4])
+        var match:Match?
+        if (btnInitTag == 1){
+            match = self.shareList[indexPath.row]
+        }
+        else if (btnInitTag == 2){
+            match = self.feedbackList[indexPath.row]
+        }
+        else if (btnInitTag == 3){
+            match = self.draftList[indexPath.row]
+        }
+        
+        matchCell.initCellData(titleLable: match?.seriesname, timeLabel: match?.createtime, modelLists:match?.matchlists)
         return matchCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        var count:Int = 0
+        if (btnInitTag == 1){
+            count = self.shareList.count
+        }
+        else if (btnInitTag == 2){
+            count = self.feedbackList.count
+        }
+        else if (btnInitTag == 3){
+            count = self.draftList.count
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,11 +175,50 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
             parameters = ["userId":userId, "draftStatus":1,"limit":limit,"offset":offset]
         }
         
-        Alamofire.request(url,method:.get,parameters:parameters).responseObject { (response: DataResponse<Match>) in
+        Alamofire.request(url,method:.post,parameters:parameters).responseObject { (response: DataResponse<MatchServerModel>) in
             
-            let matchResponse = response.result.value
+            let matchServerModel = response.result.value
             
-            print(matchResponse)
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            
+            
+            if(matchServerModel?.success)!{
+                
+                if let matchlist = matchServerModel?.object{
+                    if matchlist.count > 0{
+                        for match in matchlist{
+                            if (category == 1){
+                                self.shareList.insert(match, at: 0)
+                                self.sharePageNum = self.sharePageNum + 1
+                            }
+                            else if (category == 2){
+                                self.feedbackList.insert(match, at: 0)
+                                self.feedbackPageNum = self.feedbackPageNum + 1
+                            }
+                            else if (category == 3){
+                                self.draftList.insert(match, at: 0)
+                                self.draftPageNum = self.draftPageNum + 1
+                            }
+                        }
+                        
+                        self.tableView.reloadData()
+                        self.refresh.endRefreshing()
+                    }
+                    else{
+                        hud.label.text = "无更多数据"
+                        hud.hide(animated: true, afterDelay: 2.0)
+                    }
+                }
+                else{
+                    hud.label.text = "数据加载失败"
+                    hud.hide(animated: true, afterDelay: 2.0)
+                }
+            }
+            else{
+                hud.label.text = "数据加载失败"
+                hud.hide(animated: true, afterDelay: 2.0)
+            }
+            
         }
 
     }

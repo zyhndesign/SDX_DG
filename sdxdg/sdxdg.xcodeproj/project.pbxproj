@@ -50,6 +50,7 @@
 		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
 		DB7238F01E9F110700F7E1A8 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; };
 		DB7238F11E9F110700F7E1A8 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB7239171EA1CF3E00F7E1A8 /* MatchServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */; };
 		DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A361E15EE6B00E09977 /* GarmentModel.swift */; };
 		DB818A391E16586900E09977 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A381E16586900E09977 /* ShareViewController.swift */; };
 		DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */; };
@@ -500,6 +501,7 @@
 		DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchServerModel.swift; sourceTree = "<group>"; };
 		DB818A361E15EE6B00E09977 /* GarmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarmentModel.swift; sourceTree = "<group>"; };
 		DB818A381E16586900E09977 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMatchViewController.swift; sourceTree = "<group>"; };
@@ -745,6 +747,7 @@
 				DB073E1A1E9B1EDB000E27DD /* Match.swift */,
 				DB073E3E1E9B1FA9000E27DD /* User.swift */,
 				DB073E401E9B21C2000E27DD /* Matchlist.swift */,
+				DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1360,6 +1363,7 @@
 				DB0D2F011E00D27300F45386 /* ClientViewController.swift in Sources */,
 				DB0E98981E0E677F00443696 /* UpdatePwdViewController.swift in Sources */,
 				DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */,
+				DB7239171EA1CF3E00F7E1A8 /* MatchServerModel.swift in Sources */,
 				DB0E989A1E10A1CE00443696 /* ClientTableViewCell.swift in Sources */,
 				DBDE5C4A1E25C13D002454F5 /* ModelView.swift in Sources */,
 				DB818A411E1CA6B200E09977 /* PushDetailControllerView.swift in Sources */,

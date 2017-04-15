@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MyMatchTableViewCell : UITableViewCell {
     
@@ -49,13 +50,34 @@ class MyMatchTableViewCell : UITableViewCell {
         
     }
     
-    func initCellData(titleLable:String, timeLabel:String, model1:String,model2:String,model3:String,model4:String){
-        self.titleLable?.text = titleLable
-        self.timeLabel?.text = timeLabel
-        self.model1?.image = UIImage.init(named: model1)
-        self.model2?.image = UIImage.init(named: model2)
-        self.model3?.image = UIImage.init(named: model3)
-        self.model4?.image = UIImage.init(named: model4)
+    func initCellData(titleLable:String?, timeLabel:String?, modelLists:[Matchlist]?){
+        if let title = titleLable{
+            self.titleLable?.text = title
+        }
+        
+        if let time = timeLabel{
+            self.timeLabel?.text = time
+        }
+        
+        if let modellist = modelLists{
+            
+            for matchlistObject in modellist{
+                if matchlistObject.modelNum == 1{
+                    self.model1?.af_setImage(withURL: URL.init(string: matchlistObject.modelurl!)!)
+                }
+                else if matchlistObject.modelNum == 2{
+                    self.model2?.af_setImage(withURL: URL.init(string: matchlistObject.modelurl!)!)
+                }
+                else if matchlistObject.modelNum == 3{
+                    self.model3?.af_setImage(withURL: URL.init(string: matchlistObject.modelurl!)!)
+                }
+                else if matchlistObject.modelNum == 4{
+                    self.model4?.af_setImage(withURL: URL.init(string: matchlistObject.modelurl!)!)
+                }
+            }
+        }
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

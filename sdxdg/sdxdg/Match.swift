@@ -17,6 +17,7 @@ class Match: Mappable {
     var sharestatus:Int?
     var draftstatus:Int?
     var matchlists:[Matchlist]?
+    var createtime:String?
     
     required init?(map: Map) {
         
@@ -29,6 +30,7 @@ class Match: Mappable {
         sharestatus <- map["sharestatus"]
         draftstatus <- map["draftstatus"]
         matchlists <- map["matchlists"]
+        createtime <- map["createtime"]
     }
     
     
