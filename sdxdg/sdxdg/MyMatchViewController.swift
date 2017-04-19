@@ -87,6 +87,8 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
             draftBtn.isSelected = true
             self.loadDataByCondition(category: 3, userId: userId, limit: pageLimit, offset: draftPageNum * pageLimit)
         }
+        
+        self.tableView.tableFooterView = UIView.init(frame: CGRect.init())
     }
     
     func refreshLoadingData(){
@@ -180,7 +182,7 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
             let matchServerModel = response.result.value
             
             let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-            
+            hud.label.text = "加载中..."
             
             if(matchServerModel?.success)!{
                 
@@ -200,9 +202,8 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
                                 self.draftPageNum = self.draftPageNum + 1
                             }
                         }
-                        
                         self.tableView.reloadData()
-                        self.refresh.endRefreshing()
+                        
                     }
                     else{
                         hud.label.text = "无更多数据"
@@ -218,8 +219,9 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 hud.label.text = "数据加载失败"
                 hud.hide(animated: true, afterDelay: 2.0)
             }
-            
+            self.refresh.endRefreshing()
         }
+        
 
     }
     
@@ -228,6 +230,7 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         backBtn.isSelected = false
         draftBtn.isSelected = false
         btnInitTag = 1
+        self.loadDataByCondition(category: 1, userId: userId, limit: pageLimit, offset: sharePageNum * pageLimit)
     }
     
     @IBAction func backBtnClick(_ sender: Any) {
@@ -235,6 +238,7 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         backBtn.isSelected = true
         draftBtn.isSelected = false
         btnInitTag = 2
+        self.loadDataByCondition(category: 2, userId: userId, limit: pageLimit, offset: sharePageNum * pageLimit)
     }
     
     @IBAction func draftBtnClick(_ sender: Any) {
@@ -242,6 +246,7 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         backBtn.isSelected = false
         draftBtn.isSelected = true
         btnInitTag = 3
+        self.loadDataByCondition(category: 3, userId: userId, limit: pageLimit, offset: sharePageNum * pageLimit)
     }
     
 }

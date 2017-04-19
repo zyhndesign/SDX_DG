@@ -183,7 +183,8 @@ class MineViewController: UIViewController {
         top3ImageView1?.layer.borderColor = borderColor
         top3ImageView1?.tag = 1
         top3ImageView1?.isUserInteractionEnabled = true
-        top3ImageView1?.addGestureRecognizer(UIGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
+        top3ImageView1?.contentMode = .scaleAspectFit
+        top3ImageView1?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
         hotView.addSubview(top3ImageView1!)
         
        
@@ -192,7 +193,8 @@ class MineViewController: UIViewController {
         top3ImageView2?.layer.borderColor = borderColor
         top3ImageView2?.tag = 2
         top3ImageView2?.isUserInteractionEnabled = true
-        top3ImageView2?.addGestureRecognizer(UIGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
+        top3ImageView2?.contentMode = .scaleAspectFit
+        top3ImageView2?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
         hotView.addSubview(top3ImageView2!)
         
         top3ImageView3 = UIImageView.init(frame: CGRect.init(x: ((screenWidth - 60) / 3) * 2 + 50, y: 10, width: (screenWidth - 60) / 3, height: (screenWidth - 60) / 3))
@@ -200,11 +202,14 @@ class MineViewController: UIViewController {
         top3ImageView3?.layer.borderColor = borderColor
         top3ImageView3?.tag = 3
         top3ImageView3?.isUserInteractionEnabled = true
-        top3ImageView3?.addGestureRecognizer(UIGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
+        top3ImageView3?.contentMode = .scaleAspectFit
+        top3ImageView3?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
         hotView.addSubview(top3ImageView3!)
         
         scrollView.addSubview(hotView)
         scrollView.contentSize = CGSize.init(width: screenWidth, height: 580)
+        
+        self.initHotImage()
     }
     
     override func didReceiveMemoryWarning() {
@@ -265,8 +270,8 @@ class MineViewController: UIViewController {
         self.navigationController?.pushViewController(view, animated: true)
     }
     
-    func hotDetailViewClick(sender:UIImageView){
-        let tag:Int = sender.tag
+    func hotDetailViewClick(sender:UITapGestureRecognizer){
+        let tag:Int = sender.view!.tag
         var feedbackModel:FeedbackModel?
         if (tag == 1){
             if feedbackModels.count > 0{
@@ -330,7 +335,7 @@ class MineViewController: UIViewController {
                                 self.top3ImageView2?.af_setImage(withURL: URL.init(string: model2Url)!)
                                 self.feedbackModels.append(feedbackServerModelObject[1])
                             }
-                            if let model3Url = feedbackServerModelObject[3].modelurl{
+                            if let model3Url = feedbackServerModelObject[2].modelurl{
                                 self.top3ImageView3?.af_setImage(withURL: URL.init(string: model3Url)!)
                                 self.feedbackModels.append(feedbackServerModelObject[2])
                             }

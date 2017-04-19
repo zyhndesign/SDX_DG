@@ -262,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eG6-WI-4zm">
-                                <rect key="frame" x="-4" y="64" width="127.5" height="52"/>
+                                <rect key="frame" x="-4" y="64" width="128" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Quq-2t-OC7"/>
                                 </constraints>
@@ -276,7 +276,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dA-Nb-bsk">
-                                <rect key="frame" x="123.5" y="64" width="128" height="52"/>
+                                <rect key="frame" x="124" y="64" width="128" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="1gP-t4-XpO"/>
                                 </constraints>
@@ -290,7 +290,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNQ-Bf-i3z">
-                                <rect key="frame" x="251.5" y="64" width="127.5" height="52"/>
+                                <rect key="frame" x="252" y="64" width="127" height="52"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="bcZ-Bc-eJQ"/>
@@ -907,7 +907,7 @@
         <scene sceneID="l6p-M5-oLf">
             <objects>
                 <navigationController id="al2-7k-0Yu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lkx-i0-gK0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lkx-i0-gK0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -980,7 +980,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0e-uE-dMq">
-                                <rect key="frame" x="-4" y="64" width="127.5" height="45"/>
+                                <rect key="frame" x="-4" y="64" width="128" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="XxS-Kx-I05"/>
                                 </constraints>
@@ -992,7 +992,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmJ-1b-0sZ">
-                                <rect key="frame" x="123.5" y="64" width="128" height="45"/>
+                                <rect key="frame" x="124" y="64" width="128" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bel-sT-oNy"/>
                                 </constraints>
@@ -1004,7 +1004,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-nR-ce5">
-                                <rect key="frame" x="251.5" y="64" width="127.5" height="45"/>
+                                <rect key="frame" x="252" y="64" width="127" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lYT-jr-LVH"/>
                                 </constraints>
@@ -1047,7 +1047,7 @@
         <scene sceneID="u4y-gh-Cvm">
             <objects>
                 <navigationController id="Lgf-8u-zRE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Q5-ln-6gb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Q5-ln-6gb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1509,42 +1509,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdA-fo-Vng">
-                                <rect key="frame" x="16" y="94" width="89.5" height="30"/>
+                                <rect key="frame" x="16" y="94" width="90" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="内搭">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8N-8B-53B">
-                                <rect key="frame" x="141.5" y="94" width="90" height="30"/>
+                                <rect key="frame" x="142" y="94" width="90" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="外套">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn3-5G-bPK">
-                                <rect key="frame" x="269.5" y="94" width="89.5" height="30"/>
+                                <rect key="frame" x="270" y="94" width="89" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="下装">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwg-Ou-vSv">
-                                <rect key="frame" x="16" y="178" width="89.5" height="30"/>
+                                <rect key="frame" x="16" y="178" width="90" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="商务系列">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekm-kG-8xI">
-                                <rect key="frame" x="141.5" y="178" width="90" height="30"/>
+                                <rect key="frame" x="142" y="178" width="90" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="时尚系列">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-Qf-bgC">
-                                <rect key="frame" x="269.5" y="178" width="89.5" height="30"/>
+                                <rect key="frame" x="270" y="178" width="89" height="30"/>
                                 <color key="tintColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="自在系列">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1654,7 +1654,7 @@
         <scene sceneID="rEM-I9-UGr">
             <objects>
                 <navigationController id="JGg-1m-RTP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ZbG-JB-8HR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZbG-JB-8HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
