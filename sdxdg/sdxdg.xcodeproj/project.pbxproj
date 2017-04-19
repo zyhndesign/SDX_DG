@@ -51,6 +51,11 @@
 		DB7238F01E9F110700F7E1A8 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; };
 		DB7238F11E9F110700F7E1A8 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB7239171EA1CF3E00F7E1A8 /* MatchServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */; };
+		DB7239191EA5E9D800F7E1A8 /* FeedbackServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7239181EA5E9D800F7E1A8 /* FeedbackServerModel.swift */; };
+		DB72391B1EA5EA0600F7E1A8 /* ClothUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72391A1EA5EA0600F7E1A8 /* ClothUrl.swift */; };
+		DB72391D1EA5EB1400F7E1A8 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72391C1EA5EB1400F7E1A8 /* FeedbackModel.swift */; };
+		DB72391F1EA6F94000F7E1A8 /* ProductImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72391E1EA6F94000F7E1A8 /* ProductImageModel.swift */; };
+		DB7239211EA72ECC00F7E1A8 /* HotMatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7239201EA72ECC00F7E1A8 /* HotMatchDetailViewController.swift */; };
 		DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A361E15EE6B00E09977 /* GarmentModel.swift */; };
 		DB818A391E16586900E09977 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A381E16586900E09977 /* ShareViewController.swift */; };
 		DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */; };
@@ -502,6 +507,11 @@
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchServerModel.swift; sourceTree = "<group>"; };
+		DB7239181EA5E9D800F7E1A8 /* FeedbackServerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackServerModel.swift; sourceTree = "<group>"; };
+		DB72391A1EA5EA0600F7E1A8 /* ClothUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothUrl.swift; sourceTree = "<group>"; };
+		DB72391C1EA5EB1400F7E1A8 /* FeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
+		DB72391E1EA6F94000F7E1A8 /* ProductImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductImageModel.swift; sourceTree = "<group>"; };
+		DB7239201EA72ECC00F7E1A8 /* HotMatchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMatchDetailViewController.swift; sourceTree = "<group>"; };
 		DB818A361E15EE6B00E09977 /* GarmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarmentModel.swift; sourceTree = "<group>"; };
 		DB818A381E16586900E09977 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		DB818A3A1E1B997A00E09977 /* MyMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMatchViewController.swift; sourceTree = "<group>"; };
@@ -734,6 +744,7 @@
 				DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */,
 				DBEEFDD21E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift */,
 				DBDE5C461E24AD2B002454F5 /* HotMatchCell.swift */,
+				DB7239201EA72ECC00F7E1A8 /* HotMatchDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -748,6 +759,10 @@
 				DB073E3E1E9B1FA9000E27DD /* User.swift */,
 				DB073E401E9B21C2000E27DD /* Matchlist.swift */,
 				DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */,
+				DB7239181EA5E9D800F7E1A8 /* FeedbackServerModel.swift */,
+				DB72391A1EA5EA0600F7E1A8 /* ClothUrl.swift */,
+				DB72391C1EA5EB1400F7E1A8 /* FeedbackModel.swift */,
+				DB72391E1EA6F94000F7E1A8 /* ProductImageModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1343,13 +1358,16 @@
 				DBDE5C451E2324FA002454F5 /* CustomerModel.swift in Sources */,
 				DB4EE5941DFF841800BBCE4F /* ViewController.swift in Sources */,
 				DB818A391E16586900E09977 /* ShareViewController.swift in Sources */,
+				DB7239211EA72ECC00F7E1A8 /* HotMatchDetailViewController.swift in Sources */,
 				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,
+				DB72391F1EA6F94000F7E1A8 /* ProductImageModel.swift in Sources */,
 				DB073E411E9B21C2000E27DD /* Matchlist.swift in Sources */,
 				DBEAB1211E7A864C000E99F4 /* LocalDataStorageUtil.swift in Sources */,
 				DBAD84A81E274D570007D6D9 /* File.swift in Sources */,
 				DBEAB1171E7A216F000E99F4 /* MessageUtil.swift in Sources */,
 				DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */,
 				DBEEFDD31E1E33F700B25DA1 /* MyFeedbackDetailViewController.swift in Sources */,
+				DB72391D1EA5EB1400F7E1A8 /* FeedbackModel.swift in Sources */,
 				DB0E98941E0E5F4500443696 /* HelpAndBackViewController.swift in Sources */,
 				DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */,
 				DB0E98961E0E657F00443696 /* PersonalInfoViewController.swift in Sources */,
@@ -1373,11 +1391,13 @@
 				DBA3BB661E09016200551D54 /* MatchListViewController.swift in Sources */,
 				DB073E1B1E9B1EDB000E27DD /* Match.swift in Sources */,
 				DB818A371E15EE6B00E09977 /* GarmentModel.swift in Sources */,
+				DB7239191EA5E9D800F7E1A8 /* FeedbackServerModel.swift in Sources */,
 				DBA3BB641E07AE9100551D54 /* CustomerTableViewCell.swift in Sources */,
 				DBA3BB6A1E09653B00551D54 /* FilterViewController.swift in Sources */,
 				DB4EE5921DFF841800BBCE4F /* AppDelegate.swift in Sources */,
 				DB0E98A01E10C9C700443696 /* FeedbackListViewController.swift in Sources */,
 				DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */,
+				DB72391B1EA5EA0600F7E1A8 /* ClothUrl.swift in Sources */,
 				DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */,
 				DB0D2EFD1E00D24100F45386 /* MineViewController.swift in Sources */,
 				DBA3BB681E0906EB00551D54 /* MatchListCell.swift in Sources */,

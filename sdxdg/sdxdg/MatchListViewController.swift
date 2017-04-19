@@ -40,6 +40,12 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     
     var selectGarmentModelList:[GarmentModel] = []
     
+    let refresh = UIRefreshControl.init()
+    let pageLimit:Int = 10
+    var inClothPageNum:Int = 0
+    var outClotPageNum:Int = 0
+    var trouserPageNum = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -59,6 +65,12 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         modelView.addSubview(trousersLayer)
         modelView.addSubview(outClothLayer)
         
+        refresh.backgroundColor = UIColor.white
+        refresh.tintColor = UIColor.lightGray
+        refresh.attributedTitle = NSAttributedString(string:"下拉刷新")
+        refresh.addTarget(self, action: #selector(refreshLoadingData), for: UIControlEvents.valueChanged)
+        self.matchCollectionView.addSubview(refresh)
+        
         loadCostumeData(category: 0,limit: 10,offset: 0)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +82,18 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         super.viewDidDisappear(animated)
         print("disppear...")
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func refreshLoadingData(){
+        if garmentType == 0{
+            loadCostumeData(category: 0,limit: pageLimit,offset: pageLimit * inClothPageNum)
+        }
+        else if garmentType == 1{
+            loadCostumeData(category: 1,limit: pageLimit,offset: pageLimit * outClotPageNum)
+        }
+        else if garmentType == 2{
+            loadCostumeData(category: 2,limit: pageLimit,offset: pageLimit * trouserPageNum)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -149,9 +173,6 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print(indexPath.row)
-        
         let view = self.storyboard?.instantiateViewController(withIdentifier: "MerchandiseDetailView")
         self.navigationController?.pushViewController(view!, animated: true)
     }
@@ -244,25 +265,29 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
                 if (category == 0){
                     if let garmentModelList = garmentResponse?.object {
                         for garmentModel in garmentModelList{
-                            self.innerClothList.append(garmentModel)
+                            self.innerClothList.insert(garmentModel, at: 0)
+                            self.inClothPageNum = self.inClothPageNum + 1
                         }
                     }
                 }
                 else if (category == 1){
                     if let garmentModelList = garmentResponse?.object {
                         for garmentModel in garmentModelList{
-                            self.outterClothList.append(garmentModel)
+                            self.outterClothList.insert(garmentModel, at: 0)
+                            self.outClotPageNum = self.outClotPageNum + 1
                         }
                     }
                 }
                 else if (category == 2){
                     if let garmentModelList = garmentResponse?.object {
                         for garmentModel in garmentModelList{
-                            self.trouserClothList.append(garmentModel)
+                            self.trouserClothList.insert(garmentModel, at: 0)
+                            self.trouserPageNum = self.trouserPageNum + 1
                         }
                     }
                 }
                 self.matchCollectionView.reloadData()
+                self.refresh.endRefreshing()
             }
             
         }

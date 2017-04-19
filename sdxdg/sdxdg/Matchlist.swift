@@ -17,7 +17,7 @@ class Matchlist: Mappable {
     var trousersId:Int?
     var modelNum:Int?
     var modelurl:String?
-    
+    var customeModel:ProductImageModel?
     
     required init?(map: Map) {
         
@@ -30,6 +30,7 @@ class Matchlist: Mappable {
         trousersId <- map["trousersId"]
         modelNum <- map["modelNum"]
         modelurl <- map["modelurl"]
+        customeModel <- map["customeModel"]
     }
     
     

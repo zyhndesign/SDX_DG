@@ -21,7 +21,7 @@ class HotMatchCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imgView = UIImageView.init(frame: CGRect.init(x: 0, y: 10, width: (width-30)/2, height: (height - 30)/2))
+        imgView = UIImageView.init(frame: CGRect.init(x: 10, y: 10, width: (width-80)/2, height: (height - 30)/2))
         imgView?.contentMode = UIViewContentMode.scaleAspectFit
         self.addSubview(imgView!)
         
@@ -49,10 +49,11 @@ class HotMatchCell : UICollectionViewCell {
         fitBtn?.layer.addSublayer(btnTextLayer)
         self.addSubview(fitBtn!)
         
+        self.backgroundColor = UIColor.white
     }
     
     func initImageView(imgView:String, heartCount:Int){
-        self.imgView?.image = UIImage.init(named: imgView)
+        self.imgView?.af_setImage(withURL: URL.init(string: imgView)!)
         self.heartCount?.text = String(stringInterpolationSegment:heartCount)
     }
     

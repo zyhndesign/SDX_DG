@@ -77,7 +77,6 @@ class MyMatchTableViewCell : UITableViewCell {
             }
         }
         
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

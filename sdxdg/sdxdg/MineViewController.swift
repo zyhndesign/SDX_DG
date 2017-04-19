@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class MineViewController: UIViewController {
     
     @IBOutlet var userInfoPanel: UIView!
     @IBOutlet var scrollView: UIScrollView!
+    
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
     
     var backDataIcon:UIImageView?
     var backDataLabel:UILabel?
@@ -38,6 +42,8 @@ class MineViewController: UIViewController {
     var top3ImageView1:UIImageView?
     var top3ImageView2:UIImageView?
     var top3ImageView3:UIImageView?
+    
+    var feedbackModels:[FeedbackModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -175,20 +181,26 @@ class MineViewController: UIViewController {
         top3ImageView1 = UIImageView.init(frame: CGRect.init(x: 10, y: 10, width: (screenWidth - 60) / 3, height: (screenWidth - 60) / 3))
         top3ImageView1?.layer.borderWidth = 1.0
         top3ImageView1?.layer.borderColor = borderColor
-        top3ImageView1?.image = UIImage.init(named: "top3Image1")
+        top3ImageView1?.tag = 1
+        top3ImageView1?.isUserInteractionEnabled = true
+        top3ImageView1?.addGestureRecognizer(UIGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
         hotView.addSubview(top3ImageView1!)
         
        
         top3ImageView2 = UIImageView.init(frame: CGRect.init(x: screenWidth / 2 - ((screenWidth - 60) / 3) / 2, y: 10, width: (screenWidth - 60) / 3, height: (screenWidth - 60) / 3))
         top3ImageView2?.layer.borderWidth = 1.0
         top3ImageView2?.layer.borderColor = borderColor
-        top3ImageView2?.image = UIImage.init(named: "top3Image2")
+        top3ImageView2?.tag = 2
+        top3ImageView2?.isUserInteractionEnabled = true
+        top3ImageView2?.addGestureRecognizer(UIGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
         hotView.addSubview(top3ImageView2!)
         
         top3ImageView3 = UIImageView.init(frame: CGRect.init(x: ((screenWidth - 60) / 3) * 2 + 50, y: 10, width: (screenWidth - 60) / 3, height: (screenWidth - 60) / 3))
-        top3ImageView3?.image = UIImage.init(named: "top3Image3")
         top3ImageView3?.layer.borderWidth = 1.0
         top3ImageView3?.layer.borderColor = borderColor
+        top3ImageView3?.tag = 3
+        top3ImageView3?.isUserInteractionEnabled = true
+        top3ImageView3?.addGestureRecognizer(UIGestureRecognizer.init(target: self, action: #selector(hotDetailViewClick(sender:))))
         hotView.addSubview(top3ImageView3!)
         
         scrollView.addSubview(hotView)
@@ -251,5 +263,87 @@ class MineViewController: UIViewController {
         let view:MyMatchViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyMatchView") as! MyMatchViewController
         view.btnInitTag = 3
         self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func hotDetailViewClick(sender:UIImageView){
+        let tag:Int = sender.tag
+        var feedbackModel:FeedbackModel?
+        if (tag == 1){
+            if feedbackModels.count > 0{
+                feedbackModel = feedbackModels[0]
+            }
+        }
+        else if (tag == 2){
+            if feedbackModels.count > 1{
+                feedbackModel = feedbackModels[1]
+            }
+            
+        }
+        else if (tag == 3){
+            if feedbackModels.count > 2{
+                feedbackModel = feedbackModels[2]
+            }
+        }
+        
+        if let feedbackModelObject = feedbackModel{
+            let view:HotMatchDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "HotMatchDetailView") as! HotMatchDetailViewController
+            view.feedbackModel = feedbackModelObject
+            self.navigationController?.pushViewController(view, animated: true)
+        }
+        
+    }
+    
+    func initHotImage(){
+        let parameters:Parameters = ["userId":userId]
+        
+        Alamofire.request(ConstantsUtil.APP_MATCH_THREE_HOT_FEEDBACK_URL,method:.post,parameters:parameters).responseObject { (response: DataResponse<FeedbackServerModel>) in
+            
+            let feedbackServerModel = response.result.value
+            
+            if (feedbackServerModel?.resultCode == 200){
+                
+                if let feedbackServerModelObject = feedbackServerModel?.object{
+                    
+                    if (feedbackServerModelObject.count > 0){
+                        if (feedbackServerModelObject.count == 1){
+                            if let model1Url = feedbackServerModelObject[0].modelurl{
+                                self.top3ImageView1?.af_setImage(withURL: URL.init(string: model1Url)!)
+                                self.feedbackModels.append(feedbackServerModelObject[0])
+                            }
+                        }
+                        else if (feedbackServerModelObject.count == 2){
+                            if let model1Url = feedbackServerModelObject[0].modelurl{
+                                self.top3ImageView1?.af_setImage(withURL: URL.init(string: model1Url)!)
+                                self.feedbackModels.append(feedbackServerModelObject[0])
+                            }
+                            if let model2Url = feedbackServerModelObject[1].modelurl{
+                                self.top3ImageView2?.af_setImage(withURL: URL.init(string: model2Url)!)
+                                self.feedbackModels.append(feedbackServerModelObject[1])
+                            }
+                        }
+                        else if (feedbackServerModelObject.count == 3){
+                            if let model1Url = feedbackServerModelObject[0].modelurl{
+                                self.top3ImageView1?.af_setImage(withURL: URL.init(string: model1Url)!)
+                                self.feedbackModels.append(feedbackServerModelObject[0])
+                            }
+                            if let model2Url = feedbackServerModelObject[1].modelurl{
+                                self.top3ImageView2?.af_setImage(withURL: URL.init(string: model2Url)!)
+                                self.feedbackModels.append(feedbackServerModelObject[1])
+                            }
+                            if let model3Url = feedbackServerModelObject[3].modelurl{
+                                self.top3ImageView3?.af_setImage(withURL: URL.init(string: model3Url)!)
+                                self.feedbackModels.append(feedbackServerModelObject[2])
+                            }
+                        }
+                        
+                    }
+                    else{
+                        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                        hud.label.text = "无热门数据"
+                        hud.hide(animated: true, afterDelay: 2.0)
+                    }
+                }
+            }
+        }
     }
 }
