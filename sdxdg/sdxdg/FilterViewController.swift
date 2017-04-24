@@ -123,6 +123,33 @@ class FilterViewController : UIViewController{
         print("category:")
         print(category)
         
+        
+        let parameters:Parameters = ["brand":brand, "category":category]
+        
+        Alamofire.request(ConstantsUtil.APP_HPGL_CATEGORY,method:.get,parameters:parameters).responseJSON{
+            response in
+            
+            switch response.result{
+            case .success:
+                if let jsonResult = response.result.value {
+                    let json = JSON(jsonResult)
+                    let resultCode = json["resultCode"]
+                    
+                    if resultCode == 200{
+                        print(json["object"])
+                        
+                    }
+                    else{
+                        print(json["message"])
+                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
+            }
+            
+        }
     }
     
     func buttonCategoryTapped(sender:UIButton){
@@ -259,7 +286,16 @@ class FilterViewController : UIViewController{
                                 self.initBtnStyle(btn!)
                                 self.initCategoryBtnClickEvent(btn!)
                             }
-                            if (i <= 11){
+                            else if i >= 12 && i <= 15{
+                                btn = UIButton.init(frame: CGRect.init(x: (btnWidth * CGFloat(i - 12)) + 20 + (CGFloat(i - 12) * 10), y: 130, width: btnWidth, height: 35))
+                                btn?.setTitle(String(describing: json["object"][i]["name"]), for: UIControlState.normal)
+                                btn?.setTitleColor(UIColor.black, for: UIControlState.normal)
+                                btn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                                btn?.tag = Int.init(String(describing:json["object"][i]["id"]))!
+                                self.initBtnStyle(btn!)
+                                self.initCategoryBtnClickEvent(btn!)
+                            }
+                            if (i <= 15){
                                 if category == 0{ //外套
                                     self.outterPanel?.addSubview(btn!)
                                 }
