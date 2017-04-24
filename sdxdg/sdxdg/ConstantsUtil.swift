@@ -38,7 +38,11 @@ class ConstantsUtil : NSObject {
     //创建分享
     static let APP_CREATE_SHARE_DATA_URL:String = WEB_API_BASE_URL + "/dggl/share/createShare"
     
+    static let APP_MATCH_LIST_BY_CATEGORY = WEB_API_BASE_URL + "/app/hpManage/getHpDataByCategoryId"
+    
     static let APP_FEEDBACK_VIP_NAMES = WEB_API_BASE_URL + "/dggl/feedback/getFeedbackVipName"
+    
+    static let APP_HPGL_CATEGORY = WEB_API_BASE_URL + "/hpgl/category/getData"
     
     static let APP_QINIU_TOKEN = WEB_API_BASE_URL + "/hpgl/hpManage/getUploadKey"
     static let APP_QINIU_UPLOAD_URL = "http://upload.qiniu.com/"

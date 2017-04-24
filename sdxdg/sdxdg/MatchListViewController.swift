@@ -257,7 +257,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         print("loading data.......")
         let parameters:Parameters = ["categoryId":category,"limit":limit,"offset":offset]
         
-        Alamofire.request(ConstantsUtil.APP_FEEDBACK_VIP_NAMES,method:.get, parameters:parameters).responseObject { (response: DataResponse<GarmentDataResultModel>) in
+        Alamofire.request(ConstantsUtil.APP_MATCH_LIST_BY_CATEGORY,method:.get, parameters:parameters).responseObject { (response: DataResponse<GarmentDataResultModel>) in
             
             let garmentResponse = response.result.value
             

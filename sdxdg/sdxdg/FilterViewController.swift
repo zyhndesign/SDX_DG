@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FilterViewController : UIViewController{
     
@@ -18,26 +20,11 @@ class FilterViewController : UIViewController{
     @IBOutlet var freedomBtn: UIButton!
     @IBOutlet var categoryLabel: UILabel!
     
-    var inBtn1: UIButton?
-    var inBtn2: UIButton?
-    var inBtn3: UIButton?
-    var inBtn4: UIButton?
     var innerPanel:UIView?
     
     var outterPanel:UIView?
-    var outBtn1: UIButton?
-    var outBtn2: UIButton?
-    var outBtn3: UIButton?
-    var outBtn4: UIButton?
-    var outBtn5: UIButton?
-    var outBtn6: UIButton?
-    var outBtn7: UIButton?
-    var outBtn8: UIButton?
     
     var trouserPanel:UIView?
-    var trouserBtn1:UIButton?
-    var trouserBtn2:UIButton?
-    var trouserBtn3:UIButton?
     
     @IBOutlet var minPrice: UITextField!
     @IBOutlet var maxPrice: UITextField!
@@ -45,107 +32,30 @@ class FilterViewController : UIViewController{
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
+    var brandList:[Int] = []
+    var categoryList:[Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //let panelY = categoryLabel.bounds.origin.y + 30
         innerPanel = UIView.init(frame: CGRect.init(x: 0, y: 270, width: screenWidth, height: 100))
-        
-        let inBtnWidth = (screenWidth - 70)/4
-        inBtn1 = UIButton.init(frame: CGRect.init(x: 20, y: 10, width: inBtnWidth, height: 35))
-        inBtn1?.setTitle("毛衫", for: UIControlState.normal)
-        inBtn1?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        inBtn1?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        inBtn2 = UIButton.init(frame: CGRect.init(x: inBtnWidth + 30, y: 10, width: inBtnWidth, height: 35))
-        inBtn2?.setTitle("T恤", for: UIControlState.normal)
-        inBtn2?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        inBtn2?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        
-        inBtn3 = UIButton.init(frame: CGRect.init(x: inBtnWidth * 2 + 40, y: 10, width: inBtnWidth, height: 35))
-        inBtn3?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        inBtn3?.setTitle("衬衫", for: UIControlState.normal)
-        inBtn3?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        inBtn4 = UIButton.init(frame: CGRect.init(x: inBtnWidth * 3 + 50, y: 10, width: inBtnWidth, height: 35))
-        inBtn4?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        inBtn4?.setTitle("棉背心", for: UIControlState.normal)
-        inBtn4?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        innerPanel?.addSubview(inBtn1!)
-        innerPanel?.addSubview(inBtn2!)
-        innerPanel?.addSubview(inBtn3!)
-        innerPanel?.addSubview(inBtn4!)
         self.view.addSubview(innerPanel!)
         
         outterPanel = UIView.init(frame: CGRect.init(x: 0, y: 260, width: screenWidth, height: 100))
-        
-        outBtn1 = UIButton.init(frame: CGRect.init(x: 20, y: 10, width: inBtnWidth, height: 35))
-        outBtn1?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn1?.setTitle("夹克", for: UIControlState.normal)
-        outBtn1?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn2 = UIButton.init(frame: CGRect.init(x: inBtnWidth + 30, y: 10, width: inBtnWidth, height: 35))
-        outBtn2?.setTitle("风衣", for: UIControlState.normal)
-        outBtn2?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn2?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn3 = UIButton.init(frame: CGRect.init(x: inBtnWidth * 2 + 40, y: 10, width: inBtnWidth, height: 35))
-        outBtn3?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn3?.setTitle("大衣", for: UIControlState.normal)
-        outBtn3?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn4 = UIButton.init(frame: CGRect.init(x: inBtnWidth * 3 + 50, y: 10, width: inBtnWidth, height: 35))
-        outBtn4?.setTitle("棉服", for: UIControlState.normal)
-        outBtn4?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn4?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn5 = UIButton.init(frame: CGRect.init(x: 20, y: 10, width: inBtnWidth, height: 35))
-        outBtn5?.setTitle("羽绒服", for: UIControlState.normal)
-        outBtn5?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn5?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn6 = UIButton.init(frame: CGRect.init(x: inBtnWidth + 30, y: 10, width: inBtnWidth, height: 35))
-        outBtn6?.setTitle("马夹", for: UIControlState.normal)
-        outBtn6?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn6?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn7 = UIButton.init(frame: CGRect.init(x: inBtnWidth * 2 + 40, y: 10, width: inBtnWidth, height: 35))
-        outBtn7?.setTitle("尼克服", for: UIControlState.normal)
-        outBtn7?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn7?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn8 = UIButton.init(frame: CGRect.init(x: inBtnWidth * 3 + 50, y: 10, width: inBtnWidth, height: 35))
-        outBtn8?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        outBtn8?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        outBtn8?.setTitle("西服", for: UIControlState.normal)
-        outterPanel?.addSubview(outBtn1!)
-        outterPanel?.addSubview(outBtn2!)
-        outterPanel?.addSubview(outBtn3!)
-        outterPanel?.addSubview(outBtn4!)
-        outterPanel?.addSubview(outBtn5!)
-        outterPanel?.addSubview(outBtn6!)
-        outterPanel?.addSubview(outBtn7!)
-        outterPanel?.addSubview(outBtn8!)
         self.view.addSubview(outterPanel!)
-        
-        let trouserBtnWidth = (screenWidth - 60) / 3
+       
         trouserPanel = UIView.init(frame: CGRect.init(x: 0, y: 270, width: screenWidth, height: 100))
-        
-        trouserBtn1 = UIButton.init(frame: CGRect.init(x: 20, y: 10, width: trouserBtnWidth, height: 35))
-        trouserBtn1?.setTitle("休闲裤", for: UIControlState.normal)
-        trouserBtn1?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        trouserBtn1?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        trouserBtn2 = UIButton.init(frame: CGRect.init(x: trouserBtnWidth + 30, y: 10, width: trouserBtnWidth, height: 35))
-        trouserBtn2?.setTitle("中裤", for: UIControlState.normal)
-        trouserBtn2?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        trouserBtn2?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        trouserBtn3 = UIButton.init(frame: CGRect.init(x: trouserBtnWidth * 2 + 40, y: 10, width: trouserBtnWidth, height: 35))
-        trouserBtn3?.setTitle("西裤", for: UIControlState.normal)
-        trouserBtn3?.setTitleColor(UIColor.black, for: UIControlState.normal)
-        trouserBtn3?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        trouserPanel?.addSubview(trouserBtn1!)
-        trouserPanel?.addSubview(trouserBtn2!)
-        trouserPanel?.addSubview(trouserBtn3!)
         self.view.addSubview(trouserPanel!)
         
-        self.initBtnStyle(innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn,inBtn1!,inBtn2!,inBtn3!,inBtn4!,outBtn1!,outBtn2!,outBtn3!,outBtn4!,outBtn5!,outBtn6!,outBtn7!,outBtn8!,trouserBtn1!,trouserBtn2!,trouserBtn3!)
-        
-        self.initBtnClickEvent(innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn,inBtn1!,inBtn2!,inBtn3!,inBtn4!,outBtn1!,outBtn2!,outBtn3!,outBtn4!,outBtn5!,outBtn6!,outBtn7!,outBtn8!,trouserBtn1!,trouserBtn2!,trouserBtn3!)
-        
+       
         self.innerPanel?.isHidden = false
         self.outterPanel?.isHidden = true
         self.trouserPanel?.isHidden = true
+        
+        self.initBtnStyle(innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn,freedomBtn)
+        
+        self.initBtnClickEvent(innerBtn, outterBtn, bottomBtn, businessBtn, fashionBtn, freedomBtn)
     }
     
     override func didReceiveMemoryWarning() {
@@ -156,6 +66,12 @@ class FilterViewController : UIViewController{
     func initBtnClickEvent(_ buttons : UIButton...){
         for button in buttons{
             button.addTarget(self, action: #selector(buttonTapped(sender:)), for: UIControlEvents.touchUpInside)
+        }
+    }
+    
+    func initCategoryBtnClickEvent(_ buttons : UIButton...){
+        for button in buttons{
+            button.addTarget(self, action: #selector(buttonCategoryTapped(sender:)), for: UIControlEvents.touchUpInside)
         }
     }
     
@@ -182,27 +98,77 @@ class FilterViewController : UIViewController{
         hud.label.text = "筛选中..."
         hud.hide(animated: true, afterDelay: 0.8)
         
+        /*
         let time: TimeInterval = 1.0
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
             
             self.navigationController?.popViewController(animated: true)
             
         }
+         */
+        
+        var brand:String = ""
+        for i in brandList{
+            brand.append(String(i))
+            brand.append(",")
+        }
+        print("brand:")
+        print(brand)
+        
+        var category:String = ""
+        for i in categoryList{
+            category.append(String(i))
+            category.append(",")
+        }
+        print("category:")
+        print(category)
+        
+    }
+    
+    func buttonCategoryTapped(sender:UIButton){
+        if sender.isSelected{
+            initBtnStyle(sender)
+            sender.isSelected = false
+            self.removeDataFromArray(tag: 2, result: sender.tag)
+        }
+        else{
+            changeBtnSelectStyle(sender)
+            sender.isSelected = true
+            categoryList.append(sender.tag)
+        }
+        
     }
     
     func buttonTapped(sender:UIButton){
         if sender.isSelected{
             initBtnStyle(sender)
             sender.isSelected = false
+            if sender.tag == 4{
+                self.removeDataFromArray(tag: 1, result: 2)
+            }
+            else if sender.tag == 5{
+                self.removeDataFromArray(tag: 1, result: 4)
+            }
+            else if sender.tag == 6{
+                self.removeDataFromArray(tag: 1, result: 3)
+            }
         }
         else{
             changeBtnSelectStyle(sender)
             sender.isSelected = true
+            if sender.tag == 4{
+                brandList.append(2)
+            }
+            else if sender.tag == 5{
+                brandList.append(4)
+            }
+            else if sender.tag == 6{
+                brandList.append(3)
+            }
         }
         
         switch sender.tag{
         case 1:
-            print("内搭")
             self.innerPanel?.isHidden = false
             self.outterPanel?.isHidden = true
             self.trouserPanel?.isHidden = true
@@ -210,8 +176,9 @@ class FilterViewController : UIViewController{
             outterBtn.isSelected = false
             initBtnStyle(bottomBtn)
             bottomBtn.isSelected = false
+            self.loadCategory(category: 1)
+            //3
         case 2:
-            print("外套")
             self.innerPanel?.isHidden = true
             self.outterPanel?.isHidden = false
             self.trouserPanel?.isHidden = true
@@ -219,8 +186,9 @@ class FilterViewController : UIViewController{
             initBtnStyle(bottomBtn)
             innerBtn.isSelected = false
             bottomBtn.isSelected = false
+            self.loadCategory(category: 0)
+            //2
         case 3:
-            print("下装")
             self.innerPanel?.isHidden = true
             self.outterPanel?.isHidden = true
             self.trouserPanel?.isHidden = false
@@ -228,28 +196,120 @@ class FilterViewController : UIViewController{
             initBtnStyle(outterBtn)
             innerBtn.isSelected = false
             outterBtn.isSelected = false
-        case 4:
-            print("商务系列")
-        case 5:
-            print("时尚系列")
-        case 6:
-            print("自在系列")
-        case 7:
-            print("夹克")
-        case 8:
-            print("轻单衣")
-        case 9:
-            print("羽绒服")
-        case 10:
-            print("皮衣")
-        case 11:
-            print("风衣")
-        case 12:
-            print("大衣")
+            self.loadCategory(category: 2)
+            //1
         default:
             print("0")
         }
         
     }
     
+    func loadCategory(category:Int){
+        var id:Int = 0
+        if category == 0{  // 外套
+            id = 2   //此处id的值是后台绑定的
+        }
+        else if category == 1{ //内搭
+            id = 3
+        }
+        else if category == 2{ //裤装
+            id = 1
+        }
+        let parameters:Parameters = ["id":id]
+        
+        Alamofire.request(ConstantsUtil.APP_HPGL_CATEGORY,method:.get,parameters:parameters).responseJSON{
+            response in
+            
+            switch response.result{
+            case .success:
+                if let jsonResult = response.result.value {
+                    let json = JSON(jsonResult)
+                    let resultCode = json["resultCode"]
+                    
+                    if resultCode == 200{
+                        let btnWidth = (self.screenWidth - 70)/4
+                        print(json["object"])
+                        for i in 0...json["object"].count-1{
+                            var btn:UIButton?
+                            
+                            if i >= 0 && i <= 3{
+                                btn = UIButton.init(frame: CGRect.init(x: (btnWidth * CGFloat(i)) + 20 + (CGFloat(i) * 10), y: 10, width: btnWidth, height: 35))
+                                btn?.setTitle(String(describing: json["object"][i]["name"]), for: UIControlState.normal)
+                                btn?.setTitleColor(UIColor.black, for: UIControlState.normal)
+                                btn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                                btn?.tag = Int.init(String(describing:json["object"][i]["id"]))!
+                                self.initBtnStyle(btn!)
+                                self.initCategoryBtnClickEvent(btn!)
+                            }
+                            else if i >= 4 && i <= 7{
+                                btn = UIButton.init(frame: CGRect.init(x: (btnWidth * CGFloat(i - 4)) + 20 + (CGFloat(i - 4) * 10), y: 50, width: btnWidth, height: 35))
+                                btn?.setTitle(String(describing: json["object"][i]["name"]), for: UIControlState.normal)
+                                btn?.setTitleColor(UIColor.black, for: UIControlState.normal)
+                                btn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                                btn?.tag = Int.init(String(describing:json["object"][i]["id"]))!
+                                self.initBtnStyle(btn!)
+                                self.initCategoryBtnClickEvent(btn!)
+                            }
+                            else if i >= 8 && i <= 11{
+                                btn = UIButton.init(frame: CGRect.init(x: (btnWidth * CGFloat(i - 8)) + 20 + (CGFloat(i - 8) * 10), y: 90, width: btnWidth, height: 35))
+                                btn?.setTitle(String(describing: json["object"][i]["name"]), for: UIControlState.normal)
+                                btn?.setTitleColor(UIColor.black, for: UIControlState.normal)
+                                btn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                                btn?.tag = Int.init(String(describing:json["object"][i]["id"]))!
+                                self.initBtnStyle(btn!)
+                                self.initCategoryBtnClickEvent(btn!)
+                            }
+                            if (i <= 11){
+                                if category == 0{ //外套
+                                    self.outterPanel?.addSubview(btn!)
+                                }
+                                else if (category == 1){ //内搭
+                                    self.innerPanel?.addSubview(btn!)
+                                }
+                                else if (category == 2){ //裤装
+                                    self.trouserPanel?.addSubview(btn!)
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    else{
+                        print(json["message"])
+                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func removeDataFromArray(tag:Int, result:Int){
+        
+        
+        if tag == 1{
+            var i = 0
+            for data in brandList{
+                if result == data{
+                    brandList.remove(at: i)
+                }
+                i = i + 1
+            }
+            
+        }
+        else if tag == 2{
+            var i = 0
+            for data in categoryList{
+                if result == data{
+                    categoryList.remove(at: i)
+                }
+                i = i + 1
+            }
+            
+        }
+        
+    }
 }

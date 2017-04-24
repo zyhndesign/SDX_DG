@@ -36,15 +36,20 @@ class DraftDetailViewController: UIViewController,UIScrollViewDelegate {
         let scrollHeight = self.screenHeight-45
         scrollView = UIScrollView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: scrollHeight))
         self.view.addSubview(scrollView!)
-        model1View = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: scrollHeight - naviheight!))
-        model2View = UIImageView.init(frame: CGRect.init(x: screenWidth, y: 0, width: screenWidth, height: scrollHeight - naviheight!))
-        model3View = UIImageView.init(frame: CGRect.init(x: screenWidth * 2, y: 0, width: screenWidth, height: scrollHeight  - naviheight!))
-        model4View = UIImageView.init(frame: CGRect.init(x: screenWidth * 3, y: 0, width: screenWidth, height: scrollHeight - naviheight!))
+        model1View = UIImageView.init(frame: CGRect.init(x:  25, y: 0, width: screenWidth - 50, height: scrollHeight - naviheight! - 50))
+        model2View = UIImageView.init(frame: CGRect.init(x: screenWidth + 25, y: 0, width: screenWidth - 50, height: scrollHeight - naviheight! - 50))
+        model3View = UIImageView.init(frame: CGRect.init(x: screenWidth * 2 + 25, y: 0, width: screenWidth - 50, height: scrollHeight  - naviheight! - 50))
+        model4View = UIImageView.init(frame: CGRect.init(x: screenWidth * 3 + 25, y: 0, width: screenWidth - 50, height: scrollHeight - naviheight! - 50))
         
-        model1View?.image = UIImage.init(named: "four1")
-        model2View?.image = UIImage.init(named: "four2")
-        model3View?.image = UIImage.init(named: "four3")
-        model4View?.image = UIImage.init(named: "four4")
+        model1View?.contentMode = .scaleAspectFit
+        model2View?.contentMode = .scaleAspectFit
+        model3View?.contentMode = .scaleAspectFit
+        model4View?.contentMode = .scaleAspectFit
+        
+        model1View?.image = UIImage.init(named: "model")
+        model2View?.image = UIImage.init(named: "model")
+        model3View?.image = UIImage.init(named: "model")
+        model4View?.image = UIImage.init(named: "model")
         
         model1View?.contentMode = UIViewContentMode.scaleAspectFit
         model2View?.contentMode = UIViewContentMode.scaleAspectFit
@@ -86,6 +91,33 @@ class DraftDetailViewController: UIViewController,UIScrollViewDelegate {
         editBtn?.addTarget(self, action: #selector(editBtnClick(sender:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(deleteBtn!)
         self.view.addSubview(editBtn!)
+        
+        if let matchObject = match{
+            var matchlists:[Matchlist] = matchObject.matchlists!
+            for matchlist in matchlists{
+                if matchlist.modelNum == 1{
+                    if let url = matchlists[0].modelurl{
+                        self.model1View?.af_setImage(withURL: URL.init(string: url)!)
+                    }
+                }
+                else if matchlist.modelNum == 2{
+                    if let url = matchlists[1].modelurl{
+                        self.model2View?.af_setImage(withURL: URL.init(string: url)!)
+                    }
+                }
+                else if matchlist.modelNum == 3{
+                    if let url = matchlists[2].modelurl{
+                        self.model3View?.af_setImage(withURL: URL.init(string: url)!)
+                    }
+                }
+                else if matchlist.modelNum == 4{
+                    if let url = matchlists[3].modelurl{
+                        self.model4View?.af_setImage(withURL: URL.init(string: url)!)
+                    }
+                }
+            }
+            
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

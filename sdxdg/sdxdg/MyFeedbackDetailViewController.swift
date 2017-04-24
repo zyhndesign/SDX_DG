@@ -72,7 +72,7 @@ class MyFeedbackDetailViewController: UIViewController {
             matchlistStr.append(String(describing: matchlist.id!))
             matchlistStr.append(",")
         }
-        print(matchlistStr)
+        
         self.loadingFeedbackName(userId: userId, matchlistIds: matchlistStr)
         
         if let matchObject = match{

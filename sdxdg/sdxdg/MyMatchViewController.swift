@@ -207,7 +207,6 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
                                 self.draftPageNum = self.draftPageNum + 1
                             }
                         }
-                        
                         hud.hide(animated: true, afterDelay: 1.0)
                     }
                     else{
