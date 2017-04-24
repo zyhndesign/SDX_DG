@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
+import SwiftyJSON
 
 class PushDetailViewController: UIViewController {
     
@@ -19,21 +22,16 @@ class PushDetailViewController: UIViewController {
     var contentPanel:UIView?
     var imagePanel:UIView?
     
+    var match:Match?
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         namePanel = UIView.init(frame: CGRect.init(x: 0, y: 10, width: screenWidth, height: 75))
         namePanel?.backgroundColor = UIColor.white
-        let width = (screenWidth - 60) / 5
-        self.addCustomer(name: "王子文", x: 10, y: 10, width: width, height: 20)
-        self.addCustomer(name: "李成然", x: 20 + width, y: 10, width: width, height: 20)
-        self.addCustomer(name: "单风尘", x: 30 + width * 2, y: 10, width: width, height: 20)
-        self.addCustomer(name: "李令浩", x: 40 + width * 3, y: 10, width: width, height: 20)
-        self.addCustomer(name: "邵可", x: 50 + width * 4, y: 10, width: width, height: 20)
-        self.addCustomer(name: "王跃而", x: 10, y: 45, width: width, height: 20)
-        self.addCustomer(name: "吴小云", x: 20 + width, y: 45, width: width, height: 20)
-        self.addCustomer(name: "李世东", x: 30 + width * 2, y: 45, width: width, height: 20)
         
         scrollView.addSubview(namePanel!)
         
@@ -44,39 +42,51 @@ class PushDetailViewController: UIViewController {
         titleLayer.frame = CGRect.init(x: 10, y: 10, width: screenWidth - 20, height: 35)
         titleLayer.fontSize = 17
         titleLayer.foregroundColor = UIColor.darkGray.cgColor
-        titleLayer.string = "SUNDANCE 商务男装造型"
+        titleLayer.string = match?.seriesname
         contentPanel?.layer.addSublayer(titleLayer)
-        
-        let contentLayer:CATextLayer = CATextLayer()
-        contentLayer.frame = CGRect.init(x: 10, y: 45, width: screenWidth - 20, height: 45)
-        contentLayer.fontSize = 14
-        contentLayer.foregroundColor = UIColor.darkGray.cgColor
-        contentLayer.string = "亲爱的顾客您好！这次搭配内容是冬季商务系列新品，为您推送适合本次服务的搭配方案。祝您生活愉快!"
-        contentLayer.isWrapped = true
-        contentPanel?.layer.addSublayer(titleLayer)
-        contentPanel?.layer.addSublayer(contentLayer)
         
         scrollView.addSubview(contentPanel!)
         
         imagePanel = UIView.init(frame: CGRect.init(x: 0, y: 200, width: screenWidth, height: screenHeight))
         let imgView1:UIImageView = UIImageView.init(frame: CGRect.init(x: 10, y: 10, width: (screenWidth - 30) / 2, height: (screenHeight - 30) / 2))
-        imgView1.image = UIImage.init(named: "four1")
+        imgView1.contentMode = .scaleAspectFit
+        imgView1.backgroundColor = UIColor.white
         imagePanel?.addSubview(imgView1)
         
         let imgView2:UIImageView = UIImageView.init(frame: CGRect.init(x: 20 + (screenWidth - 30) / 2, y: 10, width: (screenWidth - 30) / 2, height: (screenHeight - 30) / 2))
-        imgView2.image = UIImage.init(named: "four2")
+        imgView2.contentMode = .scaleAspectFit
         imagePanel?.addSubview(imgView2)
         
         let imgView3:UIImageView = UIImageView.init(frame: CGRect.init(x: 10, y: (screenHeight - 30) / 2 + 20, width: (screenWidth - 30) / 2, height: (screenHeight - 30) / 2))
-        imgView3.image = UIImage.init(named: "four3")
+        imgView3.contentMode = .scaleAspectFit
         imagePanel?.addSubview(imgView3)
         
         let imgView4:UIImageView = UIImageView.init(frame: CGRect.init(x: 20 + (screenWidth - 30) / 2, y: (screenHeight - 30) / 2 + 20, width: (screenWidth - 30) / 2, height: (screenHeight - 30) / 2))
-        imgView4.image = UIImage.init(named: "four4")
+        imgView4.contentMode = .scaleAspectFit
         imagePanel?.addSubview(imgView4)
+        
+        if let matchlistData = match?.matchlists{
+            for object in matchlistData{
+                if (object.modelNum == 1){
+                    imgView1.af_setImage(withURL: URL.init(string: object.modelurl!)!)
+                }
+                else if (object.modelNum == 2){
+                    imgView2.af_setImage(withURL: URL.init(string: object.modelurl!)!)
+                }
+                else if (object.modelNum == 3){
+                    imgView3.af_setImage(withURL: URL.init(string: object.modelurl!)!)
+                }
+                else if (object.modelNum == 4){
+                    imgView4.af_setImage(withURL: URL.init(string: object.modelurl!)!)
+                }
+            }
+        }
         
         scrollView.addSubview(imagePanel!)
         scrollView.contentSize = CGSize.init(width: screenWidth, height: screenHeight + 220)
+        
+        self.loadShareInfo(userId: userId, matchId: (match?.id)!)
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,6 +108,59 @@ class PushDetailViewController: UIViewController {
         nameLayer.isWrapped = true
         
         namePanel?.layer.addSublayer(nameLayer)
+    }
+    
+    func loadShareInfo(userId:Int, matchId:Int){
+        let parameters:Parameters = ["userId":userId,"matchId":matchId]
+        
+        Alamofire.request(ConstantsUtil.APP_GET_SHARE_DATA_URL,method:.post,parameters:parameters).responseJSON{
+            response in
+            
+            switch response.result{
+            case .success:
+                if let jsonResult = response.result.value {
+                    let json = JSON(jsonResult)
+                    let resultCode = json["resultCode"]
+                    
+                    if resultCode == 200{
+                        if (json["object"].count > 0){
+                            let contentLayer:CATextLayer = CATextLayer()
+                            contentLayer.frame = CGRect.init(x: 10, y: 45, width: self.screenWidth - 20, height: 45)
+                            contentLayer.fontSize = 14
+                            contentLayer.string = json["object"][0][0].string
+                            contentLayer.foregroundColor = UIColor.darkGray.cgColor
+                            contentLayer.isWrapped = true
+                            self.contentPanel?.layer.addSublayer(contentLayer)
+                            
+                            var shareStr:String = json["object"][0][1].string!
+                            let shareStrArr = shareStr.characters.split(separator: ",").map(String.init)
+                            var i:Int = 0
+                            let width = (self.screenWidth - 60) / 5
+                            for shareName in shareStrArr{
+                                
+                                if (i >= 0 && i < 5){
+                                    let x = 10 + (CGFloat(i) * 10) + (CGFloat(i) * width)
+                                    self.addCustomer(name: shareName, x: x, y: 10, width: width, height: 20)
+                                }
+                                else if ( i >= 5 && i <= 10){
+                                    let x = 10 + ((CGFloat(i - 5)) * 10) + (CGFloat(i - 5) * width)
+                                    self.addCustomer(name: shareName, x: x, y: 45, width: width, height: 20)
+                                }
+                                i = i + 1
+                            }
+                        }
+                        
+                    }
+                    else{
+                        print(json["message"])
+                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
+            }
+        }
     }
     
 }

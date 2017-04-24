@@ -34,12 +34,16 @@ class MyMatchTableViewCell : UITableViewCell {
         let modelWidth = (screenWidth - 50 ) / 4
         
         model1 = UIImageView.init(frame: CGRect.init(x: 10, y: 30, width: modelWidth, height: modelWidth))
+        model1?.contentMode = .scaleAspectFit
         
         model2 = UIImageView.init(frame: CGRect.init(x: 20 + modelWidth, y: 30, width: modelWidth, height: modelWidth))
+        model2?.contentMode = .scaleAspectFit
         
         model3 = UIImageView.init(frame: CGRect.init(x: 30 + modelWidth * 2, y: 30, width: modelWidth, height: modelWidth))
+        model3?.contentMode = .scaleAspectFit
         
         model4 = UIImageView.init(frame: CGRect.init(x: 40 + modelWidth * 3, y: 30, width: modelWidth, height: modelWidth))
+        model4?.contentMode = .scaleAspectFit
         
         self.contentView.addSubview(titleLable!)
         self.contentView.addSubview(timeLabel!)
