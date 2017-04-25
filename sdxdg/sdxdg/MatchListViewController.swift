@@ -72,16 +72,24 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         self.matchCollectionView.addSubview(refresh)
         
         loadCostumeData(category: 0,limit: 10,offset: 0)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "modelMatch"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(self.filterMatch(notifaction:)), name: NSNotification.Name(rawValue: "filterMatch"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector:#selector(self.updateMatchModel(notifaction:)), name: NSNotification.Name(rawValue: "modelMatch"), object: nil)
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("disppear...")
-        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear...")
     }
     
     func refreshLoadingData(){
@@ -99,6 +107,7 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        NotificationCenter.default.removeObserver(self)
     }
 
     func updateMatchModel(notifaction: NSNotification){
@@ -118,6 +127,35 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         }
     }
 
+    func filterMatch(notifaction: NSNotification){
+        let garmentDataResultModel:GarmentDataResultModel = (notifaction.object as? GarmentDataResultModel)!
+        if garmentDataResultModel.resultCode == 1{ //内搭
+            self.innerClothList.removeAll()
+            let list:[GarmentModel] = garmentDataResultModel.object!
+            for garmentModel in list{
+                self.innerClothList.append(garmentModel)
+            }
+            self.innerClothSelect()
+        }
+        else if garmentDataResultModel.resultCode == 2{ //外套
+            self.outterClothList.removeAll()
+            let list:[GarmentModel] = garmentDataResultModel.object!
+            for garmentModel in list{
+                self.outterClothList.append(garmentModel)
+            }
+            self.outterClothSelect()
+        }
+        else if garmentDataResultModel.resultCode == 3{ //下装
+            self.trouserClothList.removeAll()
+            let list:[GarmentModel] = garmentDataResultModel.object!
+            for garmentModel in list{
+                self.trouserClothList.append(garmentModel)
+            }
+            self.bottomClothSelect()
+        }
+        
+        self.matchCollectionView.reloadData()
+    }
     
     //返回多少个组马春
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -226,31 +264,43 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     
     
     @IBAction func innerClothBtn(_ sender: Any) {
-        innerClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
-        outterClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
-        bottomClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
-        garmentType = 0
+        self.innerClothSelect()
         loadCostumeData(category: 0,limit: 10,offset: 0)
         
         matchCollectionView.reloadData()
     }
     
     @IBAction func outterClothBtn(_ sender: Any) {
-        outterClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
-        innerClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
-        bottomClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
-        garmentType = 1
+        self.outterClothSelect()
         loadCostumeData(category: 1,limit: 10,offset: 0)
         matchCollectionView.reloadData()
     }
     
     @IBAction func bottomClothBtn(_ sender: Any) {
+        self.bottomClothSelect()
+        loadCostumeData(category: 2,limit: 10,offset: 0)
+        matchCollectionView.reloadData()
+    }
+    
+    func innerClothSelect(){
+        innerClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
+        outterClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        bottomClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        garmentType = 0
+    }
+    
+    func outterClothSelect(){
+        outterClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
+        innerClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        bottomClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
+        garmentType = 1
+    }
+    
+    func bottomClothSelect(){
         bottomClothBtn.setBackgroundImage(UIImage.init(named: "selectedBtn"), for: UIControlState.normal)
         innerClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
         outterClothBtn.setBackgroundImage(UIImage.init(named: "normalBtn"), for: UIControlState.normal)
         garmentType = 2
-        loadCostumeData(category: 2,limit: 10,offset: 0)
-        matchCollectionView.reloadData()
     }
     
     func loadCostumeData(category:Int, limit:Int, offset:Int){

@@ -21,9 +21,7 @@ class FilterViewController : UIViewController{
     @IBOutlet var categoryLabel: UILabel!
     
     var innerPanel:UIView?
-    
     var outterPanel:UIView?
-    
     var trouserPanel:UIView?
     
     @IBOutlet var minPrice: UITextField!
@@ -34,6 +32,8 @@ class FilterViewController : UIViewController{
     
     var brandList:[Int] = []
     var categoryList:[Int] = []
+    
+    var categoryType:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,43 +112,24 @@ class FilterViewController : UIViewController{
             brand.append(String(i))
             brand.append(",")
         }
-        print("brand:")
-        print(brand)
         
         var category:String = ""
         for i in categoryList{
             category.append(String(i))
             category.append(",")
         }
-        print("category:")
-        print(category)
-        
         
         let parameters:Parameters = ["brand":brand, "category":category]
         
-        Alamofire.request(ConstantsUtil.APP_HPGL_CATEGORY,method:.get,parameters:parameters).responseJSON{
-            response in
+        Alamofire.request(ConstantsUtil.APP_HPGL_INDEX,method:.get, parameters:parameters).responseObject { (response: DataResponse<GarmentDataResultModel>) in
             
-            switch response.result{
-            case .success:
-                if let jsonResult = response.result.value {
-                    let json = JSON(jsonResult)
-                    let resultCode = json["resultCode"]
-                    
-                    if resultCode == 200{
-                        print(json["object"])
-                        
-                    }
-                    else{
-                        print(json["message"])
-                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
-                    }
-                }
-            case .failure(let error):
-                print(error)
-                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
+            let garmentResponse = response.result.value
+            
+            if (garmentResponse?.success == true){
+                garmentResponse?.resultCode = self.categoryType
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "filterMatch"), object: garmentResponse)
+                self.navigationController?.popViewController(animated: true)
             }
-            
         }
     }
     
@@ -204,6 +185,7 @@ class FilterViewController : UIViewController{
             initBtnStyle(bottomBtn)
             bottomBtn.isSelected = false
             self.loadCategory(category: 1)
+            categoryType = 1
             //3
         case 2:
             self.innerPanel?.isHidden = true
@@ -214,6 +196,7 @@ class FilterViewController : UIViewController{
             innerBtn.isSelected = false
             bottomBtn.isSelected = false
             self.loadCategory(category: 0)
+            categoryType = 2
             //2
         case 3:
             self.innerPanel?.isHidden = true
@@ -224,6 +207,7 @@ class FilterViewController : UIViewController{
             innerBtn.isSelected = false
             outterBtn.isSelected = false
             self.loadCategory(category: 2)
+            categoryType = 3
             //1
         default:
             print("0")
