@@ -10,7 +10,7 @@ import UIKit
 
 class ClientTableViewCell: UITableViewCell {
     
-    var radioBtn:UIButton?
+    //var radioBtn:UIButton?
     var iconImageUrl:String?
     var nameLabel:UILabel?
     var iconImageView:UIImageView?
@@ -30,11 +30,11 @@ class ClientTableViewCell: UITableViewCell {
         
         self.iconImageView = UIImageView()
         self.contentView.addSubview(iconImageView!)
-        
+        /*
         self.radioBtn = UIButton()
         self.contentView.addSubview(radioBtn!)
         self.radioBtn!.setImage(UIImage.init(named: "radioBtnNormal"), for: UIControlState.normal)
-        
+        */
         self.nameLabel = UILabel()
         self.contentView.addSubview(nameLabel!)
         
@@ -48,33 +48,33 @@ class ClientTableViewCell: UITableViewCell {
         self.contentView.addSubview(addMatchBtn!)
         
         self.iconImageView?.translatesAutoresizingMaskIntoConstraints = false
-        self.radioBtn?.translatesAutoresizingMaskIntoConstraints = false
+        //self.radioBtn?.translatesAutoresizingMaskIntoConstraints = false
         self.nameLabel?.translatesAutoresizingMaskIntoConstraints = false
         self.addMatchBtn?.translatesAutoresizingMaskIntoConstraints = false
         
         self.addYCenterConstraintForView(iconImageView!)
-        self.addYCenterConstraintForView(radioBtn!)
+        //self.addYCenterConstraintForView(radioBtn!)
         self.addYCenterConstraintForView(nameLabel!)
         self.addYCenterConstraintForView(addMatchBtn!)
         
-        addWidthAndHeightConstraintForView(radioBtn!,width: 30,height: 30)
+        //addWidthAndHeightConstraintForView(radioBtn!,width: 30,height: 30)
         addWidthAndHeightConstraintForView(iconImageView!, width: 40, height: 40)
         addWidthAndHeightConstraintForView(nameLabel!, width: 110, height: 40)
         addWidthAndHeightConstraintForView(addMatchBtn!, width: 50, height: 30)
         
-        let constraint1:NSLayoutConstraint = NSLayoutConstraint(item:radioBtn!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
-        let constraint2:NSLayoutConstraint = NSLayoutConstraint(item:iconImageView!, attribute: .left, relatedBy: .equal, toItem:radioBtn!, attribute: .right, multiplier:1.0, constant:10)
+        //let constraint1:NSLayoutConstraint = NSLayoutConstraint(item:radioBtn!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
+        let constraint2:NSLayoutConstraint = NSLayoutConstraint(item:iconImageView!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
         let constraint3:NSLayoutConstraint = NSLayoutConstraint(item:nameLabel!, attribute: .left, relatedBy: .equal, toItem:iconImageView!, attribute: .right, multiplier:1.0, constant:10)
         //let constraint4:NSLayoutConstraint = NSLayoutConstraint(item:nameLabel!, attribute: .right, relatedBy: .equal, toItem:self.contentView, attribute: .right, multiplier:1.0, constant:-10)
         let constraint4:NSLayoutConstraint = NSLayoutConstraint(item:addMatchBtn!, attribute:.right,relatedBy:.equal,toItem:self.contentView,attribute:.right,multiplier:1.0,constant:-10)
         
-        self.contentView.addConstraint(constraint1);
+        //self.contentView.addConstraint(constraint1);
         self.contentView.addConstraint(constraint2);
         self.contentView.addConstraint(constraint3);
         self.contentView.addConstraint(constraint4);
         
         
-        radioBtn!.addTarget(self, action: #selector(buttonTapped(sender:)), for: UIControlEvents.touchUpInside)
+        //radioBtn!.addTarget(self, action: #selector(buttonTapped(sender:)), for: UIControlEvents.touchUpInside)
         addMatchBtn!.addTarget(self, action: #selector(addMatchBtnClick(sender:)), for: UIControlEvents.touchUpInside)
     }
     
@@ -96,7 +96,7 @@ class ClientTableViewCell: UITableViewCell {
         let height:NSLayoutConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy:NSLayoutRelation.equal, toItem:nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier:0.0, constant:height)
         self.contentView.addConstraint(height)
     }
-    
+    /*
     func buttonTapped(sender: UIButton) {
         var customerNum:Int = 0
         if (sender.isSelected){
@@ -112,7 +112,7 @@ class ClientTableViewCell: UITableViewCell {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "customerCount"), object: customerNum)
     }
-    
+    */
     func addMatchBtnClick(sender:UIButton){
         print("为TA搭配")
         let view:MatchListViewController = self.storyBoard?.instantiateViewController(withIdentifier: "MatchCollectionView") as! MatchListViewController

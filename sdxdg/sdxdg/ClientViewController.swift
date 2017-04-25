@@ -16,11 +16,13 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     
     var customerNum:Int = 0
     
-    let customerIconArray:[String] = ["customerIcon1","customerIcon2","customerIcon3","customerIcon4","customerIcon5"]
+    let customerIconArray:[String] = ["defaultCustomerIcon","defaultCustomerIcon","defaultCustomerIcon","defaultCustomerIcon","defaultCustomerIcon"]
     
     var customerNameArray:[String] = Array.init()
     var indexArray:[String] = Array.init()
     var letterResultArr:NSMutableArray!
+    
+    var vipUserList:[VipUser] = []
     
     override func loadView() {
         super.loadView()
@@ -33,7 +35,7 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         self.tableView.dataSource = self
         //创建一个重用的单元格
         self.tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "SwiftCell")
-        
+        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
         self.automaticallyAdjustsScrollViewInsets = false
         
         let userId:Int = LocalDataStorageUtil.getUserIdFromUserDefaults()
@@ -87,6 +89,17 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let view:ClientDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "ClientDetailView") as! ClientDetailViewController
         //view.titleName = nameLabel?.text
+        //self.navigationController?.pushViewController(view, animated: true)
+        
+        let customerName = (self.letterResultArr.object(at: indexPath.section) as! NSMutableArray).object(at: indexPath.row) as! String
+        print(customerName)
+        
+        for vipUser in vipUserList{
+            if vipUser.vipname == customerName{
+                view.vipUser = vipUser
+            }
+        }
+        
         self.navigationController?.pushViewController(view, animated: true)
     }
     //创建各单元显示内容(创建参数indexPath指定的单元）
@@ -123,22 +136,22 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
         
         let parameters:Parameters = ["shoppingGuideId":userId]
         
-        Alamofire.request(ConstantsUtil.APP_USER_GET_VIP_URL,method:.post,parameters:parameters).responseJSON{
-            response in
+        Alamofire.request(ConstantsUtil.APP_USER_GET_VIP_URL,method:.post,parameters:parameters).responseObject { (response: DataResponse<VipUserServerModel>) in
             
-            switch response.result{
-            case .success:
-                if let jsonResult = response.result.value {
-                    let json = JSON(jsonResult)
-                    print(json)
-                    let resultCode = json["resultCode"]
+            let vipUserServerModel = response.result.value
+            
+            if (vipUserServerModel?.resultCode == 200){
+                
+                if let vipUserServerModelObject = vipUserServerModel?.object{
                     
-                    if resultCode == 200{
+                    if (vipUserServerModelObject.count > 0){
                         hud.label.text = "加载成功"
-                        hud.hide(animated: true, afterDelay: 1.0)
-                        let list:Array<JSON> = json["object"].arrayValue
-                        for jsonObject in list{
-                            self.customerNameArray.append(jsonObject["vipname"].stringValue)
+                        hud.hide(animated: true, afterDelay: 0.5)
+                        
+                        for vipUser in vipUserServerModelObject{
+                            self.customerNameArray.append(vipUser.vipname!)
+                            self.vipUserList.append(vipUser)
+                            
                         }
                         
                         let tempArray1:NSMutableArray = ChineseString.indexArray(self.customerNameArray)
@@ -152,16 +165,12 @@ class ClientViewController: UIViewController , UITableViewDelegate, UITableViewD
                         self.tableView.reloadData()
                     }
                     else{
-                        print(json["message"])
-                        MessageUtil.showMessage(view: self.view, message: json["message"].string!)
+                        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                        hud.label.text = "您没有VIP数据"
+                        hud.hide(animated: true, afterDelay: 2.0)
                     }
                 }
-            case .failure(let error):
-                print(error)
-                hud.hide(animated: true)
-                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
             }
-            
         }
     }
 }

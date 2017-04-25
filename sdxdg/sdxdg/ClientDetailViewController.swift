@@ -10,7 +10,6 @@ import UIKit
 
 class ClientDetailViewController: UIViewController {
     
-    var titleName:String?
     @IBOutlet var baseInfoBtn: UIButton!
     @IBOutlet var consumeBtn: UIButton!
     @IBOutlet var feedbackBtn: UIButton!
@@ -22,9 +21,10 @@ class ClientDetailViewController: UIViewController {
     var consumePanel:UIView?
     var feedbackPanel:UIView?
     
+    var vipUser:VipUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = titleName
         
         self.initBaseInfoPanel()
         self.initConsumerPanel()
@@ -39,7 +39,7 @@ class ClientDetailViewController: UIViewController {
         
         let icon:UIImageView = UIImageView.init(frame: CGRect.init(x: 20, y: 20, width: 130, height: 130))
         icon.image = UIImage.init(named: "customerIcon5")
-        icon.contentMode = UIViewContentMode.scaleAspectFill
+        icon.contentMode = UIViewContentMode.scaleAspectFit
         baseInfoPanel!.addSubview(icon)
         
         let nameLabel:UILabel = UILabel.init(frame: CGRect.init(x: 160, y: 20, width: 100, height: 25))
@@ -48,7 +48,7 @@ class ClientDetailViewController: UIViewController {
         baseInfoPanel!.addSubview(nameLabel)
         
         let nameLabelValue:UILabel = UILabel.init(frame: CGRect.init(x: 240, y: 20, width: 100, height: 25))
-        nameLabelValue.text = titleName
+        nameLabelValue.text = vipUser?.vipname
         nameLabelValue.font = UIFont.systemFont(ofSize: 12)
         baseInfoPanel!.addSubview(nameLabelValue)
         
@@ -58,7 +58,7 @@ class ClientDetailViewController: UIViewController {
         baseInfoPanel!.addSubview(birthdayLabel)
         
         let valueBirthdayLabel:UILabel = UILabel.init(frame: CGRect.init(x: 240, y: 60, width: 100, height: 25))
-        valueBirthdayLabel.text = "08-11"
+        valueBirthdayLabel.text = vipUser?.birthday
         valueBirthdayLabel.font = UIFont.systemFont(ofSize: 12)
         baseInfoPanel!.addSubview(valueBirthdayLabel)
         
@@ -68,7 +68,7 @@ class ClientDetailViewController: UIViewController {
         baseInfoPanel!.addSubview(levelLabel)
         
         let valueLevelLabel:UILabel = UILabel.init(frame: CGRect.init(x: 240, y: 90, width: 100, height: 25))
-        valueLevelLabel.text = "金卡"
+        valueLevelLabel.text = vipUser?.rank
         valueLevelLabel.font = UIFont.systemFont(ofSize: 12)
         baseInfoPanel!.addSubview(valueLevelLabel)
         
@@ -78,7 +78,7 @@ class ClientDetailViewController: UIViewController {
         baseInfoPanel!.addSubview(mobileLabel)
         
         let valueMobileLabel:UILabel = UILabel.init(frame: CGRect.init(x: 240, y: 125, width: 100, height: 25))
-        valueMobileLabel.text = "13669667966"
+        valueMobileLabel.text = vipUser?.phonenumber
         valueMobileLabel.font = UIFont.systemFont(ofSize: 12)
         baseInfoPanel!.addSubview(valueMobileLabel)
         
@@ -92,7 +92,7 @@ class ClientDetailViewController: UIViewController {
         baseInfoPanel!.addSubview(consumeLabel)
         
         let valueConsumeLabel:UILabel = UILabel.init(frame: CGRect.init(x: 120, y: 180, width: 110, height: 30))
-        valueConsumeLabel.text = "¥ 2000"
+        valueConsumeLabel.text = String.init(format: "%i", (vipUser?.consumesum!)!)
         valueConsumeLabel.font = UIFont.systemFont(ofSize: 12)
         baseInfoPanel!.addSubview(valueConsumeLabel)
         
@@ -106,7 +106,7 @@ class ClientDetailViewController: UIViewController {
         baseInfoPanel!.addSubview(consumeValueLabel)
         
         let valueConsumeValueLabel:UILabel = UILabel.init(frame: CGRect.init(x: 120, y: 220, width: 110, height: 30))
-        valueConsumeValueLabel.text = "15"
+        valueConsumeValueLabel.text = String.init(format: "%i", (vipUser?.consumenumber!)!)
         valueConsumeValueLabel.font = UIFont.systemFont(ofSize: 12)
         baseInfoPanel!.addSubview(valueConsumeValueLabel)
         
@@ -114,11 +114,6 @@ class ClientDetailViewController: UIViewController {
         let line3:UIView = UIView.init(frame: CGRect.init(x: 15, y: 250, width: screenWidth - 30, height: 1))
         line3.backgroundColor = UIColor.lightGray
         baseInfoPanel!.addSubview(line3)
-        
-        let colorLabel:UILabel = UILabel.init(frame: CGRect.init(x: 20, y: 260, width: 110, height: 30))
-        colorLabel.text = "购衣色彩偏好:"
-        colorLabel.font = UIFont.systemFont(ofSize: 12)
-        baseInfoPanel!.addSubview(colorLabel)
         
         self.view.addSubview(baseInfoPanel!)
     }

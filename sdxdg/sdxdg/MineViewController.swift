@@ -15,6 +15,10 @@ class MineViewController: UIViewController {
     @IBOutlet var userInfoPanel: UIView!
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet var userName: UILabel!
+    @IBOutlet var userIcon: UIImageView!
+    
+    
     let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
     
     var backDataIcon:UIImageView?
@@ -50,7 +54,7 @@ class MineViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let screenWidth:CGFloat = UIScreen.main.bounds.width
         //let screenHeight:CGFloat = UIScreen.main.bounds.height
-        
+        userName.text = LocalDataStorageUtil.getUserInfoByKey(key: "username")
         let userInfoPanelGesture:UIGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(panelTapped(sender:)))
         userInfoPanel.addGestureRecognizer(userInfoPanelGesture)
         

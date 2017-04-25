@@ -48,6 +48,8 @@
 		DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */; };
 		DB4EE5C31DFFDCEF00BBCE4F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */; };
 		DB4EE5C51DFFF21200BBCE4F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */; };
+		DB58F48D1EAF1E78002A2920 /* VipUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB58F48C1EAF1E78002A2920 /* VipUser.swift */; };
+		DB58F4B21EAF2003002A2920 /* VipUserServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB58F4B11EAF2003002A2920 /* VipUserServerModel.swift */; };
 		DB7238F01E9F110700F7E1A8 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; };
 		DB7238F11E9F110700F7E1A8 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB7239171EA1CF3E00F7E1A8 /* MatchServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */; };
@@ -506,6 +508,8 @@
 		DB4EE5C01DFFDBBE00BBCE4F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C21DFFDCEF00BBCE4F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB4EE5C41DFFF21200BBCE4F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		DB58F48C1EAF1E78002A2920 /* VipUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipUser.swift; sourceTree = "<group>"; };
+		DB58F4B11EAF2003002A2920 /* VipUserServerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipUserServerModel.swift; sourceTree = "<group>"; };
 		DB7239161EA1CF3E00F7E1A8 /* MatchServerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchServerModel.swift; sourceTree = "<group>"; };
 		DB7239181EA5E9D800F7E1A8 /* FeedbackServerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackServerModel.swift; sourceTree = "<group>"; };
 		DB72391A1EA5EA0600F7E1A8 /* ClothUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothUrl.swift; sourceTree = "<group>"; };
@@ -763,6 +767,8 @@
 				DB72391A1EA5EA0600F7E1A8 /* ClothUrl.swift */,
 				DB72391C1EA5EB1400F7E1A8 /* FeedbackModel.swift */,
 				DB72391E1EA6F94000F7E1A8 /* ProductImageModel.swift */,
+				DB58F48C1EAF1E78002A2920 /* VipUser.swift */,
+				DB58F4B11EAF2003002A2920 /* VipUserServerModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1350,6 +1356,7 @@
 				DB0E98A41E10E9A300443696 /* FeedbackListCell.swift in Sources */,
 				DB0E989C1E10B04800443696 /* ClientDetailViewController.swift in Sources */,
 				DB4EE5C11DFFDBBE00BBCE4F /* LoginViewController.swift in Sources */,
+				DB58F48D1EAF1E78002A2920 /* VipUser.swift in Sources */,
 				DB124E431E94C7FA009180DD /* GarmentDataResultModel.swift in Sources */,
 				DB9D362B1E9F100A007DACE6 /* DataEncodingUtil.swift in Sources */,
 				DBDE5C471E24AD2B002454F5 /* HotMatchCell.swift in Sources */,
@@ -1361,6 +1368,7 @@
 				DB7239211EA72ECC00F7E1A8 /* HotMatchDetailViewController.swift in Sources */,
 				DB818A3B1E1B997B00E09977 /* MyMatchViewController.swift in Sources */,
 				DB72391F1EA6F94000F7E1A8 /* ProductImageModel.swift in Sources */,
+				DB58F4B21EAF2003002A2920 /* VipUserServerModel.swift in Sources */,
 				DB073E411E9B21C2000E27DD /* Matchlist.swift in Sources */,
 				DBEAB1211E7A864C000E99F4 /* LocalDataStorageUtil.swift in Sources */,
 				DBAD84A81E274D570007D6D9 /* File.swift in Sources */,
