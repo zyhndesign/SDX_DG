@@ -18,6 +18,8 @@ class PersonalInfoViewController: UIViewController,UIImagePickerControllerDelega
     
     var newIcon:Bool = false
     
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         postBtn.layer.cornerRadius = 6
@@ -40,7 +42,14 @@ class PersonalInfoViewController: UIViewController,UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        userIconImageView.image = image
+        let size:CGSize = CGSize.init(width: 200, height: 200)
+        
+        var newImage:UIImage?
+        UIGraphicsBeginImageContext(size)
+        image.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+        newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        userIconImageView.image = newImage
         newIcon = true
         picker.dismiss(animated: true) { 
             
@@ -48,20 +57,22 @@ class PersonalInfoViewController: UIViewController,UIImagePickerControllerDelega
     }
     
     
-    
     @IBAction func postDataBtnClick(_ sender: Any) {
         
-        if !newIcon && !(usernameTextField.text?.isEmpty)!{
+        if !newIcon && (usernameTextField.text?.isEmpty)!{
             MessageUtil.showMessage(view: self.view, message: "无任何修改")
             return
         }
         
-        var parameters:Parameters?
+        var phone:String = ""
         if !(usernameTextField.text?.isEmpty)!{
-            parameters = ["phone":usernameTextField.text]
+            phone = usernameTextField.text!
         }
         
+        print(phone)
         if newIcon{
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud.label.text = "提交中..."
             let headers = ["content-type":"multipart/form-data"]
             
             Alamofire.request(ConstantsUtil.APP_QINIU_TOKEN).responseJSON { (response) in
@@ -90,23 +101,61 @@ class PersonalInfoViewController: UIViewController,UIImagePickerControllerDelega
                                         
                                         if let value = response.result.value as? [String: AnyObject]{
                                             let json = JSON(value)
-                                            var modelUrl = ConstantsUtil.APP_QINIU_IMAGE_URL_PREFIX + json["key"].string!
+                                            let headicon = ConstantsUtil.APP_QINIU_IMAGE_URL_PREFIX + json["key"].string!
                                             
+                                            hud.hide(animated: true)
+                                            self.postUpdateData(phone: phone, headicon: headicon)
                                         }
                                     }
                                 case .failure(let encodingError):
-                                    print(encodingError)
+                                    hud.label.text = "操作失败"
+                                    hud.hide(animated: true, afterDelay: 1.0)
                                     
                                 }
-                        }
+                            }
                         )
                     }
                 }
             }
         }
-        
-        
-        
+        else if (!phone.isEmpty){
+            self.postUpdateData(phone: phone, headicon: "")
+        }
+    }
+    
+    func postUpdateData(phone:String, headicon:String){
+        let parameters:Parameters = ["phone":phone,"headicon":headicon,"userId":userId]
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "提交中..."
+        Alamofire.request(ConstantsUtil.APP_USER_UPDATE_DATA_URL,method:.post,parameters:parameters).responseJSON { (response) in
+            
+            if let data = response.result.value {
+                let responseResult = JSON(data)
+                
+                let resultCode = responseResult["resultCode"].intValue
+                
+                if resultCode == 200{
+                    hud.label.text = "操作成功"
+                    hud.hide(animated: true, afterDelay: 1.0)
+                    
+                    if (!phone.isEmpty){
+                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: "currentUser", key: "phone", value: phone)
+                    }
+                    
+                    if (!headicon.isEmpty){
+                        LocalDataStorageUtil.saveUserInfoToUserDefault(suiteName: "currentUser", key: "headicon", value: headicon)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "HeadIcon"), object: self.userIconImageView.image!)
+                    }
+                    self.navigationController?.popViewController(animated: true)
+                    
+                   
+                }
+                else{
+                    hud.label.text = "操作失败"
+                    hud.hide(animated: true, afterDelay: 1.0)
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

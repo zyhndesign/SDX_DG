@@ -214,13 +214,26 @@ class MineViewController: UIViewController {
         scrollView.contentSize = CGSize.init(width: screenWidth, height: 580)
         
         self.initHotImage()
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(self.updateHeaderIcon(notifaction:)), name: NSNotification.Name(rawValue: "HeadIcon"), object: nil)
+        
+        let headIcon:String = LocalDataStorageUtil.getUserInfoByKey(key: "headicon")
+        if !(headIcon == ""){
+            userIcon.af_setImage(withURL: URL.init(string: headIcon)!)
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        NotificationCenter.default.removeObserver(self)
     }
     
+    func updateHeaderIcon(notifaction: NSNotification){
+        let headicon:UIImage = (notifaction.object as? UIImage)!
+        userIcon.image = headicon
+    }
+
     @IBAction func settingBtnClick(_ sender: Any) {
         let view = self.storyboard?.instantiateViewController(withIdentifier: "settingView")
         self.navigationController?.pushViewController(view!, animated: true)
