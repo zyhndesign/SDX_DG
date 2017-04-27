@@ -77,6 +77,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     var textField:UITextField?
     
     let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
+    var saveSign:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -226,6 +227,26 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             model4InCloth?.image = UIImage.init()
             model4Trouser?.image = UIImage.init()
         }
+    }
+    
+    func clearAllData(){
+        model1OutCloth?.image = UIImage.init()
+        model1InCloth?.image = UIImage.init()
+        model1Trouser?.image = UIImage.init()
+    
+        model2OutCloth?.image = UIImage.init()
+        model2InCloth?.image = UIImage.init()
+        model2Trouser?.image = UIImage.init()
+    
+        model3OutCloth?.image = UIImage.init()
+        model3InCloth?.image = UIImage.init()
+        model3Trouser?.image = UIImage.init()
+    
+        model4OutCloth?.image = UIImage.init()
+        model4InCloth?.image = UIImage.init()
+        model4Trouser?.image = UIImage.init()
+        
+        saveSign = 0
     }
     
     func updateMatchModel(notifaction: NSNotification){
@@ -391,10 +412,14 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     @IBAction func shareBtnClick(_ sender: Any) {
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "shareView")
-        self.navigationController?.pushViewController(view!, animated: true)
-        let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
-        animation.duration = 0.5
+        if saveSign > 0 {
+            let view:ShareViewController = self.storyboard?.instantiateViewController(withIdentifier: "shareView") as! ShareViewController
+            view.matchId = saveSign
+            self.navigationController?.pushViewController(view, animated: true)
+        }
+        else{
+            MessageUtil.showMessage(view: self.view, message: "必须先保存模型数据")
+        }
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -544,7 +569,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 
                 if resultCode == 200{
                     let token = responseResult["uptoken"].string!
-                    print(token)
+                    
                     self.model1UploadResult = (modelUpload:false,modelUrl:"")
                     self.model2UploadResult = (modelUpload:false,modelUrl:"")
                     self.model3UploadResult = (modelUpload:false,modelUrl:"")
@@ -614,6 +639,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             
             let parameters: [String:Any] =  ["seriesname": seriesname, "draftstatus":draftstatus, "user": user ,
                                "matchlists": matchlists]
+            /*
             print(parameters)
             if (JSONSerialization.isValidJSONObject(parameters)){
                 print("json string")
@@ -621,7 +647,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             else{
                 print("not json string")
             }
-            
+            */
             if (matchlists.count == 0){
                 hud.label.text = "未搭配服装"
                 hud.hide(animated: true, afterDelay: 2.0)
@@ -634,6 +660,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                         let json = JSON(value)
                         if json["resultCode"].intValue == 200{
                             hud.label.text = "操作成功"
+                            self.saveSign = json["object"].intValue
                         }
                         else{
                             hud.label.text = "操作失败"

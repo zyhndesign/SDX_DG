@@ -211,8 +211,19 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "MerchandiseDetailView")
-        self.navigationController?.pushViewController(view!, animated: true)
+        let view:MerchandiseDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MerchandiseDetailView") as! MerchandiseDetailViewController
+        var garmentModel:GarmentModel?
+        if garmentType == 0{
+            garmentModel = innerClothList[indexPath.row]
+        }
+        else if garmentType == 1{
+            garmentModel = outterClothList[indexPath.row]
+        }
+        else if garmentType == 2{
+            garmentModel = trouserClothList[indexPath.row]
+        }
+        view.hpId = (garmentModel?.id)!
+        self.navigationController?.pushViewController(view, animated: true)
     }
     
     @IBAction func filterBtnClick(_ sender: Any) {

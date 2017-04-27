@@ -20,6 +20,8 @@ class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProto
     
     @IBOutlet var sendSareBtn: UIButton!
     
+    var matchId:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,9 +29,10 @@ class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProto
         addCustomerImage.addGestureRecognizer(gesture)
         
         self.webView.delegate = self
-        let filePath:String = Bundle.main.path(forResource: "nDetail", ofType: "html",inDirectory:"sdxdp")!
         
-        let url:URL = URL.init(fileURLWithPath: filePath)
+        //let filePath:String = Bundle.main.path(forResource: "nDetail", ofType: "html",inDirectory:"sdxdp")!
+        //let url:URL = URL.init(fileURLWithPath: filePath)
+        let url:URL = URL.init(string: ConstantsUtil.APP_DGGL_MATCH_DETAIL + "\(matchId)")!
         let request:URLRequest = URLRequest.init(url: url)
         webView.loadRequest(request)
         

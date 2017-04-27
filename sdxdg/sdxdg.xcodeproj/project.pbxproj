@@ -67,7 +67,6 @@
 		DB818A431E1CA74D00E09977 /* DraftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A421E1CA74D00E09977 /* DraftDetailViewController.swift */; };
 		DB818A481E1CD6C600E09977 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DB818A471E1CD6C600E09977 /* MBProgressHUD.m */; };
 		DB818A4A1E1CE42900E09977 /* MerchandiseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */; };
-		DB818AAE1E1CF1BA00E09977 /* sdxdp in Resources */ = {isa = PBXBuildFile; fileRef = DB818AAD1E1CF1BA00E09977 /* sdxdp */; };
 		DB9D36291E9F0F0E007DACE6 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9D361A1E9F0EFF007DACE6 /* CryptoSwift.framework */; };
 		DB9D362B1E9F100A007DACE6 /* DataEncodingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D362A1E9F100A007DACE6 /* DataEncodingUtil.swift */; };
 		DBA3BB621E07711400551D54 /* CustomerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3BB611E07711400551D54 /* CustomerListController.swift */; };
@@ -527,7 +526,6 @@
 		DB818A461E1CD6C600E09977 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		DB818A471E1CD6C600E09977 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		DB818A491E1CE42900E09977 /* MerchandiseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchandiseDetailViewController.swift; sourceTree = "<group>"; };
-		DB818AAD1E1CF1BA00E09977 /* sdxdp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdxdp; sourceTree = "<group>"; };
 		DB9D35FE1E9F0EFE007DACE6 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../../OpenSource/CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		DB9D362A1E9F100A007DACE6 /* DataEncodingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEncodingUtil.swift; sourceTree = "<group>"; };
 		DBA3BB611E07711400551D54 /* CustomerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerListController.swift; sourceTree = "<group>"; };
@@ -681,7 +679,6 @@
 				DBEAB0FD1E7920DC000E99F4 /* utils */,
 				DBAD84901E274D2F0007D6D9 /* extension */,
 				DBDE5C481E25C0F8002454F5 /* view */,
-				DB818AAD1E1CF1BA00E09977 /* sdxdp */,
 				DBDE5C2B1E231C85002454F5 /* protocol */,
 				DB818A441E1CD4FF00E09977 /* oc_lib */,
 				DB818A1F1E15ED7800E09977 /* model */,
@@ -1323,7 +1320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0DC2241E7FC8E00016CDBB /* UMSocialSDK in Resources */,
-				DB818AAE1E1CF1BA00E09977 /* sdxdp in Resources */,
 				DB0DC2261E7FC8E00016CDBB /* SocialLibraries in Resources */,
 				DB4EE59C1DFF841800BBCE4F /* LaunchScreen.storyboard in Resources */,
 				DB4EE5991DFF841800BBCE4F /* Assets.xcassets in Resources */,
