@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class FeedbackListCell: UITableViewCell {
     
@@ -59,10 +60,10 @@ class FeedbackListCell: UITableViewCell {
         self.nController = navigationController
         
         self.nameLabel?.text = name
-        self.fbIcon1?.image = UIImage.init(named: fbIcon1)
-        self.fbIcon2?.image = UIImage.init(named: fbIcon2)
-        self.fbIcon3?.image = UIImage.init(named: fbIcon3)
-        self.fbIcon4?.image = UIImage.init(named: fbIcon4)
+        self.fbIcon1?.af_setImage(withURL: URL.init(string: fbIcon1)!)
+        self.fbIcon2?.af_setImage(withURL: URL.init(string: fbIcon2)!)
+        self.fbIcon3?.af_setImage(withURL: URL.init(string: fbIcon3)!)
+        self.fbIcon4?.af_setImage(withURL: URL.init(string: fbIcon4)!)
         self.timeLabel?.text = time
         
     }

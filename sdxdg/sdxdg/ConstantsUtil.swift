@@ -48,6 +48,8 @@ class ConstantsUtil : NSObject {
     
     static let APP_HPGL_INDEX = WEB_API_BASE_URL + "/hpgl/hpIndexManage/getAppData"
     
+    static let APP_SHARE_HISTORY_URL = WEB_API_BASE_URL + "/dggl/match/getPushHistoryByVipNameAndUserId"
+    
     static let APP_HPGL_HP_DETAIL = WEB_API_BASE_URL + "/hpgl/hpManage/productDetail/"
     static let APP_DGGL_MATCH_DETAIL = WEB_API_BASE_URL + "/dggl/match/matchDetail/"
     

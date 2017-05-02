@@ -27,7 +27,7 @@ class ClientDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.initBaseInfoPanel()
-        self.initConsumerPanel()
+        self.initPushHistoryPanel()
         self.initFeedbackPanel()
         
         consumePanel?.isHidden = true
@@ -118,8 +118,8 @@ class ClientDetailViewController: UIViewController {
         self.view.addSubview(baseInfoPanel!)
     }
     
-    func initConsumerPanel(){
-        let consumerController:ConsumeListViewController = ConsumeListViewController.init(storyBoard: self.storyboard!, naviController: self.navigationController!)
+    func initPushHistoryPanel(){
+        let consumerController:ConsumeListViewController = ConsumeListViewController.init(storyBoard: self.storyboard!, naviController: self.navigationController!, vipName:(vipUser?.vipname)!)
         consumerController.view.frame = CGRect.init(x: 0, y: 113, width: screenWidth, height: screenHeight - 113)
         consumePanel = consumerController.view
         self.view.addSubview(consumePanel!)
@@ -127,7 +127,7 @@ class ClientDetailViewController: UIViewController {
     }
     
     func initFeedbackPanel(){
-        let feedbackController:FeedbackListViewController = FeedbackListViewController.init(sBoard: self.storyboard!, naviController: self.navigationController!)
+        let feedbackController:FeedbackListViewController = FeedbackListViewController.init(sBoard: self.storyboard!, naviController: self.navigationController!, vipName:(vipUser?.vipname)!, vipId:(vipUser?.id)!)
         feedbackController.view.frame = CGRect.init(x: 0, y: 113, width: screenWidth, height: screenHeight - 113)
         feedbackPanel = feedbackController.view
         self.view.addSubview(feedbackPanel!)

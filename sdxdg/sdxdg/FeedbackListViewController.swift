@@ -7,20 +7,30 @@
 //
 
 import UIKit
+import Alamofire
+import ObjectMapper
 
 class FeedbackListViewController: UITableViewController {
     
     var sBoard:UIStoryboard?
     var naviController:UINavigationController?
-    let fbIconArray:[String] = ["fb1","fb2","fb3","fb4","fb5","fb6","fb7","fb8","fb9","fb10"]
     
     let screenWidth = UIScreen.main.bounds.width
     
-    init(sBoard:UIStoryboard, naviController:UINavigationController){
+    let refresh = UIRefreshControl.init()
+    let pageLimit:Int = 10
+    var pageNum:Int = 0
+    var matchList:[Match] = []
+    
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
+    var vipName:String = ""
+    var vipId:Int = 0
+    init(sBoard:UIStoryboard, naviController:UINavigationController, vipName:String, vipId:Int){
         super.init(nibName: nil, bundle: nil)
         self.sBoard = sBoard
         self.naviController = naviController
-        
+        self.vipName = vipName
+        self.vipId = vipId
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,23 +41,38 @@ class FeedbackListViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.register(FeedbackListCell.self, forCellReuseIdentifier: "feedbackCell")
+        //self.tableView.dataSource = self
+        
+        refresh.backgroundColor = UIColor.white
+        refresh.tintColor = UIColor.lightGray
+        refresh.attributedTitle = NSAttributedString(string:"下拉刷新")
+        refresh.addTarget(self, action: #selector(refreshLoadingData), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(refresh)
+        
+        loadData(limit: pageLimit,offset: 0)
+        
+        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 36;
+        return matchList.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (screenWidth - 50) / 4 + 60
     }
     
+    func refreshLoadingData(){
+        loadData(limit: pageLimit,offset: pageLimit * pageNum)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController:FeedbackDetailViewController = sBoard?.instantiateViewController(withIdentifier: "FeedbackDetailView") as! FeedbackDetailViewController
-        let iconRandomNum1:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum2:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum4:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        viewController.initData(fbImage1: fbIconArray[iconRandomNum1], fbImage1Like: true, fbImage2: fbIconArray[iconRandomNum2], fbImage2Like: true, fbImage3: fbIconArray[iconRandomNum3], fbImage3Like: true, fbImage4: fbIconArray[iconRandomNum4], fbImage4Like: true)
+        let match:Match = matchList[indexPath.row]
+        
+        let matchLists:[Matchlist] = match.matchlists!
+        viewController.initData(matchLists: matchLists)
+        viewController.vipId = vipId
         naviController?.pushViewController(viewController, animated: true)
     }
     
@@ -55,12 +80,13 @@ class FeedbackListViewController: UITableViewController {
         
         let identify:String = "feedbackCell"
         let cell:FeedbackListCell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath) as! FeedbackListCell;
-        let iconRandomNum1:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum2:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum3:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-        let iconRandomNum4:Int = Int(arc4random_uniform(UInt32(fbIconArray.count)))
-       
-        cell.initDataForCell(name:"SUNDANCE 商务男装造型", fbIcon1: fbIconArray[iconRandomNum1], fbIcon2: fbIconArray[iconRandomNum2], fbIcon3: fbIconArray[iconRandomNum3], fbIcon4: fbIconArray[iconRandomNum4],time:"16:25 2016-12-26",storyBoard: sBoard!, navigationController:naviController!)
+        
+        let match:Match = matchList[indexPath.row]
+        
+        let matchLists:[Matchlist] = match.matchlists!
+        
+        cell.initDataForCell(name:match.seriesname! , fbIcon1: matchLists[0].modelurl!, fbIcon2: matchLists[1].modelurl!,
+                             fbIcon3: matchLists[2].modelurl!, fbIcon4: matchLists[3].modelurl!,time:match.createtime! ,storyBoard: sBoard!, navigationController:naviController!)
         return cell
     }
 
@@ -69,6 +95,42 @@ class FeedbackListViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func loadData(limit:Int, offset:Int){
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "正在加载中..."
+        
+        let parameters:Parameters = ["userId":userId, "vipName":vipName, "limit":limit,"offset":offset]
+        
+        Alamofire.request(ConstantsUtil.APP_SHARE_HISTORY_URL,method:.post, parameters:parameters).responseObject { (response: DataResponse<MatchServerModel>) in
+            
+            let matchServerModel = response.result.value
+            
+            if (matchServerModel?.resultCode == 200){
+                
+                if let matchServerModelList = matchServerModel?.object {
+                    for matchModel in matchServerModelList{
+                        self.matchList.insert(matchModel, at: 0)
+                        self.pageNum = self.pageNum + 1
+                    }
+                    self.tableView.reloadData()
+                    self.refresh.endRefreshing()
+                    hud.label.text = "加载成功"
+                    hud.hide(animated: true, afterDelay: 0.5)
+                }
+                else{
+                    hud.label.text = "无推送历史数据"
+                    hud.hide(animated: true, afterDelay: 0.5)
+                }
+                
+                
+            }
+            else{
+                hud.label.text = "加载失败"
+                hud.hide(animated: true, afterDelay: 0.5)
+            }
+        }
+    }
     
 }
 

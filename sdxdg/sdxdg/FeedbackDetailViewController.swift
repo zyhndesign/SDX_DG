@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FeedbackDetailViewController: UIViewController {
     
@@ -23,26 +25,14 @@ class FeedbackDetailViewController: UIViewController {
     var like3:UIImageView?
     var like4:UIImageView?
     
+    var matchLists:[Matchlist]?
     
-    var fbImage1:String?
-    var fbImage1Like: Bool = false
-    var fbImage2:String?
-    var fbImage2Like: Bool = false
-    var fbImage3:String?
-    var fbImage3Like: Bool = false
-    var fbImage4:String?
-    var fbImage4Like: Bool = false
+    var vipId:Int = 0
     
-    func initData(fbImage1:String, fbImage1Like: Bool, fbImage2:String, fbImage2Like: Bool, fbImage3:String, fbImage3Like: Bool, fbImage4:String,fbImage4Like: Bool){
-        
-        self.fbImage1 = fbImage1
-        self.fbImage2 = fbImage2
-        self.fbImage3 = fbImage3
-        self.fbImage4 = fbImage4
-        self.fbImage1Like = fbImage1Like
-        self.fbImage2Like = fbImage2Like
-        self.fbImage3Like = fbImage3Like
-        self.fbImage4Like = fbImage4Like
+    let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
+    
+    func initData(matchLists:[Matchlist]){
+        self.matchLists = matchLists
     }
     
     override func viewDidLoad() {
@@ -75,21 +65,74 @@ class FeedbackDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fbView1?.image = UIImage.init(named: fbImage1!)
-        fbView2?.image = UIImage.init(named: fbImage2!)
-        fbView3?.image = UIImage.init(named: fbImage3!)
-        fbView4?.image = UIImage.init(named: fbImage4!)
-        if fbImage1Like{
-            like1?.image = UIImage.init(named: "like")
+        fbView1?.af_setImage(withURL: URL.init(string: (matchLists?[0].modelurl)!)!)
+        fbView2?.af_setImage(withURL: URL.init(string: (matchLists?[1].modelurl)!)!)
+        fbView3?.af_setImage(withURL: URL.init(string: (matchLists?[2].modelurl)!)!)
+        fbView4?.af_setImage(withURL: URL.init(string: (matchLists?[3].modelurl)!)!)
+       
+        if let mlist = matchLists{
+            var ids:String = ""
+            for data in mlist{
+                ids.append(String(describing: data.id));
+                ids.append(",");
+            }
+            self.loadData(matchlistIds: ids)
         }
-        if fbImage2Like{
-            like2?.image = UIImage.init(named: "like")
-        }
-        if fbImage3Like{
-            like3?.image = UIImage.init(named: "like")
-        }
-        if fbImage4Like{
-            like4?.image = UIImage.init(named: "like")
+        
+    }
+    
+    func loadData(matchlistIds:String){
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "正在加载中..."
+        
+        let parameters:Parameters = ["matchlistIds":matchlistIds, "userId":userId, "vipId":vipId]
+        
+        Alamofire.request(ConstantsUtil.APP_USER_LOGIN_URL,method:.post,parameters:parameters).responseJSON{
+            response in
+            
+            switch response.result{
+            case .success:
+                if let jsonResult = response.result.value {
+                    let json = JSON(jsonResult)
+                    let resultCode = json["resultCode"]
+                    
+                    
+                    if resultCode == 200{
+                        
+                        for index in 0...(json["object"].count-1){
+                            var i:Int = 0
+                            for mList in self.matchLists!{
+                                i = i + 1
+                                if mList.id == json["object"][index].int{
+                                    if (i == 0){
+                                         self.like1?.image = UIImage.init(named: "like")
+                                    }
+                                    else if (i == 1){
+                                         self.like2?.image = UIImage.init(named: "like")
+                                    }
+                                    else if (i == 2){
+                                         self.like3?.image = UIImage.init(named: "like")
+                                    }
+                                    else if (i == 3){
+                                         self.like4?.image = UIImage.init(named: "like")
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                    else{
+                        hud.label.text = "加载点赞数据失败"
+                        hud.hide(animated: true, afterDelay: 0.5)
+                    }
+                }
+            case .failure(let error):
+                hud.label.text = "加载点赞数据失败"
+                hud.hide(animated: true, afterDelay: 0.5)
+            }
+            
+            
         }
     }
     
