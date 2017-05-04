@@ -1177,91 +1177,26 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sharePersonIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oRu-s5-JmJ">
-                                <rect key="frame" x="26" y="12" width="18" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="18" id="3nm-SS-7bj"/>
-                                    <constraint firstAttribute="height" constant="30" id="lyT-4S-8vk"/>
-                                </constraints>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shareAddIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SnT-r1-3eW">
-                                <rect key="frame" x="325" y="17" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="BEd-ua-Zph"/>
-                                    <constraint firstAttribute="height" constant="22" id="w3N-ML-epU"/>
-                                </constraints>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shareContentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bNg-3U-YXj">
-                                <rect key="frame" x="26" y="67" width="16" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="ZwI-Pp-jdg"/>
-                                    <constraint firstAttribute="width" constant="16" id="whm-ba-oSX"/>
-                                </constraints>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shareTitleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Mvb-0A-zkf">
-                                <rect key="frame" x="26" y="109" width="18" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="L2n-dF-pqR"/>
-                                    <constraint firstAttribute="width" constant="18" id="ks0-XA-q80"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zil-OS-vPv">
-                                <rect key="frame" x="66" y="62" width="232" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tKH-VT-Pjg">
-                                <rect key="frame" x="66" y="109" width="232" height="95"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="mGR-HR-1wT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwB-QT-JPY">
-                                <rect key="frame" x="0.0" y="219" width="375" height="384"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-As-Oay">
-                                <rect key="frame" x="68" y="18" width="232" height="31"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tKH-VT-Pjg" firstAttribute="top" secondItem="Mvb-0A-zkf" secondAttribute="top" id="0HD-b9-jqG"/>
-                            <constraint firstItem="tKH-VT-Pjg" firstAttribute="top" secondItem="zil-OS-vPv" secondAttribute="bottom" constant="17" id="39a-AO-jCz"/>
                             <constraint firstAttribute="bottom" secondItem="xwB-QT-JPY" secondAttribute="bottom" id="3qp-f8-TTt"/>
-                            <constraint firstItem="Mvb-0A-zkf" firstAttribute="leading" secondItem="5p6-f5-xEo" secondAttribute="leadingMargin" constant="10" id="4So-qv-h54"/>
-                            <constraint firstItem="tKH-VT-Pjg" firstAttribute="leading" secondItem="Mvb-0A-zkf" secondAttribute="trailing" constant="22" id="57u-0D-eYt"/>
-                            <constraint firstItem="zil-OS-vPv" firstAttribute="centerY" secondItem="bNg-3U-YXj" secondAttribute="centerY" id="FwN-wi-D4Q"/>
-                            <constraint firstItem="SnT-r1-3eW" firstAttribute="leading" secondItem="5gB-As-Oay" secondAttribute="trailing" constant="25" id="IRv-Eq-oUi"/>
-                            <constraint firstItem="bNg-3U-YXj" firstAttribute="top" secondItem="oRu-s5-JmJ" secondAttribute="bottom" constant="25" id="IZT-cb-gjC"/>
-                            <constraint firstItem="oRu-s5-JmJ" firstAttribute="top" secondItem="eb5-XT-cOE" secondAttribute="bottom" constant="12" id="Mnm-ok-0nX"/>
-                            <constraint firstItem="zil-OS-vPv" firstAttribute="top" secondItem="5gB-As-Oay" secondAttribute="bottom" constant="13" id="Orm-o0-hL4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SnT-r1-3eW" secondAttribute="trailing" constant="12" id="QwW-Wc-8TI"/>
-                            <constraint firstItem="SnT-r1-3eW" firstAttribute="top" secondItem="eb5-XT-cOE" secondAttribute="bottom" constant="17" id="TMl-4g-wq6"/>
-                            <constraint firstItem="oRu-s5-JmJ" firstAttribute="leading" secondItem="5p6-f5-xEo" secondAttribute="leadingMargin" constant="10" id="VTi-uO-dfv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zil-OS-vPv" secondAttribute="trailing" constant="61" id="Wyd-WG-CnR"/>
-                            <constraint firstItem="5gB-As-Oay" firstAttribute="leading" secondItem="oRu-s5-JmJ" secondAttribute="trailing" constant="24" id="Z4x-zE-wns"/>
-                            <constraint firstItem="5gB-As-Oay" firstAttribute="top" secondItem="eb5-XT-cOE" secondAttribute="bottom" constant="18" id="aI0-pa-egH"/>
+                            <constraint firstAttribute="trailing" secondItem="xwB-QT-JPY" secondAttribute="trailing" id="AzO-BT-uDe"/>
+                            <constraint firstItem="xwB-QT-JPY" firstAttribute="leading" secondItem="5p6-f5-xEo" secondAttribute="leading" id="MLN-Ny-hhp"/>
                             <constraint firstItem="xwB-QT-JPY" firstAttribute="leading" secondItem="5p6-f5-xEo" secondAttribute="leading" id="b0d-8l-obg"/>
-                            <constraint firstItem="Mvb-0A-zkf" firstAttribute="top" secondItem="bNg-3U-YXj" secondAttribute="bottom" constant="22" id="feu-ae-Ryw"/>
-                            <constraint firstItem="bNg-3U-YXj" firstAttribute="leading" secondItem="5p6-f5-xEo" secondAttribute="leadingMargin" constant="10" id="fsU-Fc-ndP"/>
-                            <constraint firstItem="zil-OS-vPv" firstAttribute="trailing" secondItem="tKH-VT-Pjg" secondAttribute="trailing" id="gzc-zj-GgR"/>
-                            <constraint firstItem="zil-OS-vPv" firstAttribute="leading" secondItem="tKH-VT-Pjg" secondAttribute="leading" id="qMj-RK-rCn"/>
-                            <constraint firstItem="xwB-QT-JPY" firstAttribute="top" secondItem="tKH-VT-Pjg" secondAttribute="bottom" constant="15" id="shA-tj-bXV"/>
+                            <constraint firstAttribute="bottom" secondItem="xwB-QT-JPY" secondAttribute="bottom" id="coX-rC-P8L"/>
+                            <constraint firstItem="xwB-QT-JPY" firstAttribute="top" secondItem="eb5-XT-cOE" secondAttribute="bottom" id="gpW-f8-QTb"/>
                             <constraint firstAttribute="trailing" secondItem="xwB-QT-JPY" secondAttribute="trailing" id="ugb-JI-Xez"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="编辑内容" id="TaR-SH-BZt">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="K0k-vF-nXN">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iyS-9b-s1q">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <rect key="frame" x="267" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="发送"/>
                                 <connections>
@@ -1271,17 +1206,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addCustomerImage" destination="SnT-r1-3eW" id="4er-sM-sLH"/>
-                        <outlet property="contextTextView" destination="tKH-VT-Pjg" id="vsI-pW-fF7"/>
-                        <outlet property="customerLabel" destination="5gB-As-Oay" id="ukQ-he-5CA"/>
                         <outlet property="sendSareBtn" destination="iyS-9b-s1q" id="S6f-qA-OTp"/>
-                        <outlet property="titleTextField" destination="zil-OS-vPv" id="bhD-Xq-qNt"/>
                         <outlet property="webView" destination="xwB-QT-JPY" id="pCh-yz-bdg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGL-pL-RKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4211.594202898551" y="-2976.358695652174"/>
+            <point key="canvasLocation" x="4210.3999999999996" y="-2977.0614692653676"/>
         </scene>
         <!--搭配间-->
         <scene sceneID="SCz-eh-Rb1">
@@ -1686,10 +1617,6 @@
         <image name="selectModelBg" width="139" height="312"/>
         <image name="selectedBtn" width="126" height="42"/>
         <image name="setting" width="20" height="21"/>
-        <image name="shareAddIcon" width="22" height="22"/>
         <image name="shareBlackBtn" width="18" height="17"/>
-        <image name="shareContentIcon" width="16" height="20"/>
-        <image name="sharePersonIcon" width="18" height="20"/>
-        <image name="shareTitleIcon" width="18" height="18"/>
     </resources>
 </document>

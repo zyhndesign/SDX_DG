@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginVC:LoginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
          */
        // firstVC.present(loginVC, animated: true, completion: nil)
+        UMSocialManager.default().umSocialAppkey = "590a8f40677baa08510011b7"
         
         return true
     }

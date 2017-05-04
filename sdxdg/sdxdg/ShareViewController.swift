@@ -8,43 +8,32 @@
 
 import UIKit
 
-class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProtocol{
+class ShareViewController : UIViewController,UIWebViewDelegate{
     
-    @IBOutlet var addCustomerImage: UIImageView!
     @IBOutlet var webView: UIWebView!
     var hud:MBProgressHUD?
-    
-    @IBOutlet var customerLabel: UILabel!
-    @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var contextTextView: UITextView!
     
     @IBOutlet var sendSareBtn: UIButton!
     
     var matchId:Int = 0
     
+    private var shareUrl:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(addCustomerGestureTap(sender:)))
-        addCustomerImage.addGestureRecognizer(gesture)
         
         self.webView.delegate = self
         
         //let filePath:String = Bundle.main.path(forResource: "nDetail", ofType: "html",inDirectory:"sdxdp")!
         //let url:URL = URL.init(fileURLWithPath: filePath)
-        let url:URL = URL.init(string: ConstantsUtil.APP_DGGL_MATCH_DETAIL + "\(matchId)")!
+        shareUrl = ConstantsUtil.APP_DGGL_MATCH_DETAIL + "\(matchId)"
+        let url:URL = URL.init(string: shareUrl)!
         let request:URLRequest = URLRequest.init(url: url)
         webView.loadRequest(request)
         
         hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        customerLabel.numberOfLines = 1
-        customerLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
-        customerLabel.layer.borderWidth = 1
-        customerLabel.layer.borderColor = UIColor.lightGray.cgColor
-        
-        contextTextView.layer.borderColor = UIColor.lightGray.cgColor
-        contextTextView.layer.borderWidth = 1
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -59,17 +48,31 @@ class ShareViewController : UIViewController,UIWebViewDelegate,PassCustomerProto
         
     }
     
-    func addCustomerGestureTap(sender:UITapGestureRecognizer){
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "CustomerList") as! CustomerListController
-        view.customerProtocolDelegate = self
-        self.navigationController?.pushViewController(view, animated: true)
-    }
-    
-    func returnCustomerValue(customer:String){
-        customerLabel.text = customerLabel.text! + customer
-    }
-    
     @IBAction func sendSareBtnClick(_ sender: Any) {
+        
+        let messageObject:UMSocialMessageObject = UMSocialMessageObject.init()
+        //创建网页内容对象
+        let thumbURL:String =  "https://mobile.umeng.com/images/pic/home/social/img-1.png"
+        
+        let shareObject:UMShareWebpageObject = UMShareWebpageObject.shareObject(withTitle: "欢迎使用圣得西导购平台", descr: "", thumImage: thumbURL)
+        //设置网页地址
+        shareObject.webpageUrl = "http://mobile.umeng.com/social"
+        
+        //分享消息对象设置分享内容对象
+        messageObject.shareObject = shareObject;
+        
+        let sharePaltformArray = [
+            [ "share_weixin", "share_friend", "share_sina" , "share_qq", "share_zone"],
+            [ "微信","朋友圈", "微博", "QQ", "QQ空间"]
+        ]
+        
+    }
+    
+    /**
+     分享按钮响应事件
+     */
+    func shareButtonClicked(sender:UIButton) {
+        
         
     }
     override func didReceiveMemoryWarning() {
