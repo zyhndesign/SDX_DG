@@ -151,6 +151,11 @@ class LoginViewController: UIViewController {
         tField.setValue(UIColor.white, forKeyPath: "_placeholderLabel.textColor")
     }
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        username.resignFirstResponder()
+        password.resignFirstResponder()
+    }
+    
     func stopAndHideAnimation(){
         loadingIndicatorView.stopAnimating()
         loadingIndicatorView.isHidden = true

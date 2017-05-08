@@ -19,7 +19,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "..\/OpenSource\/swift\/SwiftyJSON",
     "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : "..\/OpenSource\/swift\/HanekeSwift",
-    "67620B5EFA902936DF04070AF595B76AB0333747" : "..\/OpenSource\/swift\/AlamofireImage\/Carthage\/Checkouts\/Alamofire",
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "..\/OpenSource\/swift\/Alamofire",
     "9025163822AAEA7A2D8AC9210D0874A56F62B462" : "..\/OpenSource\/Charts",
     "ACF27862D33341D3B1E7DEB4D8644CBE1DFB4F05" : "SDX_DG\/",
     "54023E5A69A8ACBF4248AE90064E6E1B8A22CC88" : "..\/OpenSource\/swift\/PNChart-Swift",
