@@ -22,7 +22,6 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.webView.delegate = self
         
         //let filePath:String = Bundle.main.path(forResource: "nDetail", ofType: "html",inDirectory:"sdxdp")!
@@ -49,23 +48,40 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
     }
     
     @IBAction func sendSareBtnClick(_ sender: Any) {
+        print("share btn click")
         
-        let messageObject:UMSocialMessageObject = UMSocialMessageObject.init()
-        //创建网页内容对象
-        let thumbURL:String =  "https://mobile.umeng.com/images/pic/home/social/img-1.png"
-        
-        let shareObject:UMShareWebpageObject = UMShareWebpageObject.shareObject(withTitle: "欢迎使用圣得西导购平台", descr: "", thumImage: thumbURL)
-        //设置网页地址
-        shareObject.webpageUrl = "http://mobile.umeng.com/social"
-        
-        //分享消息对象设置分享内容对象
-        messageObject.shareObject = shareObject;
-        
-        let sharePaltformArray = [
-            [ "share_weixin", "share_friend", "share_sina" , "share_qq", "share_zone"],
-            [ "微信","朋友圈", "微博", "QQ", "QQ空间"]
-        ]
-        
+        UMSocialUIManager.showShareMenuViewInWindow{ (platformType,userInfo) -> Void in
+            
+            let messageObject:UMSocialMessageObject = UMSocialMessageObject.init()
+            messageObject.text = ""//分享的文本
+            
+            //1.分享图片
+            /*
+            let shareObject:UMShareImageObject = UMShareImageObject.init()
+            shareObject.title = "Umeng分享标题"
+            shareObject.descr = ""
+            shareObject.thumbImage = UIImage.init(named: "fb1")
+            shareObject.shareImage = "https://dev.umeng.com/images/tab2_1.png"
+            messageObject.shareObject = shareObject;
+            */
+            
+             //2.分享分享网页
+             let shareObject:UMShareWebpageObject = UMShareWebpageObject.init()
+             shareObject.title = "圣得西服装新款推荐"
+             shareObject.descr = "亲爱的顾客您好！这次服装搭配请您查看详情，祝您生活愉快！"
+             shareObject.thumbImage = UIImage.init(named: "AppIcon")//缩略图
+             shareObject.webpageUrl = self.shareUrl;
+             messageObject.shareObject = shareObject;
+           
+            UMSocialManager.default().share(to: platformType, messageObject: messageObject, currentViewController: self, completion: { (shareResponse, error) -> Void in
+                if error != nil {
+                    print("Share Fail with error ：%@", error)
+                }else{
+                    print("Share succeed")
+                }
+            })
+            
+        }
     }
     
     /**

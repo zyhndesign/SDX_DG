@@ -226,6 +226,9 @@ class MatchListViewController : UIViewController,UICollectionViewDelegate,UIColl
         self.navigationController?.pushViewController(view, animated: true)
     }
     
+    @IBAction func popViewBtnClick(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func filterBtnClick(_ sender: Any) {
         //self.dismiss(animated: true, completion: {() -> Void in ( print("complete"))})
         //self.performSegue(withIdentifier: "filterView", sender: self)

@@ -207,26 +207,42 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     func tapDelete(sender:UITapGestureRecognizer){
-        if (currentPage == 0){
-            model1OutCloth?.image = UIImage.init()
-            model1InCloth?.image = UIImage.init()
-            model1Trouser?.image = UIImage.init()
+        let alertController:UIAlertController = UIAlertController.init(title: nil, message: "此搭配删除将不可恢复", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let cancel:UIAlertAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel) { (UIAlertAction) in
+            
         }
-        else if (currentPage == 1){
-            model2OutCloth?.image = UIImage.init()
-            model2InCloth?.image = UIImage.init()
-            model2Trouser?.image = UIImage.init()
+        
+        let delete:UIAlertAction = UIAlertAction.init(title: "删除", style: UIAlertActionStyle.default) { (UIAlertAction) in
+            
+            if (self.currentPage == 0){
+                self.model1OutCloth?.image = UIImage.init()
+                self.model1InCloth?.image = UIImage.init()
+                self.model1Trouser?.image = UIImage.init()
+            }
+            else if (self.currentPage == 1){
+                self.model2OutCloth?.image = UIImage.init()
+                self.model2InCloth?.image = UIImage.init()
+                self.model2Trouser?.image = UIImage.init()
+            }
+            else if (self.currentPage == 2){
+                self.model3OutCloth?.image = UIImage.init()
+                self.model3InCloth?.image = UIImage.init()
+                self.model3Trouser?.image = UIImage.init()
+            }
+            else if (self.currentPage == 3){
+                self.model4OutCloth?.image = UIImage.init()
+                self.model4InCloth?.image = UIImage.init()
+                self.model4Trouser?.image = UIImage.init()
+            }
         }
-        else if (currentPage == 2){
-            model3OutCloth?.image = UIImage.init()
-            model3InCloth?.image = UIImage.init()
-            model3Trouser?.image = UIImage.init()
+        
+        alertController.addAction(cancel)
+        alertController.addAction(delete)
+        self.present(alertController, animated: true) {
+            
         }
-        else if (currentPage == 3){
-            model4OutCloth?.image = UIImage.init()
-            model4InCloth?.image = UIImage.init()
-            model4Trouser?.image = UIImage.init()
-        }
+        
     }
     
     func clearAllData(){
@@ -511,24 +527,24 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         savePanel = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight))
         
         let modelWidth = (screenWidth - 50)/4
-        saveModel1 = UIImageView.init(frame: CGRect.init(x: 10, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        saveModel1 = UIImageView.init(frame: CGRect.init(x: 10, y: 35 + naviHeight!, width: modelWidth, height: modelWidth * 2))
         if(model1GarmentModel.count == 3){
             saveModel1!.image = self.combineImage(clothLayerImage: (model1InCloth?.image)!, trousersLayerImage: (model1Trouser?.image)!, outClothLayerImage: (model1OutCloth?.image)!)
             saveModel1?.contentMode = UIViewContentMode.scaleAspectFit
         }
-        saveModel2 = UIImageView.init(frame: CGRect.init(x: 20 + modelWidth, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        saveModel2 = UIImageView.init(frame: CGRect.init(x: 20 + modelWidth, y: 35 + naviHeight!, width: modelWidth, height: modelWidth * 2))
         if(model2GarmentModel.count == 3){
             saveModel2!.image = self.combineImage(clothLayerImage: (model2InCloth?.image)!, trousersLayerImage: (model2Trouser?.image)!, outClothLayerImage: (model2OutCloth?.image)!)
             saveModel2?.contentMode = UIViewContentMode.scaleAspectFit
         }
         
-        saveModel3 = UIImageView.init(frame: CGRect.init(x: 30 + modelWidth*2, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        saveModel3 = UIImageView.init(frame: CGRect.init(x: 30 + modelWidth*2, y: 35 + naviHeight!, width: modelWidth, height: modelWidth * 2))
         if(model3GarmentModel.count == 3){
             saveModel3!.image = self.combineImage(clothLayerImage: (model3InCloth?.image)!, trousersLayerImage: (model3Trouser?.image)!, outClothLayerImage: (model3OutCloth?.image)!)
             saveModel3?.contentMode = UIViewContentMode.scaleAspectFit
         }
         
-        saveModel4 = UIImageView.init(frame: CGRect.init(x: 40 + modelWidth*3, y: 30 + naviHeight!, width: modelWidth, height: modelWidth * 2))
+        saveModel4 = UIImageView.init(frame: CGRect.init(x: 40 + modelWidth*3, y: 35 + naviHeight!, width: modelWidth, height: modelWidth * 2))
         if(model4GarmentModel.count == 3){
             saveModel4!.image = self.combineImage(clothLayerImage: (model4InCloth?.image)!, trousersLayerImage: (model4Trouser?.image)!, outClothLayerImage: (model4OutCloth?.image)!)
             saveModel4?.contentMode = UIViewContentMode.scaleAspectFit
@@ -539,19 +555,26 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         savePanel!.addSubview(saveModel3!)
         savePanel!.addSubview(saveModel4!)
         
-        textField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 100, height: 35))
+        textField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 160, height: 35))
         textField!.placeholder = "请输入标题"
         textField!.layer.borderColor = UIColor.darkGray.cgColor
         textField!.layer.borderWidth = 1.0
         textField!.layer.cornerRadius = 8.0
-        let saveBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 80, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
+        let saveBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 145, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
         saveBtn.setTitle("保存", for:UIControlState.normal)
         saveBtn.layer.cornerRadius = 8.0
         saveBtn.backgroundColor = UIColor.init(red: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
         saveBtn.addTarget(self, action: #selector(saveBtnClickToServer(sender:)), for: UIControlEvents.touchUpInside)
+        
+        let cancelBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 75, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
+        cancelBtn.setTitle("取消", for:UIControlState.normal)
+        cancelBtn.layer.cornerRadius = 8.0
+        cancelBtn.backgroundColor = UIColor.init(red: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
+        cancelBtn.addTarget(self, action: #selector(cancelBtnClickToServer(sender:)), for: UIControlEvents.touchUpInside)
+        
         savePanel!.addSubview(textField!)
         savePanel!.addSubview(saveBtn)
-        
+        savePanel!.addSubview(cancelBtn)
         savePanel!.backgroundColor = UIColor.lightGray
         savePanel!.alpha = 1.0
         self.view.addSubview(savePanel!)
@@ -583,6 +606,11 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 }
             }
         }
+    }
+    
+    func cancelBtnClickToServer(sender:UIButton){
+        savePanel?.isHidden = true;
+        UIApplication.shared.keyWindow?.endEditing(true)
     }
     
     func saveBtnClickToServer(sender:UIButton){
@@ -671,6 +699,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                     }
                     hud.hide(animated: true, afterDelay: 2.0)
                     self.savePanel!.isHidden = true
+                    UIApplication.shared.keyWindow?.endEditing(true)
                 })
             }
         }

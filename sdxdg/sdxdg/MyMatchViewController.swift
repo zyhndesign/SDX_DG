@@ -155,6 +155,9 @@ class MyMatchViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else if btnInitTag == 3{
             let view:DraftDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DraftDetailView") as! DraftDetailViewController
+            print(draftList.count)
+            print(indexPath.row)
+            print(draftList[indexPath.row])
             view.match = draftList[indexPath.row]
             self.navigationController?.pushViewController(view, animated: true)
         }

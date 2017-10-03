@@ -25,8 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginVC:LoginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
          */
        // firstVC.present(loginVC, animated: true, completion: nil)
+        UMSocialManager.default().openLog(true)
         UMSocialManager.default().umSocialAppkey = "590a8f40677baa08510011b7"
-        
+        UMSocialManager.default().setPlaform(UMSocialPlatformType.wechatSession, appKey: "wxdadf467339aff59d", appSecret: "d3c6a339de637fc19f88a1c4bf2917c1", redirectURL: "")
         return true
     }
 
@@ -52,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let result = UMSocialManager.default().handleOpen(url)
+        return result;
+    }
 }
 

@@ -94,6 +94,7 @@ class DraftDetailViewController: UIViewController,UIScrollViewDelegate {
         
         if let matchObject = match{
             var matchlists:[Matchlist] = matchObject.matchlists!
+            
             for matchlist in matchlists{
                 if matchlist.modelNum == 1{
                     if let url = matchlists[0].modelurl{
@@ -101,18 +102,52 @@ class DraftDetailViewController: UIViewController,UIScrollViewDelegate {
                     }
                 }
                 else if matchlist.modelNum == 2{
-                    if let url = matchlists[1].modelurl{
-                        self.model2View?.af_setImage(withURL: URL.init(string: url)!)
+                    if (matchlists.count == 1){
+                        if let url = matchlists[0].modelurl{
+                            self.model2View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
+                    }
+                    else if (matchlists.count == 2){
+                        if let url = matchlists[1].modelurl{
+                            self.model2View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
                     }
                 }
                 else if matchlist.modelNum == 3{
-                    if let url = matchlists[2].modelurl{
-                        self.model3View?.af_setImage(withURL: URL.init(string: url)!)
+                    if (matchlists.count == 1){
+                        if let url = matchlists[0].modelurl{
+                            self.model3View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
+                    }
+                    else if (matchlists.count == 2){
+                        if let url = matchlists[1].modelurl{
+                            self.model3View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
+                    }else if(matchlists.count == 3){
+                        if let url = matchlists[2].modelurl{
+                            self.model3View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
                     }
                 }
                 else if matchlist.modelNum == 4{
-                    if let url = matchlists[3].modelurl{
-                        self.model4View?.af_setImage(withURL: URL.init(string: url)!)
+                    if (matchlists.count == 1){
+                        if let url = matchlists[0].modelurl{
+                            self.model4View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
+                    }
+                    else if (matchlists.count == 2){
+                        if let url = matchlists[1].modelurl{
+                            self.model4View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
+                    }else if(matchlists.count == 3){
+                        if let url = matchlists[3].modelurl{
+                            self.model4View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
+                    }
+                    else{
+                        if let url = matchlists[3].modelurl{
+                            self.model4View?.af_setImage(withURL: URL.init(string: url)!)
+                        }
                     }
                 }
             }
