@@ -79,6 +79,11 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     let userId = LocalDataStorageUtil.getUserIdFromUserDefaults()
     var saveSign:Int = 0
     
+    var model1HaveCloth = 0;
+    var model2HaveCloth = 0;
+    var model3HaveCloth = 0;
+    var model4HaveCloth = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let naviBarHeight = self.navigationController?.navigationBar.bounds.height
@@ -278,6 +283,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             model1Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
             model1GarmentModel = selectGarmentModelList
             self.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+            model1HaveCloth = 1
         }
         else if (currentPage == 1){
             model2InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
@@ -285,6 +291,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             model2Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
             model2GarmentModel = selectGarmentModelList
             self.scrollView.setContentOffset(CGPoint.init(x: screenWidth/2, y: 0), animated: true)
+            model2HaveCloth = 1
         }
         else if (currentPage == 2){
             model3InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
@@ -292,6 +299,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             model3Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
             model3GarmentModel = selectGarmentModelList
             self.scrollView.setContentOffset(CGPoint.init(x: screenWidth, y: 0), animated: true)
+            model3HaveCloth = 1
         }
         else if (currentPage == 3){
             model4InCloth?.af_setImage(withURL: URL.init(string:innerClothGarmentModel.imageUrl1!)!)
@@ -299,6 +307,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             model4Trouser?.af_setImage(withURL: URL.init(string:trouserClothGarmentModel.imageUrl1!)!)
             model4GarmentModel = selectGarmentModelList
             self.scrollView.setContentOffset(CGPoint.init(x: screenWidth + screenWidth/2, y: 0), animated: true)
+            model4HaveCloth = 1
         }
         
     }
@@ -318,6 +327,11 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     @IBAction func fourViewPanelBtnClick(_ sender: Any) {
+        
+        if (savePanel?.isHidden == false){
+            savePanel?.isHidden = true;
+        }
+        
         if (buttonSelect){
             buttonSelect = false
             self.fourViewPanel?.removeFromSuperview()
@@ -376,7 +390,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             fourViewPanel?.addSubview(delBtn2)
             fourViewPanel?.addSubview(delBtn3)
             fourViewPanel?.addSubview(delBtn4)
-            
+            fourViewPanel?.isHidden = false;
             self.view.addSubview(fourViewPanel!)
             
         }
@@ -520,6 +534,18 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
     }
     
     @IBAction func saveBtnClick(_ sender: Any) {
+        
+        if (model1HaveCloth == 0 && model2HaveCloth == 0 && model3HaveCloth == 0 && model4HaveCloth == 0)
+        {
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud.label.text = "没有搭配服装！"
+            hud.hide(animated: true, afterDelay: 2)
+            return
+        }
+        
+        if (fourViewPanel?.isHidden == false){
+            fourViewPanel?.isHidden = true
+        }
         let animation:CABasicAnimation = CABasicAnimation.init(keyPath: "position")
         animation.duration = 0.5
         let naviHeight = self.navigationController?.navigationBar.frame.height
@@ -555,18 +581,18 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         savePanel!.addSubview(saveModel3!)
         savePanel!.addSubview(saveModel4!)
         
-        textField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 160, height: 35))
+        textField = UITextField.init(frame: CGRect.init(x: 10, y: modelWidth * 2 + naviHeight! + 40, width: screenWidth - 20, height: 35))
         textField!.placeholder = "请输入标题"
         textField!.layer.borderColor = UIColor.darkGray.cgColor
         textField!.layer.borderWidth = 1.0
         textField!.layer.cornerRadius = 8.0
-        let saveBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 145, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
+        let saveBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth / 2 - 75, y: modelWidth * 2 + naviHeight! + 85, width: 70, height: 35))
         saveBtn.setTitle("保存", for:UIControlState.normal)
         saveBtn.layer.cornerRadius = 8.0
         saveBtn.backgroundColor = UIColor.init(red: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
         saveBtn.addTarget(self, action: #selector(saveBtnClickToServer(sender:)), for: UIControlEvents.touchUpInside)
         
-        let cancelBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 75, y: modelWidth * 2 + naviHeight! + 40, width: 70, height: 35))
+        let cancelBtn:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth / 2 + 5, y: modelWidth * 2 + naviHeight! + 85, width: 70, height: 35))
         cancelBtn.setTitle("取消", for:UIControlState.normal)
         cancelBtn.layer.cornerRadius = 8.0
         cancelBtn.backgroundColor = UIColor.init(red: 253.0/255.0, green: 220.0/255.0, blue: 56.0/255.0, alpha: 1.0)
@@ -602,7 +628,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                     self.saveModel(image: self.saveModel2!.image, token: token, modelNum:2)
                     self.saveModel(image: self.saveModel3!.image, token: token, modelNum:3)
                     self.saveModel(image: self.saveModel4!.image, token: token, modelNum:4)
-                    hud.hide(animated: true, afterDelay: 3)
+                    hud.hide(animated: true, afterDelay: 1)
                 }
             }
         }
@@ -678,7 +704,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
             */
             if (matchlists.count == 0){
                 hud.label.text = "未搭配服装"
-                hud.hide(animated: true, afterDelay: 2.0)
+                hud.hide(animated: true, afterDelay: 1.5)
                 self.savePanel!.isHidden = true
             }
             else{
@@ -697,7 +723,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                     else{
                         hud.label.text = "操作失败"
                     }
-                    hud.hide(animated: true, afterDelay: 2.0)
+                    hud.hide(animated: true, afterDelay: 1.0)
                     self.savePanel!.isHidden = true
                     UIApplication.shared.keyWindow?.endEditing(true)
                 })
@@ -705,7 +731,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         }
         else{
             hud.label.text = "图片未处理成功"
-            hud.hide(animated: true, afterDelay: 2.0)
+            hud.hide(animated: true, afterDelay: 1.0)
             self.savePanel!.isHidden = true
         }
     }
