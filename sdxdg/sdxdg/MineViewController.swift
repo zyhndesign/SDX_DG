@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import Charts
 
 class MineViewController: UIViewController {
     
@@ -49,6 +50,9 @@ class MineViewController: UIViewController {
     
     var feedbackModels:[FeedbackModel] = []
     
+    let lineChart =  LineChartView()
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -77,9 +81,17 @@ class MineViewController: UIViewController {
         timeSegmentControl?.addTarget(self, action: #selector(segmentControlClick(sender:)), for: UIControlEvents.valueChanged)
         graphView.addSubview(timeSegmentControl!)
         
+        lineChart.frame = CGRect.init(x: 30, y: 55, width: screenWidth - 60, height: 160)
+        graphView.addSubview(lineChart)
+        let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
+        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        setChart(weeks, values: unitsSold)
+        
+        /*
         chartView = UIImageView.init(frame: CGRect.init(x: 30, y: 55, width: screenWidth - 60, height: 160))
         chartView?.image = UIImage.init(named: "chartWeek")
         graphView.addSubview(chartView!)
+        */
         
         scrollView.addSubview(graphView)
         
@@ -247,13 +259,21 @@ class MineViewController: UIViewController {
     func segmentControlClick(sender:UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
-            chartView?.image = UIImage.init(named: "chartWeek")
+            let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
+            let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+            setChart(weeks, values: unitsSold)
         case 1:
-            chartView?.image = UIImage.init(named: "chartMonth")
+            let months = ["7月", "8月", "9月", "10月", "11月", "12月"]
+            let unitsSold = [100.0, 130.0, 80.0, 70.0, 160.0, 190.0]
+            setChart(months, values: unitsSold)
         case 2:
-            chartView?.image = UIImage.init(named: "chartYear")
+            let years = ["2012", "2013", "2014", "2015", "2016", "2017"]
+            let unitsSold = [0.0, 0.0, 0.0, 2000.0, 3120.0, 5160.0]
+            setChart(years, values: unitsSold)
         default:
-            chartView?.image = UIImage.init(named: "chartWeek")
+            let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
+            let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+            setChart(weeks, values: unitsSold)
         }
     }
     
@@ -368,4 +388,69 @@ class MineViewController: UIViewController {
             }
         }
     }
+    
+    func setChart(_ dataPoints: [String], values: [Double]) {
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "单位：人次")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        
+        lineChart.data = lineChartData
+        //右下角图标描述
+        lineChart.chartDescription?.text = ""
+        
+        //左下角图例
+        //        lineChart.legend.formSize = 30
+        //        lineChart.legend.form = .square
+        lineChart.legend.textColor = UIColor.green
+        
+        //设置X轴坐标
+        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
+        lineChart.xAxis.granularity = 1.0
+        lineChart.xAxis.labelPosition = .bottom
+        lineChart.xAxis.drawGridLinesEnabled = false
+        lineChart.xAxis.axisLineColor = UIColor.brown
+        lineChart.xAxis.labelTextColor = UIColor.blue
+        
+        //设置Y轴坐标
+        //        lineChart.rightAxis.isEnabled = false
+        //不显示右侧Y轴
+        lineChart.rightAxis.drawAxisLineEnabled = false
+        //不显示右侧Y轴数字
+        lineChart.rightAxis.enabled = false
+        lineChart.leftAxis.axisLineColor = UIColor.darkGray
+        lineChart.leftAxis.gridColor = UIColor.lightGray
+        lineChart.leftAxis.labelTextColor = UIColor.lightGray
+        
+        //设置双击坐标轴是否能缩放
+        lineChart.scaleXEnabled = false
+        lineChart.scaleYEnabled = false
+        
+        //外圆
+        lineChartDataSet.setCircleColor(UIColor.brown)
+        //画外圆
+        //        lineChartDataSet.drawCirclesEnabled = true
+        //内圆
+        lineChartDataSet.circleHoleColor = UIColor.blue
+        //画内圆
+        //        lineChartDataSet.drawCircleHoleEnabled = true
+        
+        //线条显示样式
+        
+        lineChartDataSet.colors = [UIColor.cyan]
+        
+        //线条上的文字
+        lineChartDataSet.valueColors = [UIColor.darkGray]
+        //显示
+        //        lineChartDataSet.drawValuesEnabled = true
+        
+        //添加显示动画
+        lineChart.animate(xAxisDuration: 1)
+    }
+    
 }
