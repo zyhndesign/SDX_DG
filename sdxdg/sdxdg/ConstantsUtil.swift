@@ -11,7 +11,8 @@ import UIKit
 
 class ConstantsUtil : NSObject {
     
-    static var WEB_API_BASE_URL:String = "http://139.196.236.34:8778/sdx_cloud"
+    //static var WEB_API_BASE_URL:String = "http://139.196.236.34:8778/sdx_cloud"
+    static var WEB_API_BASE_URL:String = "http://192.168.3.156:8080/sdx"
     
     static let APP_USER_LOGIN_URL:String = WEB_API_BASE_URL + "/dggl/appUser/authorityCheck"
     static let APP_USER_UPDATE_URL:String = WEB_API_BASE_URL + "/dggl/appUser/updateUser"
@@ -52,6 +53,7 @@ class ConstantsUtil : NSObject {
     
     static let APP_HPGL_HP_DETAIL = WEB_API_BASE_URL + "/hpgl/hpManage/productDetail/"
     static let APP_DGGL_MATCH_DETAIL = WEB_API_BASE_URL + "/dggl/match/matchDetail/"
+    static let APP_DGGL_SHARE_DETAIL = WEB_API_BASE_URL + "/dggl/match/shareDetail/"
     
     static let APP_QINIU_TOKEN = WEB_API_BASE_URL + "/hpgl/hpManage/getUploadKey"
     static let APP_QINIU_UPLOAD_URL = "http://upload.qiniu.com/"

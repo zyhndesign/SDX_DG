@@ -404,9 +404,6 @@ class MineViewController: UIViewController {
         //右下角图标描述
         lineChart.chartDescription?.text = ""
         
-        //左下角图例
-        //        lineChart.legend.formSize = 30
-        //        lineChart.legend.form = .square
         lineChart.legend.textColor = UIColor.green
         
         //设置X轴坐标
@@ -417,9 +414,6 @@ class MineViewController: UIViewController {
         lineChart.xAxis.axisLineColor = UIColor.brown
         lineChart.xAxis.labelTextColor = UIColor.blue
         
-        //设置Y轴坐标
-        //        lineChart.rightAxis.isEnabled = false
-        //不显示右侧Y轴
         lineChart.rightAxis.drawAxisLineEnabled = false
         //不显示右侧Y轴数字
         lineChart.rightAxis.enabled = false
@@ -433,21 +427,13 @@ class MineViewController: UIViewController {
         
         //外圆
         lineChartDataSet.setCircleColor(UIColor.brown)
-        //画外圆
-        //        lineChartDataSet.drawCirclesEnabled = true
-        //内圆
-        lineChartDataSet.circleHoleColor = UIColor.blue
-        //画内圆
-        //        lineChartDataSet.drawCircleHoleEnabled = true
         
-        //线条显示样式
+        lineChartDataSet.circleHoleColor = UIColor.blue
         
         lineChartDataSet.colors = [UIColor.cyan]
         
         //线条上的文字
         lineChartDataSet.valueColors = [UIColor.darkGray]
-        //显示
-        //        lineChartDataSet.drawValuesEnabled = true
         
         //添加显示动画
         lineChart.animate(xAxisDuration: 1)
