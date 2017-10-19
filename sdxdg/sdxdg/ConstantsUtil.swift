@@ -54,6 +54,7 @@ class ConstantsUtil : NSObject {
     static let APP_HPGL_HP_DETAIL = WEB_API_BASE_URL + "/hpgl/hpManage/productDetail/"
     static let APP_DGGL_MATCH_DETAIL = WEB_API_BASE_URL + "/dggl/match/matchDetail/"
     static let APP_DGGL_SHARE_DETAIL = WEB_API_BASE_URL + "/dggl/match/shareDetail/"
+    static let APP_DGGL_SHARE_RESULT_DETAIL = WEB_API_BASE_URL + "/dggl/share/shareDetail/"
     
     static let APP_QINIU_TOKEN = WEB_API_BASE_URL + "/hpgl/hpManage/getUploadKey"
     static let APP_QINIU_UPLOAD_URL = "http://upload.qiniu.com/"

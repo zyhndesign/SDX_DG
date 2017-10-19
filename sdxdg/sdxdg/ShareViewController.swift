@@ -51,25 +51,26 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
         hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud?.label.text = "加载中..."
         
-        let code:String = self.webView.stringByEvaluatingJavaScript(from: "uploadShareContent()")!
+        let result:String = self.webView.stringByEvaluatingJavaScript(from: "uploadShareContent()")!
         
-        if(code.isEmpty){
+        if(result.isEmpty){
             hud?.label.text = "分享数据提交失败!"
             hud?.hide(animated: true, afterDelay: 2.0)
         }
         else{
             hud?.hide(animated: true)
-            
+            let array = result.components(separatedBy: "|")
+            let code = array[0];
             UMSocialUIManager.showShareMenuViewInWindow{ (platformType,userInfo) -> Void in
                 
                 let messageObject:UMSocialMessageObject = UMSocialMessageObject.init()
                 messageObject.text = ""//分享的文本
                 
                 let shareObject:UMShareWebpageObject = UMShareWebpageObject.init()
-                shareObject.title = "圣得西服装新款推荐"
-                shareObject.descr = "亲爱的顾客您好！这次服装搭配请您查看详情，祝您生活愉快！"
+                shareObject.title = array[1]
+                shareObject.descr = array[2]
                 shareObject.thumbImage = UIImage.init(named: "AppIcon")//缩略图
-                shareObject.webpageUrl = self.shareUrl;
+                shareObject.webpageUrl = ConstantsUtil.APP_DGGL_SHARE_RESULT_DETAIL + "\(code)";
                 messageObject.shareObject = shareObject;
                 
                 UMSocialManager.default().share(to: platformType, messageObject: messageObject, currentViewController: self, completion: { (shareResponse, error) -> Void in
