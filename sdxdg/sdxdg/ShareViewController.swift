@@ -33,6 +33,9 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
         
         hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "backBtn"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(shareButtonClicked(sender:)))
+        self.navigationItem.leftItemsSupplementBackButton = true
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -89,7 +92,12 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
      */
     func shareButtonClicked(sender:UIButton) {
         
-        
+        if (self.webView.canGoBack){
+            self.webView.goBack();
+        }
+        else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
