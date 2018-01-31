@@ -11,8 +11,8 @@ import UIKit
 
 class ConstantsUtil : NSObject {
     
-    static var WEB_API_BASE_URL:String = "http://139.196.236.34:8778/sdx_cloud"
-    //static var WEB_API_BASE_URL:String = "http://192.168.3.156:8080/sdx"
+    //static var WEB_API_BASE_URL:String = "http://cyzsk.fzcloud.design-engine.org/sdx_cloud"
+    static var WEB_API_BASE_URL:String = "http://192.168.3.166:8080/sdx"
     
     static let APP_USER_LOGIN_URL:String = WEB_API_BASE_URL + "/dggl/appUser/authorityCheck"
     static let APP_USER_UPDATE_URL:String = WEB_API_BASE_URL + "/dggl/appUser/updateUser"
@@ -40,6 +40,8 @@ class ConstantsUtil : NSObject {
     static let APP_GET_SHARE_DATA_URL:String = WEB_API_BASE_URL + "/dggl/share/getShareData"
     //创建分享
     static let APP_CREATE_SHARE_DATA_URL:String = WEB_API_BASE_URL + "/dggl/share/createShare"
+    
+    static let APP_UPDATE_SHARE_SUCESS_DATE_URL:String = WEB_API_BASE_URL + "/dggl/match/updateShareStatus";
     
     static let APP_MATCH_LIST_BY_CATEGORY = WEB_API_BASE_URL + "/app/hpManage/getHpDataByCategoryId"
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ShareViewController : UIViewController,UIWebViewDelegate{
     
@@ -80,7 +81,17 @@ class ShareViewController : UIViewController,UIWebViewDelegate{
                     if error != nil {
                         print("Share Fail with error ：%@", error)
                     }else{
-                        print("Share succeed")
+                        let parameters:Parameters = ["matchId":self.matchId,"shareStatus":1];
+                        Alamofire.request(ConstantsUtil.APP_USER_LOGIN_URL,method:.post,parameters:parameters).responseJSON{
+                            response in
+                            
+                            switch response.result{
+                            case .success:
+                                MessageUtil.showMessage(view: self.view, message: "分享成功!")
+                            case .failure(let error):
+                                MessageUtil.showMessage(view: self.view, message: error.localizedDescription)
+                            }
+                        }
                     }
                 })
             }
