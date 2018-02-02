@@ -41,6 +41,12 @@ class ConstantsUtil : NSObject {
     //创建分享
     static let APP_CREATE_SHARE_DATA_URL:String = WEB_API_BASE_URL + "/dggl/share/createShare"
     
+    static let APP_GET_STATISTICS_YEAR_DATA:String = WEB_API_BASE_URL + "/dggl/match/getStatisticsDataByYear"
+    
+    static let APP_GET_STATISTICS_MONTH_DATA:String = WEB_API_BASE_URL + "/dggl/match/getStatisticsDataByMonth"
+    
+    static let APP_GET_STATISTICS_WEEK_DATA:String = WEB_API_BASE_URL + "/dggl/match/getStatisticsDataByWeek"
+    
     static let APP_UPDATE_SHARE_SUCESS_DATE_URL:String = WEB_API_BASE_URL + "/dggl/match/updateShareStatus";
     
     static let APP_MATCH_LIST_BY_CATEGORY = WEB_API_BASE_URL + "/app/hpManage/getHpDataByCategoryId"

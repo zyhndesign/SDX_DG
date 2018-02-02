@@ -83,9 +83,7 @@ class MineViewController: UIViewController {
         
         lineChart.frame = CGRect.init(x: 30, y: 55, width: screenWidth - 60, height: 160)
         graphView.addSubview(lineChart)
-        let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-        setChart(weeks, values: unitsSold)
+        loadStatisticsData(cycle:1)
         
         /*
         chartView = UIImageView.init(frame: CGRect.init(x: 30, y: 55, width: screenWidth - 60, height: 160))
@@ -259,21 +257,16 @@ class MineViewController: UIViewController {
     func segmentControlClick(sender:UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
-            let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
-            let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-            setChart(weeks, values: unitsSold)
+            //let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
+            //let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+            //setChart(weeks, values: unitsSold)
+            loadStatisticsData(cycle:1)
         case 1:
-            let months = ["7月", "8月", "9月", "10月", "11月", "12月"]
-            let unitsSold = [100.0, 130.0, 80.0, 70.0, 160.0, 190.0]
-            setChart(months, values: unitsSold)
+            loadStatisticsData(cycle:2)
         case 2:
-            let years = ["2012", "2013", "2014", "2015", "2016", "2017"]
-            let unitsSold = [0.0, 0.0, 0.0, 2000.0, 3120.0, 5160.0]
-            setChart(years, values: unitsSold)
+            loadStatisticsData(cycle:3)
         default:
-            let weeks = ["1周", "2周", "3周", "4周", "5周", "6周"]
-            let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-            setChart(weeks, values: unitsSold)
+            loadStatisticsData(cycle:1)
         }
     }
     
@@ -333,6 +326,40 @@ class MineViewController: UIViewController {
             self.navigationController?.pushViewController(view, animated: true)
         }
         
+    }
+    
+    func loadStatisticsData(cycle:Int){
+        let parameters:Parameters = ["userId":userId]
+        var url = "";
+        
+        if (cycle == 1){
+            url = ConstantsUtil.APP_GET_STATISTICS_WEEK_DATA;
+        }
+        else if (cycle == 2){
+            url = ConstantsUtil.APP_GET_STATISTICS_MONTH_DATA;
+        }
+        else if (cycle == 3){
+            url = ConstantsUtil.APP_GET_STATISTICS_YEAR_DATA;
+        }
+        
+        Alamofire.request(url,method:.get,parameters:parameters).responseJSON { response in
+            
+            if let JSON = response.result.value{
+                let result =  JSON as! NSDictionary
+                let dict:NSDictionary = result["object"] as! NSDictionary
+                var cycle:[String] = []
+                var unitsSold:[Double] = []
+                
+                for (key, value) in dict {
+                    cycle.append(key as! String)
+                    print(value)
+                    unitsSold.append((value as! NSNumber).doubleValue)
+                }
+                
+                self.setChart(cycle, values: unitsSold)
+            }
+        }
+       
     }
     
     func initHotImage(){
@@ -404,7 +431,7 @@ class MineViewController: UIViewController {
         //右下角图标描述
         lineChart.chartDescription?.text = ""
         
-        lineChart.legend.textColor = UIColor.green
+        lineChart.legend.textColor = UIColor.darkGray
         
         //设置X轴坐标
         lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
@@ -412,7 +439,7 @@ class MineViewController: UIViewController {
         lineChart.xAxis.labelPosition = .bottom
         lineChart.xAxis.drawGridLinesEnabled = false
         lineChart.xAxis.axisLineColor = UIColor.brown
-        lineChart.xAxis.labelTextColor = UIColor.blue
+        lineChart.xAxis.labelTextColor = UIColor.lightGray
         
         lineChart.rightAxis.drawAxisLineEnabled = false
         //不显示右侧Y轴数字
@@ -426,11 +453,11 @@ class MineViewController: UIViewController {
         lineChart.scaleYEnabled = false
         
         //外圆
-        lineChartDataSet.setCircleColor(UIColor.brown)
+        lineChartDataSet.setCircleColor(UIColor.init(red: 198/255.0, green: 198/255.0, blue: 198/255.0, alpha: 1))
         
-        lineChartDataSet.circleHoleColor = UIColor.blue
+        lineChartDataSet.circleHoleColor = UIColor.init(red: 255/255.0, green: 200/255.0, blue: 10/255.0, alpha: 1)
         
-        lineChartDataSet.colors = [UIColor.cyan]
+        lineChartDataSet.colors = [UIColor.init(red: 255/255.0, green: 200/255.0, blue: 10/255.0, alpha: 1)]
         
         //线条上的文字
         lineChartDataSet.valueColors = [UIColor.darkGray]
