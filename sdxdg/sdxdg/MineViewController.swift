@@ -453,7 +453,7 @@ class MineViewController: UIViewController {
         lineChart.scaleYEnabled = false
         
         //外圆
-        lineChartDataSet.setCircleColor(UIColor.init(red: 198/255.0, green: 198/255.0, blue: 198/255.0, alpha: 1))
+        lineChartDataSet.setCircleColor(UIColor.init(red: 198/255.0, green: 198/255.0, blue: 198/255.0, alpha: 0.5))
         
         lineChartDataSet.circleHoleColor = UIColor.init(red: 255/255.0, green: 200/255.0, blue: 10/255.0, alpha: 1)
         
