@@ -183,7 +183,7 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
         scrollView.delegate = self
         
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapDelete(sender:)))
-        let deleteBtn:UIImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 100, y: screenHeight - 100, width: 30, height: 30))
+        let deleteBtn:UIImageView = UIImageView.init(frame: CGRect.init(x: screenWidth - 100, y: screenHeight - 100, width: 22, height: 30))
         deleteBtn.image = UIImage.init(named: "deleteBtn")
         deleteBtn.isUserInteractionEnabled = true
         deleteBtn.addGestureRecognizer(tapGesture)
@@ -370,10 +370,10 @@ class MatchViewController: UIViewController,UIScrollViewDelegate {
                 self.addClothLayer(mLayer:layer4!, innerImage: (model4InCloth?.image)!, outterImage: (model4OutCloth?.image)!, trouserImage: (model4Trouser?.image)!)
             }
             
-            let delBtn1:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight/2 - 100, width: 26, height: 26))
-            let delBtn2:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 30, y: screenHeight/2 - 100, width: 26, height: 26))
-            let delBtn3:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight - 160, width: 26, height: 26))
-            let delBtn4:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 30, y: screenHeight - 160, width: 26, height: 26))
+            let delBtn1:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight/2 - 100, width: 22, height: 30))
+            let delBtn2:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 30, y: screenHeight/2 - 100, width: 22, height: 30))
+            let delBtn3:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth/2 - 30, y: screenHeight - 160, width: 22, height: 30))
+            let delBtn4:UIButton = UIButton.init(frame: CGRect.init(x: screenWidth - 30, y: screenHeight - 160, width: 22, height: 30))
             delBtn1.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)
             delBtn2.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)
             delBtn3.setBackgroundImage(UIImage.init(named: "deleteBtn"), for: UIControlState.normal)

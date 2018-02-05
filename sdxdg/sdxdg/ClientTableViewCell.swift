@@ -39,13 +39,13 @@ class ClientTableViewCell: UITableViewCell {
         self.contentView.addSubview(nameLabel!)
         
         self.addMatchBtn = UIButton()
-        self.addMatchBtn?.setBackgroundImage(UIImage.init(named: "clientMatch"), for: UIControlState.normal)
+        //self.addMatchBtn?.setBackgroundImage(UIImage.init(named: "clientMatch"), for: UIControlState.normal)
         //self.addMatchBtn?.setTitle("为TA搭配", for: UIControlState.normal)
         //self.addMatchBtn?.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
         //self.addMatchBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         //self.addMatchBtn?.layer.cornerRadius = 7.0
         //self.addMatchBtn?.backgroundColor = yellowColor
-        self.contentView.addSubview(addMatchBtn!)
+        //self.contentView.addSubview(addMatchBtn!)
         
         self.iconImageView?.translatesAutoresizingMaskIntoConstraints = false
         //self.radioBtn?.translatesAutoresizingMaskIntoConstraints = false
@@ -55,27 +55,27 @@ class ClientTableViewCell: UITableViewCell {
         self.addYCenterConstraintForView(iconImageView!)
         //self.addYCenterConstraintForView(radioBtn!)
         self.addYCenterConstraintForView(nameLabel!)
-        self.addYCenterConstraintForView(addMatchBtn!)
+       // self.addYCenterConstraintForView(addMatchBtn!)
         
         //addWidthAndHeightConstraintForView(radioBtn!,width: 30,height: 30)
         addWidthAndHeightConstraintForView(iconImageView!, width: 40, height: 40)
         addWidthAndHeightConstraintForView(nameLabel!, width: 110, height: 40)
-        addWidthAndHeightConstraintForView(addMatchBtn!, width: 50, height: 30)
+        //addWidthAndHeightConstraintForView(addMatchBtn!, width: 50, height: 30)
         
         //let constraint1:NSLayoutConstraint = NSLayoutConstraint(item:radioBtn!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
         let constraint2:NSLayoutConstraint = NSLayoutConstraint(item:iconImageView!, attribute: .left, relatedBy: .equal, toItem:self.contentView, attribute: .left, multiplier:1.0, constant:10)
         let constraint3:NSLayoutConstraint = NSLayoutConstraint(item:nameLabel!, attribute: .left, relatedBy: .equal, toItem:iconImageView!, attribute: .right, multiplier:1.0, constant:10)
         //let constraint4:NSLayoutConstraint = NSLayoutConstraint(item:nameLabel!, attribute: .right, relatedBy: .equal, toItem:self.contentView, attribute: .right, multiplier:1.0, constant:-10)
-        let constraint4:NSLayoutConstraint = NSLayoutConstraint(item:addMatchBtn!, attribute:.right,relatedBy:.equal,toItem:self.contentView,attribute:.right,multiplier:1.0,constant:-10)
+        //let constraint4:NSLayoutConstraint = NSLayoutConstraint(item:addMatchBtn!, attribute:.right,relatedBy:.equal,toItem:self.contentView,attribute:.right,multiplier:1.0,constant:-10)
         
         //self.contentView.addConstraint(constraint1);
         self.contentView.addConstraint(constraint2);
         self.contentView.addConstraint(constraint3);
-        self.contentView.addConstraint(constraint4);
+       // self.contentView.addConstraint(constraint4);
         
         
         //radioBtn!.addTarget(self, action: #selector(buttonTapped(sender:)), for: UIControlEvents.touchUpInside)
-        addMatchBtn!.addTarget(self, action: #selector(addMatchBtnClick(sender:)), for: UIControlEvents.touchUpInside)
+        //addMatchBtn!.addTarget(self, action: #selector(addMatchBtnClick(sender:)), for: UIControlEvents.touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -115,9 +115,9 @@ class ClientTableViewCell: UITableViewCell {
     */
     func addMatchBtnClick(sender:UIButton){
         print("为TA搭配")
-        let view:MatchListViewController = self.storyBoard?.instantiateViewController(withIdentifier: "MatchCollectionView") as! MatchListViewController
+        //let view:MatchListViewController = self.storyBoard?.instantiateViewController(withIdentifier: "MatchCollectionView") as! MatchListViewController
         
-        self.navigationController?.pushViewController(view, animated: true)
+        //self.navigationController?.pushViewController(view, animated: true)
     }
     
     func initListData(imageUrl: String, name: String,storyBoard:UIStoryboard,navigationController:UINavigationController){
